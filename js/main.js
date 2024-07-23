@@ -1,8 +1,24 @@
 // 全部输出的列表
 var list = document.querySelector("#list");
-console.log(list);
-for (var i = 0; i < heroList.length; i++) {
+// console.log(list);
+// for (var i = 0; i < heroList.length; i++) {
 
+//     var li = document.createElement("li");
+//     // 图片:https://game.gtimg.cn/images/yxzj/img201606/heroimg/582/582.jpg
+//     // 超链接:https://pvp.qq.com/web201605/herodetail/yuanliuzhizi_tank.shtml
+//     li.className = "fl";
+//     li.innerHTML = `
+//         <a href="https://pvp.qq.com/web201605/herodetail/${heroList[i].id_name}.shtml">
+//             <img src="https://game.gtimg.cn/images/yxzj/img201606/heroimg/${heroList[i].ename}/${heroList[i].ename}.jpg" alt="">
+//             <span>${heroList[i].cname}</span>
+//         </a>
+//     `;
+//     list.appendChild(li);
+// }
+
+// 找到类型id:console.log(heroList[i].hero_type);
+
+function generated(i) {
     var li = document.createElement("li");
     // 图片:https://game.gtimg.cn/images/yxzj/img201606/heroimg/582/582.jpg
     // 超链接:https://pvp.qq.com/web201605/herodetail/yuanliuzhizi_tank.shtml
@@ -16,24 +32,14 @@ for (var i = 0; i < heroList.length; i++) {
     list.appendChild(li);
 }
 
-// 找到类型id:console.log(heroList[i].hero_type);
-
 // 全部all函数
 function all() {
     for (var i = 0; i < heroList.length; i++) {
-        var li = document.createElement("li");
-        // 图片:https://game.gtimg.cn/images/yxzj/img201606/heroimg/582/582.jpg
-        // 超链接:https://pvp.qq.com/web201605/herodetail/yuanliuzhizi_tank.shtml
-        li.className = "fl";
-        li.innerHTML = `
-        <a href="https://pvp.qq.com/web201605/herodetail/${heroList[i].id_name}.shtml">
-            <img src="https://game.gtimg.cn/images/yxzj/img201606/heroimg/${heroList[i].ename}/${heroList[i].ename}.jpg" alt="">
-            <span>${heroList[i].cname}</span>
-        </a>
-    `;
-        list.appendChild(li);
+        generated(i);
     }
 }
+
+all();
 
 // 找到坦克id的函数
 function tank() {
@@ -41,17 +47,7 @@ function tank() {
     for (var i = 0; i < heroList.length; i++) {
         // console.log(heroList[i].hero_type);
         if (heroList[i].hero_type == 3 || heroList[i].hero_type2 == 3) {
-            var li = document.createElement("li");
-            // 图片:https://game.gtimg.cn/images/yxzj/img201606/heroimg/582/582.jpg
-            // 超链接:https://pvp.qq.com/web201605/herodetail/yuanliuzhizi_tank.shtml
-            li.className = "fl";
-            li.innerHTML = `
-            <a href="https://pvp.qq.com/web201605/herodetail/${heroList[i].id_name}.shtml">
-            <img src="https://game.gtimg.cn/images/yxzj/img201606/heroimg/${heroList[i].ename}/${heroList[i].ename}.jpg" alt="">
-            <span>${heroList[i].cname}</span>
-            </a>
-            `;
-            list.appendChild(li);
+            generated(i);
         }
     }
 }
@@ -60,17 +56,7 @@ function tank() {
 function warrior() {
     for (var i = 0; i < heroList.length; i++) {
         if (heroList[i].hero_type == 1 || heroList[i].hero_type2 == 1) {
-            var li = document.createElement("li");
-            // 图片:https://game.gtimg.cn/images/yxzj/img201606/heroimg/582/582.jpg
-            // 超链接:https://pvp.qq.com/web201605/herodetail/yuanliuzhizi_tank.shtml
-            li.className = "fl";
-            li.innerHTML = `
-            <a href="https://pvp.qq.com/web201605/herodetail/${heroList[i].id_name}.shtml">
-            <img src="https://game.gtimg.cn/images/yxzj/img201606/heroimg/${heroList[i].ename}/${heroList[i].ename}.jpg" alt="">
-            <span>${heroList[i].cname}</span>
-            </a>
-            `;
-            list.appendChild(li);
+            generated(i);
         }
     }
 }
@@ -79,17 +65,7 @@ function warrior() {
 function assassin() {
     for (var i = 0; i < heroList.length; i++) {
         if (heroList[i].hero_type == 4 || heroList[i].hero_type2 == 4) {
-            var li = document.createElement("li");
-            // 图片:https://game.gtimg.cn/images/yxzj/img201606/heroimg/582/582.jpg
-            // 超链接:https://pvp.qq.com/web201605/herodetail/yuanliuzhizi_tank.shtml
-            li.className = "fl";
-            li.innerHTML = `
-            <a href="https://pvp.qq.com/web201605/herodetail/${heroList[i].id_name}.shtml">
-            <img src="https://game.gtimg.cn/images/yxzj/img201606/heroimg/${heroList[i].ename}/${heroList[i].ename}.jpg" alt="">
-            <span>${heroList[i].cname}</span>
-            </a>
-            `;
-            list.appendChild(li);
+            generated(i);
         }
     }
 }
@@ -98,17 +74,7 @@ function assassin() {
 function mage() {
     for (var i = 0; i < heroList.length; i++) {
         if (heroList[i].hero_type == 2 || heroList[i].hero_type2 == 2) {
-            var li = document.createElement("li");
-            // 图片:https://game.gtimg.cn/images/yxzj/img201606/heroimg/582/582.jpg
-            // 超链接:https://pvp.qq.com/web201605/herodetail/yuanliuzhizi_tank.shtml
-            li.className = "fl";
-            li.innerHTML = `
-            <a href="https://pvp.qq.com/web201605/herodetail/${heroList[i].id_name}.shtml">
-            <img src="https://game.gtimg.cn/images/yxzj/img201606/heroimg/${heroList[i].ename}/${heroList[i].ename}.jpg" alt="">
-            <span>${heroList[i].cname}</span>
-            </a>
-            `;
-            list.appendChild(li);
+            generated(i);
         }
     }
 }
@@ -117,17 +83,7 @@ function mage() {
 function newbie() {
     for (var i = 0; i < heroList.length; i++) {
         if (heroList[i].hero_type == 5 || heroList[i].hero_type2 == 5) {
-            var li = document.createElement("li");
-            // 图片:https://game.gtimg.cn/images/yxzj/img201606/heroimg/582/582.jpg
-            // 超链接:https://pvp.qq.com/web201605/herodetail/yuanliuzhizi_tank.shtml
-            li.className = "fl";
-            li.innerHTML = `
-            <a href="https://pvp.qq.com/web201605/herodetail/${heroList[i].id_name}.shtml">
-            <img src="https://game.gtimg.cn/images/yxzj/img201606/heroimg/${heroList[i].ename}/${heroList[i].ename}.jpg" alt="">
-            <span>${heroList[i].cname}</span>
-            </a>
-            `;
-            list.appendChild(li);
+            generated(i);
         }
     }
 }
@@ -136,17 +92,7 @@ function newbie() {
 function support() {
     for (var i = 0; i < heroList.length; i++) {
         if (heroList[i].hero_type == 6 || heroList[i].hero_type2 == 6) {
-            var li = document.createElement("li");
-            // 图片:https://game.gtimg.cn/images/yxzj/img201606/heroimg/582/582.jpg
-            // 超链接:https://pvp.qq.com/web201605/herodetail/yuanliuzhizi_tank.shtml
-            li.className = "fl";
-            li.innerHTML = `
-            <a href="https://pvp.qq.com/web201605/herodetail/${heroList[i].id_name}.shtml">
-            <img src="https://game.gtimg.cn/images/yxzj/img201606/heroimg/${heroList[i].ename}/${heroList[i].ename}.jpg" alt="">
-            <span>${heroList[i].cname}</span>
-            </a>
-            `;
-            list.appendChild(li);
+            generated(i);
         }
     }
 }
@@ -155,17 +101,7 @@ function support() {
 function free() {
     for (var i = 0; i < heroList.length; i++) {
         if (heroList[i].pay_type == 10) {
-            var li = document.createElement("li");
-            // 图片:https://game.gtimg.cn/images/yxzj/img201606/heroimg/582/582.jpg
-            // 超链接:https://pvp.qq.com/web201605/herodetail/yuanliuzhizi_tank.shtml
-            li.className = "fl";
-            li.innerHTML = `
-            <a href="https://pvp.qq.com/web201605/herodetail/${heroList[i].id_name}.shtml">
-            <img src="https://game.gtimg.cn/images/yxzj/img201606/heroimg/${heroList[i].ename}/${heroList[i].ename}.jpg" alt="">
-            <span>${heroList[i].cname}</span>
-            </a>
-            `;
-            list.appendChild(li);
+            generated(i);
         }
     }
 }
@@ -174,17 +110,7 @@ function free() {
 function newHero() {
     for (var i = 0; i < heroList.length; i++) {
         if (heroList[i].pay_type == 11) {
-            var li = document.createElement("li");
-            // 图片:https://game.gtimg.cn/images/yxzj/img201606/heroimg/582/582.jpg
-            // 超链接:https://pvp.qq.com/web201605/herodetail/yuanliuzhizi_tank.shtml
-            li.className = "fl";
-            li.innerHTML = `
-            <a href="https://pvp.qq.com/web201605/herodetail/${heroList[i].id_name}.shtml">
-            <img src="https://game.gtimg.cn/images/yxzj/img201606/heroimg/${heroList[i].ename}/${heroList[i].ename}.jpg" alt="">
-            <span>${heroList[i].cname}</span>
-            </a>
-            `;
-            list.appendChild(li);
+            generated(i);
         }
     }
 }
