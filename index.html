@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>heroMaterial</title>
+    <!-- 引入favicon -->
+    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
+    </link>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <div class="main">
+        <div class="box">
+            <div class="title">
+                <img class="heroIcon" src="./images/icon_hero.png" alt="" />
+                <span>英雄列表</span>
+            </div>
+            <div class="scroll">
+                <ul class="clear">
+                    <li class="fl">英雄</li>
+                    <li class="fl">局内道具</li>
+                    <li class="fl">召唤师技能</li>
+                </ul>
+            </div>
+            <div class="heroBox">
+                <div class="heroListBox clear">
+                    <ul class="leftUl fl">
+                        <li>综合</li>
+                        <li>游戏职业</li>
+                    </ul>
+                    <ul class="cheak cheak1 fl clear">
+                        <li class="fl say">
+                            <span class="radio">
+                                <i></i>
+                            </span>
+                            <label>本周免费</label>
+                        </li>
+                        <li class="fl say">
+                            <span class="radio">
+                                <i></i>
+                            </span>
+                            <label>新手推荐</label>
+                        </li>
+                    </ul>
+                    <br>
+                    <ul class="cheak fl clear">
+                        <li class="fl say">
+                            <span class="radio">
+                                <i class="active"></i>
+                            </span>
+                            <label>全部</label>
+                        </li>
+                        <li class="fl say">
+                            <span class="radio">
+                                <i></i>
+                            </span>
+                            <label>坦克</label>
+                        </li>
+                        <li class="fl say">
+                            <span class="radio">
+                                <i></i>
+                            </span>
+                            <label>战士</label>
+                        </li>
+                        <li class="fl say">
+                            <span class="radio">
+                                <i></i>
+                            </span>
+                            <label>刺客</label>
+                        </li>
+                        <li class="fl say">
+                            <span class="radio">
+                                <i></i>
+                            </span>
+                            <label>法师</label>
+                        </li>
+                        <li class="fl say">
+                            <span class="radio">
+                                <i></i>
+                            </span>
+                            <label>射手</label>
+                        </li>
+                        <li class="fl say">
+                            <span class="radio">
+                                <i></i>
+                            </span>
+                            <label>辅助</label>
+                        </li>
+                        <div class="input fr">
+                            <input type="text" placeholder="请输入英雄名称" id="searchName"/>
+                            <div class="searchIcon fr">
+                                <img alt="" src="./images/vl_search_icon.png" />
+                            </div>
+                        </div>
+                    </ul>
+                </div>
+                <div class="heroDataBox">
+                    <ul class="clear" id="list">
+                        <!-- <li class="fl">
+                            <a href="#">
+                                <img src="./images/图片_20240704210509.jpg" alt="" />
+                                <span>你好</span>
+                            </a>
+                        </li> -->
+                        
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script src="./js/herolist.js"></script>
+<script src="./js/main.js"></script>
+</html>
