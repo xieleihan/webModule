@@ -1,0 +1,197 @@
+/* base公用样式 */
+/* 初始化样式，通用样式 */
+/* start */
+/* 去掉页面所有标签的内填充外边距 */
+* {
+    /* 定义元素边框与元素内容之间的空间，即上下左右的内边距 */
+    padding: 0;
+    margin: 0;
+    /* css3新增样式 */
+    box-sizing: border-box;
+}
+
+/* 去掉列表符号 */
+li {
+    list-style: none;
+}
+
+/* 去掉img底部的缝隙 */
+img {
+    vertical-align: bottom;
+}
+
+/* 类是可以被定义的，比如，我们可以定义一个浮动类，这样，我们就可以在任意位置使用这个类了。 */
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+
+/* ::after (:after) CSS伪元素 ::after 用来创建一个伪元素，作为已选中元素的最后一个子元素。 
+通常会配合 content 属性来为该元素添加装饰内容。 这个虚拟元素默认是行内元素 */
+.clear::after {
+    clear: both;
+    display: block;
+    content: "";
+}
+
+/* 设置整个页面整个字体相关样式 */
+body {
+    font-size: 14px;
+    font-family: "Microsoft YaHei", "Arial", "Helvetica", "sans-serif";
+    /* 设置行高为1.5倍 */
+    line-height: 1.5;
+    /* 设置页面最小宽度 */
+    min-width: 1280px;
+}
+
+/* 超链接的美化 */
+a {
+    /* 去掉超链接下划线 */
+    text-decoration: none;
+    /* 设置a标签的字体颜色继承父类元素 */
+    /* inherit就是继承父类 */
+    color: inherit;
+}
+
+html {
+    /* 平滑滚动 */
+    scroll-behavior: smooth;
+    font-size: 0.8vw;
+}
+
+/* end */
+
+.main {
+    width: 100dvw;
+    height: 100dvh;
+}
+
+.main .box {
+    width: 400px;
+    height: 500px;
+    margin: 300px 0 0 400px;
+    /* background-color: skyblue; */
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #ccc;
+}
+
+.main .box .middle {
+    width: 400px;
+    background-color: orange;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main .box .middle .middle-box{
+    width: 390px;
+    height: 390px;
+    
+}
+
+.main .box .middle .middle-box .fBig{
+    width: 150px;
+    height: 150px;
+    position: absolute;
+    background-color: #ffefa7;
+    display: none;
+}
+
+.main .box .middle .middle-box img{
+    width: 100%;
+    height: 100%;
+}
+
+.main .box .small {
+    width: 400px;
+    height: 100px;
+    background-color: pink;
+    position: relative;
+}
+
+.main .box .small .small-left {
+    position: absolute;
+    top: 50%;
+    left: 20px;
+    transform: translate(-50%, -50%);
+    font-size: 28px;
+    color: black;
+    text-align: center;
+    line-height: 100px;
+    cursor: default;
+}
+
+.main .box .small .small-right {
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translate(-50%, -50%);
+    font-size: 28px;
+    color: black;
+    text-align: center;
+    line-height: 100px;
+    cursor: default;
+}
+
+.main .box .small .small-center{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: lightgray;
+    width: 300px;
+    height: 100px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+}
+
+.main .box .small .small-center .small-center-one{
+    display: flex;
+    flex-direction: row;
+}
+.main .box .small .small-center .small-center-two{
+    display: flex;
+    flex-direction: row;
+}
+.main .box .small .small-center .small-center-three{
+    display: flex;
+    flex-direction: row;
+}
+
+
+.main .box .small .small-center img{
+    margin: 10px;
+}
+
+.main .box .small .small-center img.active{
+    border: 2px solid #cc2248;
+}
+
+.main .box .small .small-center img:hover {
+    border: 2px solid #cc2248;
+}
+
+.main .big{
+    width: 400px;
+    height: 500px;
+    /* background-color: skyblue; */
+    margin: 300px 0 0 0;
+    overflow: hidden;
+    border: 1px solid #ccc;
+    display: none;
+}
+
+.main .big .big-box{
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.main .big .big-box img{
+    position: absolute;
+}

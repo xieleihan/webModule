@@ -6,4 +6,4 @@
 
 
 
-> **目前有两个模块**:`material`和`Tab`
+> **目前有三个模块**:`material`,`Tab`,`jdMagnifier`
