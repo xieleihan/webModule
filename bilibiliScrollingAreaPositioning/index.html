@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .main {
+            width: 100dvw;
+            height: 100dvh;
+        }
+
+        .main .head {
+            width: 100%;
+            height: 100px;
+            background-color: #808080;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .main .sideBar {
+            width: 50px;
+            height: 550px;
+            position: fixed;
+            top: 50%;
+            right: 40px;
+            transform: translate(-50%, -50%);
+        }
+
+        .main .sideBar ul {
+            width: 100%;
+            height: 100%;
+        }
+
+        .main .sideBar ul li {
+            width: 50px;
+            height: 50px;
+            border: 1px solid #ccc;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .main .sideBar ul li:hover {
+            background-color: #ff0000;
+            color: white;
+        }
+
+        .main .sideBar ul li.active {
+            background-color: #ff0000;
+            color: white;
+        }
+
+        .main .box {
+            width: 70%;
+            height: 1000%;
+            margin: 0 auto;
+        }
+
+        .main .box .box1 {
+            background-color: #ff0000;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-weight: bold;
+        }
+
+        .main .box .box2 {
+            background-color: #ffa500;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-weight: bold;
+        }
+
+        .main .box .box3 {
+            background-color: #ffff00;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-weight: bold;
+        }
+
+        .main .box .box4 {
+            background-color: #008000;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-weight: bold;
+        }
+
+        .main .box .box5 {
+            background-color: #5f9ea0;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-weight: bold;
+        }
+
+        .main .box .box6 {
+            background-color: #0000ff;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-weight: bold;
+        }
+
+        .main .box .box7 {
+            background-color: #800080;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-weight: bold;
+        }
+
+        .main .box .box8 {
+            background-color: #00ffff;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-weight: bold;
+        }
+
+        .main .box .box9 {
+            background-color: #a52a2a;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-weight: bold;
+        }
+
+        .main .box .box10 {
+            background-color: #dc143c;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-weight: bold;
+        }
+
+        .main .footer {
+            width: 100%;
+            height: 100px;
+            background-color: #808080;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <div class="sideBar">
+            <ul>
+                <li class="active">1</li>
+                <li class="">2</li>
+                <li class="">3</li>
+                <li class="">4</li>
+                <li class="">5</li>
+                <li class="">6</li>
+                <li class="">7</li>
+                <li class="">8</li>
+                <li class="">9</li>
+                <li class="">10</li>
+                <li class="">Top</li>
+            </ul>
+        </div>
+        <div class="head">页面头部</div>
+        <div class="box">
+            <div class="smallBox box1">1</div>
+            <div class="smallBox box2">2</div>
+            <div class="smallBox box3">3</div>
+            <div class="smallBox box4">4</div>
+            <div class="smallBox box5">5</div>
+            <div class="smallBox box6">6</div>
+            <div class="smallBox box7">7</div>
+            <div class="smallBox box8">8</div>
+            <div class="smallBox box9">9</div>
+            <div class="smallBox box10">10</div>
+        </div>
+        <div class="footer">页面底部</div>
+    </div>
+</body>
+<script>
+    var smallBox = document.querySelectorAll('.smallBox');
+    // console.log(smallBox);
+    var li = document.querySelectorAll('.sideBar ul li');
+    // console.log(li);
+
+    // 滚动事件
+    // window.onscroll = function () {
+    //     var km = document.documentElement.scrollTop || document.body.scrollTop;
+
+    //     for (var i = 0; i < smallBox.length; i++) {
+    //         var rect = smallBox[i].getBoundingClientRect();
+    //         var offsetTop = rect.top + km; // 获取元素相对于页面顶部的距离
+
+    //         // 检查当前滚动位置是否在元素的顶部和底部之间
+    //         if (km >= offsetTop - window.innerHeight / 2 && km < offsetTop + smallBox[i].offsetHeight - window.innerHeight / 2) {
+    //             for (var j = 0; j < li.length; j++) {
+    //                 li[j].className = '';
+    //             }
+    //             li[i].className = 'active';
+    //             break; // 一旦找到匹配的元素，就可以退出循环
+    //         }
+    //     }
+    // };
+
+    window.onscroll = function(){
+        var km = document.documentElement.scrollTop; // 这个是滚动的距离
+        console.log(km);
+        for(var i = 0; i < smallBox.length; i++){
+            var index = 0;
+            if(km >= smallBox[i].offsetTop - window.innerHeight / 2 && km < smallBox[i].offsetHeight + smallBox[i].offsetTop - window.innerHeight / 2){
+                index +=i;
+                for(var j = 0; j < li.length; j++){
+                    li[j].className = '';
+                }
+                li[index].className = 'active';
+                break;
+            }
+        }
+    }
+
+    // 点击事件
+    for (var i = 0; i < li.length - 1; i++) {
+        li[i].setAttribute('data-index', i);
+        li[i].onclick = function () {
+            var index = this.getAttribute('data-index');
+            window.scrollTo(0, smallBox[index].offsetTop);
+            this.className = 'active';
+        }
+        li[10].onclick = function () {
+            window.scrollTo(0, 0);
+        }
+    }
+</script>
+
+</html>
