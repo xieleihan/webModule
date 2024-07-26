@@ -6,4 +6,4 @@
 
 
 
-> **目前有三个模块**:`material`,`Tab`,`jdMagnifier`
+> **目前有三个模块**:`HOK-Material`,`HOK-Tab`,`jdMagnifier`

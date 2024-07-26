@@ -195,3 +195,30 @@ html {
 .main .big .big-box img{
     position: absolute;
 }
+
+.main .box .middle .middle-box{
+    cursor: move;
+}
+
+.main .box .middle .middle-box .fBig::before,
+.fBig::after {
+    content: '';
+    position: absolute;
+    background-color: #ccc;
+}
+
+.main .box .middle .middle-box .fBig::before {
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    transform: translateY(-50%);
+}
+
+.main .box .middle .middle-box .fBig::after {
+    left: 50%;
+    top: 0;
+    width: 2px;
+    height: 100%;
+    transform: translateX(-50%);
+}
