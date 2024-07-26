@@ -6,4 +6,10 @@
 
 
 
-> **目前有三个模块**:`HOK-Material`,`HOK-Tab`,`jdMagnifier`
+> **目前有五个模块**:
+>
+> 1. `HOK-Material`
+> 2. `HOK-Tab`
+> 3. `jdMagnifier`
+> 4. `bilibiliScrollingAreo`
+> 5. `TencentVideoCarousel`
