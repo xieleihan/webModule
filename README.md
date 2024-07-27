@@ -6,7 +6,7 @@
 
 
 
-> **目前有6个模块**:
+> **目前有7个模块**:
 >
 > 1. `HOK-Material`
 > 2. `HOK-Tab`
@@ -14,3 +14,4 @@
 > 4. `bilibiliScrollingAreo`
 > 5. `TencentVideoCarousel`
 > 6. `simpleTripleTab`
+> 7. `followRandomColorBox`
