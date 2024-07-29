@@ -5,8 +5,9 @@ for (var i = 0; i < data.length; i++){
     var li = document.createElement('li');
     var img = document.createElement('img');
     var boxbox = document.createElement('div');
+    var boxTwo = document.createElement('div');
     boxbox.className = "boxbox";
-    
+    boxTwo.className = "boxbox";
     img.src = data[i].img;
     img.className = "imgBox";
     li.innerHTML = `
@@ -15,7 +16,7 @@ for (var i = 0; i < data.length; i++){
     `;
     
     ul.appendChild(li);
-    
+    box.appendChild(boxTwo);
     box.appendChild(img);
     box.appendChild(boxbox);
 }
@@ -36,8 +37,12 @@ for (var i = 0; i < li.length; i++){
         box.style.backgroundColor = data[index].bg;
         for (var j = 0; j < li.length; j++){
             li[j].className = "";
+            smallSpan[j].style.opacity = "0";
+            bigSpan[j].style.fontWeight = "normal";
         }
         li[index].className = "highlight";
+        smallSpan[index].style.opacity = "1";
+        bigSpan[index].style.fontWeight = "bold";
     }
 }
 

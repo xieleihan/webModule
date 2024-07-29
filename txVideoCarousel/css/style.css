@@ -82,7 +82,7 @@ html {
 }
 
 .main .box .boxbox{
-    width: calc(100vw - 1680px);
+    width: calc((100vw - 1680px)/2);
     height: 100%;
     opacity: 0;
 }
