@@ -6,7 +6,7 @@
 
 
 
-> **目前有8个模块**:
+> **目前有9个模块**:
 >
 > 1. `HOK-Material`
 > 2. `HOK-Tab`
@@ -16,3 +16,4 @@
 > 6. `simpleTripleTab`
 > 7. `followRandomColorBox`
 > 8. `taobaoSlideshow`
+> 9. `takeAnExam`

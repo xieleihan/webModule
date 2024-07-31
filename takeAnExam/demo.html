@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/demo.css">
+</head>
+
+<body>
+    <div class="box">
+        <h2>在线考试</h2>
+        <h3>一、选择题</h3>
+        <!-- 考试题 -->
+        <div class="exam_box">
+            <!-- 项目
+            <div class="item">
+                问题
+                <div class="question_box">
+                    1. 唐太宗的名字叫?
+                </div>
+                答案
+                <div class="answer_box">
+                    <ul>
+                        <li class="active">A.李渊</li>
+                        <li>B.李世民</li>
+                        <li>C.李治</li>
+                        <li>D.武则天</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="item">
+                <div class="question_box">
+                    2.唐太宗把文成公主嫁给吐蕃族首领叫什么？
+                </div>
+                <div class="answer_box">
+                    <ul>
+                        <li>A.囊日论赞</li>
+                        <li class="active">B.朗达玛</li>
+                        <li>C.松赞干布</li>
+                        <li>D.扎西邹巴</li>
+                    </ul>
+                </div>
+            </div> -->
+        </div>
+
+        <!-- 按钮 -->
+        <button>提交试卷</button>
+
+        <!-- 考试成绩 -->
+        <p class="exam_result">考试的成绩 <span class="exam_score">0</span></p>
+    </div>
+
+
+</body>
+<!-- <script src="./js/main.js"></script> -->
+<script>
+    // 要求:
+    // 1. 创建一个名为Page的构造函数
+    // 2. 该对象在实例化时可以接受试卷数据作为参数
+    // 3. Page的实例可以调用init初始化方法，将试卷数据通过DOM操作渲染在页面上成为网页试卷
+    // 4. 点击选择题的答案选项，背景高亮，再次点击，取消选择答案
+    // 5. 所有选择题都勾选了，才可以提交试卷，否则，不可以提交试卷
+    // 6. 当点击提交试卷，延迟300ms后，根据试卷数据提供的答案计算成绩并显示考试结果
+
+    // 试卷数据
+    var data = [{
+        "q": "1.唐太宗的名字叫？",
+        "options": [{
+            "name": "A.李渊"
+        },
+        {
+            "name": "B.李世民"
+        },
+        {
+            "name": "C.李治"
+        },
+        {
+            "name": "D.武则天"
+        }
+        ],
+        "score": 20,
+        "answer": "B"
+    },
+    {
+        "q": "2.唐太宗把文成公主嫁给吐蕃族首领叫什么？",
+        "options": [{
+            "name": "A.囊日论赞"
+        },
+        {
+            "name": "B.朗达玛"
+        },
+        {
+            "name": "C.松赞干布"
+        },
+        {
+            "name": "D.扎西邹巴"
+        }
+        ],
+        "score": 20,
+        "answer": "C"
+    },
+    {
+        "q": "3.1661年,收复了台湾的民族英雄是谁？",
+        "options": [{
+            "name": "A.郑成功"
+        },
+        {
+            "name": "B.戚继光"
+        },
+        {
+            "name": "C.林则徐"
+        },
+        {
+            "name": "D.李元芳"
+        }
+        ],
+        "score": 20,
+        "answer": "A"
+    },
+    {
+        "q": "4.我国历史上的第一个皇帝是？",
+        "options": [{
+            "name": "A.禹"
+        },
+        {
+            "name": "B.姬发"
+        },
+        {
+            "name": "C.秦始皇"
+        },
+        {
+            "name": "D.刘备"
+        }
+        ],
+        "score": 20,
+        "answer": "C"
+    },
+    {
+        "q": "5.被后人尊奉为中华民族“人文始祖”的是？",
+        "options": [{
+            "name": "A.黄帝"
+        },
+        {
+            "name": "B.伏羲"
+        },
+        {
+            "name": "C.炎帝"
+        },
+        {
+            "name": "D.以上都是"
+        }
+        ],
+        "score": 20,
+        "answer": "D"
+    }
+    ];
+
+    var app = new Page(data);
+
+
+    function Page(data) {
+        this.data = data;
+        this.selectedAnswers = new Array(data.length).fill(null);
+    }
+
+    Page.prototype.selectAnswer = function (questionIndex, optionIndex, li) {
+        var ul = li.parentNode;
+        for (var i = 0; i < ul.children.length; i++) {
+            ul.children[i].classList.remove('active');
+        }
+
+        if (this.selectedAnswers[questionIndex] === optionIndex) {
+            this.selectedAnswers[questionIndex] = null;
+        } else {
+            this.selectedAnswers[questionIndex] = optionIndex;
+            li.classList.add('active');
+        }
+        console.log(this.selectedAnswers);
+    }
+
+    Page.prototype.init = function () {
+        var examBox = document.querySelector('.exam_box');
+        var self = this;
+        console.log(this);
+        for (var i = 0; i < this.data.length; i++) {
+
+            var item = this.data[i];
+            var itemBox = document.createElement('div');
+            itemBox.className = 'item';
+            var questionBox = document.createElement('div');
+            questionBox.className = 'question_box';
+            questionBox.innerHTML = item.q;
+
+            var answerBox = document.createElement('div');
+            answerBox.className = 'answer_box';
+            var ul = document.createElement('ul');
+            itemBox.appendChild(questionBox);
+
+            for (var j = 0; j < item.options.length; j++) {
+                var li = document.createElement('li');
+                li.innerHTML = item.options[j].name;
+                console.log(this);
+                li.addEventListener('click', (function (i, j, li) {
+                    return function () {
+                        self.selectAnswer(i, j, li);
+                    };
+                })(i, j, li));
+                ul.appendChild(li);
+            }
+
+            answerBox.appendChild(ul);
+            itemBox.appendChild(answerBox);
+
+            examBox.appendChild(itemBox);
+        }
+
+        var button = document.querySelector('button');
+        button.addEventListener('click', function(){
+            this.submit();
+        });
+    }
+
+    Page.prototype.submit = function(){
+        if (this.selectedAnswers.includes(null)) {
+            alert('请完成所有选择题');
+            return;
+        }
+
+        var self = this; // 保存对 Page 实例的引用
+        setTimeout(function () {
+            var score = 0;
+            for (var i = 0; i < self.data.length; i++) {
+                var question = self.data[i];
+                var selectedOption = self.selectedAnswers[i];
+                if (selectedOption !== null && question.options[selectedOption].name[0] === question.answer) {
+                    score += question.score;
+                }
+            }
+            document.querySelector('.exam_score').innerText = score;
+        }, 300);
+    }
+    app.init();
+</script>
+
+</html>
