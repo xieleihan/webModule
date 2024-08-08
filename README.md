@@ -6,7 +6,7 @@
 
 
 
-> **目前有10个模块**:
+> **目前有12个模块**:
 >
 > 1. `HOK-Material`
 > 2. `HOK-Tab`
@@ -18,3 +18,5 @@
 > 8. `taobaoSlideshow`
 > 9. `takeAnExam`
 > 10. `cardPage`(竖版轮播图)
+> 11. `lol(jQuery实现的轮播图)`
+> 12. `weibo(没啥用的模块)`

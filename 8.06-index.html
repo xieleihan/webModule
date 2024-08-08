@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p>今日作业</p>
+    <p>操作选项</p>
+    <input class="addLiContent" type="text" placeholder="请输入内容" /><button class="add">添加</button>
+    <div>
+        <button class="btn">全选</button>
+        <button class="btn">全不选</button>
+        <button class="btn">反选</button>
+        <button class="btn">删除所选</button>
+    </div>
+    <input class="inputtype" type="checkbox" /><label>家li没宽带</label><br>
+
+
+    <input class="inputtype" type="checkbox" /><label>网速不够快</label><br>
+
+
+
+    <input class="inputtype" type="checkbox" /><label>手机没流量</label><br>
+
+
+
+    <input class="inputtype" type="checkbox" /><label>学校无WiFi</label><br>
+
+
+</body>
+<script src="https://cdn.staticfile.net/jquery/3.7.1/jquery.js"></script>
+<script>
+    $(".add").click(function () {
+        var val = $(".addLiContent").val();
+        if (val) {
+            $("body:last").append("<input class='inputtype' type='checkbox' /><label>" + val + "</label><br>");
+        } else {
+            alert("请输入内容再添加");
+        }
+    })
+    $(".btn").eq(0).click(function () {
+        $(".inputtype").each(function () {
+            $(this).prop("checked", true);
+        })
+    })
+    $(".btn").eq(1).click(function () {
+        $(".inputtype").each(function () {
+            $(this).prop("checked", false);
+        })
+    })
+    $(".btn").eq(2).click(function () {
+        $(".inputtype").each(function (item,attribute) {
+            // $(this).prop("checked", false);
+            console.log(item);
+            console.log(attribute);
+            if($(attribute).prop("checked") === true){
+                $(attribute).prop("checked", false);
+            }else{
+                $(attribute).prop("checked", true);
+            }
+        })
+    })
+    $(".btn").eq(3).click(function () {
+        $(".inputtype").each(function () {
+            if ($(this).prop("checked") === true) {
+                $(this).next().next().remove();
+                $(this).next().remove();
+                $(this).remove();
+            }
+        })
+    })
+</script>
+
+</html>
