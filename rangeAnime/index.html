@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .main {
+            width: 100dvw;
+            height: 100dvh;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+        }
+        input {
+            width: 70%;
+            height: 10%;
+            -webkit-appearance: none;
+        }
+
+        input::-webkit-slider-runnable-track{
+            width: calc(100dvw * 0.7);
+            height: 20%;
+            background-color: #87ceeb;
+        }
+
+        input::-webkit-slider-thumb {
+            width: calc(100dvw / 100);
+            height: calc(100dvw / 20);
+            -webkit-appearance: none;
+            margin-top: calc(-100dvw / 50);
+            background: #ffa500; /* 滑块颜色 */
+        }
+
+        .box {
+            width: 69%;
+            height: 10%;
+            /* background: #87ceeb; */
+            position: relative;
+        }
+
+        .box .num{
+            position: absolute;
+            top: 50%;
+            left: 0%;
+            /* transform: translateY(-50%); */
+            transform: translate(-50%,-50%);
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="box">
+            <div class="num">0%</div>
+        </div>
+        <input type="range" min="0" max="100" value="0" step="0.01"/>
+    </div>
+</body>
+<script src="https://cdn.staticfile.net/jquery/3.7.1/jquery.js"></script>
+<script>
+    $("input").on("input", function () {
+        // console.log($(this).val());
+        $(".num").text($(this).val() + "%").css("left", $(this).val() + "%");
+    })
+</script>
+</html>

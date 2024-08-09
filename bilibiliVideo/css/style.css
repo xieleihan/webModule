@@ -1,0 +1,97 @@
+.main{
+    width: 100dvw;
+    height: 100dvh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main .box{
+    width: 50%;
+    height: 50%;
+    background-color: skyblue;
+}
+
+.main .box .video{
+    width: 100%;
+    height: 90%;
+    background:url("../images/bg.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    overflow: hidden;
+}
+.main .box .video .videoBox{
+    width: 1px;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    white-space: nowrap;
+
+}
+
+.main .box .video .videoBox .item{
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: red;
+}
+
+
+.main .box .title{
+    width: 100%;
+    height: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    position: relative;
+    background-color: #ccc;
+}
+
+.main .box .title input{
+    width: 79%;
+    height: 50%;
+    outline: none;
+    border: none;
+}
+.main .box .title button{
+    outline: none;
+    border: none;
+    width: 15%;
+    height: 50%;
+    background-color: skyblue;
+    color: white;
+}
+
+.main .box .bq{
+    height: 44%;
+    width: 7%;
+    position: absolute;
+    top: 15px;
+    right: 15%;
+    background: url("../images/biaoqing.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.main .box .title .bqBox{
+    width: 50%;
+    height: 280%;
+    background-color: white;
+    position: absolute;
+    top: -140px;
+    right: 0;
+    display: none;
+}
+
+.main .box .title .bqBox .daquan{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
