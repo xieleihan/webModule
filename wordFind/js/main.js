@@ -31,7 +31,7 @@
 //     arr.forEach(function (item) {
 //         if (item.indexOf(inputStr) != -1) {
 //             // console.log(item); item就是我们要的
-            
+
 //             // 创建dom
 //             if (inputStr != "") {
 //                 // console.log("搜索到："+item);
@@ -62,6 +62,10 @@ $("#search").on("input", function () {
 
     // 清空之前的搜索结果
     $("#search-bar").html("");
+    // 清除段落中所有已有的 <span> 包裹
+    $("p").html(function (_, html) {
+        return html.replace(/<span>(.*?)<\/span>/g, "$1");
+    });
 
     if (inputStr !== "") {
         // 创建一个正则表达式来匹配输入内容
