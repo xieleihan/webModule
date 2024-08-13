@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .main {
+            width: 100dvw;
+            height: 100dvh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .main .box {
+            width: 50%;
+            height: 50%;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid #ccc;
+            padding: 5px;
+        }
+
+        .clear {
+            clear: both;
+            display: block;
+            content: "";
+        }
+
+        .fl {
+            float: left;
+        }
+
+        .fr {
+            float: right;
+        }
+
+        .main .box ul {
+            overflow: auto;
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: row;
+        }
+
+        .main .box ul li {
+            list-style: none;
+            margin: 10px;
+            padding: 5px;
+            border: 2px dotted #ccc;
+        }
+
+        #select {
+            width: 50px;
+            height: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <div class="box">
+            <label>请输入想要输入的表情</label>
+            <input type="text" placeholder="请输入" name="keyword" />
+            <label>页码:</label>
+            <select name="page" id="select">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+            </select>
+            <div class="cheakbox">
+                <label>表情包来源</label>
+                <input type="radio" name="type" value="1" checked>1
+                <input type="radio" name="type" value="2">2
+                <input type="radio" name="type" value="3">3
+                <input type="radio" name="type" value="4">4
+                <input type="radio" name="type" value="5">5
+                <input type="radio" name="type" value="6">6
+                <input type="radio" name="type" value="7">7
+            </div>
+            <button>获取表情包</button>
+            <ul class="clear"></ul>
+        </div>
+    </div>
+</body>
+<script>
+    var btn = document.querySelector("button");
+    var ul = document.querySelector("ul");
+    btn.onclick = function () {
+        var keyword = document.querySelector("input[name=keyword]").value;
+        var page = document.querySelector("select").value;
+        var type = document.querySelector("input[name=type]:checked").value;
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", `https://v2.alapi.cn/api/doutu`);
+        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        xhr.send("keyword=" + keyword + "&page=" + page + "&type=" + type + "&token=your-key");
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                var res = JSON.parse(xhr.responseText);
+                console.log(res);
+                var data = res.data;
+                ul.innerHTML = "";
+                data.forEach(item => {
+                    var li = document.createElement("li");
+                    var img = document.createElement("img");
+                    img.src = item;
+                    img.className = "fl";
+                    img.style.width = "100px";
+                    img.style.height = "100px";
+                    li.appendChild(img);
+                    ul.appendChild(li);
+                });
+            }
+        }
+    }
+</script>
+
+</html>
