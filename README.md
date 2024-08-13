@@ -6,7 +6,7 @@
 
 
 
-> **目前有17个模块**:
+> **目前有18个模块**:
 >
 > 1. `HOK-Material`
 > 2. `HOK-Tab`
@@ -25,6 +25,7 @@
 > 15. `bilibiliVideo弹幕姬(简化版,比较一般版本,不可投入生产环境)`
 > 16. `weatherBox(Ajax)请求数据渲染在DOM上,不带key`
 > 17. `EmoticonsBox(Ajax method:"post"),不带key`
+> 18. `bilibiliManga(Ajax jQuery)`
 
 # 持续更新喵~
 

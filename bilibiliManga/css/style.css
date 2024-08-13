@@ -1,0 +1,111 @@
+.main{
+    width: 100dvw;
+    height: 100dvh;
+}
+
+.main .box{
+    width: 1200px;
+    height: 100%;
+    margin: 0 auto;
+    padding-top: 30px;
+}
+
+.main .box .top{
+    width: 100%;
+    height: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin-bottom: 20px;
+}
+
+.main .box .top ul{
+    width: fit-content;
+    height: 20%;
+    display: flex;
+    flex-direction: row;
+    color: #ccc;
+    align-items: center;
+    cursor: default;
+}
+
+.main .box .top ul li{
+    margin: 0 15px 0 15px;
+    color: black;
+    cursor: pointer;
+}
+
+.main .box .top ul li:first-child{
+    margin-left: 25px;
+}
+
+.main .box .top ul li.active{
+    color: white;
+    background-color: #5bbbff;
+    height: fit-content;
+    width: fit-content;
+    padding: 0 5px 0;
+}
+
+.main .box .bottom{
+    width: 100%;
+    height: 70%;
+}
+
+.main .box .bottom ul{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: flex-start;
+}
+
+.main .box .bottom ul li{
+    height: 300px;
+    width: calc(100% / 6 - 17.5px);
+    margin: 10px;
+}
+
+.main .box .bottom ul li:nth-child(6n){
+    margin-right: 0;
+}
+
+.main .box .bottom ul li:nth-child(6n+1){
+    margin-left: 0;
+}
+
+.main .box .bottom ul li a img{
+    width: 100%;
+    height: 85%;
+}
+
+.main .box .bottom ul li a .title{
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.main .box .bottom .wait{
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.main .box .bottom .wait .waitBox{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main .box .bottom .wait .waitBox img{
+    width: 40%;
+    height: 50%;
+}
+
+.main .box .bottom .bottomBox{
+    display: none;
+}
+
