@@ -505,6 +505,131 @@
   display: flex;
   flex-direction: row;
 }
+.main .body .home-news .home-news_content .content_news .news_list .news_item a {
+  flex: 1 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #fff;
+}
+.main .body .home-news .home-news_content .content_news .news_more {
+  width: 100%;
+  height: 0.74rem;
+  background: url('../images/mainAreo/content-news/查看更多.png');
+  background-position: center center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+.main .body .role {
+  overflow: hidden;
+  position: relative;
+  margin: 0 auto;
+  width: 100%;
+  padding-top: 56.25%;
+  background: #111425;
+}
+.main .body .role .nav_tabs {
+  position: absolute;
+  right: 10%;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 8;
+  width: 2.04rem;
+}
+.main .body .role .nav_tabs .nav_item {
+  position: relative;
+  width: 1.2rem;
+  height: 1.2rem;
+  margin-bottom: -0.1rem;
+  transform: rotate(-45deg);
+  background: linear-gradient(45deg, #fdfcfa, #ced7e8);
+  border: 3px solid #fff;
+  overflow: hidden;
+  transition: all 0.5s;
+  clear: both;
+  cursor: pointer;
+  opacity: 0.8;
+  color: #f4ae40;
+}
+.main .body .role .nav_tabs .nav_item::before {
+  content: '';
+  display: block;
+  width: 108%;
+  height: 108%;
+  border: 1px solid #fff;
+  position: absolute;
+  left: -4%;
+  top: -4%;
+}
+.main .body .role .nav_tabs .nav_item::after {
+  content: '';
+  display: block;
+  width: 90%;
+  height: 90%;
+  border: 1px solid #c6c7cd;
+  position: absolute;
+  left: 5%;
+  top: 5%;
+  z-index: 1;
+}
+.main .body .role .nav_tabs .nav_item.active {
+  opacity: 1;
+  border-color: currentColor;
+  overflow: visible;
+}
+.main .body .role .nav_tabs .nav_item.active .kuanDiv {
+  overflow: visible;
+}
+.main .body .role .nav_tabs .nav_item.active .kuanDiv .contentDiv img {
+  transform: rotate(45deg) translateY(0);
+}
+.main .body .role .nav_tabs .nav_item.active::before {
+  border-color: currentColor;
+}
+.main .body .role .nav_tabs .nav_item.active::after {
+  z-index: -1;
+}
+.main .body .role .nav_tabs .nav_item:hover {
+  opacity: 1;
+}
+.main .body .role .nav_tabs .nav_item:nth-child(odd) {
+  float: left;
+}
+.main .body .role .nav_tabs .nav_item:nth-child(even) {
+  float: right;
+}
+.main .body .role .nav_tabs .nav_item .kuanDiv {
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  z-index: 0;
+}
+.main .body .role .nav_tabs .nav_item .kuanDiv .contentDiv {
+  width: 200%;
+  height: 200%;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+.main .body .role .nav_tabs .nav_item .kuanDiv .contentDiv img {
+  position: absolute;
+  width: 1.52712rem;
+  margin-left: -0.76356rem;
+  transform: rotate(45deg) translateY(33%);
+  transform-origin: center bottom;
+  transition: all 0.5s;
+  left: 0;
+  bottom: 0;
+  font-size: 0 !important;
+  z-index: 20;
+}
 @keyframes rocking-data-v-44e324b1 {
   0% {
     height: 43%;

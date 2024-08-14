@@ -531,7 +531,7 @@
                                 background-repeat: no-repeat;
                             }
 
-                            &.news_tab::before{
+                            &.news_tab::before {
                                 content: '';
                                 display: block;
                                 width: 100%;
@@ -541,33 +541,183 @@
                                 background-repeat: no-repeat;
                             }
 
-                            &.all::before{
+                            &.all::before {
                                 background-image: url('../images/mainAreo/content-news/all.png');
                             }
 
-                            &.news::before{
+                            &.news::before {
                                 background-image: url('../images/mainAreo/content-news/news.png');
                             }
 
-                            &.announce::before{
+                            &.announce::before {
                                 background-image: url('../images/mainAreo/content-news/announce.png');
                             }
 
-                            &.event::before{
+                            &.event::before {
                                 background-image: url('../images/mainAreo/content-news/event.png');
                             }
                         }
                     }
 
-                    .news_list{
+                    .news_list {
                         font-size: .18rem;
                         padding-top: .18rem;
-                        .news_item{
+
+                        .news_item {
                             white-space: nowrap;
                             color: #fff;
                             line-height: .47rem;
                             display: flex;
                             flex-direction: row;
+
+                            a {
+                                flex: 1 1;
+                                overflow: hidden;
+                                text-overflow: ellipsis;
+                                color: #fff;
+                            }
+                        }
+                    }
+
+                    .news_more {
+                        width: 100%;
+                        height: .74rem;
+                        background: url('../images/mainAreo/content-news/查看更多.png');
+                        background-position: center center;
+                        background-size: contain;
+                        background-repeat: no-repeat;
+                        display: block;
+                        position: absolute;
+                        bottom: 0;
+                        left: 0;
+                    }
+                }
+            }
+        }
+
+        .role {
+            overflow: hidden;
+            position: relative;
+            margin: 0 auto;
+            width: 100%;
+            padding-top: 56.25%;
+            background: #111425;
+
+            .nav_tabs {
+                position: absolute;
+                right: 10%;
+                top: 50%;
+                transform: translateY(-50%);
+                z-index: 8;
+                width: 2.04rem;
+
+                .nav_item {
+                    position: relative;
+                    width: 1.2rem;
+                    height: 1.2rem;
+                    margin-bottom: -0.1rem;
+                    transform: rotate(-45deg);
+                    background: linear-gradient(45deg, #fdfcfa, #ced7e8);
+                    border: 3px solid #fff;
+                    overflow: hidden;
+                    transition: all .5s;
+                    clear: both;
+                    cursor: pointer;
+                    opacity: .8;
+                    color: #f4ae40;
+
+                    &::before {
+                        content: '';
+                        display: block;
+                        width: 108%;
+                        height: 108%;
+                        border: 1px solid #fff;
+                        position: absolute;
+                        left: -4%;
+                        top: -4%;
+                    }
+
+                    &::after {
+                        content: '';
+                        display: block;
+                        width: 90%;
+                        height: 90%;
+                        border: 1px solid #c6c7cd;
+                        position: absolute;
+                        left: 5%;
+                        top: 5%;
+                        z-index: 1;
+                    }
+
+                    &.active {
+                        opacity: 1;
+                        border-color: currentColor;
+                        overflow: visible;
+
+                        .kuanDiv {
+                            overflow: visible;
+                        }
+
+                        // .kuanDiv .contentDiv {
+                        //     overflow: visible;
+                        // }
+
+                        .kuanDiv .contentDiv img {
+                            transform: rotate(45deg) translateY(0);
+                        }
+
+                        &::before {
+                            border-color: currentColor;
+                        }
+
+                        &::after {
+                            
+                            z-index: -1;
+                        }
+                    }
+
+                    &:hover {
+                        opacity: 1;
+                    }
+
+                    &:nth-child(odd) {
+                        float: left;
+                    }
+
+                    &:nth-child(even) {
+                        float: right;
+                    }
+
+                    .kuanDiv {
+                        z-index: 2;
+                        // overflow: visible;
+                        width: 100%;
+                        height: 100%;
+                        overflow: hidden;
+                        position: relative;
+                        z-index: 0;
+
+                        .contentDiv {
+                            width: 200%;
+                            height: 200%;
+                            position: absolute;
+                            left: 0;
+                            bottom: 0;
+                            pointer-events: none;
+                            overflow: hidden;
+
+                            img {
+                                position: absolute;
+                                width: 1.52712rem;
+                                margin-left: -.76356rem;
+                                transform: rotate(45deg) translateY(33%);
+                                transform-origin: center bottom;
+                                transition: all .5s;
+                                left: 0;
+                                bottom: 0;
+                                font-size: 0 !important;
+                                z-index: 20;
+                            }
                         }
                     }
                 }
