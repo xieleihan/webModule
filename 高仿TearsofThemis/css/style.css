@@ -347,6 +347,34 @@
   width: 100%;
   font-size: 0 !important;
 }
+.main .body .home-news {
+  padding-top: calc(14% + 4.2rem);
+  position: relative;
+  overflow: hidden;
+  margin-top: -12%;
+  background: url('../images/mainAreo/home-new蒙版.png') right top;
+  background-size: cover;
+}
+.main .body .home-news .home-news_content {
+  width: 13.47rem;
+  height: 4.65rem;
+  position: absolute;
+  z-index: 2;
+  margin: 0 auto;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.main .body .home-news .home-news_content .content_bg {
+  background: url('../images/mainAreo/蒙版的框框喵.png') right center;
+  background-size: auto 100%;
+  width: 16.37rem;
+  height: 4.65rem;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 0;
+}
 @keyframes rocking-data-v-44e324b1 {
   0% {
     height: 43%;
