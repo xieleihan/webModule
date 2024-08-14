@@ -1,0 +1,177 @@
+.main {
+  width: 100dvw;
+  height: 100dvh;
+}
+.main .head {
+  width: 100%;
+  height: 63px;
+  position: fixed;
+  z-index: 9;
+  top: 0;
+}
+.main .head .nav {
+  width: 60%;
+  height: 100%;
+  background: url('../images/nav/header.png') repeat-x;
+  position: relative;
+  padding-right: 25px;
+}
+.main .head .nav::before {
+  content: '';
+  display: block;
+  width: 65px;
+  height: 108%;
+  background: url('../images/nav/三角形.png');
+  background-size: 100% 100%;
+  position: absolute;
+  right: 100%;
+  top: 0;
+}
+.main .head .nav ul {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.main .head .nav ul a {
+  height: 100%;
+  width: 160px;
+  display: block;
+}
+.main .head .nav ul a li {
+  height: 100%;
+  width: 160px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.main .head .nav ul .bgm {
+  width: 23px;
+  height: 23px;
+  border: 0;
+  background: none;
+  outline: none;
+  cursor: pointer;
+}
+.main .head .nav ul .bgm .music-icon {
+  width: 100%;
+  padding-top: 100%;
+  position: relative;
+}
+.main .head .nav ul .bgm .music-icon .music-icon__col {
+  width: 13%;
+  height: auto;
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  overflow: hidden;
+  -webkit-animation-name: rocking-data-v-44e324b1;
+  animation-name: rocking-data-v-44e324b1;
+  -webkit-animation-play-state: running;
+  animation-play-state: running;
+  -webkit-animation-duration: 0.8s;
+  animation-duration: 0.8s;
+  -webkit-animation-timing-function: step-start;
+  animation-timing-function: step-start;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+}
+.main .head .nav ul .bgm .music-icon .music-icon__col.music-icon__col--1 {
+  animation-delay: 0.6s;
+  left: 0%;
+}
+.main .head .nav ul .bgm .music-icon .music-icon__col.music-icon__col--2 {
+  animation-delay: 0s;
+  left: 21.75%;
+}
+.main .head .nav ul .bgm .music-icon .music-icon__col.music-icon__col--3 {
+  animation-delay: 0.2s;
+  left: 43.5%;
+}
+.main .head .nav ul .bgm .music-icon .music-icon__col.music-icon__col--4 {
+  animation-delay: 0.6s;
+  left: 65.25%;
+}
+.main .head .nav ul .bgm .music-icon .music-icon__col.music-icon__col--5 {
+  animation-delay: 0.4s;
+  left: 87%;
+}
+.main .head .nav ul .bgm .music-icon .music-icon__col .music-icon__sqr {
+  width: 100%;
+  padding-top: 100%;
+  position: relative;
+  box-sizing: border-box;
+  left: 0;
+  flex: 0 0;
+}
+.main .head .nav ul .bgm .music-icon .music-icon__col .music-icon__sqr.music-icon__sqr--r-1 {
+  margin-bottom: 67%;
+  background: #c7c9d5;
+}
+.main .head .nav ul .bgm .music-icon .music-icon__col .music-icon__sqr.music-icon__sqr--r-2 {
+  margin-bottom: 67%;
+  background: #bec1e0;
+}
+.main .head .nav ul .bgm .music-icon .music-icon__col .music-icon__sqr.music-icon__sqr--r-3 {
+  margin-bottom: 67%;
+  background: #b5b8ea;
+}
+.main .head .nav ul .bgm .music-icon .music-icon__col .music-icon__sqr.music-icon__sqr--r-4 {
+  margin-bottom: 67%;
+  background: #acb0f5;
+}
+.main .head .nav ul .bgm .music-icon .music-icon__col .music-icon__sqr.music-icon__sqr--r-5 {
+  margin-bottom: 0;
+  background: #a3a7ff;
+}
+.main .head .nav ul .bgm .music-icon .music-icon__col .music-icon__sqr::after {
+  content: "";
+  display: block;
+  border-top: 1px solid #626060;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+.main .body {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+.main .body .logo {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 23.9%;
+  height: 20%;
+  background: url('../images/logo.png');
+  background-size: cover;
+  z-index: 2;
+}
+.main .body video {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+}
+@keyframes rocking-data-v-44e324b1 {
+  0% {
+    height: 43%;
+  }
+  25% {
+    height: 43%;
+  }
+  50% {
+    height: 65%;
+  }
+  75% {
+    height: 86%;
+  }
+  100% {
+    height: 100%;
+  }
+}

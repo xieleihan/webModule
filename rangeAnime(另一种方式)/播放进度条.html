@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+            }
+            .box {
+                width: 600px;
+                height: 30px;
+                background: skyblue;
+                border-radius: 5px;
+                margin: 100px auto;
+                position: relative;
+            }
+            .box .progress {
+                height: 30px;
+                width: 60%;
+                background: pink;
+                border-radius: 5px;
+            }
+            .box .progress .bar {
+                background: orange;
+                width: 30px;
+                height: 70px;
+                border-radius: 5px;
+                cursor: pointer;
+                position: absolute;
+                left: 330px;
+                top: -20px;
+            }
+            .box .progress .bar .text {
+                position: absolute;
+                left: -5px;
+                top: -30px;
+                width: 40px;
+                text-align: center;
+                font-size: 14px;
+                user-select: none;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- 大盒子 -->
+        <div class="box">
+            <!-- 进度条盒子 -->
+            <div class="progress">
+                <!-- 滑块 -->
+                <div class="bar">
+                    <!-- 文本内容 -->
+                    <div class="text">60%</div>
+                </div>
+            </div>
+        </div>
+        <script src="./js/jquery-3.7.1.min.js"></script>
+        <script>
+            // .bar滑块最大left值
+            var barMaxLeft = $(".box").width() - $(".bar").width();
+
+            // 给.bar绑定鼠标按下事件
+            $(".bar").on("mousedown", function (e) {
+                // 阻止冒泡
+                e.stopPropagation();
+                // 拖拽过程中, 鼠标在.bar元素中的坐标位置是不变的, 变的是鼠标在页面中的坐标
+                var startX = e.offsetX;
+
+                // 给document绑定鼠标移动事件
+                $(document).on("mousemove", function (evt) {
+                    // 计算得到滑块的left值
+                    var barLeft = evt.clientX - $(".box").offset().left - startX;
+                    // 边界判断
+                    if (barLeft < 0) {
+                        barLeft = 0;
+                    }
+
+                    if (barLeft > barMaxLeft) {
+                        barLeft = barMaxLeft;
+                    }
+                    // 设置.bar的left值
+                    $(".bar").css({
+                        left: barLeft,
+                    });
+
+                    // 计算比例
+                    var percentage = ((barLeft / barMaxLeft) * 100).toFixed(2) + "%";
+                    // 设置文本内容
+                    $(".text").text(percentage);
+                    // 设置.progress的宽度
+                    $(".progress").width(percentage);
+                });
+            });
+
+            // 给document绑定鼠标弹起事件
+            $(document).on("mouseup", function () {
+                // 解绑document对象身上的鼠标移动事件
+                $(document).off("mousemove");
+            });
+
+            /* // 给.box绑定鼠标点击事件
+            $(".box").on("mousedown", function (e) {
+                // 获取鼠标在.box中盒子的坐标
+                // console.log(e.offsetX);
+
+                // 计算得到滑块的left值
+                var barLeft = e.offsetX - $(".bar").width() / 2;
+                // 边界判断
+                if (barLeft < 0) {
+                    barLeft = 0;
+                }
+                if (barLeft > barMaxLeft) {
+                    barLeft = barMaxLeft;
+                }
+                // 设置.bar的left值
+                $(".bar").css({
+                    left: barLeft,
+                });
+                // 计算比例
+                var percentage = ((barLeft / barMaxLeft) * 100).toFixed(2) + "%";
+                // 设置文本内容
+                $(".text").text(percentage);
+                // 设置.progress的宽度
+                $(".progress").width(percentage);
+            }); */
+        </script>
+    </body>
+</html>
