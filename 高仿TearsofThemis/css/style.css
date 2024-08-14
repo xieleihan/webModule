@@ -138,6 +138,78 @@
   left: 0;
   width: 100%;
 }
+.main .head .share {
+  position: absolute;
+  top: 76px;
+  right: 78px;
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  width: 190px;
+  height: 36px;
+  background-image: url('../images/nav/sharp.png');
+  background-size: 100% 100%;
+}
+.main .head .share li {
+  display: block;
+  position: relative;
+  cursor: pointer;
+  flex: 1 1;
+  height: 100%;
+}
+.main .head .share li > img {
+  position: absolute;
+  left: 50%;
+  top: 100%;
+  transform: translateX(-50%);
+  display: none;
+  width: 180px;
+  height: 180px;
+}
+.main .head .share li:hover > img {
+  display: block;
+}
+.main .head .share li .qq {
+  position: absolute;
+  left: 50%;
+  top: 100%;
+  transform: translateX(-50%);
+  display: none;
+  width: 180px;
+  height: 180px;
+  background: url('../images/nav/qqqunimg.png');
+  background-size: 100% 100%;
+}
+.main .head .share li .qq .qq_text {
+  position: absolute;
+  top: 45%;
+  left: 2%;
+  width: 100%;
+  text-align: center;
+  font-size: 23px;
+  color: #201d58;
+}
+.main .head .share li .qq .qq_link {
+  display: block;
+  width: 34%;
+  padding-top: 15.3%;
+  position: absolute;
+  left: 18%;
+  top: 69%;
+  cursor: pointer;
+}
+.main .head .share li .qq .qq_copy {
+  display: block;
+  width: 34%;
+  padding-top: 15.3%;
+  position: absolute;
+  right: 14%;
+  top: 69%;
+  cursor: pointer;
+}
+.main .head .share li:hover > .qq {
+  display: block;
+}
 .main .body {
   width: 100%;
   height: 100%;
@@ -158,6 +230,123 @@
   height: 100%;
   object-fit: fill;
 }
+.main .body .pv_play {
+  position: absolute;
+  z-index: 2;
+  left: 49.5%;
+  top: 50%;
+  transform: translateX(-50%);
+  width: 10%;
+  padding-top: 10%;
+  cursor: pointer;
+  background: url('../images/mainAreo/ea8493d.png');
+  background-size: 5100% 100%;
+  background-repeat: no-repeat;
+  animation-name: keyframes-shining-data-v-e7386964;
+  animation-duration: 2.04s;
+  -webkit-animation-delay: 0s;
+  animation-delay: 0s;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  -webkit-animation-timing-function: steps(1);
+  animation-timing-function: steps(1);
+}
+.main .body .appointment {
+  position: absolute;
+  bottom: 12%;
+  width: 24%;
+  min-height: 132px;
+  min-width: 400px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.main .body .appointment .download {
+  width: 100%;
+  height: 100%;
+  background: url('../images/mainAreo/downloadKuan.png') center no-repeat;
+  background-size: 100% 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.main .body .appointment .download .download_item {
+  background-image: url('../images/mainAreo/QRcode.png');
+  display: block;
+  position: absolute;
+  left: 6.75%;
+  top: 13.64%;
+  width: 21%;
+  height: 63%;
+  background-position: center;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+.main .body .appointment .download .download_apple {
+  left: 31.75%;
+  background-image: url('../images/mainAreo/AppleDownload.png');
+  cursor: pointer;
+  width: 30%;
+  height: 33.334%;
+  top: 13.64%;
+  position: absolute;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: center;
+}
+.main .body .appointment .download .download_android {
+  left: 31.75%;
+  top: 54.54%;
+  position: absolute;
+  background: url('../images/mainAreo/androidDownload.png');
+  cursor: pointer;
+  width: 30%;
+  height: 33.334%;
+  display: block;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.main .body .appointment .download .download_taptap {
+  left: 65%;
+  background-image: url('../images/mainAreo/taptapDownload.png');
+  cursor: pointer;
+  width: 30%;
+  height: 33.334%;
+  display: block;
+  position: absolute;
+  top: 13.64%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+.main .body .appointment .download .download_bilibili {
+  left: 65%;
+  top: 54.54%;
+  background-image: url('../images/mainAreo/bilibiliDownload.png');
+  cursor: pointer;
+  width: 30%;
+  height: 33.334%;
+  display: block;
+  position: absolute;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+.main .body .appointment .logAge {
+  position: absolute;
+  top: 2%;
+  right: -22%;
+  z-index: 9;
+  width: 20%;
+  font-size: 0;
+  cursor: pointer;
+}
+.main .body .appointment .logAge img {
+  width: 100%;
+  font-size: 0 !important;
+}
 @keyframes rocking-data-v-44e324b1 {
   0% {
     height: 43%;
@@ -173,5 +362,160 @@
   }
   100% {
     height: 100%;
+  }
+}
+@keyframes keyframes-shining-data-v-e7386964 {
+  0% {
+    background-size: 5100% 100%;
+  }
+  1.96% {
+    background-position: 2% 0%;
+  }
+  3.92% {
+    background-position: 4% 0%;
+  }
+  5.88% {
+    background-position: 6% 0%;
+  }
+  7.84% {
+    background-position: 8% 0%;
+  }
+  9.8% {
+    background-position: 10% 0%;
+  }
+  11.76% {
+    background-position: 12% 0%;
+  }
+  13.73% {
+    background-position: 14% 0%;
+  }
+  15.69% {
+    background-position: 16% 0%;
+  }
+  17.65% {
+    background-position: 18% 0%;
+  }
+  19.61% {
+    background-position: 20% 0%;
+  }
+  21.57% {
+    background-position: 22% 0%;
+  }
+  23.53% {
+    background-position: 24% 0%;
+  }
+  25.49% {
+    background-position: 26% 0%;
+  }
+  27.45% {
+    background-position: 28% 0%;
+  }
+  29.41% {
+    background-position: 30% 0%;
+  }
+  31.37% {
+    background-position: 32% 0%;
+  }
+  33.33% {
+    background-position: 34% 0%;
+  }
+  35.29% {
+    background-position: 36% 0%;
+  }
+  37.25% {
+    background-position: 38% 0%;
+  }
+  39.22% {
+    background-position: 40% 0%;
+  }
+  41.18% {
+    background-position: 42% 0%;
+  }
+  43.14% {
+    background-position: 44% 0%;
+  }
+  45.1% {
+    background-position: 46% 0%;
+  }
+  47.06% {
+    background-position: 48% 0%;
+  }
+  49.02% {
+    background-position: 50% 0%;
+  }
+  50.98% {
+    background-position: 52% 0%;
+  }
+  52.94% {
+    background-position: 54% 0%;
+  }
+  54.9% {
+    background-position: 56% 0%;
+  }
+  56.86% {
+    background-position: 58% 0%;
+  }
+  58.82% {
+    background-position: 60% 0%;
+  }
+  60.78% {
+    background-position: 62% 0%;
+  }
+  62.75% {
+    background-position: 64% 0%;
+  }
+  64.71% {
+    background-position: 66% 0%;
+  }
+  66.67% {
+    background-position: 68% 0%;
+  }
+  68.63% {
+    background-position: 70% 0%;
+  }
+  70.59% {
+    background-position: 72% 0%;
+  }
+  72.55% {
+    background-position: 74% 0%;
+  }
+  74.51% {
+    background-position: 76% 0%;
+  }
+  76.47% {
+    background-position: 78% 0%;
+  }
+  78.43% {
+    background-position: 80% 0%;
+  }
+  80.39% {
+    background-position: 82% 0%;
+  }
+  82.35% {
+    background-position: 84% 0%;
+  }
+  84.31% {
+    background-position: 86% 0%;
+  }
+  86.27% {
+    background-position: 88% 0%;
+  }
+  88.24% {
+    background-position: 90% 0%;
+  }
+  90.2% {
+    background-position: 92% 0%;
+  }
+  92.16% {
+    background-position: 94% 0%;
+  }
+  94.12% {
+    background-position: 96% 0%;
+  }
+  96.08% {
+    background-position: 98% 0%;
+  }
+  98.04% {
+    background-position: 100% 0%;
   }
 }
