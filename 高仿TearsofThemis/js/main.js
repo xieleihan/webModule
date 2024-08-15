@@ -4,7 +4,17 @@
 // 普通的效果部分,点击播放视频按钮开始播放视频,然后加个蒙版
 // start
 $(".pv_play").on("click", function () {
+    $(".main .mask").show();
+    $(".main .mask video").attr("src", "./res/未定事件簿-你是我心动的唯一真相.mp4");
+});
+$(".main .mask video").on("click", function (e) {
+    e.stopPropagation();
+})
+$(".main .mask").on("click", function () {
     
+    $(".main .mask").hide();
+    // console.log("点击了");
+    $(".main .mask video").attr("src", "");
 });
 // end
 
