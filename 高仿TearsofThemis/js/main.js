@@ -26,3 +26,19 @@ $(".news_menu").on("click", "li", function () {
     getContentNewLi(str);
 });
 // end
+
+// 2.新闻左边的轮播图的jQuery部分
+// start
+var index = 0;
+var interval = setInterval(function () {
+    index++;
+    if (index > $(".home-news .banner_item").length - 1) {
+        index = 0;
+        $(".home-news .swiper-wrapper").css("left", -index * 100 + "%");
+    } else {
+        $(".home-news .swiper-wrapper").css("left", -index * 100 + "%");
+    }
+    $(".home-news .swiper-pagination-bullet").removeClass("swiper-pagination-bullet-active");
+    $(".home-news .swiper-pagination-bullet").eq(index).addClass("swiper-pagination-bullet-active");
+}, 3000);
+// end
