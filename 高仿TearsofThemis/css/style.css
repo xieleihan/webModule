@@ -630,6 +630,33 @@
   font-size: 0 !important;
   z-index: 20;
 }
+.main .body .role .swiper-container {
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  overflow: hidden;
+  padding: 0;
+  z-index: 1;
+}
+.main .body .role .swiper-container.tab_content {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.main .body .role .swiper-container .swiper-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  display: flex;
+  transition-property: transform;
+  box-sizing: content-box;
+  transition-timing-function: ease-out;
+  flex-direction: column;
+  transform: translate3d(0px, 0, 0);
+}
 @keyframes rocking-data-v-44e324b1 {
   0% {
     height: 43%;
