@@ -29,16 +29,68 @@ $(".news_menu").on("click", "li", function () {
 
 // 2.新闻左边的轮播图的jQuery部分
 // start
-var index = 0;
-var interval = setInterval(function () {
-    index++;
-    if (index > $(".home-news .banner_item").length - 1) {
-        index = 0;
+// 初始化位置
+var index = 1;
+var intervalId1; // 定义全局变量
+$(".home-news .swiper-wrapper").css("left", -index * 100 + "%");
+//克隆节点
+var firstNode = $(".home-news .banner_item").first().clone();
+$(".home-news .swiper-wrapper").append(firstNode);
+var lastNode = $(".home-news .banner_item").eq(-2).clone();
+$(".home-news .swiper-wrapper").prepend(lastNode);
+
+function setHomeNewsSwiper() {
+    // 开启定时器
+    intervalId1 = setInterval(function () {
+        index++;
+        if (index >= $(".home-news .banner_item").length - 1) {
+            $(".home-news .swiper-wrapper").css("transition", "all 0.5s");
+            $(".home-news .swiper-wrapper").css("left", -index * 100 + "%");
+
+            // 等待过渡结束后再进行跳转
+            setTimeout(function () {
+                $(".home-news .swiper-wrapper").css("transition", "none");
+                index = 1;
+                $(".home-news .swiper-wrapper").css("left", -index * 100 + "%");
+
+                // 强制重绘以确保过渡效果
+                setTimeout(function () {
+                    $(".home-news .swiper-wrapper").css("transition", "all 0.5s");
+                }, 20);
+            }, 500); // 等待过渡时间结束
+        } else {
+            $(".home-news .swiper-wrapper").css("transition", "all 0.5s");
+            $(".home-news .swiper-wrapper").css("left", -index * 100 + "%");
+        }
+        $(".home-news .swiper-pagination-bullet").removeClass("swiper-pagination-bullet-active");
+        if (index == $(".home-news .banner_item").length - 1) {
+            $(".home-news .swiper-pagination-bullet").eq(0).addClass("swiper-pagination-bullet-active");
+        } else {
+            $(".home-news .swiper-pagination-bullet").eq(index - 1).addClass("swiper-pagination-bullet-active");
+        }
+    }, 3000);
+
+    $(".home-news .swiper-container").on("mouseover", function () {
+        clearInterval(intervalId1); // 清除定时器
+    });
+
+    $(".home-news .swiper-container").on("mouseout", function () {
+        clearInterval(intervalId1); // 清除定时器
+        setHomeNewsSwiper(); // 重新启动定时器
+    });
+
+    // 点击调转
+    $(".home-news .swiper-pagination-bullet").on("click", function () {
+        clearInterval(intervalId1); // 清除定时器
+        index = $(this).index() + 1;
+        $(".home-news .swiper-wrapper").css("transition", "all 0.5s");
         $(".home-news .swiper-wrapper").css("left", -index * 100 + "%");
-    } else {
-        $(".home-news .swiper-wrapper").css("left", -index * 100 + "%");
-    }
-    $(".home-news .swiper-pagination-bullet").removeClass("swiper-pagination-bullet-active");
-    $(".home-news .swiper-pagination-bullet").eq(index).addClass("swiper-pagination-bullet-active");
-}, 3000);
+        $(".home-news .swiper-pagination-bullet").removeClass("swiper-pagination-bullet-active");
+        $(this).addClass("swiper-pagination-bullet-active");
+    });
+}
+
+setHomeNewsSwiper(); // 初始化轮播
+
+
 // end
