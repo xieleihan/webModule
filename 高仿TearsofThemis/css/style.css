@@ -973,6 +973,16 @@
   background-size: 116px 46px;
   margin-bottom: 10px;
 }
+.main .mask {
+  background-color: rgba(0, 0, 0, 0.37);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  width: 100dvw;
+  height: 100dvh;
+  display: block;
+}
 @keyframes rocking-data-v-44e324b1 {
   0% {
     height: 43%;

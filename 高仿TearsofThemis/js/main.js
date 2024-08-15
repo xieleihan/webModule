@@ -1,6 +1,13 @@
 // Copyright © 2024 SouthAki, All Rights Reserved
 // console.log("该页面仅授权以学习为目的，不得用于商业用途。作者也以学习为目的高仿,并未对原官网公司造成任何损失,本项目开源,因该项目造成的影响由使用者自负。");
 
+// 普通的效果部分,点击播放视频按钮开始播放视频,然后加个蒙版
+// start
+$(".pv_play").on("click", function () {
+    
+});
+// end
+
 // 1.新闻处的标题切换的jQuery部分
 // start
 function getContentNewLi(str) {
@@ -112,6 +119,4 @@ function setHomeNewsSwiper() {
 }
 
 setHomeNewsSwiper(); // 初始化轮播
-
-
 // end
