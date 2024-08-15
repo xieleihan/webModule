@@ -68,6 +68,27 @@ function setHomeNewsSwiper() {
         } else {
             $(".home-news .swiper-pagination-bullet").eq(index - 1).addClass("swiper-pagination-bullet-active");
         }
+
+        // 设置文字
+        // $(".home-news .swiper-pagination")
+        switch (index) {
+            case 1:
+                $(".home-news .swiper-pagination").attr("data-title", "《未定事件簿》「爱如初见」活动PV：此行未觉远，来时花满路");
+                break;
+            case 2:
+                $(".home-news .swiper-pagination").attr("data-title", "莫弈SSR思绪【寻索】");
+                break;
+            case 3:
+                $(".home-news .swiper-pagination").attr("data-title", "《未定事件簿》「少年如你」活动PV：青空寄梦，心愿乘风");
+                break;
+            case 4:
+                $(".home-news .swiper-pagination").attr("data-title", "莫弈SSR思绪【心抚旧痕】");
+                break;
+            case 5:
+                $(".home-news .swiper-pagination").attr("data-title", "《未定事件簿》「爱如初见」活动PV：此行未觉远，来时花满路");
+                break;
+        }
+
     }, 3000);
 
     $(".home-news .swiper-container").on("mouseover", function () {
