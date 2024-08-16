@@ -239,3 +239,92 @@ $(".role .nav_tabs").on("click", "li", function () {
 
 // end
 
+// 5.有5张图片做堆叠轮播图的jQuery部分
+/* &.prev{
+    transform: translateX(0 %) scale(0.8);
+    opacity: .8;
+    z - index: 956;
+}
+&.active{
+    transform: translateX(-64 %) scale(1);
+    opacity: 1;
+    z - index: 957;
+}
+&.next{
+    transform: translateX(-128 %) scale(0.8);
+    opacity: .8;
+    z - index: 956;
+} */
+// start
+// console.log($(".feature .photo_item")); // 找到我们的元素
+// 设置默认值
+// var transforms = [
+//     [36, -28, -100 , -328, -400],
+//     [0, -64, -128,-200, -428],
+//     [-28, -100, -164 ,-228, -288],
+//     [-128, -100, -200,-264, -328,],
+//     [64, -100, -236 ,-300, -364],
+//     [36, -28, -100, -328, -400]
+// ];
+var transforms = [
+    [36, -28, -100, -328, -400],
+    [0, -64, -128, -200, -428],
+    [-28, -100, -164, -228, -300],
+    [100, -128, -200, -264, -328],
+    [64, 0, -228, -300, -364],
+    [36, -28, -100, -328, -400]
+];
+
+var indexFeature = 0;
+var totalItems = $(".feature .photo_item").length;
+
+function updateFeature() {
+    $(".feature .photo_item").removeClass("active next prev nextNext prevPrev");
+
+    transforms[indexFeature].forEach(function (item, index) {
+        // Current active item
+        $(".feature .photo_item").eq(indexFeature).css({
+            "transform": "translateX(" + transforms[indexFeature][indexFeature] + "%) scale(1)",
+            "opacity": "1",
+            "z-index": "998"
+        });
+
+        // Previous item
+        $(".feature .photo_item").eq((indexFeature - 1 + totalItems) % totalItems).css({
+            "transform": "translateX(" + transforms[indexFeature][indexFeature - 1] + "%) scale(0.8)",
+            "opacity": ".8",
+            "z-index": "997"
+        });
+
+        // Next item
+        $(".feature .photo_item").eq((indexFeature + 1) % totalItems).css({
+            "transform": "translateX(" + transforms[indexFeature][indexFeature + 1] + "%) scale(0.8)",
+            "opacity": ".8",
+            "z-index": "997"
+        });
+
+        // Two items before
+        $(".feature .photo_item").eq((indexFeature - 2 + totalItems) % totalItems).css({
+            "transform": "translateX(" + transforms[indexFeature][indexFeature - 2] + "%) scale(0.6)",
+            "opacity": "0",
+            "z-index": "996"
+        });
+
+        // Two items after
+        $(".feature .photo_item").eq((indexFeature + 2) % totalItems).css({
+            "transform": "translateX(" + transforms[indexFeature][indexFeature + 2] + "%) scale(0.6)",
+            "opacity": "0",
+            "z-index": "996"
+        });
+    });
+}
+
+var featureIntervalId = setInterval(function () {
+    indexFeature = (indexFeature + 1) % totalItems;
+    updateFeature();
+}, 3000);
+
+// Initial update
+updateFeature();
+
+// end
