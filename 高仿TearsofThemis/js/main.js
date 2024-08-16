@@ -259,11 +259,11 @@ $(".role .nav_tabs").on("click", "li", function () {
 // console.log($(".feature .photo_item")); // 找到我们的元素
 // 设置默认值
 // var transforms = [
-//     [36, -28, -100 , -328, -400],
-//     [0, -64, -128,-200, -428],
-//     [-28, -100, -164 ,-228, -288],
-//     [-128, -100, -200,-264, -328,],
-//     [64, -100, -236 ,-300, -364],
+//     [36, -28, -100, -328, -400],
+//     [0, -64, -128, -200, -428],
+//     [-28, -100, -164, -228, -300],
+//     [100, -128, -200, -264, -328],
+//     [64, 0, -228, -300, -364],
 //     [36, -28, -100, -328, -400]
 // ];
 var transforms = [
@@ -332,6 +332,17 @@ updateFeature();
 $(".feature .swiper-pagination-bullet").on("click", function () {
     clearInterval(featureIntervalId);
     indexFeature = $(this).index();
+    updateFeature();
+});
+
+$(".feature .swiper-button-prev").on("click", function () {
+    clearInterval(featureIntervalId);
+    indexFeature = (indexFeature - 1 + totalItems) % totalItems;
+    updateFeature();
+});
+$(".feature .swiper-button-next").on("click", function () {
+    clearInterval(featureIntervalId);
+    indexFeature = (indexFeature + 1) % totalItems;
     updateFeature();
 });
 
