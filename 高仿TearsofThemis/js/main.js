@@ -317,6 +317,8 @@ function updateFeature() {
             "z-index": "996"
         });
     });
+    $(".feature .swiper-pagination-bullet").removeClass("swiper-pagination-bullet-active");
+    $(".feature .swiper-pagination-bullet").eq(indexFeature).addClass("swiper-pagination-bullet-active");
 }
 
 var featureIntervalId = setInterval(function () {
@@ -326,5 +328,11 @@ var featureIntervalId = setInterval(function () {
 
 // Initial update
 updateFeature();
+
+$(".feature .swiper-pagination-bullet").on("click", function () {
+    clearInterval(featureIntervalId);
+    indexFeature = $(this).index();
+    updateFeature();
+});
 
 // end
