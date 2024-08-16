@@ -130,3 +130,16 @@ function setHomeNewsSwiper() {
 
 setHomeNewsSwiper(); // 初始化轮播
 // end
+
+// 3.role人物海报墙的右边部分切换的jQuery部分
+// start
+$(".role .nav_tabs").on("click" ,"li", function () { 
+    $(this).addClass("active").siblings().removeClass("active");
+    var index = $(this).index();
+    console.log(index);
+}); 
+// end
+
+// 4.role主要的海报的动画切换的jQuery部分
+// start
+// end
