@@ -1,0 +1,14 @@
+最新,点击后发起的Get请求的接口
+https://wd.mihoyo.com/content_v2/getContentList?iChanId=49&iAppId=15&iPageSize=5&iPage=1&sLangKey=zh-cn
+
+新闻
+https://wd.mihoyo.com/content_v2/getContentList?iChanId=49&iAppId=15&iPageSize=5&iPage=1&sLangKey=zh-cn
+
+公告的
+https://wd.mihoyo.com/content_v2/getContentList?iChanId=51&iAppId=15&iPageSize=5&iPage=1&sLangKey=zh-cn
+
+活动
+https://wd.mihoyo.com/content_v2/getContentList?iChanId=52&iAppId=15&iPageSize=5&iPage=1&sLangKey=zh-cn
+
+人物信息
+https://wd.mihoyo.com/content_v2/getContentList?iChanId=62&iAppId=15&iPageSize=1&iPage=1&sLangKey=zh-cn

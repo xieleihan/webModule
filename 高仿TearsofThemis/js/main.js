@@ -280,8 +280,11 @@ var totalItems = $(".feature .photo_item").length;
 
 function updateFeature() {
     $(".feature .photo_item").removeClass("active next prev nextNext prevPrev");
+    
 
     transforms[indexFeature].forEach(function (item, index) {
+        
+
         // Current active item
         $(".feature .photo_item").eq(indexFeature).css({
             "transform": "translateX(" + transforms[indexFeature][indexFeature] + "%) scale(1)",
@@ -316,6 +319,21 @@ function updateFeature() {
             "opacity": "0",
             "z-index": "996"
         });
+
+        if (indexFeature === 4) {
+            $(".feature .photo_item").eq(0).css({
+                "transform": "translateX(" + 64 + "%) scale(0.8)",
+                "opacity": ".8",
+                "z-index": "997"
+            });
+        }
+        if (indexFeature === 0) {
+            $(".feature .photo_item").eq(4).css({
+                "transform": "translateX(" + -400 + "%) scale(0.8)",
+                "opacity": ".8",
+                "z-index": "997"
+            });
+        }
     });
     $(".feature .swiper-pagination-bullet").removeClass("swiper-pagination-bullet-active");
     $(".feature .swiper-pagination-bullet").eq(indexFeature).addClass("swiper-pagination-bullet-active");
@@ -323,6 +341,7 @@ function updateFeature() {
 
 var featureIntervalId = setInterval(function () {
     indexFeature = (indexFeature + 1) % totalItems;
+    console.log(indexFeature);
     updateFeature();
 }, 3000);
 
