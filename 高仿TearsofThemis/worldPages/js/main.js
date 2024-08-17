@@ -122,5 +122,5 @@ $.get("./json/all/all-pages1.json", function (data) {
 
         // 将创建的新闻列表项插入到 .news_list 容器中
         $(".news_list").append(newsLi);
-    }
+    });
 })
