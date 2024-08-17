@@ -1,0 +1,12 @@
+米哈游-未定事件簿的API接口
+
+请求地址:https://wd.mihoyo.com/content_v2/getContentList
+方法:GET
+参数:iPage=   页码,就是第几页
+    iChanId= 什么什么的类型,比如 49最新 新闻好像也是49 公告51  活动52
+    iAppId=  这个最好固定,因为我猜不到是什么参数的东西
+    iPageSize= 告诉服务器我这边客户端请求多少数据 默认5个,因为我的item要请求就这么多
+    LangKey=zh-cn  这个保持默认,除非国际上的话 en-us 美式英语  en-uk 英式英语 
+
+示例请求:https://wd.mihoyo.com/content_v2/getContentList?iChanId=49&iAppId=15&iPageSize=5&iPage=1&sLangKey=zh-cn
+示例JSON文件:./test.json

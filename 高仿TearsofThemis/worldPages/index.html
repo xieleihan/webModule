@@ -19,17 +19,17 @@
                 <ul class="clear">
                     <a href="../index.html">
                         <li class="fl">
-                            <img src="./images/navUlLi切换时对应的mask图/home(no-hightlight).png" alt="">
+                            <img src="../newsPages/images/navUlLi切换时对应的mask图/home(no-hightlight).png" alt="">
                         </li>
                     </a>
                     <a href="./newsPages/index.html">
                         <li class="fl">
-                            <img src="./images/navUlLi切换时对应的mask图/世界观(hightlight).png" alt="">
+                            <img src=".././images/nav/home/世界观.png" alt="">
                         </li>
                     </a>
                     <a href="../worldPages/index.html">
                         <li class="fl">
-                            <img src=".././images/nav/home/新闻资讯.png" alt="">
+                            <img src="./images/高亮的新闻资讯li.png" alt="">
                         </li>
                     </a>
                     <a href="#">
@@ -37,13 +37,13 @@
                             <img src=".././images/nav/home/视听中心.png" alt="">
                         </li>
                     </a>
-        
+    
                     <a href="#">
                         <li class="fl">
                             <img src=".././images/nav/home/礼包兑换.png" alt="">
                         </li>
                     </a>
-        
+    
                     <a href="#">
                         <li class="fl">
                             <img src=".././images/nav/home/成长关爱系统.png" alt="">
@@ -163,26 +163,89 @@
                 <li></li>
             </ul>
         </div>
-
+    
         <!-- 主要盒子 -->
         <div class="box">
             <!-- logo -->
             <div class="logo"></div>
-            <!-- 信息卡片 -->
-            <div class="info"></div>
-            <!-- 右侧选项卡 -->
-            <div class="outlook_nav">
-                <a href="./index.html">
-                    <img src="./images/main-RightAboutUl/故事背景(heightlight).png" alt="故事背景高亮版本" class="active">
-                    <img src="./images/main-RightAboutUl/故事背景(no-heightlight).png" alt="故事背景没有高亮">
-                </a>
-                <a href="./canvas.html">
-                    <img src="./images/main-RightAboutUl/人物关系(heightlight).png" alt="人物关系高亮">
-                    <img src="./images/main-RightAboutUl/人物关系(no-heightlight).png" alt="人物关系不高亮版本" class="active">
-                </a>
+            <div class="content">
+                <div class="news">
+                    <ul class="news_menu">
+                        <li data-name="all" class="news_tab news_tab1 news_tab1_active"></li>
+                        <li data-name="news" class="news_tab news_tab2"></li>
+                        <li data-name="announce" class="news_tab news_tab3"></li>
+                        <li data-name="event" class="news_tab news_tab4"></li>
+                    </ul>
+                    <ul class="news_list">
+                        <li class="news_item">
+                            <div class="news_type"></div>
+                            <div class="news_date">
+                                <span class="news_date_day"></span>
+                                <span></span>
+                            </div>
+                            <div class="news_content">
+                                <div class="new_title"></div>
+                            </div>
+                        </li>
+                        <li class="news_item">
+                            <div class="news_type"></div>
+                            <div class="news_date">
+                                <span class="news_date_day"></span>
+                                <span></span>
+                            </div>
+                            <div class="news_content">
+                                <div class="new_title"></div>
+                            </div>
+                        </li>
+                        <li class="news_item">
+                            <div class="news_type"></div>
+                            <div class="news_date">
+                                <span class="news_date_day"></span>
+                                <span></span>
+                            </div>
+                            <div class="news_content">
+                                <div class="new_title"></div>
+                            </div>
+                        </li>
+                        <li class="news_item">
+                            <div class="news_type"></div>
+                            <div class="news_date">
+                                <span class="news_date_day"></span>
+                                <span></span>
+                            </div>
+                            <div class="news_content">
+                                <div class="new_title"></div>
+                            </div>
+                        </li>
+                        <li class="news_item">
+                            <div class="news_type"></div>
+                            <div class="news_date">
+                                <span class="news_date_day"></span>
+                                <span></span>
+                            </div>
+                            <div class="news_content">
+                                <div class="new_title"></div>
+                            </div>
+                        </li>
+                        <div class="news_pager">
+                            <div class="mihoyo-pager-rich_pages">
+                                <a class="mihoyo-pager-rich_button mihoyo-pager-rich_prev" href="#"></a>
+                                <a class="mihoyo-pager-rich_button mihoyo-pager-rich_current" href="#">1</a>
+                                <strong class="mihoyo-pager-rich_elipsis active">...</strong>
+                                <a class="mihoyo-pager-rich_button" href="#">2</a>
+                                <a class="mihoyo-pager-rich_button" href="#">3</a>
+                                <a class="mihoyo-pager-rich_button" href="#">4</a>
+                                <a class="mihoyo-pager-rich_button" href="#">5</a>
+                                <strong class="mihoyo-pager-rich_elipsis">...</strong>
+                                <a class="mihoyo-pager-rich_button" href="#">92</a>
+                                <a class="mihoyo-pager-rich_button mihoyo-pager-rich_next" href="#"></a>
+                            </div>
+                        </div>
+                    </ul>
+                </div>
             </div>
         </div>
-
+    
         <!-- 脚标 -->
         <div class="footer">
             <div class="footerBox">
@@ -246,8 +309,9 @@
                     <div class="footer-filing">
                         <div class="footer-filing-content"> <a href="https://beian.miit.gov.cn/#/Integrated/index"
                                 rel="nofollow" target="_blank" class="footer-filing-item">沪ICP备19018275号-4</a><span
-                                class="split-line"> | </span> <span class="footer-filing-item"> 沪网文〔2022〕1334-052号 </span><span
-                                class="split-line"> | </span> <span class="footer-filing-item">国新出审【2019】3676号</span> </div>
+                                class="split-line"> | </span> <span class="footer-filing-item"> 沪网文〔2022〕1334-052号
+                            </span><span class="split-line"> | </span> <span
+                                class="footer-filing-item">国新出审【2019】3676号</span> </div>
                         <div class="footer-filing-tip"> <span> 互联网违法不良信息举报邮箱: tousu@service.mihoyo.com </span> <span>
                                 互联网违法不良信息举报电话:
                                 021-60371750 （工作时间：每天10点 - 20点） </span> </div>
