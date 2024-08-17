@@ -366,3 +366,16 @@ $(".feature .swiper-button-next").on("click", function () {
 });
 
 // end
+
+// 6.使用Ajax实现无刷跳转(忘记预留了)
+// start
+// console.log($(".navTop_link"));
+// $(document).ready(function () {
+//     $(".navTop_link").on("click", function (event) {
+//         event.preventDefault();
+//         var url = $(this).attr("href");
+
+//         $(".main .body").load(url);
+//     });
+// });
+// end
