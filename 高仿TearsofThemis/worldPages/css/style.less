@@ -298,6 +298,7 @@
                         &.news_tab1 {
                             background: url('../images/meun/最新\(no-heightlight\).png');
                             background-position: center;
+                            background-repeat: no-repeat;
                         }
 
                         &.news_tab2 {
@@ -325,6 +326,7 @@
 
                         &.news_tab2_active {
                             background-size: cover;
+                            background-size: 100% 100%;
                             background: url('../images/meun/新闻\(heightlight\).png');
                         }
 
@@ -348,40 +350,84 @@
                     margin-top: 62px;
                     box-sizing: border-box;
                     border-right: 1px solid #f0eef5;
-                    .news_item{
+
+                    .news_item {
                         display: flex;
                         align-items: center;
-                        border-bottom: 1px solid rgba(98,104,157,.2);
+                        border-bottom: 1px solid rgba(98, 104, 157, .2);
                         height: 116px;
                         font-size: 16px;
                         padding: 18px 40px 18px 25px;
                         cursor: pointer;
-                        &:hover{
+
+                        &:hover {
                             background-color: #656ba2;
+                            color: white;
+
+                            .news_type {
+                                position: relative;
+                                width: 80px;
+                                height: 40px;
+                                color: #fff;
+                                background-size: 100% 100%;
+
+                                &.announce {
+                                    background: url('../images/meun/span的/公告\(no-heightlight\).png');
+                                }
+
+                                &.new {
+                                    background: url('../images/meun/span的/新闻\(no-heightlight\).png');
+                                }
+
+                                &.event {
+                                    background: url('../images/meun/span的/活动\(no-heightlight\).png');
+                                }
+                            }
+
+                            .news_date {
+                                color: #fff;
+                            }
                         }
-                        .news_type{
+
+                        .news_type {
                             position: relative;
                             width: 80px;
                             height: 40px;
                             color: #fff;
                             background-size: 100% 100%;
+
+                            &.announce {
+                                background: url('../images/meun/span的/公告\(heightlight\).png');
+                            }
+
+                            &.new {
+                                background: url('../images/meun/span的/新闻\(heightlight\).png');
+                            }
+
+                            &.event {
+                                background: url('../images/meun/span的/活动\(heightlight\).png');
+                            }
                         }
-                        .news_date{
+
+                        .news_date {
                             margin: 0 34px 0 43px;
                             font-size: 13px;
                             color: #8187d1;
                             text-align: center;
-                            .news_date_day{
+
+                            .news_date_day {
                                 display: block;
                                 font-size: 48px;
                                 margin-bottom: 6px;
                             }
                         }
-                        .news_content{
+
+                        .news_content {
                             flex: 1;
                             overflow: hidden;
                             height: 100%;
-                            .news_title{
+
+                            .news_title {
                                 display: block;
                                 font-size: 20px;
                                 color: 1a1a1a;
@@ -393,7 +439,8 @@
                     }
                 }
             }
-            .news_pager{
+
+            .news_pager {
                 height: 66px;
                 display: flex;
                 justify-content: center;
@@ -402,11 +449,13 @@
                 bottom: 0;
                 width: 100%;
                 margin-top: 0 !important;
-                .mihoyo-pager-rich_pages{
+
+                .mihoyo-pager-rich_pages {
                     display: inline-block;
                     height: 32px;
                     font-size: 0;
-                    .mihoyo-pager-rich_button{
+
+                    .mihoyo-pager-rich_button {
                         line-height: 29px;
                         font-size: 24px !important;
                         min-width: 0 !important;
@@ -419,8 +468,9 @@
                         border-radius: 2px;
                         display: inline-block;
                         margin: 0 6px !important;
+
                         // 当前选择的位置
-                        &.mihoyo-pager-rich_current{
+                        &.mihoyo-pager-rich_current {
                             border-radius: 0 !important;
                             color: #fff !important;
                             min-width: 29px !important;
@@ -429,16 +479,18 @@
                             border: 1px solid #62689e !important;
                             text-align: center;
                         }
+
                         // 左箭头
-                        &.mihoyo-pager-rich_prev{
+                        &.mihoyo-pager-rich_prev {
                             margin-right: 25px !important;
                             width: 12px;
                             height: 23px !important;
                             background: url('../images/left.png') 100% 100% !important;
                             display: none;
                         }
+
                         // 右箭头
-                        &.mihoyo-pager-rich_next{
+                        &.mihoyo-pager-rich_next {
                             margin-left: 25px !important;
                             transform: rotate(180deg);
                             width: 12px;
@@ -446,8 +498,9 @@
                             background: url('../images/left.png') 100% 100% !important;
                         }
                     }
+
                     // 省略号
-                    .mihoyo-pager-rich_elipsis{
+                    .mihoyo-pager-rich_elipsis {
                         line-height: 29px;
                         height: 29px !important;
                         font-size: 24px !important;
@@ -461,7 +514,8 @@
                         cursor: pointer;
                         display: inline-block;
                         margin: 0 6px !important;
-                        &.active{
+
+                        &.active {
                             display: none;
                         }
                     }

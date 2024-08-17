@@ -261,6 +261,7 @@
 .main .box .content .news .news_menu .news_tab.news_tab1 {
   background: url('../images/meun/最新\(no-heightlight\).png');
   background-position: center;
+  background-repeat: no-repeat;
 }
 .main .box .content .news .news_menu .news_tab.news_tab2 {
   background: url('../images/meun/新闻\(no-heightlight\).png');
@@ -283,6 +284,7 @@
 }
 .main .box .content .news .news_menu .news_tab.news_tab2_active {
   background-size: cover;
+  background-size: 100% 100%;
   background: url('../images/meun/新闻\(heightlight\).png');
 }
 .main .box .content .news .news_menu .news_tab.news_tab3_active {
@@ -313,6 +315,26 @@
 }
 .main .box .content .news .news_list .news_item:hover {
   background-color: #656ba2;
+  color: white;
+}
+.main .box .content .news .news_list .news_item:hover .news_type {
+  position: relative;
+  width: 80px;
+  height: 40px;
+  color: #fff;
+  background-size: 100% 100%;
+}
+.main .box .content .news .news_list .news_item:hover .news_type.announce {
+  background: url('../images/meun/span的/公告\(no-heightlight\).png');
+}
+.main .box .content .news .news_list .news_item:hover .news_type.new {
+  background: url('../images/meun/span的/新闻\(no-heightlight\).png');
+}
+.main .box .content .news .news_list .news_item:hover .news_type.event {
+  background: url('../images/meun/span的/活动\(no-heightlight\).png');
+}
+.main .box .content .news .news_list .news_item:hover .news_date {
+  color: #fff;
 }
 .main .box .content .news .news_list .news_item .news_type {
   position: relative;
@@ -320,6 +342,15 @@
   height: 40px;
   color: #fff;
   background-size: 100% 100%;
+}
+.main .box .content .news .news_list .news_item .news_type.announce {
+  background: url('../images/meun/span的/公告\(heightlight\).png');
+}
+.main .box .content .news .news_list .news_item .news_type.new {
+  background: url('../images/meun/span的/新闻\(heightlight\).png');
+}
+.main .box .content .news .news_list .news_item .news_type.event {
+  background: url('../images/meun/span的/活动\(heightlight\).png');
 }
 .main .box .content .news .news_list .news_item .news_date {
   margin: 0 34px 0 43px;

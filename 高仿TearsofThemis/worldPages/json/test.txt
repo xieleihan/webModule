@@ -10,3 +10,11 @@
 
 示例请求:https://wd.mihoyo.com/content_v2/getContentList?iChanId=49&iAppId=15&iPageSize=5&iPage=1&sLangKey=zh-cn
 示例JSON文件:./test.json
+
+我的网页请求:
+iPage = 5
+iChanId = dataIndex
+iAppId = 15
+iPageSize = 5
+iPage = 1
+sLangKey = zh-cn
