@@ -252,6 +252,136 @@
         background-size: cover;
         position: relative;
 
+        .wallContent{
+            width: 100%;
+            height: 100%;
+            background-repeat: no-repeat;
+            background-position: right 20%;
+            background-size: 20% auto;
+            background-image: url('../images/壁纸图标.png');
+            position: relative;
+            padding: 2.5rem 23.18% 0 4.75%;
+            display: flex;
+            flex-direction: column;
+            .wallContentNav{
+                overflow: hidden;
+                .wallpaper_to{
+                    display: block;
+                    width: 1.85rem;
+                    height: .65rem;
+                    background-repeat: no-repeat;
+                    float: left;
+                    &.wallpaper_to_pc{
+                        background-image: url('../images/PC壁纸图标\(no-heightlight\).png');
+                        background-position: center center;
+                    }
+                    &.wallpaper_to_mobile{
+                        background-image: url('../images/手机壁纸图标\(no-heightlight\).png');
+                        background-position: center center;
+                    }
+                    &.pc_active{
+                        background-image: url('../images/PC壁纸图标\(heightlight\).png');
+                        background-position: center center;
+                        background-size: auto 100%;
+                    }
+                    &.mobile_active{
+                        background-image: url('../images/手机壁纸\(heightlight\).png');
+                        background-position: center center;
+                        background-size: auto 100%;
+                    }
+                }
+            }
+            .wallpaper_pc{
+                flex: 1 1;
+                overflow-y: auto;
+                margin: .25rem 0;
+                .wallpaper_list{
+                    width: 100%;
+                    font-size: 0;
+                    .wallpaper_item{
+                        width: 31%;
+                        display: inline-block;
+                        margin: 0 1.1666666667% .25rem;
+                        background: rgba(255, 255, 255, .2);
+                        cursor: pointer;
+                        .wallpaper_box{
+                            width: 98%;
+                            margin: 1% auto 0;
+                            border: 1px solid rgba(255, 255, 255, .7);
+                            position: relative;
+                            padding: .07rem;
+                            &::before{
+                                right: -0.01rem;
+                                bottom: -0.01rem;
+                                border-left-color: rgba(255, 255, 255, .7);
+                            }
+                            &::after{
+                                left: -0.01rem;
+                                top: -0.01rem;
+                                border-right-color: rgba(255, 255, 255, .7);
+                            }
+                            .wallpaper_preview{
+                                width: 100%;
+                                padding-top: 56.25%;
+                                background-position: center center;
+                                background-size: cover;
+                            }
+                        }
+                    }
+                }
+            }
+            .wallpaper_mobile{
+                flex: 1 1;
+                overflow-y: auto;
+                margin: .25rem 0;
+                scrollbar-width: none;
+                .wallpaper_list{
+                    width: 100%;
+                    font-size: 0;
+                    .wallpaper_item{
+                        width: 18.5%;
+                        display: inline-block;
+                        margin: 0 .75% .25rem;
+                        background: rgba(255, 255, 255, .2);
+                        cursor: pointer;
+                        .wallpaper_box{
+                            width: 98%;
+                            margin: 1% auto 0;
+                            border: 1px solid rgba(255, 255, 255, .7);
+                            position: relative;
+                            padding: .07rem;
+                            &::before{
+                                right: -0.01rem;
+                                bottom: -0.01rem;
+                                border-left-color: rgba(255, 255, 255, .7);
+                            }
+                            &::after{
+                                left: -0.01rem;
+                                top: -0.01rem;
+                                border-right-color: rgba(255, 255, 255, .7);
+                            }
+                            .wallpaper_preview{
+                                width: 100%;
+                                padding-top: 153.305785124%;
+                                background-position: center center;
+                                background-size: cover;
+                            }
+                        }
+                        .wallpaper_title{
+                            width: 100%;
+                            line-height: .56rem;
+                            font-size: .24rem;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                            white-space: nowrap;
+                            padding: 0 .13rem;
+                            color: white;
+                        }
+                    }
+                }
+            }
+        }
+
         .content {
             width: 100%;
             height: 100%;
@@ -274,6 +404,10 @@
                     margin: .1rem 1.1666666667% .15rem;
                     background: rgba(255, 255, 255, .2);
                     cursor: pointer;
+
+                    &:hover .video_box{
+                        box-shadow: -1px 0px 9px 4px #bdc2fe;
+                    }
 
                     &:hover .video_box .video_play {
                         opacity: 1;
@@ -378,6 +512,28 @@
         }
 
 
+    }
+
+    .mainVideoBox{
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100dvw;
+        height: 100dvh;
+        background-color: rgba(0, 0, 0, .8);
+        // opacity: .6;
+        display: none;
+        z-index: 9;
+        video{
+            position: absolute;
+            z-index: 1000;
+            width: 70%;
+            height: auto;
+            left: 15%;
+            top: 50%;
+            opacity: 1;
+            transform: translateY(-50%);
+        }
     }
 
     // 脚标样式

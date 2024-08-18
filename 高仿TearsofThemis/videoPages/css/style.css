@@ -217,6 +217,135 @@
   background-size: cover;
   position: relative;
 }
+.main .box .wallContent {
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-position: right 20%;
+  background-size: 20% auto;
+  background-image: url('../images/壁纸图标.png');
+  position: relative;
+  padding: 2.5rem 23.18% 0 4.75%;
+  display: flex;
+  flex-direction: column;
+}
+.main .box .wallContent .wallContentNav {
+  overflow: hidden;
+}
+.main .box .wallContent .wallContentNav .wallpaper_to {
+  display: block;
+  width: 1.85rem;
+  height: 0.65rem;
+  background-repeat: no-repeat;
+  float: left;
+}
+.main .box .wallContent .wallContentNav .wallpaper_to.wallpaper_to_pc {
+  background-image: url('../images/PC壁纸图标\(no-heightlight\).png');
+  background-position: center center;
+}
+.main .box .wallContent .wallContentNav .wallpaper_to.wallpaper_to_mobile {
+  background-image: url('../images/手机壁纸图标\(no-heightlight\).png');
+  background-position: center center;
+}
+.main .box .wallContent .wallContentNav .wallpaper_to.pc_active {
+  background-image: url('../images/PC壁纸图标\(heightlight\).png');
+  background-position: center center;
+  background-size: auto 100%;
+}
+.main .box .wallContent .wallContentNav .wallpaper_to.mobile_active {
+  background-image: url('../images/手机壁纸\(heightlight\).png');
+  background-position: center center;
+  background-size: auto 100%;
+}
+.main .box .wallContent .wallpaper_pc {
+  flex: 1 1;
+  overflow-y: auto;
+  margin: 0.25rem 0;
+}
+.main .box .wallContent .wallpaper_pc .wallpaper_list {
+  width: 100%;
+  font-size: 0;
+}
+.main .box .wallContent .wallpaper_pc .wallpaper_list .wallpaper_item {
+  width: 31%;
+  display: inline-block;
+  margin: 0 1.16666667% 0.25rem;
+  background: rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+}
+.main .box .wallContent .wallpaper_pc .wallpaper_list .wallpaper_item .wallpaper_box {
+  width: 98%;
+  margin: 1% auto 0;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  position: relative;
+  padding: 0.07rem;
+}
+.main .box .wallContent .wallpaper_pc .wallpaper_list .wallpaper_item .wallpaper_box::before {
+  right: -0.01rem;
+  bottom: -0.01rem;
+  border-left-color: rgba(255, 255, 255, 0.7);
+}
+.main .box .wallContent .wallpaper_pc .wallpaper_list .wallpaper_item .wallpaper_box::after {
+  left: -0.01rem;
+  top: -0.01rem;
+  border-right-color: rgba(255, 255, 255, 0.7);
+}
+.main .box .wallContent .wallpaper_pc .wallpaper_list .wallpaper_item .wallpaper_box .wallpaper_preview {
+  width: 100%;
+  padding-top: 56.25%;
+  background-position: center center;
+  background-size: cover;
+}
+.main .box .wallContent .wallpaper_mobile {
+  flex: 1 1;
+  overflow-y: auto;
+  margin: 0.25rem 0;
+  scrollbar-width: none;
+}
+.main .box .wallContent .wallpaper_mobile .wallpaper_list {
+  width: 100%;
+  font-size: 0;
+}
+.main .box .wallContent .wallpaper_mobile .wallpaper_list .wallpaper_item {
+  width: 18.5%;
+  display: inline-block;
+  margin: 0 0.75% 0.25rem;
+  background: rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+}
+.main .box .wallContent .wallpaper_mobile .wallpaper_list .wallpaper_item .wallpaper_box {
+  width: 98%;
+  margin: 1% auto 0;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  position: relative;
+  padding: 0.07rem;
+}
+.main .box .wallContent .wallpaper_mobile .wallpaper_list .wallpaper_item .wallpaper_box::before {
+  right: -0.01rem;
+  bottom: -0.01rem;
+  border-left-color: rgba(255, 255, 255, 0.7);
+}
+.main .box .wallContent .wallpaper_mobile .wallpaper_list .wallpaper_item .wallpaper_box::after {
+  left: -0.01rem;
+  top: -0.01rem;
+  border-right-color: rgba(255, 255, 255, 0.7);
+}
+.main .box .wallContent .wallpaper_mobile .wallpaper_list .wallpaper_item .wallpaper_box .wallpaper_preview {
+  width: 100%;
+  padding-top: 153.30578512%;
+  background-position: center center;
+  background-size: cover;
+}
+.main .box .wallContent .wallpaper_mobile .wallpaper_list .wallpaper_item .wallpaper_title {
+  width: 100%;
+  line-height: 0.56rem;
+  font-size: 0.24rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding: 0 0.13rem;
+  color: white;
+}
 .main .box .content {
   width: 100%;
   height: 100%;
@@ -239,6 +368,9 @@
   margin: 0.1rem 1.16666667% 0.15rem;
   background: rgba(255, 255, 255, 0.2);
   cursor: pointer;
+}
+.main .box .content .video_list .video_item:hover .video_box {
+  box-shadow: -1px 0px 9px 4px #bdc2fe;
 }
 .main .box .content .video_list .video_item:hover .video_box .video_play {
   opacity: 1;
@@ -327,6 +459,26 @@
 }
 .main .box .nav a .active {
   display: none;
+}
+.main .mainVideoBox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100dvw;
+  height: 100dvh;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: none;
+  z-index: 9;
+}
+.main .mainVideoBox video {
+  position: absolute;
+  z-index: 1000;
+  width: 70%;
+  height: auto;
+  left: 15%;
+  top: 50%;
+  opacity: 1;
+  transform: translateY(-50%);
 }
 .main .footer {
   position: relative;

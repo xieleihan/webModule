@@ -25,8 +25,8 @@ $.get("./json/video/video.json", function (data) {
     // console.log(data); // 拿到数据
     // console.log(data.data.list); // 我们要的
     data.data.list.forEach(function (item, index) {
-        console.log(item);
-        console.log(item.sTitle);
+        // console.log(item);
+        // console.log(item.sTitle);
         const data = item.sExt;
 
         // 使用正则表达式提取 mp4 地址
@@ -44,7 +44,7 @@ $.get("./json/video/video.json", function (data) {
         if (mp4Matches) {
             mp4Matches.forEach(match => {
                 const url = match.match(/https:\/\/[^"]+\.mp4/)[0];
-                console.log('MP4 URL:', url);
+                // console.log('MP4 URL:', url);
                 mp4Url = url;
             });
         }
@@ -52,12 +52,12 @@ $.get("./json/video/video.json", function (data) {
         if (jpegMatches) {
             jpegMatches.forEach(match => {
                 const url = match.match(/https:\/\/[^"]+\.jpeg/)[0];
-                console.log('JPEG URL:', url);
+                // console.log('JPEG URL:', url);
                 jpegUrl = url;
             });
         }
 
-        var li = $("<li class='video_item'></li>");
+        var li = $("<li class='video_item' data-url='" + mp4Url +"'></li>");
         var videoBox = $("<div class='video_box'></div>");
         var videoPreview = $("<div class='video_preview'></div>");
         videoPreview.attr("style", "background-image: url(" + jpegUrl + ")");
@@ -69,4 +69,88 @@ $.get("./json/video/video.json", function (data) {
         li.append(videoTitle);
         $(".video_list").append(li);
     })
-})
+});
+
+$(".video_list").on("click", "li", function () {
+    console.log($(this).attr("data-url"));
+    $(".mainVideoBox").show();
+    $(".mainVideoBox video").attr("src", $(this).attr("data-url"));
+});
+
+$(".mainVideoBox").on("click", function () {
+    $(".mainVideoBox").hide();
+    $(".mainVideoBox video").attr("src", "");
+});
+
+$(".mainVideoBox video").on("click", function (e) {
+    e.stopPropagation();
+});
+
+$(".nav a img").on("click", function () {
+    $(".nav a img").toggleClass("active");
+});
+
+
+// 以下是壁纸区域的代码
+// start
+
+$.get("./json/壁纸/电脑壁纸/pcWall.json", function (data) {
+    $(".wallpaper_pc .wallpaper_list").empty();
+    // console.log(data.data); // 拿到数据
+    data.data.list.forEach(function (item, index) {
+        // console.log(item);
+        // console.log(item.sTitle);
+        var data1 = item.sExt;
+        var jpgRegex1 = /"url":"(https:\/\/[^"]+\.jpg)"/g;
+        var jpgMatches1 = data1.match(jpgRegex1);
+        var jpgUrl;
+        if (jpgMatches1) {
+            jpgMatches1.forEach(match => {
+                var url = match.match(/https:\/\/[^"]+\.jpg/)[0];
+                // console.log('JPG URL:', url);
+                jpgUrl = url;
+            });
+        }
+
+        var li = $("<li class='wallpaper_item'></li>");
+        var wallpaperBox = $("<div class='wallpaper_box'></div>");
+        var wallpaperPreview = $("<div class='wallpaper_preview'></div>");
+        wallpaperPreview.attr("style", "background-image: url(" + jpgUrl + ")");
+        wallpaperBox.append(wallpaperPreview);
+        var wallpaperTitle = $("<div class='wallpaper_title'>" + item.sTitle + "</div>");
+        li.append(wallpaperBox);
+        li.append(wallpaperTitle);
+        $(".wallpaper_pc .wallpaper_list").append(li);
+    });
+});
+// end
+
+$.get("./json/壁纸/手机壁纸/phoneWall.json", function (data) {
+    $(".wallpaper_pc .wallpaper_list").empty();
+    // console.log(data.data); // 拿到数据
+    data.data.list.forEach(function (item, index) {
+        // console.log(item);
+        // console.log(item.sTitle);
+        var data1 = item.sExt;
+        var pngRegex1 = /"url":"(https:\/\/[^"]+\.png)"/g;
+        var pngMatches1 = data1.match(pngRegex1);
+        var pngUrl;
+        if (pngMatches1) {
+            pngMatches1.forEach(match => {
+                var url = match.match(/https:\/\/[^"]+\.png/)[0];
+                // console.log('JPG URL:', url);
+                pngUrl = url;
+            });
+        }
+
+        var li = $("<li class='wallpaper_item'></li>");
+        var wallpaperBox = $("<div class='wallpaper_box'></div>");
+        var wallpaperPreview = $("<div class='wallpaper_preview'></div>");
+        wallpaperPreview.attr("style", "background-image: url(" + pngUrl + ")");
+        wallpaperBox.append(wallpaperPreview);
+        var wallpaperTitle = $("<div class='wallpaper_title'>" + item.sTitle + "</div>");
+        li.append(wallpaperBox);
+        li.append(wallpaperTitle);
+        $(".wallpaper_mobile .wallpaper_list").append(li);
+    });
+});
