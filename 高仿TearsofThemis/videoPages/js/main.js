@@ -126,7 +126,7 @@ $.get("./json/壁纸/电脑壁纸/pcWall.json", function (data) {
 // end
 
 $.get("./json/壁纸/手机壁纸/phoneWall.json", function (data) {
-    $(".wallpaper_pc .wallpaper_list").empty();
+    $(".wallpaper_mobile .wallpaper_list").empty();
     // console.log(data.data); // 拿到数据
     data.data.list.forEach(function (item, index) {
         // console.log(item);

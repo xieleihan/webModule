@@ -1,0 +1,309 @@
+.main {
+  width: 100dvw;
+  height: 100dvh;
+}
+.main .head {
+  position: fixed;
+  left: 50%;
+  top: 0;
+  z-index: 9;
+  width: 100%;
+  color: white;
+  box-sizing: border-box;
+  transform: translateX(-50%);
+}
+.main .head .headContent {
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: 63px;
+  font-size: 18px;
+  padding-right: 10px;
+  float: right;
+}
+.main .head .headContent .head_login {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  margin-left: 30px;
+  margin-right: 30px;
+}
+.main .head .headContent .head_login .login_btn {
+  width: 1.3rem;
+  background-size: 100%;
+  border: 0;
+  outline: none;
+  color: white;
+  cursor: pointer;
+  height: 100%;
+  font-size: 16px;
+  background-position: center;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-image: url('../images/登录按钮.png');
+}
+.main .head .headContent .bgm {
+  width: 23px;
+  height: 23px;
+  border: 0;
+  background: none;
+  outline: none;
+  cursor: pointer;
+}
+.main .head .headContent .bgm .music-icon {
+  width: 100%;
+  padding-top: 100%;
+  position: relative;
+}
+.main .head .headContent .bgm .music-icon .music-icon__col {
+  width: 13%;
+  height: auto;
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  overflow: hidden;
+  -webkit-animation-name: rocking-data-v-44e324b1;
+  animation-name: rocking-data-v-44e324b1;
+  -webkit-animation-play-state: running;
+  animation-play-state: running;
+  -webkit-animation-duration: 0.8s;
+  animation-duration: 0.8s;
+  -webkit-animation-timing-function: step-start;
+  animation-timing-function: step-start;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+}
+.main .head .headContent .bgm .music-icon .music-icon__col.music-icon__col--1 {
+  animation-delay: 0.6s;
+  left: 0%;
+}
+.main .head .headContent .bgm .music-icon .music-icon__col.music-icon__col--2 {
+  animation-delay: 0s;
+  left: 21.75%;
+}
+.main .head .headContent .bgm .music-icon .music-icon__col.music-icon__col--3 {
+  animation-delay: 0.2s;
+  left: 43.5%;
+}
+.main .head .headContent .bgm .music-icon .music-icon__col.music-icon__col--4 {
+  animation-delay: 0.6s;
+  left: 65.25%;
+}
+.main .head .headContent .bgm .music-icon .music-icon__col.music-icon__col--5 {
+  animation-delay: 0.4s;
+  left: 87%;
+}
+.main .head .headContent .bgm .music-icon .music-icon__col .music-icon__sqr {
+  width: 100%;
+  padding-top: 100%;
+  position: relative;
+  box-sizing: border-box;
+  left: 0;
+  flex: 0 0;
+}
+.main .head .headContent .bgm .music-icon .music-icon__col .music-icon__sqr.music-icon__sqr--r-1 {
+  margin-bottom: 67%;
+  background: #c7c9d5;
+}
+.main .head .headContent .bgm .music-icon .music-icon__col .music-icon__sqr.music-icon__sqr--r-2 {
+  margin-bottom: 67%;
+  background: #bec1e0;
+}
+.main .head .headContent .bgm .music-icon .music-icon__col .music-icon__sqr.music-icon__sqr--r-3 {
+  margin-bottom: 67%;
+  background: #b5b8ea;
+}
+.main .head .headContent .bgm .music-icon .music-icon__col .music-icon__sqr.music-icon__sqr--r-4 {
+  margin-bottom: 67%;
+  background: #acb0f5;
+}
+.main .head .headContent .bgm .music-icon .music-icon__col .music-icon__sqr.music-icon__sqr--r-5 {
+  margin-bottom: 0;
+  background: #a3a7ff;
+}
+.main .head .headContent .bgm .music-icon .music-icon__col .music-icon__sqr::after {
+  content: "";
+  display: block;
+  border-top: 1px solid #626060;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+.main .head .headContent .main-enter {
+  width: 1.7rem;
+  display: inline-block;
+  margin-left: 40px;
+}
+.main .head .headContent .main-enter img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.main .wrapper .fad {
+  background: white;
+  visibility: inherit;
+}
+.main .wrapper .fad .pv {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  padding-top: 62.5%;
+}
+.main .wrapper .fad .pv .mainBg {
+  display: block;
+  position: absolute;
+  left: 50%;
+  top: -1%;
+  width: 100vw;
+  height: auto;
+  transform: translateX(-50%);
+}
+.main .wrapper .fad .pv .pv_main {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 90%;
+}
+.main .wrapper .fad .pv .pv_main .appointment {
+  position: absolute;
+  top: 84%;
+  width: 28.854%;
+  padding-top: 10.2%;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  z-index: 2;
+}
+.main .wrapper .fad .pv .pv_main .appointment .download {
+  width: 100%;
+  height: 100%;
+  background: url('../images/下载框背景.png') no-repeat center;
+  background-size: 100% 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.main .wrapper .fad .pv .pv_main .appointment .download .download_item {
+  display: block;
+  position: absolute;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  left: 8.75%;
+  top: 17.84%;
+  width: 20%;
+  height: 56%;
+}
+.main .wrapper .fad .pv .pv_main .appointment .download .download_item.qr {
+  background-image: url('../images/QRcode.png');
+}
+.main .wrapper .fad .pv .pv_main .appointment .download .download_item.apple {
+  left: 32.75%;
+  background-image: url('../images/AppleDownload.png');
+  cursor: pointer;
+  top: 17.84%;
+  width: 28.354%;
+  height: 28.75%;
+}
+.main .wrapper .fad .pv .pv_main .appointment .download .download_item.android {
+  top: 53.54%;
+  left: 32.75%;
+  width: 28.354%;
+  height: 28.75%;
+  background-image: url('../images/androidDownload.png');
+}
+.main .wrapper .fad .pv .pv_main .appointment .download .download_item.taptap {
+  left: 64%;
+  width: 28.354%;
+  height: 28.75%;
+  background-image: url('../images/taptapDownload.png');
+  cursor: pointer;
+  top: 17.84%;
+}
+.main .wrapper .fad .pv .pv_main .appointment .download .download_item.bilibili {
+  top: 53.54%;
+  left: 64%;
+  width: 28.354%;
+  height: 28.75%;
+  background-image: url('../images/bilibiliDownload.png');
+  cursor: pointer;
+}
+.main .wrapper .fad .pv .pv_main .appointment .logoAge {
+  top: 10%;
+  right: -20%;
+  position: absolute;
+  z-index: 9;
+  width: 20%;
+  font-size: 0;
+  cursor: pointer;
+}
+.main .wrapper .fad .pv .pv_main .appointment .logoAge img {
+  width: 100%;
+  display: block;
+  height: auto;
+}
+.main .wrapper .fad .pv .pv_main .pv_logo {
+  position: absolute;
+  z-index: 2;
+  left: 0;
+  top: 1%;
+  width: 18%;
+  height: 13%;
+  background-image: url('../images/logo.png');
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.main .wrapper .fad .pv .pv_main .pv_play {
+  position: absolute;
+  z-index: 2;
+  right: 31%;
+  top: 64%;
+  transform: translateX(-50%);
+  width: 5.73%;
+  padding-top: 5.9%;
+  cursor: pointer;
+  background-size: 100% 100%;
+  background-image: url('../images/play.png');
+}
+.main .wrapper .fad .pv .pv_main .legal {
+  position: absolute;
+  z-index: 2;
+  left: 0;
+  top: 76%;
+  width: 23.28%;
+  min-height: 8%;
+  padding: 0.8% 1.4%;
+  line-height: 1.3;
+  background: url('../images/公司mask.png') top center / 100% auto no-repeat;
+  font-size: 16px;
+  color: white;
+}
+.main .wrapper .fad .pv .pv_main .legal a {
+  margin-right: 10px;
+  text-decoration: underline;
+}
+@keyframes rocking-data-v-44e324b1 {
+  0% {
+    height: 43%;
+  }
+  25% {
+    height: 43%;
+  }
+  50% {
+    height: 65%;
+  }
+  75% {
+    height: 86%;
+  }
+  100% {
+    height: 100%;
+  }
+}

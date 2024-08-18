@@ -176,7 +176,7 @@ $(".role .nav_tabs").on("click", "li", function () {
     var navRoleResult;
     $(this).addClass("active").siblings().removeClass("active");
     navRoleIndex = $(this).index();
-    console.log(navRoleIndex);
+    // console.log(navRoleIndex);
 
     // 计算位移
     navRoleResult = -1104 * navRoleIndex;
