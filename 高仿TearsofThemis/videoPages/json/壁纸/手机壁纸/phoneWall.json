@@ -1,0 +1,81 @@
+{
+    "retcode": 0,
+    "message": "OK",
+    "data": {
+        "iTotal": 4,
+        "list": [
+            {
+                "sChanId": [
+                    "64"
+                ],
+                "sTitle": "2020春节壁纸-陆景和",
+                "sIntro": "",
+                "sUrl": "",
+                "sAuthor": "",
+                "sContent": "",
+                "sExt": "{\"64_0\":[{\"name\":\"陆景和.png\",\"url\":\"https://uploadstatic.mihoyo.com/contentweb/20200701/2020070117265431345.png\"}],\"64_1\":[]}",
+                "dtStartTime": "2020-07-01 17:26:40",
+                "dtEndTime": "2035-01-01 00:00:00",
+                "dtCreateTime": "2020-07-01 17:26:58",
+                "iInfoId": 7536,
+                "sTagName": [],
+                "sCategoryName": "",
+                "sSign": ""
+            },
+            {
+                "sChanId": [
+                    "64"
+                ],
+                "sTitle": "2020春节壁纸-莫弈",
+                "sIntro": "",
+                "sUrl": "",
+                "sAuthor": "",
+                "sContent": "",
+                "sExt": "{\"64_0\":[{\"name\":\"莫弈.png\",\"url\":\"https://uploadstatic.mihoyo.com/contentweb/20200701/2020070117260764358.png\"}],\"64_1\":[]}",
+                "dtStartTime": "2020-07-01 17:25:59",
+                "dtEndTime": "2035-01-01 00:00:00",
+                "dtCreateTime": "2020-07-01 17:26:10",
+                "iInfoId": 7535,
+                "sTagName": [],
+                "sCategoryName": "",
+                "sSign": ""
+            },
+            {
+                "sChanId": [
+                    "64"
+                ],
+                "sTitle": "2020春节壁纸-左然",
+                "sIntro": "",
+                "sUrl": "",
+                "sAuthor": "",
+                "sContent": "",
+                "sExt": "{\"64_0\":[{\"name\":\"左然.png\",\"url\":\"https://uploadstatic.mihoyo.com/contentweb/20200701/2020070117254285220.png\"}],\"64_1\":[]}",
+                "dtStartTime": "2020-07-01 17:25:30",
+                "dtEndTime": "2035-01-01 00:00:00",
+                "dtCreateTime": "2020-07-01 17:25:45",
+                "iInfoId": 7534,
+                "sTagName": [],
+                "sCategoryName": "",
+                "sSign": ""
+            },
+            {
+                "sChanId": [
+                    "64"
+                ],
+                "sTitle": "2020春节壁纸-夏彦",
+                "sIntro": "",
+                "sUrl": "",
+                "sAuthor": "",
+                "sContent": "",
+                "sExt": "{\"64_0\":[{\"name\":\"夏彦.png\",\"url\":\"https://uploadstatic.mihoyo.com/contentweb/20200701/2020070117244036442.png\"}],\"64_1\":[]}",
+                "dtStartTime": "2020-07-01 17:24:49",
+                "dtEndTime": "2035-01-01 00:00:00",
+                "dtCreateTime": "2020-07-01 17:25:22",
+                "iInfoId": 7533,
+                "sTagName": [],
+                "sCategoryName": "",
+                "sSign": ""
+            }
+        ]
+    }
+}

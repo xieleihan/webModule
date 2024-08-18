@@ -1,0 +1,81 @@
+{
+    "retcode": 0,
+    "message": "OK",
+    "data": {
+        "iTotal": 4,
+        "list": [
+            {
+                "sChanId": [
+                    "65"
+                ],
+                "sTitle": "花语系列壁纸-陆景和",
+                "sIntro": "",
+                "sUrl": "",
+                "sAuthor": "",
+                "sContent": "",
+                "sExt": "{\"64_0\":[{\"name\":\"陆景和1024.jpg\",\"url\":\"https://uploadstatic.mihoyo.com/contentweb/20200701/2020070117342027502.jpg\"}],\"65_1\":[]}",
+                "dtStartTime": "2020-07-01 17:34:12",
+                "dtEndTime": "2035-01-01 00:00:00",
+                "dtCreateTime": "2020-07-01 17:34:23",
+                "iInfoId": 7540,
+                "sTagName": [],
+                "sCategoryName": "",
+                "sSign": ""
+            },
+            {
+                "sChanId": [
+                    "65"
+                ],
+                "sTitle": "花语系列壁纸-莫弈",
+                "sIntro": "",
+                "sUrl": "",
+                "sAuthor": "",
+                "sContent": "",
+                "sExt": "{\"64_0\":[{\"name\":\"莫弈1024.jpg\",\"url\":\"https://uploadstatic.mihoyo.com/contentweb/20200701/2020070117335991785.jpg\"}],\"65_1\":[]}",
+                "dtStartTime": "2020-07-01 17:33:50",
+                "dtEndTime": "2035-01-01 00:00:00",
+                "dtCreateTime": "2020-07-01 17:34:02",
+                "iInfoId": 7539,
+                "sTagName": [],
+                "sCategoryName": "",
+                "sSign": ""
+            },
+            {
+                "sChanId": [
+                    "65"
+                ],
+                "sTitle": "花语系列壁纸-左然",
+                "sIntro": "",
+                "sUrl": "",
+                "sAuthor": "",
+                "sContent": "",
+                "sExt": "{\"64_0\":[{\"name\":\"左然1024.jpg\",\"url\":\"https://uploadstatic.mihoyo.com/contentweb/20200701/2020070117332816609.jpg\"}],\"65_1\":[]}",
+                "dtStartTime": "2020-07-01 17:33:36",
+                "dtEndTime": "2035-01-01 00:00:00",
+                "dtCreateTime": "2020-07-01 17:33:39",
+                "iInfoId": 7538,
+                "sTagName": [],
+                "sCategoryName": "",
+                "sSign": ""
+            },
+            {
+                "sChanId": [
+                    "65"
+                ],
+                "sTitle": "花语系列壁纸-夏彦",
+                "sIntro": "",
+                "sUrl": "",
+                "sAuthor": "",
+                "sContent": "",
+                "sExt": "{\"64_0\":[{\"name\":\"夏彦1024.jpg\",\"url\":\"https://uploadstatic.mihoyo.com/contentweb/20200701/2020070117325935203.jpg\"}],\"65_1\":[]}",
+                "dtStartTime": "2020-07-01 17:33:12",
+                "dtEndTime": "2035-01-01 00:00:00",
+                "dtCreateTime": "2020-07-01 17:33:14",
+                "iInfoId": 7537,
+                "sTagName": [],
+                "sCategoryName": "",
+                "sSign": ""
+            }
+        ]
+    }
+}

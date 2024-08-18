@@ -1,0 +1,545 @@
+.main {
+    width: 100dvw;
+    height: 100dvh;
+
+    // 头部样式
+    .head {
+        width: 100%;
+        height: 63px;
+        position: fixed;
+        z-index: 9;
+        top: 0;
+
+        .nav {
+            width: 60%;
+            height: 100%;
+            background: url('../../images/nav/header.png') repeat-x;
+            position: relative;
+            padding-right: 25px;
+
+            &::before {
+                content: '';
+                display: block;
+                width: 65px;
+                height: 108%;
+                background: url('../../images/nav/三角形.png');
+                background-size: 100% 100%;
+                position: absolute;
+                right: 100%;
+                top: 0;
+            }
+
+            ul {
+                width: 100%;
+                height: 100%;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+
+                a {
+                    height: 100%;
+                    width: 160px;
+                    display: block;
+
+                    li {
+                        height: 100%;
+                        width: 160px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+
+                    }
+                }
+
+                .bgm {
+                    width: 23px;
+                    height: 23px;
+                    border: 0;
+                    background: none;
+                    outline: none;
+                    cursor: pointer;
+
+                    .music-icon {
+                        width: 100%;
+                        padding-top: 100%;
+                        position: relative;
+
+                        .music-icon__col {
+                            width: 13%;
+                            height: auto;
+                            position: absolute;
+                            bottom: 0;
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: flex-end;
+                            overflow: hidden;
+                            -webkit-animation-name: rocking-data-v-44e324b1;
+                            animation-name: rocking-data-v-44e324b1;
+                            -webkit-animation-play-state: running;
+                            animation-play-state: running;
+                            -webkit-animation-duration: .8s;
+                            animation-duration: .8s;
+                            -webkit-animation-timing-function: step-start;
+                            animation-timing-function: step-start;
+                            -webkit-animation-fill-mode: both;
+                            animation-fill-mode: both;
+                            -webkit-animation-iteration-count: infinite;
+                            animation-iteration-count: infinite;
+
+                            &.music-icon__col--1 {
+                                animation-delay: .6s;
+                                left: 0%;
+                            }
+
+                            &.music-icon__col--2 {
+                                animation-delay: 0s;
+                                left: 21.75%;
+                            }
+
+                            &.music-icon__col--3 {
+                                animation-delay: .2s;
+                                left: 43.5%;
+                            }
+
+                            &.music-icon__col--4 {
+                                animation-delay: .6s;
+                                left: 65.25%;
+                            }
+
+                            &.music-icon__col--5 {
+                                animation-delay: .4s;
+                                left: 87%;
+                            }
+
+                            .music-icon__sqr {
+                                width: 100%;
+                                padding-top: 100%;
+                                position: relative;
+                                box-sizing: border-box;
+                                left: 0;
+                                flex: 0 0;
+
+                                &.music-icon__sqr--r-1 {
+                                    margin-bottom: 67%;
+                                    background: #c7c9d5;
+                                }
+
+                                &.music-icon__sqr--r-2 {
+                                    margin-bottom: 67%;
+                                    background: #bec1e0;
+                                }
+
+                                &.music-icon__sqr--r-3 {
+                                    margin-bottom: 67%;
+                                    background: #b5b8ea;
+                                }
+
+                                &.music-icon__sqr--r-4 {
+                                    margin-bottom: 67%;
+                                    background: #acb0f5;
+                                }
+
+                                &.music-icon__sqr--r-5 {
+                                    margin-bottom: 0;
+                                    background: #a3a7ff;
+                                }
+
+                                &::after {
+                                    content: "";
+                                    display: block;
+                                    border-top: 1px solid #626060;
+                                    position: absolute;
+                                    top: 0;
+                                    left: 0;
+                                    width: 100%;
+                                }
+                            }
+                        }
+
+                    }
+                }
+            }
+        }
+
+        .share {
+            position: absolute;
+            top: 76px;
+            right: 78px;
+            display: flex;
+            justify-content: center;
+            align-items: stretch;
+            width: 190px;
+            height: 36px;
+            background-image: url('../../images/nav/sharp.png');
+            background-size: 100% 100%;
+
+            li {
+                display: block;
+                position: relative;
+                cursor: pointer;
+                flex: 1 1;
+                height: 100%;
+
+                &>img {
+                    position: absolute;
+                    left: 50%;
+                    top: 100%;
+                    transform: translateX(-50%);
+                    display: none;
+                    width: 180px;
+                    height: 180px;
+
+                }
+
+                &:hover>img {
+                    display: block;
+                }
+
+                .qq {
+                    position: absolute;
+                    left: 50%;
+                    top: 100%;
+                    transform: translateX(-50%);
+                    display: none;
+                    width: 180px;
+                    height: 180px;
+                    background: url('../../images/nav/qqqunimg.png');
+                    background-size: 100% 100%;
+
+                    .qq_text {
+                        position: absolute;
+                        top: 45%;
+                        left: 2%;
+                        width: 100%;
+                        text-align: center;
+                        font-size: 23px;
+                        color: #201d58;
+                    }
+
+                    .qq_link {
+                        display: block;
+                        width: 34%;
+                        padding-top: 15.3%;
+                        position: absolute;
+                        left: 18%;
+                        top: 69%;
+                        cursor: pointer;
+                    }
+
+                    .qq_copy {
+                        display: block;
+                        width: 34%;
+                        padding-top: 15.3%;
+                        position: absolute;
+                        right: 14%;
+                        top: 69%;
+                        cursor: pointer;
+                    }
+                }
+
+                &:hover>.qq {
+                    display: block;
+                }
+            }
+        }
+    }
+
+    // 主要盒子
+    .box {
+        width: 100%;
+        height: 100%;
+        background: url('../images/mainBg.jpg') no-repeat;
+        background-size: cover;
+        position: relative;
+
+        .content {
+            width: 100%;
+            height: 100%;
+            background-repeat: no-repeat;
+            background-position: right 20%;
+            background-size: 20% auto;
+            background-image: url('../images/视频图标.png');
+            position: relative;
+            padding: 2.5rem 23.18% 0 4.75%;
+
+            .video_list {
+                width: 100%;
+                font-size: 0;
+                height: 100%;
+                overflow-y: auto;
+
+                .video_item {
+                    width: 31%;
+                    display: inline-block;
+                    margin: .1rem 1.1666666667% .15rem;
+                    background: rgba(255, 255, 255, .2);
+                    cursor: pointer;
+
+                    &:hover .video_box .video_play {
+                        opacity: 1;
+                    }
+
+                    &:hover .video_box .video_preview {
+                        opacity: 1;
+                    }
+
+                    .video_box {
+                        width: 98%;
+                        margin: 1% auto 0;
+                        border: 1px solid rgba(255, 255, 255, .7);
+                        position: relative;
+                        padding: .07rem;
+                        box-shadow: 0 0 0 0 #bdc2fe;
+                        transition: all .5s;
+
+                        &::before {
+                            right: -0.01rem;
+                            bottom: -0.01rem;
+                            border-left-color: rgba(255, 255, 255, .7);
+                            position: absolute;
+                            content: "";
+                            display: block;
+                            width: 0;
+                            height: 0;
+                            border-width: .03rem;
+                            border-style: solid;
+                            border-color: transparent;
+                            transform: rotate(45deg);
+                        }
+
+                        .video_preview {
+                            width: 100%;
+                            padding-top: 56.25%;
+                            background-position: center center;
+                            background-size: cover;
+                            opacity: .5;
+                            transition: all .5s;
+                        }
+
+                        .video_play {
+                            width: .68rem;
+                            height: .68rem;
+                            position: absolute;
+                            left: 50%;
+                            top: 50%;
+                            transform: translate(-50%, -50%);
+                            background-size: 100% 100%;
+                            background-image: url('../images/播放.png');
+                            opacity: .8;
+                            transition: all .5s;
+                        }
+
+                        &::after {
+                            left: -0.01rem;
+                            top: -0.01rem;
+                            border-right-color: rgba(255, 255, 255, .7);
+                            position: absolute;
+                            content: "";
+                            display: block;
+                            width: 0;
+                            height: 0;
+                            border-width: .03rem;
+                            border-style: solid;
+                            border-color: transparent;
+                            transform: rotate(45deg);
+                        }
+                    }
+
+                    .video_title {
+                        width: 100%;
+                        line-height: .56rem;
+                        font-size: .24rem;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        white-space: nowrap;
+                        padding: 0 .13rem;
+                        color: white;
+                    }
+                }
+            }
+        }
+
+        .nav {
+            position: absolute;
+            right: 2.35%;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 2.3rem;
+            z-index: 2;
+
+            a {
+                margin: 8.5% 0;
+                display: block;
+
+                .active {
+                    display: none;
+                }
+            }
+        }
+
+
+    }
+
+    // 脚标样式
+    .footer {
+        position: relative;
+        width: 100%;
+        height: 367px;
+        background: url('../../images/footer/bg.png');
+        padding: 30px 0 20px;
+        background-repeat: no-repeat;
+        background-size: cover;
+
+        .footerBox {
+            margin: 0 auto;
+            width: 1280px;
+            height: 100%;
+            // background-color: skyblue;
+            display: flex;
+            flex-direction: row;
+
+            .footer-logo {
+                width: 300px;
+                height: 100%;
+                // background: orange;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                .content {
+                    width: 100%;
+                    height: 88.2px;
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+
+                    img {
+                        height: 42px;
+
+                    }
+
+                    span {
+                        background: #fff;
+                        width: 1px;
+                        height: 28px;
+                        margin-left: 25px;
+                        margin-right: 25px;
+                        display: block;
+                    }
+
+                    .game-logo {
+                        width: 110px;
+                        height: auto;
+                    }
+                }
+            }
+
+            .footer-info {
+                width: calc(100% - 300px);
+                height: 100%;
+                // background-color: lightcoral;
+                margin-left: 60px;
+                color: #fff;
+
+                .footer-link {
+                    display: flex;
+                    align-items: flex-start;
+                    justify-content: space-between;
+                    flex-direction: row;
+                    width: 881.56px;
+                    height: 52px;
+
+                    .footer-protocol {
+                        width: 637.12px;
+                        height: 24px;
+                        display: flex;
+                        flex-direction: row;
+
+                        a {
+                            white-space: nowrap;
+                            margin: 0 10px;
+
+                            &:first-child {
+                                margin-left: 0;
+                            }
+                        }
+                    }
+                }
+
+                .footer-advice {
+                    span {
+                        margin: 0 10px;
+
+                        &:first-child {
+                            margin-left: 0;
+                        }
+                    }
+                }
+
+                .footer-advice .inline-info {
+                    display: flex;
+                    flex-direction: row;
+
+                }
+
+                .footer-filing .footer-filing-content {
+                    span {
+                        margin: 0 10px;
+
+                    }
+
+                    #zdy-footer-filing-item {
+                        margin-left: 0;
+                    }
+                }
+
+                .copyright {
+                    display: flex;
+                    flex-direction: row;
+
+                    .complaint-phone {
+                        margin-left: 20px;
+                    }
+                }
+
+                .footer-icon {
+                    width: 800px;
+                    display: flex;
+                    align-items: flex-start;
+                    padding: 10px 0;
+
+                    a {
+                        display: block;
+                        width: 116px;
+                        height: 46px;
+                        margin-right: 15px;
+                        background-size: 116px 46px;
+                        margin-bottom: 10px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@keyframes rocking-data-v-44e324b1 {
+    0% {
+        height: 43%;
+    }
+
+    25% {
+        height: 43%
+    }
+
+    50% {
+        height: 65%;
+    }
+
+    75% {
+        height: 86%;
+    }
+
+    100% {
+        height: 100%;
+    }
+}
