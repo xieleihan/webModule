@@ -290,6 +290,284 @@
   margin-right: 10px;
   text-decoration: underline;
 }
+.main .wrapper .fad .activity {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%;
+  margin-top: -6.25%;
+}
+.main .wrapper .fad .activity .activity_bg {
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  pointer-events: none;
+}
+.main .wrapper .fad .activity .swiper-container {
+  margin-left: auto;
+  margin-right: auto;
+  z-index: 1;
+  position: absolute;
+  width: 85%;
+  height: 100%;
+  padding: 14% 0 4%;
+  left: 7%;
+  top: 43%;
+  transform: translateY(-50%);
+  overflow: hidden;
+}
+.main .wrapper .fad .activity .swiper-container .swiper-wrapper {
+  transform: translate3d(0, 0, 0);
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  display: flex;
+  transition-property: transform;
+  box-sizing: content-box;
+  transform: translateX(126px);
+}
+.main .wrapper .fad .activity .swiper-container .swiper-wrapper .photo_item {
+  position: relative;
+  width: 80%;
+  height: 100%;
+  flex-shrink: 0;
+}
+.main .wrapper .fad .activity .swiper-container .swiper-pagination {
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  position: absolute;
+  text-align: center;
+  transition: 300ms opacity;
+  transform: translate3d(0, 0, 0);
+  z-index: 10;
+}
+.main .wrapper .fad .activity .swiper-container .swiper-pagination .swiper-pagination-bullet {
+  width: 4%;
+  padding-top: 4%;
+  background: url('../images/小点.png') center no-repeat;
+  background-size: 40% 40%;
+  border-radius: 0;
+  margin: 0;
+  vertical-align: middle;
+  opacity: 0.9;
+  cursor: pointer;
+  height: 8px;
+  display: inline-block;
+}
+.main .wrapper .fad .activity .swiper-container .swiper-pagination .swiper-pagination-bullet.swiper-pagination-bullet-active {
+  background-image: url('../images/大点.png');
+  background-size: 60% 60%;
+  opacity: 1;
+}
+.main .wrapper .fad .activity .swiper-container .swiper-button-prev {
+  left: 0;
+  transform: scaleX(-1);
+  width: 52px;
+  height: 92px;
+  font-size: 0;
+  outline: none;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-color: transparent;
+  background-image: url('../images/箭头.png');
+  right: auto;
+  position: absolute;
+  top: 50%;
+  margin-top: -22px;
+  z-index: 10;
+  cursor: pointer;
+  background-position: center;
+}
+.main .wrapper .fad .activity .swiper-container .swiper-button-next {
+  right: 0;
+  width: 52px;
+  height: 92px;
+  font-size: 0;
+  outline: none;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-color: transparent;
+  background-image: url('../images/箭头.png');
+  left: auto;
+  position: absolute;
+  top: 50%;
+  margin-top: -22px;
+  z-index: 10;
+  cursor: pointer;
+  background-position: center;
+}
+.main .wrapper .fad .feature {
+  padding-top: 81.71%;
+  background-image: url('../images/pages3部分/bg.jpg');
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  background-size: 100% 100%;
+}
+.main .wrapper .fad .feature .swiper-container {
+  top: 38%;
+  position: absolute;
+  width: 90%;
+  left: 5%;
+  transform: translateY(-50%);
+  overflow: visible;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0;
+  z-index: 1;
+}
+.main .wrapper .fad .feature .social {
+  position: relative;
+  margin-top: -23.72%;
+  padding-top: 23.72%;
+  width: 100%;
+  overflow: hidden;
+}
+.main .wrapper .fad .feature .social .social_content {
+  padding-left: 26%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate3d(-50%, -50%, 0);
+  background: url('../images/pages3部分/各种渠道QrCode.png') center 32% no-repeat;
+  background-size: 52.5% auto;
+}
+.main .wrapper .fad .feature .social .social_content .social_item {
+  width: 14.4%;
+  height: 64%;
+  margin-right: 4%;
+  font-size: 0.18rem;
+  position: relative;
+}
+.main .wrapper .fad .feature .social .social_content .social_item .social_desc {
+  position: absolute;
+  color: white;
+  left: 29%;
+  bottom: 2%;
+  text-align: left;
+}
+.main .wrapper .fad .feature .social .social_content .social_item .social_desc span {
+  display: block;
+  margin-top: 0.08rem;
+  color: white;
+}
+.main .wrapper .footer {
+  position: relative;
+  width: 100%;
+  height: 367px;
+  background: url('../../images/footer/bg.png');
+  padding: 30px 0 20px;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.main .wrapper .footer .footerBox {
+  margin: 0 auto;
+  width: 1280px;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+}
+.main .wrapper .footer .footerBox .footer-logo {
+  width: 300px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.main .wrapper .footer .footerBox .footer-logo .content {
+  width: 100%;
+  height: 88.2px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.main .wrapper .footer .footerBox .footer-logo .content img {
+  height: 42px;
+}
+.main .wrapper .footer .footerBox .footer-logo .content span {
+  background: #fff;
+  width: 1px;
+  height: 28px;
+  margin-left: 25px;
+  margin-right: 25px;
+  display: block;
+}
+.main .wrapper .footer .footerBox .footer-logo .content .game-logo {
+  width: 110px;
+  height: auto;
+}
+.main .wrapper .footer .footerBox .footer-info {
+  width: calc(100% - 300px);
+  height: 100%;
+  margin-left: 60px;
+  color: #fff;
+}
+.main .wrapper .footer .footerBox .footer-info .footer-link {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-direction: row;
+  width: 881.56px;
+  height: 52px;
+}
+.main .wrapper .footer .footerBox .footer-info .footer-link .footer-protocol {
+  width: 637.12px;
+  height: 24px;
+  display: flex;
+  flex-direction: row;
+}
+.main .wrapper .footer .footerBox .footer-info .footer-link .footer-protocol a {
+  white-space: nowrap;
+  margin: 0 10px;
+}
+.main .wrapper .footer .footerBox .footer-info .footer-link .footer-protocol a:first-child {
+  margin-left: 0;
+}
+.main .wrapper .footer .footerBox .footer-info .footer-advice span {
+  margin: 0 10px;
+}
+.main .wrapper .footer .footerBox .footer-info .footer-advice span:first-child {
+  margin-left: 0;
+}
+.main .wrapper .footer .footerBox .footer-info .footer-advice .inline-info {
+  display: flex;
+  flex-direction: row;
+}
+.main .wrapper .footer .footerBox .footer-info .footer-filing .footer-filing-content span {
+  margin: 0 10px;
+}
+.main .wrapper .footer .footerBox .footer-info .footer-filing .footer-filing-content #zdy-footer-filing-item {
+  margin-left: 0;
+}
+.main .wrapper .footer .footerBox .footer-info .copyright {
+  display: flex;
+  flex-direction: row;
+}
+.main .wrapper .footer .footerBox .footer-info .copyright .complaint-phone {
+  margin-left: 20px;
+}
+.main .wrapper .footer .footerBox .footer-info .footer-icon {
+  width: 800px;
+  display: flex;
+  align-items: flex-start;
+  padding: 10px 0;
+}
+.main .wrapper .footer .footerBox .footer-info .footer-icon a {
+  display: block;
+  width: 116px;
+  height: 46px;
+  margin-right: 15px;
+  background-size: 116px 46px;
+  margin-bottom: 10px;
+}
 @keyframes rocking-data-v-44e324b1 {
   0% {
     height: 43%;
