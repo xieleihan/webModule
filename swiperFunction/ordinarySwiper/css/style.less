@@ -1,0 +1,96 @@
+.main {
+    width: 100dvw;
+    height: 100dvh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+
+    .box {
+        width: 50%;
+        height: 50%;
+        position: relative;
+        overflow: hidden;
+
+        .swiper-button-prev,
+        .swiper-button-next {
+            position: absolute;
+            width: 32px;
+            height: 32px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 10;
+
+            img {
+                width: 100%;
+                height: 100%;
+            }
+        }
+
+        .swiper-button-prev {
+            left: 10px;
+        }
+
+        .swiper-button-next {
+            right: 10px;
+
+            img {
+                transform: rotate(180deg);
+            }
+        }
+
+        .swiper-bullets {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+
+            span {
+                display: inline-block;
+                width: 10px;
+                height: 10px;
+                margin-right: 10px;
+                background-color: #fff;
+                border: 1px solid black;
+                border-radius: 50%;
+                position: relative;
+
+                &:last-child {
+                    margin-right: 0;
+                }
+
+                &.active::before {
+                    content: '';
+                    width: 100%;
+                    height: 100%;
+                    background-color: black;
+                    border-radius: 50%;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                }
+            }
+
+        }
+
+        .swiper-wrapper {
+            height: 100%;
+            width: 500%;
+            display: flex;
+            flex-direction: row;
+            position: absolute;
+            top: 0;
+            left: 0;
+            transition: all .5s;
+            .swiper-item {
+                width: 100%;
+                height: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 2vw;
+                font-weight: bold;
+            }
+        }
+    }
+}

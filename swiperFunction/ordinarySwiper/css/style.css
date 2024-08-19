@@ -1,0 +1,85 @@
+.main {
+  width: 100dvw;
+  height: 100dvh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.main .box {
+  width: 50%;
+  height: 50%;
+  position: relative;
+  overflow: hidden;
+}
+.main .box .swiper-button-prev,
+.main .box .swiper-button-next {
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+}
+.main .box .swiper-button-prev img,
+.main .box .swiper-button-next img {
+  width: 100%;
+  height: 100%;
+}
+.main .box .swiper-button-prev {
+  left: 10px;
+}
+.main .box .swiper-button-next {
+  right: 10px;
+}
+.main .box .swiper-button-next img {
+  transform: rotate(180deg);
+}
+.main .box .swiper-bullets {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.main .box .swiper-bullets span {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin-right: 10px;
+  background-color: #fff;
+  border: 1px solid black;
+  border-radius: 50%;
+  position: relative;
+}
+.main .box .swiper-bullets span:last-child {
+  margin-right: 0;
+}
+.main .box .swiper-bullets span.active::before {
+  content: '';
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.main .box .swiper-wrapper {
+  height: 100%;
+  width: 500%;
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: all 0.5s;
+}
+.main .box .swiper-wrapper .swiper-item {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2vw;
+  font-weight: bold;
+}
