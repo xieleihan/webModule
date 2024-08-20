@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+	<title>购物车-美丽说</title>
+	<meta name="description" content="彷美丽说" />
+	<meta name="keywords" content="彷美丽说" />
+    <!-- 引入facicon.ico网页图标 -->
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <!-- 引入css 初始化的文件 -->
+    <link rel="stylesheet" href="css/base.css">
+    <!-- 引入car css -->
+    <link rel="stylesheet" href="css/car.css">
+</head>
+    
+<body>
+
+    <div class="c-container">
+        <div class="w">
+            <div class="cart-filter-bar">
+                <em>全部商品</em>
+            </div>
+            <!-- 购物车主要核心区域 -->
+            <div class="cart-warp">
+                <!-- 头部全选模块 -->
+                <div class="cart-thead">
+                    <div class="t-checkbox">
+                        <input type="checkbox" class="checkall"> 全选
+                    </div>
+                    <div class="t-goods">商品</div>
+                    <div class="t-price">单价</div>
+                    <div class="t-num">数量</div>
+                    <div class="t-sum">小计</div>
+                    <div class="t-action">操作</div>
+                </div>
+                <!-- 商品详细模块 -->
+                <div class="cart-item-list">
+                    <div class="cart-item check-cart-item">
+                        <div class="p-checkbox">
+                            <input type="checkbox" checked class="j-checkbox">
+                        </div>
+                        <div class="p-goods">
+                            <div class="p-img">
+                                <img src="images/goods01.png">
+                            </div>
+                            <div class="p-msg">小清新新款韩版气质收腰显瘦百搭蕾丝边V领木耳边镂空休闲连衣裙</div>
+                        </div>
+                        <div class="p-price">￥72.60</div>
+                        <div class="p-num">
+                            <div class="quantity-form">
+                                <a href="javascript:void(0);" class="decrement">-</a>
+                                <input type="text" class="itxt" value="1">
+                                <a href="javascript:void(0);" class="increment">+</a>
+                            </div>
+                        </div>
+                        <div class="p-sum">￥72.60</div>
+                        <div class="p-action"><a href="javascript:void(0);">删除</a></div>
+                    </div>
+                    <div class="cart-item">
+                        <div class="p-checkbox">
+                            <input type="checkbox" class="j-checkbox">
+                        </div>
+                        <div class="p-goods">
+                            <div class="p-img">
+                                <img src="images/goods02.png">
+                            </div>
+                            <div class="p-msg">小个子韩版春夏新款小清新荷叶边中长款v领碎花雪纺吊带连衣裙</div>
+                        </div>
+                        <div class="p-price">￥84.80</div>
+                        <div class="p-num">
+                            <div class="quantity-form">
+                                <a href="javascript:void(0);" class="decrement">-</a>
+                                <input type="text" class="itxt" value="1">
+                                <a href="javascript:void(0);" class="increment">+</a>
+                            </div>
+                        </div>
+                        <div class="p-sum">￥84.80</div>
+                        <div class="p-action"><a href="javascript:void(0);">删除</a></div>
+                    </div>
+                    <div class="cart-item">
+                        <div class="p-checkbox">
+                            <input type="checkbox" class="j-checkbox">
+                        </div>
+                        <div class="p-goods">
+                            <div class="p-img">
+                                <img src="images/goods03.png">
+                            </div>
+                            <div class="p-msg">夏季新款名媛气质吊带碎花连衣裙露肩波西米亚度假长裙甜美沙滩裙</div>
+                        </div>
+                        <div class="p-price">￥69.80</div>
+                        <div class="p-num">
+                            <div class="quantity-form">
+                                <a href="javascript:void(0);" class="decrement">-</a>
+                                <input type="text" class="itxt" value="1">
+                                <a href="javascript:void(0);" class="increment">+</a>
+                            </div>
+                        </div>
+                        <div class="p-sum">￥69.80</div>
+                        <div class="p-action"><a href="javascript:void(0);">删除</a></div>
+                    </div>
+                </div>
+
+                <!-- 结算模块 -->
+                <div class="cart-floatbar">
+                    <div class="select-all">
+                        <input type="checkbox" class="checkall">全选
+                    </div>
+                    <div class="operation">
+                        <a href="javascript:void(0);" class="remove-batch"> 删除选中的商品</a>
+                        <a href="javascript:void(0);" class="clear-all">清理购物车</a>
+                    </div>
+                    <div class="toolbar-right">
+                        <div class="amount-sum">已经选<em>1</em>件商品</div>
+                        <div class="price-sum">总价： <em>￥72.60</em></div>
+                        <div class="btn-area">去结算</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+<script src="./js/jquery-3.6.0.min.js"></script>
+<script src="./js/main.js"></script>
+
+</html>
