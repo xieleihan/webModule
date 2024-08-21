@@ -185,3 +185,44 @@ $(".clear-all").on("click", function () {
     $(".price-sum").html("总价： <em>￥0.00</em>");
     result();
 });
+
+$(".cart-item").each(function () {
+    $(".p-action").on("click", "a", function () {
+        if ($(".j-checkbox:checked").length === 0) {
+            $(".amount-sum em").text(0);
+            
+        }
+        $(this).parent().parent().remove();
+        result();
+        var temp = 0;
+        $(".j-checkbox:checked").each(function () {
+
+            temp += Number($(this).parent().parent().children(".p-num").children(".quantity-form").children(".itxt").attr("value"));
+            // console.log(temp);
+        });
+        // console.log(jishu);
+        $(".amount-sum em").text(temp);
+        // console.log(temp);
+        temp = 0;
+    })
+
+})
+
+$(".itxt").on("input", function () {
+    console.log($(this).val())
+    $(this).attr("value", $(this).val());
+    $(".j-checkbox:checked").each(function () {
+        result();
+        
+    })
+    var temp = 0;
+    $(".j-checkbox:checked").each(function () {
+
+        temp += Number($(this).parent().parent().children(".p-num").children(".quantity-form").children(".itxt").attr("value"));
+        // console.log(temp);
+    });
+    // console.log(jishu);
+    $(".amount-sum em").text(temp);
+    // console.log(temp);
+    temp = 0;
+});
