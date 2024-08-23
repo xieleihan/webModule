@@ -12,8 +12,7 @@
     <link rel="apple-touch-icon" href="./ico/favicon-32x32.png">
     <link rel="bookmark" href="./ico/favicon-32x32.png">
     <link rel="apple-touch-icon-precomposed" sizes="180x180" href="./ico/favicon-32x32.png">
-    <script
-        src="https://fastly.jsdelivr.net/gh/southaki/contentDeliveryNetwork@0.0.4/jQuery/jQuery@3.7.1/jquery-3.7.1.js"></script>
+    <script src="./js/jquery-3.7.1.js"></script>
     <script src="./js/main.js"></script>
 </head>
 
@@ -874,16 +873,31 @@
                                 width: 100%;
                             }
                         }
+                        @keyframes random1 {
+                            0% {
+                                width: 0%;
+                            }
+
+                            100% {
+                                width: 100%;
+                            }
+                        }
                     </style>
                     <div class="progress">
-                        <div class="progress-bar progress-bar-striped progress-bar-animated" style="width:0%;animation-name: random;animation-duration: 15s;animation-iteration-count:infinite">
+                        <div class="progress-bar progress-bar-striped progress-bar-animated"
+                            style="width:0%;animation-name: random;animation-duration: 15s;animation-iteration-count:infinite">
                         </div>
                     </div>
                     <p><span class="my-spanindex">1</span>/10</p>
-                    <div>
-                        <i class="text-primary me-3 fs-1 bi-arrow-left-circle-fill"></i>
+                    <div class="d-flex flex-row">
+                        <div class="my-left">
+                            <i class=" d-block text-primary me-3 fs-1 bi-arrow-left-circle-fill"></i>
+                        </div>
+                        <div class="my-right">
 
-                        <i class="text-primary fs-1 bi-arrow-right-circle-fill"></i>
+                            <i class=" d-block text-primary fs-1 bi-arrow-right-circle-fill"></i>
+                        </div>
+
                     </div>
                 </div>
 
@@ -913,11 +927,13 @@
     <section>
         <div class="container-fluid bg-light">
             <div class="row">
-                <div class="col-12 col-md-6 py-5 d-flex flex-column align-items-center" style="background-image: url('./images/twoFootebox/section-nav-prev.png');background-repeat: no-repeat;background-size: cover;">
+                <div class="col-12 col-md-6 py-5 d-flex flex-column align-items-center"
+                    style="background-image: url('./images/twoFootebox/section-nav-prev.png');background-repeat: no-repeat;background-size: cover;">
                     <h4 class="mb-5 text-light display-6 fw-bolder">Try 14 Days Free</h4>
                     <button class="btn btn-outline-light">Start free tiral</button>
                 </div>
-                <div class="col-12 col-md-6 py-5 d-flex flex-column align-items-center" style="background-image: url('./images/twoFootebox/section-nav-next.png');background-repeat: no-repeat;background-size: cover;">
+                <div class="col-12 col-md-6 py-5 d-flex flex-column align-items-center"
+                    style="background-image: url('./images/twoFootebox/section-nav-next.png');background-repeat: no-repeat;background-size: cover;">
                     <h4 class="mb-5 text-light display-6 fw-bolder">Get a Personalized Demo</h4>
                     <button class="btn btn-outline-light">Request Demo</button>
                 </div>
