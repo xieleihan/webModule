@@ -1,0 +1,74 @@
+{
+    "content": [
+        {
+            "index": "1",
+            "images_path": "./images/icon/10001.png",
+            "title": "Heiko Parmas",
+            "info": "Data Warehouse Architect, AS Tallink Grupp",
+            "description":"ETLWorks is the greatest combination of: performance, versatility, cost efficiency, reliability and ease of use, I have seen thus far, for anything ETL related.Ever since the demo, we were sure this was the right choice to make.The level of flexibility, modularity, along with being able to configure every step of the data flow, is unmatched.These core features, combined with great support and solution oriented approach of the ETLWorks team, make building dataflows, a joy.Whether it is live CDC data streaming, bulk loading of data from virtually any source, setting up complex ETL pipelines, you name it.Everything ETL related has a solution, and those solutions, can be realized with ETLWorks."
+        },
+        {
+            "index": "2",
+            "images_path": "./images/icon/10002.png",
+            "title": "Bhavin Goradia",
+            "info": "Lead Consultant, BioUrja",
+            "description": "In searching for a cloud based ETL tool on behalf of a client,we looked at MatillionAzure Data Factory, Talendand more. Etlworks gavalue with the right mix offeatures, versatility, most importantly theirbest-in-class, superlative support, as we fouxdimplementing it frProduction loading billions ofrecords in few weeks of Any company looking tomove to cloud quickly,budget, does not havetechnical resources on sbenefit from Etlworksofferings."
+        },
+        {
+            "index": "3",
+            "images_path": "./images/icon/10003.png",
+            "title": "Chris Furlong",
+            "info": "CTO, Aiwyn",
+            "description": "I needed a solution that facilitated streaming database changes in nearreal-time to adestinations. It alsflexible enough tohandle a multitude of curvstraightforward way. After evaluatingvirtually each competitors, it became iclear thattheir solution had everytneeded while maintaining a reasonableprice point. Beyond technical support bothsalesprocess and folunparalleled. They have cresponded toany inquiry or question no lag time, and have been immenselyhelpful. In the rare eventinto a software defect (even if it'snot in their software), onew feature to accomodate my workflow,it has consistently been da matter of days (or less). In myexperience as a CTO, I've a large number of vendors, andEtlworks is without a dtop tier. Beyond thesupport,the application itselfgreat and I couldn't recommorehighly."
+        },
+        {
+            "index": "4",
+            "images_path": "./images/icon/10004.png",
+            "title": "Bryan M",
+            "info": "Sr. Software Engineer, Sermo",
+            "description": " I honestly feel like I’m working with another developer on my team when I’mspeaking to them. Commudirect and instant, they have beenproactive in investigatinand adjusting their code toaccommodate for our scenadded a bunch of features for us andgave us step by step dihow to use undocumented feIneeded to do very advaWhat I love best is when I ask thema question or identify an are always on my level and understandwhat I’m talking about,back and fourth or explaining."
+        },
+        {
+            "index": "5",
+            "images_path": "./images/icon/10005.png",
+            "title": "Martin Sheridan",
+            "info": "Lead Technical Consultant, Marketo Australia",
+            "description": " Etlworks provided us with the foundation to quickly deliver anenterprise-scale solutioprofile customer. We worked with theEtlworks team who develocustom integration scenarourclient’s needs. Evchallenge of working zones wefound Etlworks taccommodating and alwasupport us. Ipersonally consider themof our wider team and willcontinue to work with theprojects."
+        },
+        {
+            "index": "6",
+            "images_path": "./images/icon/10006.png",
+            "title": "Pablo Rodriguez",
+            "info": "Technical Operations Manager, Kyero",
+            "description": " With Integrator we've covered all our ETL needs seamlessly and in less timethan initially planneEtlworks continuous support. Westarted with one single uwere surprised with howpowerful and flexible, use, the tool is, but now we find newuses for it every day."
+        },
+        {
+            "index": "7",
+            "images_path": "./images/icon/10007.png",
+            "title": "Wouter Rosenkamp",
+            "info": "Director Marketing & Strategy, Recbi",
+            "description": "  Etlworks gives us the possibility to connect and exchange data fromdifference sources, coding effort. As a busmakes youmore agile and flexible. Tworks very stable and if there areany unclarities, the Etlwoalways fast in responding to anyquestions we might have.mostly solved within 24 hours."
+        },
+        {
+            "index": "8",
+            "images_path": "./images/icon/10008.png",
+            "title": "Franck van der Sluis",
+            "info": "Data Manager, Openclaims",
+            "description": "Etlworks is a very intuitive and powerful platform to achieve dataintegrations. The possibbasically endless. From integrationswith API's to integrrelational databases. Tteam isalsovery flexible in offering listening to feature requests. If somefunctionality is not therecreate it for the customer. Overall,Etlworks speeds up implemedata integrations, reducesdevelopment time and iquality of data."
+        },
+        {
+            "index": "9",
+            "images_path": "./images/icon/10009.png",
+            "title": "Lieschke Nieuwoudt",
+            "info": "Digital Marketing Manager, Sage One",
+            "description": "Working with Etlworks has been a pleasure. Being located in Australia I wasnervous to deal witoperating out of a differbut Ishouldn’t have been. Textremely dedicated and get back tous very quickly. Thereliable and I would highly recommendEtlworks to anyone."
+        },
+        {
+            "index": "10",
+            "images_path": "./images/icon/10010.png",
+            "title": "Maísa de Paiva",
+            "info": "Direct Marketing Manager, CPA",
+            "description": "Etlworks was instrumental in leading us to implement the complex task offeeding our marketing auto(Marketo) with a 5 minutes customerdata refresh from our Your flexibility in terms of workingwith our time-zone in Auyour deep understanding of thetechnicalities infundamental for accompltask. Wecouldn’t have achievintegration, which was an essentialcomponentof our customer serviwithout your support. Thank you."
+        }
+    ]
+}
