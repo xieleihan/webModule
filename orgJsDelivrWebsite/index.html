@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,15 +12,18 @@
     <link rel="stylesheet" href="./css/bootstrap.min.css">
     <link rel="stylesheet" href="./css/bootstrap-icons.min.css">
     <style>
-        body{
-            cursor: url('./res/normal.cur'),auto;
+        body {
+            cursor: url('./res/normal.cur'), auto;
         }
-        .topImg{
+
+        .topImg {
             max-width: 50px;
             max-height: 50px;
         }
+        
     </style>
 </head>
+
 <body>
     <nav class="navbar navbar-expand-lg bg-light text-black fixed-top">
         <div class="container">
@@ -37,7 +41,8 @@
                         <a href="#about" class="nav-link">关于</a>
                     </li>
                     <li class="nav-item" id="">
-                        <a href="https://github.com/SouthAki/contentDeliveryNetwork" target="_self" class="nav-link"><i class="bi bi-github"></i></a>
+                        <a href="https://github.com/SouthAki/contentDeliveryNetwork" target="_self" class="nav-link"><i
+                                class="bi bi-github"></i></a>
                     </li>
                     <li class="nav-item" id="source">
                         <a href="#" target="_self" class="nav-link"><i class="bi bi-sourceforge"></i></a>
@@ -56,64 +61,188 @@
             <div class="display-5 mb-3">文件系统:</div>
             <p class="text-black-50">古老传说中有那么一个时代，蒸汽机驱动的机器在天空自由翱翔。</p>
             <div class="input-group mb-3">
-                <input type="text" id="website" class="form-control p-2 ps-4" value="https://www.jsdelivr.com/package/gh/southaki/contentDeliveryNetwork" style="cursor: url('./res/normal.cur'),auto;">
+                <input readonly type="text" id="website" class="form-control p-2 ps-4"
+                    value="https://www.jsdelivr.com/package/gh/southaki/contentDeliveryNetwork"
+                    style="cursor: url('./res/normal.cur'),auto;">
                 <div class="input-group-append" id="copyWebsite">
-                    <span class="input-group-text p-2 d-none d-md-block" id="basic-addon1"><i class="bi bi-clipboard" style="font-size: 1.5vw;"></i></span>
+                    <span class="input-group-text p-2 d-none d-md-block" id="basic-addon1"><i class="bi bi-clipboard"
+                            style="font-size: 1.5vw;"></i></span>
                 </div>
             </div>
             <div class="display-5 mb-3">最新版本:</div>
             <p class="text-black-50">🥰🥰🥰请使用最新版本🥰🥰🥰</p>
             <p class="text-black-50">🔭🔭🔭如果没有显示的话,请多刷新几次🚀🚀🚀</p>
             <div class="input-group mb-3">
-                <input type="text" id="package" class="form-control p-2 ps-4"
-                    value="" style="cursor: url('./res/normal.cur'),auto;">
+                <input readonly type="text" id="package" class="form-control p-2 ps-4" value=""
+                    style="cursor: url('./res/normal.cur'),auto;">
                 <div id="copyNew" class="input-group-append">
                     <span class="input-group-text p-2 d-none d-md-block" id="basic-addon2"><i class="bi bi-clipboard"
                             style="font-size: 1.5vw;"></i></span>
                 </div>
             </div>
             <div class="mb-2">项目包含的内容文件:</div>
-            <div align="center">
-                <img src="https://fastly.jsdelivr.net/gh/devicons/devicon/icons/atom/atom-original.svg" height="45"
-                    alt="atom logo" />
-                <img width="6" />
-                <img src="https://fastly.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" height="45"
-                    alt="css3 logo" />
-                <img width="6" />
-                <img src="https://fastly.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" height="45"
-                    alt="javascript logo" />
-                <img width="6" />
-                <img src="https://fastly.jsdelivr.net/gh/devicons/devicon/icons/cloudflare/cloudflare-original.svg" height="45"
-                    alt="cloudflare logo" />
-                <img width="6" />
-                <img src="https://fastly.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" height="45"
-                    alt="vscode logo" />
+            <div align="center" class="d-flex flex-nowrap justify-content-center">
+                <img class="me-3" src="https://fastly.jsdelivr.net/gh/devicons/devicon/icons/atom/atom-original.svg"
+                    height="45" alt="atom logo" />
+
+                <img class="me-3" src="https://fastly.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg"
+                    height="45" alt="css3 logo" />
+
+                <img class="me-3"
+                    src="https://fastly.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
+                    height="45" alt="javascript logo" />
+
+                <img class="me-3"
+                    src="https://fastly.jsdelivr.net/gh/devicons/devicon/icons/cloudflare/cloudflare-original.svg"
+                    height="45" alt="cloudflare logo" />
+
+                <img class="me-3" src="https://fastly.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg"
+                    height="45" alt="vscode logo" />
             </div>
-            <p class="d-flex justify-content-center mt-3 ">鸣谢:由<span class="fw-bolder">jsDelivr</span>提供支持<img class="ms-3 img-fluid" src="https://data.jsdelivr.com/v1/package/gh/southaki/contentDeliveryNetwork/badge" alt="">
+            <p class="d-flex justify-content-center mt-3 ">鸣谢:由<span class="fw-bolder">jsDelivr</span>提供支持<img
+                    class="d-none d-md-block ms-3 img-fluid"
+                    src="https://data.jsdelivr.com/v1/package/gh/southaki/contentDeliveryNetwork/badge" alt="">
             </p>
-            
+
+        </div>
+    </section>
+    <section>
+        <div class="container d-flex flex-column justify-content-center p-5 mt-5 mb-5" style="border-left: 3px dotted #ccc;border-right: 3px dotted #ccc;">
+            <h4 class="display-2 p-2 text-nowrap" style="text-align: center;border: 3px dotted #ccc;border-radius: 0.8vw;overflow: hidden;">互联互通,各地可达</h4>
+            <img src="./images/cloudflare.webp" alt="">
+            <h4 class="display-2 p-2 text-nowrap" style="text-align: center;border: 3px dotted #ccc;border-radius: 0.8vw;overflow: hidden;">多地部署,极速访问</h4>
+        </div>
+    </section>
+    <section>
+        <div class="container-fluid p-5" style="background-color: #f8f9fa;">
+            <div class="p-5 d-flex flex-column flex-md-row justify-content-around">
+                <div class="ms-5">
+                    <h4 class="fs-4 mb-3">RockCloud</h4>
+                    <div class="display-5 fw-bolder mb-3">全球骨干网 - 基于Anycast技术</div>
+                    <p class="text-black-50 mb-3">以全球150Tbps网络为基石，提供快速安全可靠的云服务</p>
+                </div>
+                <div class="w-md-25 d-flex justify-content-center w-100 mb-3" style="max-height: 300px;max-width: 300px;">
+                    <img class="img-fluid w-50" src="./images/iconRepo/global.png" alt="">
+                </div>
+            </div>
+            <div class="row d-flex flex-row justify-content-center">
+                <div class="col-12 col-md-3 d-flex justify-content-center align-items-center">
+                    <img class="img-fluid mb-5" style="max-height: 100px;max-width: 200px;" src="./images/iconRepo/ChinaTelecom.svg" alt="">
+                </div>
+                <div class="col-12 col-md-3 d-flex justify-content-center align-items-center">
+                    <img class="img-fluid mb-5" style="max-height: 100px;max-width: 200px;" src="./images/iconRepo/ChinaUnicom.svg" alt="">
+                </div>
+                <div class="col-12 col-md-3 d-flex justify-content-center align-items-center">
+                    <img class="img-fluid mb-5" style="max-height: 100px;max-width: 200px;" src="./images/iconRepo/ChinaMobile.svg" alt="">
+                </div>
+                <div class="col-12 col-md-3 d-flex justify-content-center align-items-center">
+                    <img class="img-fluid mb-5" style="max-height: 100px;max-width: 200px;" src="./images/iconRepo/HEIE.svg" alt="">
+                </div>
+            </div>
+            <div class="row d-flex flex-row justify-content-center">
+                <div class="col-12 col-md-3 d-flex justify-content-center align-items-center">
+                    <img class="img-fluid mb-5" style="max-height: 100px;max-width: 200px;" src="./images/iconRepo/AT&T_logo_2016.svg.png"
+                        alt="">
+                </div>
+                <div class="col-12 col-md-3 d-flex justify-content-center align-items-center">
+                    <img class="img-fluid mb-5" style="max-height: 100px;max-width: 200px;" src="./images/iconRepo/SoftBank_logo.svg.png"
+                        alt="">
+                </div>
+                <div class="col-12 col-md-3 d-flex justify-content-center align-items-center">
+                    <img class="img-fluid mb-5" style="max-height: 100px;max-width: 200px;" src="./images/iconRepo/SmarTone_logo.svg.png"
+                        alt="">
+                </div>
+                <div class="col-12 col-md-3 d-flex justify-content-center align-items-center">
+                    <img class="img-fluid mb-5" style="max-height: 100px;max-width: 200px;" src="./images/iconRepo/Vodafone_2017_logo.svg.png" alt="">
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="container-fluid bg-light p-5">
+            <div class="d-flex flex-column flex-md-row justify-content-between">
+                <div>
+                    <img src="./images/safe.png" alt="">
+                </div>
+                <div class="d-flex justify-content-center align-items-center">
+                    <div class="row">
+                        <div class="col-12">
+                            <h4 class="text-black display-5 fw-bolder">安全可靠,荣获认证</h4>
+                            <p class="text-black-50 mb-5">There is no absolute safety in the world, but we have done it.</p>
+                        </div>
+                        <div class="col-12 col-md-6 d-flex justify-content-center align-items-center">
+                            <img class="img-fluid mb-5" style="max-height: 100px;max-width: 200px;"
+                                src="./images/iconRepo/Kaspersky_logo.svg.png" alt="">
+                        </div>
+                        <div class="col-12 col-md-6 d-flex justify-content-center align-items-center">
+                            <img class="img-fluid mb-5" style="max-height: 100px;max-width: 200px;"
+                                src="./images/iconRepo/Symantec_logo10.svg.png" alt="">
+                        </div>
+                        <div class="col-12 col-md-6 d-flex justify-content-center align-items-center">
+                            <img class="img-fluid mb-5" style="max-height: 100px;max-width: 200px;"
+                                src="./images/iconRepo/640px-Avira_logo.svg.png" alt="">
+                        </div>
+                        <div class="col-12 col-md-6 d-flex justify-content-center align-items-center">
+                            <img class="img-fluid mb-5" style="max-height: 100px;max-width: 200px;"
+                                src="./images/iconRepo/Trend_Micro_logo.svg.png" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="container-fluid d-flex flex-column justify-content-center p-5" style="background: url('./images/pagesBg.png');background-repeat: no-repeat; background-size: cover;">
+            <h4 class="display-5 fw-bolder mb-5 ps-5">项目原理:</h4>
+            <div class="d-flex justify-content-center">
+                <img class="img-fluid" style="max-width: 50vw; max-height: 600px;" src="./images/cdnyuanli.png" alt="">
+            </div>
         </div>
     </section>
     <section>
         <div class="container p-5" id="about">
             <div class="display-5 mb-3">项目介绍:</div>
-            <p class="text-black-50">本项目将经常需要使用到的前端的各种文件,全部集中起来,通过Cloudflare的全球CDN服务,使用户无需在开发过程中,请求对应的官网地址.减少了去查找文件的时间成本.本项目开源,任何人无需许可即可使用.</p>
+            <p class="text-black-50">
+                本项目将经常需要使用到的前端的各种文件,全部集中起来,通过Cloudflare的全球CDN服务,使用户无需在开发过程中,请求对应的官网地址.减少了去查找文件的时间成本.本项目开源,任何人无需许可即可使用.
+            </p>
             <div class="row container pb-5">
                 <div class="col-12 col-md-3 d-flex justify-content-center">
-                    <img class="my-avater img-fluid rounded-circle p-2 mb-4" src="./images/rockavater.jpg" alt="个人头像" style="border: 3px dotted #ccc;max-height: 300px;">
+                    <img class="my-avater img-fluid rounded-circle p-2 mb-4" src="./images/rockavater.jpg" alt="个人头像"
+                        style="border: 3px dotted #ccc;max-height: 300px;">
                 </div>
                 <div class="col-12 col-md-9 d-flex justify-content-center align-items-center">
-                    <h4 class="display-5 d-flex justify-content-center">正在摸鱼中~<span class="cat" style="transition: all .5s;">喵喵喵</span></h4>
+                    <h4 class="display-5 d-flex justify-content-center">正在摸鱼中~<span class="cat d-none d-md-block"
+                            style="transition: all .5s;">喵喵喵</span></h4>
                 </div>
             </div>
     </section>
-    <footer class="bg-black pt-3 fixed-bottom">
-        <div class="container-fluid d-flex justify-content-center">
-            <p class="text-light">Copyright© 2024 By SouthAki All Rights Reserved.</p>
+    <!-- 脚部固定定位fixed-bottom -->
+    <footer class="bg-black pt-5 pb-5">
+        <div class="container-fluid d-flex justify-content-center flex-column">
+            <p class="text-light d-none d-md-block" style="text-align: center;">Copyright© 2024 By SouthAki All Rights Reserved.</p>
+            <div class="row">
+                <p class="col-12 text-light d-md-none" style="text-align: center;">版权所有,盗版必究</p>
+            </div>
+            <div class="row">
+                <p class="text-light d-block" id="RunTime" style="text-align: center;"></p>
+            </div>
+        </div>
+        <div class="d-none d-md-block">
+            <div class="d-flex flex-row justify-content-center">
+                <img class="img-fluid me-3"
+                    src="https://img.shields.io/badge/%E7%BD%91%E7%9B%BE%E6%98%9F%E7%90%83-%E6%8F%90%E4%BE%9BCDN%E6%94%AF%E6%8C%81-red"
+                    alt="">
+                <img class="img-fluid me-3"
+                    src="https://data.jsdelivr.com/v1/package/gh/southaki/contentDeliveryNetwork/badge"
+                    alt="">
+                <img class="img-fluid me-3"
+                    src="https://img.shields.io/badge/Copyright-BY--NC--SA%204.0-d42328?style=flat&logo=Claris" alt="">
+            </div>
         </div>
     </footer>
 </body>
 <script src="./js/jquery-3.7.1.min.js"></script>
 <script src="./js/bootstrap.bundle.min.js"></script>
 <script src="./js/main.js"></script>
+
 </html>
