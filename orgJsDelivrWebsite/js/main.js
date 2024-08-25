@@ -124,6 +124,7 @@ $("#copyWebsite").click(function () {
 $('#website').focus(function () {
     document.querySelector('#website').select();
     document.execCommand('copy', true);
+    // window.alert("复制成功了喵~");
 });
 
 $("#copyNew").click(function () {
@@ -135,4 +136,21 @@ $("#copyNew").click(function () {
 $('#package').focus(function () {
     document.querySelector('#package').select();
     document.execCommand('copy', true);
+    // window.alert("复制成功了喵~");
+});
+
+$('#vmessLink').focus(function () {
+    $('#vmessLink').attr("type", "text");
+    document.querySelector('#vmessLink').select();
+    document.execCommand('copy', true);
+    $('#vmessLink').attr("type", "password");
+    // window.alert("复制成功了喵~");
+});
+
+$("#copyVmessLink").click(function () {
+    $('#vmessLink').attr("type", "text");
+    document.querySelector('#vmessLink').select();
+    document.execCommand('copy', true);
+    $('#vmessLink').attr("type", "password");
+    window.alert("复制成功了喵~");
 });
