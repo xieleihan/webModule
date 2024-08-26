@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .main{
+            width: 100dvw;
+            height: 100dvh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .main .box{
+            width: 500px;
+            height: 500px;
+            border-radius: 50%;
+            position: relative;
+            background: linear-gradient(90deg, black 50%, white 50%);
+            border: 1px solid black;
+            transition: transform 0.5s ease; 
+            animation: rotate 5s infinite linear;
+        }
+        @keyframes rotate{
+            0%{
+                transform: rotate(0deg);
+            }
+            
+            100%{
+                transform: rotate(360deg);
+            }
+        }
+        .main .box:hover{
+            /* transform: rotate(360deg); */
+            animation: rotate 5s infinite linear;
+        }
+        .main .box::after{
+            position: absolute;
+            top: 0%;
+            left: 50%;
+            content: '';
+            display: block;
+            width: 250px;
+            height: 250px;
+            /* background-color: black; */
+            background: radial-gradient(circle, white 15%, black 15%);
+            border-radius: 50%;
+            transform: translateX(-50%);
+        }
+        .main .box::before{
+            position: absolute;
+            content: '';
+            display: block;
+            width: 250px;
+            height: 250px;
+            /* background-color: white; */
+            border-radius: 50%;
+            background: radial-gradient(circle, black 15%, white 15%);
+            top: 50%;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="box"></div>
+    </div>
+</body>
+</html>
