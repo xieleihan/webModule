@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .main{
+            width: 100dvw;
+            height: 100dvh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .main .box{
+            width: 500px;
+            height: 500px;
+            border: 5px solid #ccc;
+            border-radius: 50%;
+            position: relative;
+        }
+        .main .box .kedu{
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            position: relative;
+        }
+        .main .box .kedu div{
+            width: 5px;
+            height: 15px;
+            background: #ccc;
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            transform-origin: center 250px;
+        }
+        .main .box .kedu .k1{
+            transform: rotate(30deg);
+        }
+        .main .box .kedu .k2{
+            transform: rotate(60deg);
+        }
+        .main .box .kedu .k3{
+            transform: rotate(90deg);
+            width: 10px;
+            height: 25px;
+        }
+        .main .box .kedu .k4{
+            transform: rotate(120deg);
+        }
+        .main .box .kedu .k5{
+            transform: rotate(150deg);
+        }
+        .main .box .kedu .k6{
+            transform: rotate(180deg);
+            width: 10px;
+            height: 25px;
+        }
+        .main .box .kedu .k7{
+            transform: rotate(210deg);
+        }
+        .main .box .kedu .k8{
+            transform: rotate(240deg);
+        }
+        .main .box .kedu .k9{
+            transform: rotate(270deg);
+            width: 10px;
+            height: 25px;
+        }
+        .main .box .kedu .k10{
+            transform: rotate(300deg);
+        }
+        .main .box .kedu .k11{
+            transform: rotate(330deg);
+        }
+        .main .box .kedu .k12{
+            transform: rotate(360deg);
+            width: 10px;
+            height: 25px;
+        }
+        .main .box .yuandian{
+            height: 15px;
+            width: 15px;
+            border-radius: 50%;
+            background-color: #ccc;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 999;
+        }
+        .main .box  .shizhen{
+            width: 5px;
+            height: 100px;
+            background: #000;
+            position: absolute;
+            top: 30%;
+            left: 49.5%;
+            transform: translate(-50%, -100%);
+            transform-origin: center 100px;
+            animation: move 43200s linear infinite;
+            z-index: 1;
+        }
+        .main .box  .fenzhen{
+            width: 3px;
+            height: 120px;
+            background: #000;
+            position: absolute;
+            top: 27%;
+            left: 50%;
+            transform: translate(-50%, -120px);
+            transform-origin: center 120px;
+            animation: move 3600s linear infinite;
+            z-index: 1;
+        }
+        .main .box  .miaozhen{
+            width: 1px;
+            height: 150px;
+            background: #000;
+            position: absolute;
+            top: 20%;
+            left: 50%;
+            transform: translate(-50%, -150px);
+            transform-origin: center 150px;
+            animation: move 60s linear infinite;
+            z-index: 1;
+        }
+
+        @keyframes move{
+            0%{
+                transform: rotate(0deg);
+            }
+            100%{
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="box">
+            <div class="kedu">
+                <div class="k1"></div>
+                <div class="k2"></div>
+                <div class="k3"></div>
+                <div class="k4"></div>
+                <div class="k5"></div>
+                <div class="k6"></div>
+                <div class="k7"></div>
+                <div class="k8"></div>
+                <div class="k9"></div>
+                <div class="k10"></div>
+                <div class="k11"></div>
+                <div class="k12"></div>
+                
+            </div>
+            <div class="yuandian">
+                
+            </div>
+            <div class="shizhen"></div>
+            <div class="fenzhen"></div>
+            <div class="miaozhen"></div>
+        </div>
+    </div>
+</body>
+</html>
