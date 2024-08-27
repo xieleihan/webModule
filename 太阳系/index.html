@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .main {
+            width: 100dvw;
+            height: 100dvh;
+            background-color: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .main .box {
+            width: 500px;
+            height: 500px;
+            background-image: repeating-radial-gradient(circle closest-corner,
+                    black 0%,
+                    black 7%,
+                    white 7%,
+                    white 7.5%);
+            border-radius: 50%;
+            position: relative;
+        }
+
+        .main .box .sun {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #ffff00;
+        }
+
+        .main .box .sun .mercury {
+            position: absolute;
+            top: -26px;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: #ff6347;
+            animation: move 2s linear infinite;
+            
+            transition: all 0.5s;
+            transform-origin: center 60px;
+        }
+        
+
+        .main .box .sun .venus {
+            position: absolute;
+            top: -53px;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: #ff8c00;
+            animation: move 3s linear infinite;
+            
+            transition: all 0.5s;
+            transform-origin: center 90px;
+        }
+
+        
+
+        .main .box .sun .earth {
+            position: absolute;
+            top: -79px;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: #1e90ff;
+            animation: move 4s linear infinite;
+            
+            transition: all 0.5s;
+            transform-origin: center 115px;
+        }
+
+
+        @keyframes move {
+            form {
+                transform: translate(-50%, -50%) rotate(0deg);
+            }
+
+            to {
+                transform: translate(-50%, -50%) rotate(360deg);
+            }
+        }
+
+        .main .box .sun .mars {
+            position: absolute;
+            top: -106px;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: #ff4500;
+            animation: move 5s linear infinite;
+            
+            transition: all 0.5s;
+            transform-origin: center 140px;
+        }
+
+        .main .box .sun .jupiter {
+            position: absolute;
+            top: -132px;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: #ff1493;
+            animation: move 6s linear infinite;
+            
+            transition: all 0.5s;
+            transform-origin: center 168px;
+        }
+
+        .main .box .sun .saturn {
+            position: absolute;
+            top: -159px;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: #ff69b4;
+            animation: move 7s linear infinite;
+            
+            transition: all 0.5s;
+            transform-origin: center 195px;
+        }
+
+        .main .box .sun .uranus {
+            position: absolute;
+            top: -186px;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: #00bfff;
+            animation: move 8s linear infinite;
+            
+            transition: all 0.5s;
+            transform-origin: center 220px;
+        }
+
+        .main .box .sun .neptune {
+            position: absolute;
+            top: -213px;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: #0000ff;
+            animation: move 9s linear infinite;
+            
+            transition: all 0.5s;
+            transform-origin: center 250px;
+        }
+
+        
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <div class="box">
+            <div class="sun">
+                <div class="mercury"></div>
+                <div class="venus"></div>
+                <div class="earth"></div>
+                <div class="mars"></div>
+                <div class="jupiter"></div>
+                <div class="saturn"></div>
+                <div class="uranus"></div>
+                <div class="neptune"></div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

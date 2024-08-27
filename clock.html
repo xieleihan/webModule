@@ -100,10 +100,10 @@
             background: #000;
             position: absolute;
             top: 30%;
-            left: 49.5%;
+            left: 49.9%;
             transform: translate(-50%, -100%);
             transform-origin: center 100px;
-            animation: move 43200s linear infinite;
+            /* animation: move 43200s linear infinite; */
             z-index: 1;
         }
         .main .box  .fenzhen{
@@ -115,7 +115,7 @@
             left: 50%;
             transform: translate(-50%, -120px);
             transform-origin: center 120px;
-            animation: move 3600s linear infinite;
+            /* animation: move 3600s linear infinite; */
             z-index: 1;
         }
         .main .box  .miaozhen{
@@ -127,7 +127,7 @@
             left: 50%;
             transform: translate(-50%, -150px);
             transform-origin: center 150px;
-            animation: move 60s linear infinite;
+            /* animation: move 60s linear infinite; */
             z-index: 1;
         }
 
@@ -140,6 +140,7 @@
             }
         }
     </style>
+    
 </head>
 <body>
     <div class="main">
@@ -168,4 +169,50 @@
         </div>
     </div>
 </body>
+<script>
+    function updateClock() {
+            const now = new Date();
+            const s = now.getSeconds();
+            const m = now.getMinutes();
+            const h = now.getHours();
+
+            const sDeg = s * 6;
+            const mDeg = m * 6 + s * 0.1;
+            const hDeg = h * 30 + m * 0.5;
+
+            document.querySelector('.shizhen').style.transform = `rotate(${hDeg}deg)`;
+            document.querySelector('.fenzhen').style.transform = `rotate(${mDeg}deg)`;
+            document.querySelector('.miaozhen').style.transform = `rotate(${sDeg}deg)`;
+
+            // 动态设置动画的持续时间和起始位置
+            document.querySelector('.shizhen').style.animation = `move 43200s linear infinite`;
+            document.querySelector('.fenzhen').style.animation = `move 3600s linear infinite`;
+            document.querySelector('.miaozhen').style.animation = `move 60s linear infinite`;
+
+            // 动态设定动画的延迟，确保从当前角度开始旋转
+            document.querySelector('.shizhen').style.animationDelay = `-${h * 3600 + m * 60 + s}s`;
+            document.querySelector('.fenzhen').style.animationDelay = `-${m * 60 + s}s`;
+            document.querySelector('.miaozhen').style.animationDelay = `-${s}s`;
+        }
+
+        updateClock(); // 初始化时钟
+
+
+    // window.onload= function(){
+    //     const now = new Date();
+    //     const s = now.getSeconds();
+    //     const m = now.getMinutes();
+    //     const h = now.getHours();
+
+    //     const sDeg = s * 6;
+    //     const mDeg = m * 6 + s * 0.1;
+    //     const hDeg = h * 30 + m * 0.5;
+
+    //     document.querySelector('.shizhen').style.transform = `translate(-50%, -100%) rotate(${hDeg}deg) !important`;
+    //     document.querySelector('.fenzhen').style.transform = `translate(-50%, -120px) rotate(${mDeg}deg) !important`;
+    //     document.querySelector('.miaozhen').style.transform = `translate(-50%, -150px) rotate(${sDeg}deg) !important`;
+
+    // }
+
+</script>
 </html>

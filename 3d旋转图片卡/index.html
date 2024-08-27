@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .main{
+            width: 100dvw;
+            height: 100dvh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .main .box{
+            width: 500px;
+            height: 500px;
+            position: relative;
+            perspective: 500px;
+            transform-style: preserve-3d;
+        }
+
+        @keyframes move{
+            0%{
+                transform: rotateX(-60deg) rotateY(0deg);
+            }
+            100%{
+                transform: rotateX(-60deg) rotateY(360deg);
+            }
+        }
+        @keyframes move1{
+            from{
+                transform: rotateX(-60deg) rotateY(60deg);
+            }
+            to{
+                transform: rotateX(-60deg) rotateY(420deg);
+            }
+        }
+        @keyframes move2{
+            from{
+                transform: rotateX(-60deg) rotateY(120deg);
+            }
+            to{
+                transform: rotateX(-60deg) rotateY(480deg);
+            }
+        }
+        .main .box img{
+            width: 480px;
+            height: 300px;
+        }
+        .main .box .box1{
+            position: relative;
+            transition: all .8s;
+            animation: move 8s infinite linear;
+            transform: rotateX(-60deg);
+            
+        }
+        .main .box .nodisplay{
+            backface-visibility: visible;
+        }
+        .main .box .display{
+            backface-visibility: hidden;
+        }
+        
+        .main .box .box2{
+            position: relative;
+            animation: move1 8s infinite linear;
+            transition: all .8s;
+            transform: rotateX(-60deg) rotateY(60deg);
+        }
+        .main .box .box3{
+            position: relative;
+            animation: move2 8s infinite linear;
+            transition: all .8s;
+            transform: rotateX(-60deg) rotateY(120deg);
+        }
+        .main .box .box1 div{
+            position: absolute;
+        }
+        .main .box .box2 div{
+            position: absolute;
+        }
+        .main .box .box3 div{
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="box">
+            <div class="box1 nodisplay">
+                <div class="box1-1" >
+                    <img src="./images/1.jpg" alt="">
+                </div>
+                
+            </div>
+            <div class="box1 display">
+                <div class="box1-2">
+                    <img src="./images/2.jpg" alt="" style="transform: rotateY(-180deg);">
+                </div>
+            </div>
+            <div class="box2 nodisplay">
+                <div class="box2-1" style="backface-visibility: hidden;">
+                    <img src="./images/3.jpg" alt="">
+                </div>
+                
+            </div>
+            <div class="box2 display">
+                <div class="box2-2">
+                    <img src="./images/4.jpg" alt="" style="transform: rotateY(-180deg);">
+                </div>
+            </div>
+            <div class="box3 nodisplay">
+                <div class="box3-1" style="backface-visibility: hidden;">
+                    <img src="./images/5.jpg" alt="">
+                </div>
+                
+            </div>
+            <div class="box3 display">
+                <div class="box3-2">
+                    <img src="./images/6.jpg" alt="" style="transform: rotateY(-180deg);">
+                </div>
+                </div>
+
+        </div>
+    </div>
+</body>
+</html>
