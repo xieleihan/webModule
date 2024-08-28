@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        .main{
+            width: 100dvw;
+            height: 100dvh;
+            transition: all .5s;
+        }
+        .main .box{
+            width: 150px;
+            height: 150px;
+            left: 0;
+            background-color: pink;
+            position: absolute;
+            margin-top: 10px;
+            transition: all 2.5s ease;;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <button>按钮1</button>
+        <button>按钮2</button>
+        <button>按钮3</button>
+        <div class="box">hello world</div>
+    </div>
+    
+</body>
+<script>
+    var button = document.querySelectorAll('button');
+    var box = document.querySelector('.box');
+    button[0].onclick = function(){
+        console.log(getComputedStyle(box,["left"]).getPropertyValue('left'));
+        
+        box.style.left = '300px';
+
+    }
+    button[1].onclick = function(){
+        box.style.width = '400px';
+
+    }
+    button[2].onclick = function(){
+        box.style.fontSize = '30px';
+    }
+</script>
+</html>

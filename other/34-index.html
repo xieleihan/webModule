@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        li{
+            list-style: none;
+        }
+        .clearfix{
+            clear: both;
+            content: '';
+            display: block;
+        }
+        .fl{
+            float: left;
+        }
+        .fr{
+            float: right;
+        }
+        .main{
+            display: flex;
+            width: 350px;
+            flex-direction: column;
+            border: 1px solid #ccc;
+            margin: 0 auto;
+        }
+        
+        .liStyle{
+            padding: 18px;
+            border: 1px solid #000;
+        }
+        .cont{
+            display: none;
+            width: 300px;
+            margin: 0 auto;
+        }
+        .active{
+            display: block;
+        }
+        .liactive{
+            background-color: #ccc;
+            font-weight: bold;
+        }
+        ul{
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            justify-content: space-evenly;
+            
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <ul>
+            <li class=" liStyle liactive">公告</li>
+            <li class=" liStyle">规则</li>
+            <li class=" liStyle">论坛</li>
+            <li class=" liStyle">安全</li>
+            <li class=" liStyle">公益</li>
+        </ul>
+        <div class="cont active">
+            阿里云总裁胡晓明 云计算将成为新经济爆发点
+            天猫超市发放10亿红包 高圆圆跑步公开课
+        </div>
+        <div class="cont">
+            2016春节发货调整公告 广告法禁用语大全
+            邮费争议问题汇总 炒信规则调整意见
+        </div>
+        
+        <div class="cont">
+            趣解2016电商四大趋势 全职妈妈两年两皇冠
+            创业社区招募管理员 滥发信息体检工具
+        </div>
+        
+        <div class="cont">
+            拉你进Q群微信刷单？ 推荐店铺安全管理利器
+            谨防炒信”黑吃黑 警方铲除炒信诈骗
+        </div>
+        
+        <div class="cont">
+            公益宝贝获中华慈善奖 公益发展指数阿里五星
+            公益宝贝卖家发票索取 公益机构淘宝开店
+        </div>
+        
+
+    </div>
+</body>
+<script>
+    var li = document.querySelectorAll('li');
+    var cont = document.querySelectorAll('.cont');
+    for(var i = 0;i<li.length;i++){
+        li[i].setAttribute('index',i);
+        li[i].onclick = function(){
+            
+            for(var j = 0;j<li.length;j++){
+                var index = this.getAttribute('index');
+                li[j].className = 'liStyle';
+                cont[j].className = 'cont';
+                cont[index].className = 'active';
+                this.className = 'liStyle liactive';
+            }
+        }
+    }
+</script>
+</html>

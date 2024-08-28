@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .user{
+            outline:none;
+            border: 2px dashed #ccc;
+            background-color: skyblue;
+        }
+        /* :focus表单控件获取焦点后的样式 */
+        .user:focus{
+            background-color: pink;
+        }
+        /* .user::selection{
+            background-color: pink;
+        } */
+        .mail{
+            border-bottom: 1px dashed red;
+            border-top: 0px;
+            border-left: 0px;
+            border-right: 0px;
+            outline: none;
+
+        }
+        .serorh{
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+    用户名:<input type="text" class="user">
+    <br>
+    <br>
+    <br>
+
+    邮箱:<input type="text" class="mail">
+    <br>
+    <br>
+    <br>
+
+    搜索一下:<input type="text" placeholder="请输入" class="serorh">
+</body>
+</html>

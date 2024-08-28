@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        table {
+            width: 400px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<!--<table>-->
+<!--    <tr>-->
+<!--        <td>姓名</td>-->
+<!--        <td>性别</td>-->
+<!--        <td>年龄</td>-->
+<!--        <td>学科</td>-->
+<!--    </tr>-->
+<!--    <tr>-->
+<!--        <td></td>-->
+<!--        <td></td>-->
+<!--        <td></td>-->
+<!--        <td></td>-->
+<!--    </tr>-->
+<!--    <tr>-->
+<!--        <td></td>-->
+<!--        <td></td>-->
+<!--        <td></td>-->
+<!--        <td></td>-->
+<!--    </tr>-->
+<!--    <tr>-->
+<!--        <td></td>-->
+<!--        <td></td>-->
+<!--        <td></td>-->
+<!--        <td></td>-->
+<!--    </tr>-->
+<!--    <tr>-->
+<!--        <td></td>-->
+<!--        <td></td>-->
+<!--        <td></td>-->
+<!--        <td></td>-->
+<!--    </tr>-->
+<!--    <tr>-->
+<!--        <td></td>-->
+<!--        <td></td>-->
+<!--        <td></td>-->
+<!--        <td></td>-->
+<!--    </tr>-->
+<!--    <tr>-->
+<!--        <td></td>-->
+<!--        <td></td>-->
+<!--        <td></td>-->
+<!--        <td></td>-->
+<!--    </tr>-->
+<!--    <tr>-->
+<!--        <td></td>-->
+<!--        <td></td>-->
+<!--        <td></td>-->
+<!--        <td></td>-->
+<!--    </tr>-->
+<!--    <tr>-->
+<!--        <td></td>-->
+<!--        <td></td>-->
+<!--        <td></td>-->
+<!--        <td></td>-->
+<!--    </tr>-->
+<!--    <tr>-->
+<!--        <td></td>-->
+<!--        <td></td>-->
+<!--        <td></td>-->
+<!--        <td></td>-->
+<!--    </tr>-->
+<!--    <tr>-->
+<!--        <td></td>-->
+<!--        <td></td>-->
+<!--        <td></td>-->
+<!--        <td></td>-->
+<!--    </tr>-->
+<!--</table>-->
+
+<script>
+    // 第一题
+    var sum = 0;
+    var pingjun = 0;
+    var a = new Array(2, 6, 1, 7, 4);
+    for (var i = 0; i < a.length; i++) {
+        sum += a[i];
+        pingjun = sum / (a.length);
+    }
+    console.log(sum, pingjun);
+
+    // 第二题
+    var b = new Array(2, 6, 1, 77, 52, 25, 7);
+    var max = b[0];
+    for (var i = 0; i < b.length - 1; i++) {
+        if (b[i] < b[i + 1]) {
+            max = b[i + 1];
+        }
+    }
+    console.log(max);
+
+    // 第三题
+    var str = "";
+    var c = new Array("red", "green", "blue", "pink");
+    for (var i = 0; i < c.length; i++) {
+        if (i == c.length - 1) {
+            str += c[i];
+        } else
+            str += c[i] + "-";
+    }
+    console.log(str);
+
+    // 第四题
+    var arr = [
+        [11, 8, 35],
+        [7, 51, 99]
+    ];
+    console.log(arr);
+    var d = [];
+    console.log(d);
+    var sum = 0;
+    var count = 0;
+    for (var i = 0; i < arr.length; i++) {
+        for (var j = 0; j < arr.length + 1; j++) {
+            // console.log()
+            if (arr[i][j] % 2 != 0) {
+                // console.log(1)
+                d[d.length] = arr[i][j];
+            }
+        }
+    }
+    for (var s = 0; s < d.length; s++) {
+        sum += d[s];
+        count++;
+    }
+    console.log(d);
+    console.log("sum=>" + sum + "\n个数是=>" + count);
+
+    // 第五题
+    var arr = new Array(2, 3, 6, 1, 77, 8, 52, 9, 25, 7);
+    var e = [];
+    for (var i = 0; i < arr.length; i++) {
+        if (arr[i] > 10) {
+            e[e.length] = arr[i];
+        }
+    }
+    console.log(e);
+
+    // 冒泡排序
+    var arr = new Array(2, 3, 6, 1, 77, 8, 52, 9, 25, 7);
+    for (var i = 0; i < arr.length; i++) {
+        for (var j = 0; j < arr.length - 1 - i; j++) {
+            if (arr[j] > arr[j + 1]) {
+                var temp = arr[j];
+                arr[j] = arr[j + 1];
+                arr[j + 1] = temp;
+            }
+        }
+    }
+    console.log(arr);
+
+    console.log("---------------------------------------")
+    console.log("---------------第一题-------------------")
+    // 作业
+    // 第一题
+    // 穷举法
+    for (var red = 0; red <= 25; red++) {
+        for (var white = 0; white <= 31; white++) {
+            for (var black = 0; black <= 28; black++) {
+                if (red + white == 25 && white + black == 31 && red + black == 28) {
+                    console.log(red, white, black);
+                }
+            }
+        }
+    }
+
+    // 第二题
+    for (var i = 9; i >= 1; i--) {
+        for (var j = 1; j <= i; j++) {
+            document.write(i);
+            if (j == i) {
+                document.write("<br/>");
+            }
+            if (i == 1) {
+                // document.write("<br/>");
+                for (var k = 2; k <= 9; k++) {
+                    for (var l = 0; l < k; l++) {
+                        document.write(k);
+                        if (k == l + 1) {
+                            document.write("<br/>");
+                        }
+                        if (l == 9) {
+                            document.write("<br/>");
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    document.write("<br/>");
+    document.write("<br/>");
+
+    // 第三题
+    var str = "";
+    var arr = [
+        ["小A", "女", 21, "PHP"],
+        ["小B", "男", 23, "C"],
+        ["小C", "男", 24, "C"],
+        ["小D", "女", 21, "PHP"],
+        ["小E", "女", 22, "C"],
+        ["小F", "男", 21, "PHP"],
+        ["小G", "女", 22, "JAVA"],
+        ["小H", "女", 20, "Java"],
+        ["小I", "女", 20, "PHP"],
+        ["小J", "男", 20, "PHP"]
+    ];
+
+    str += "<table border='1' rules='all'>";
+    str += "<tr>";
+    str += "<th>姓名</th>";
+    str += "<th>性别</th>";
+    str += "<th>年龄</th>";
+    str += "<th>学科</th>";
+    str += "</tr>";
+    for (var i = 0; i < arr.length; i++) {
+        str += "<tr>";
+        for (var j = 0; j < arr[i].length; j++) {
+            str += "<td>" + arr[i][j] + "</td>";
+        }
+        str += "</tr>";
+    }
+    str += "</table>";
+    document.write(str);
+</script>
+</body>
+</html>

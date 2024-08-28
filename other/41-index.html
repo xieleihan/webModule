@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        .main {
+            width: 100dvw;
+            height: 100dvh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .main input {
+            width: 30%;
+            padding: 1rem;
+        }
+
+        .main .display {
+            width: 30%;
+            height: 10%;
+            /* background-color: skyblue; */
+            border: 1px solid #ccc;
+            position: absolute;
+            top: 38%;
+            left: 50%;
+            display: none;
+            transform: translate(-50%, -50%);
+        }
+
+        .main .display .shanjiaoxin {
+            width: 0;
+            height: 0;
+            position: absolute;
+            top: 123%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border-top: 50px solid #ccc;
+            border-right: 50px solid transparent;
+            border-left: 50px solid transparent;
+            
+        }
+        .main .display .word{
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: start;
+            align-items: center;
+            font-size: 3rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <div class="display">
+            <div class="word">
+                <span class="span"></span>
+            </div>
+
+            <div class="shanjiaoxin"></div>
+        </div>
+        <input type="text" placeholder="请输入快递单号" />
+    </div>
+</body>
+<script>
+    var input = document.querySelector("input");
+    var display = document.querySelector(".display");
+    var span = document.querySelector(".span");
+    input.onfocus = function(){
+        if(input.value.length >= 1){
+            display.style.display = "block";
+        }
+        input.onkeyup = function () {
+            if (input.value.length >= 1) {
+                display.style.display = "block";
+                span.innerText = input.value;
+            } else {
+                display.style.display = "none";
+            }
+        }
+    }
+    input.onblur = function(){
+        display.style.display = "none";
+        input.value = "";
+    }
+</script>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>今日作业</p>
+    <p>操作选项</p>
+    <input class="addLiContent" type="text" placeholder="请输入内容" /><button class="add">添加</button>
+    <div>
+        <button class="btn">全选</button>
+        <button class="btn">全不选</button>
+        <button class="btn">反选</button>
+        <button class="btn">删除所选</button>
+    </div>
+    <input class="inputtype" type="checkbox" /><label>家li没宽带</label><br>
+    
+    
+    <input class="inputtype" type="checkbox" /><label>网速不够快</label><br>
+    
+    
+
+    <input class="inputtype" type="checkbox" /><label>手机没流量</label><br>
+    
+    
+
+    <input class="inputtype" type="checkbox" /><label>学校无WiFi</label><br>
+    
+    
+</body>
+<script>
+    var addLiContent = document.querySelector('.addLiContent');
+    var add = document.querySelector('.add');
+    add.onclick = function(){
+        if(addLiContent.value){
+            var input = document.createElement('input');
+            var label = document.createElement('label');
+            var br = document.createElement('br');
+            input.type = 'checkbox';
+            input.className = 'inputtype';
+            label.innerHTML = addLiContent.value;
+            document.body.appendChild(input);
+            document.body.appendChild(label);
+            document.body.appendChild(br);
+        }else{
+            alert('请输入内容再添加');
+        }
+    }
+    var btn = document.querySelectorAll('.btn');
+    var input = document.querySelectorAll('input');
+    // var label = document.querySelectorAll('label');
+    // var br = document.querySelectorAll('br');
+    
+    btn[0].onclick = function(){
+        var input = document.querySelectorAll('input');
+        for(var i= 1; i< input.length; i++){
+            
+            input[i].checked = true;
+        }
+    }
+    btn[1].onclick = function(){
+        var input = document.querySelectorAll('input');
+        for(var i= 1; i< input.length; i++){
+            
+            input[i].checked = false;
+        }
+    }
+    btn[2].onclick = function(){
+        var input = document.querySelectorAll('input');
+        for(var i = 1 ; i< input.length; i++){
+            if(input[i].checked){
+                input[i].checked = false;
+            }else{
+                input[i].checked = true;
+            }
+        }
+    }
+    var inputtype = document.querySelectorAll('.inputtype');
+    console.log(inputtype);
+    btn[3].onclick = function(){
+        var inputtype = document.querySelectorAll('.inputtype');
+        var label = document.querySelectorAll('label');
+        var br = document.querySelectorAll('br');
+        for(var i = 0; i< inputtype.length; i++){
+            console.log(inputtype[i]);
+            
+            
+            if(inputtype[i].checked){
+                
+                inputtype[i].remove();
+                label[i].remove();
+                br[i].remove();
+                
+                
+                
+            }
+        }
+    }
+</script>
+</html>

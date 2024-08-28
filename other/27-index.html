@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+<script>
+    // 第一题
+    var str = "我爱中华人民共和国";
+    console.log(str.substr(2, 2));
+
+    // 第二题
+    var str = "abcd123456";
+    var newstr = "";
+    // 倒序输出
+    for (var i = str.length - 1; i >= 0; i--) {
+        newstr += str[i];
+    }
+    console.log(newstr);
+
+    // 第三题
+    // 用js获取文件扩展名
+    var str = "1234567890.jpg";
+    console.log(str.substring(str.lastIndexOf(".") + 1));
+
+    // 第四题
+    var str = "abcoefoxyozzopp";
+    console.log(str.replace(/o/gi, "*"));
+
+    // 第五题
+    var str = "abcdfgaaa123411156";
+    // 求长度
+    console.log(str.length);
+    // 取出对应位置对应的字符
+    console.log(str.charAt(0));
+    console.log(str.charAt(3));
+    console.log(str.charAt(5));
+    console.log(str.charAt(9));
+    // 查找指定字符是否存在以上字符
+    console.log(str.indexOf("i"));
+    console.log(str.indexOf("c"));
+    console.log(str.indexOf("b"));
+    // 替换指定的字符,所有的a替换成A,所有的1替换为一
+    console.log(str.replace(/a/gi, "A"));
+    console.log(str.replace(/1/gi, "一"));
+    // 截取指定开始位置到结束位置的字符串
+    console.log(str.substring(1, 5));
+
+
+    // 第六题 随机生成颜色的十六进制数
+    var arr = new Array("0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "A", "B", "C", "D", "E", "F");
+    var str = "#";
+    for (var i = 0; i < 6; i++) {
+        var number = Math.floor(Math.random() * 16);
+        str += arr[number];
+    }
+    console.log(str);
+
+    // 作业1
+    var str = window.prompt("请输入任意英文单词");
+    var newstr = "";
+    var newstr2 = "";
+    // 倒序输出
+    for (var i = str.length - 1; i >= 0; i--) {
+        newstr += str[i];
+    }
+    for (var i = 0; i < newstr.length; i++) {
+        if (i == 0 || i == str.length - 1) {
+            newstr2 += newstr[i].toUpperCase();
+        } else {
+            newstr2 += newstr[i].toLowerCase();
+        }
+    }
+
+    document.write(newstr2);
+
+
+    // 第七题
+    var arr = new Array("张三", "李四", "王五", "赵六", "孙七", "王八", "李狗蛋", "关羽", "吕布", "安琪拉", "亚瑟", "妲己");
+    var num = Math.floor(Math.random() * 11);
+    console.log(arr[num]);
+
+    // 第八题
+    // var str = "abcoefoxyozzopp";
+    // // var str = "abcefghijklmdfgdfgvnopqrstuvwxyz";
+    // var count = 1;
+    // var arr = new Array();
+    // // console.log(str.length);
+    // for (var i = 1; i < str.length; i++) {
+    //     for (var j = 0; j < i; j++) {
+    //         if (str[i] == str[j]) {
+    //             count++;
+    //         }
+    //     }
+    //     arr[arr.length] = count;
+    //     count = 1;
+    // }
+    // for (var i = 0; i < arr.length; i++) {
+    //     for (var j = 0; j < i; j++) {
+    //         if (arr[j] > arr[i]) {
+    //             var temp = arr[i];
+    //             arr[i] = arr[j];
+    //             arr[j] = temp;
+    //         }
+    //     }
+    // }
+    // console.log(arr);
+    // console.log(arr[arr.length - 1]);
+    // console.log(str[arr[arr.length - 1]]);
+
+    // var str = "abcoefoxyozzopp";
+    // var count = 1;
+    // var arr = [];
+    //
+    // for (var i = 1; i < str.length; i++) {
+    //     for (var j = 0; j < i; j++) {
+    //         if (str[i] === str[j]) {
+    //             count++;
+    //         }
+    //     }
+    //     arr[arr.length] = count;
+    //     count = 1; // 初始化为1而不是0
+    // }
+    //
+    // for (var i = 0; i < arr.length; i++) {
+    //     for (var j = 0; j < i; j++) {
+    //         if (arr[j] > arr[i]) {
+    //             var temp = arr[i];
+    //             arr[i] = arr[j];
+    //             arr[j] = temp;
+    //         }
+    //     }
+    // }
+    //
+    // // var maxCountIndex = arr.length - 1;
+    // var maxCount = arr[arr.length - 1];
+    // var maxCountIndex;
+    //
+    // // 找到最大次数对应的索引
+    // for (var i = 0; i < arr.length; i++) {
+    //     if (arr[i] === maxCount) {
+    //         maxCountIndex = i;
+    //         break;
+    //     }
+    // }
+    // console.log("出现次数最多的字符出现了：" + arr[maxCountIndex] + " 次");
+    // console.log("对应的字符是：" + str[maxCountIndex]);
+
+
+    var str = "abcoefoxyozzopp";
+    var count = 1;
+    var arr = [];
+
+    for (var i = 1; i < str.length; i++) {
+        for (var j = 0; j < i; j++) {
+            if (str[i] == str[j]) {
+                count++;
+            }
+        }
+        arr.push(count);
+        count = 1;
+    }
+
+    for (var i = 0; i < arr.length; i++) {
+        for (var j = 0; j < i; j++) {
+            if (arr[j] > arr[i]) {
+                var temp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = temp;
+            }
+        }
+    }
+
+    var maxCount = arr[arr.length - 1];
+    var maxCountIndex;
+
+    // 找到最大次数对应的索引
+    for (var i = 0; i < str.length; i++) {
+        if (countOccurrences(str, str[i]) === maxCount) {
+            maxCountIndex = i;
+            break;
+        }
+    }
+
+    console.log("出现次数最多的字符出现了：" + maxCount + " 次");
+    console.log("对应的字符是：" + str[maxCountIndex]);
+
+    // 辅助函数：计算字符在字符串中出现的次数
+    function countOccurrences(str, char) {
+        var count = 0;
+        for (var i = 0; i < str.length; i++) {
+            if (str[i] === char) {
+                count++;
+            }
+        }
+        return count;
+    }
+
+    // 第八题
+    var arr = [{
+        id: 1,
+        name: "醋溜白菜",
+        peoplenum: "1-2人",
+        cookingtime: "10-20分钟",
+        content: "醋溜白菜，是北方人经常吃的一道菜，尤其是在多年前的冬天。那时，没有大棚菜，冬天，家家每天佐餐的基本上都是冬储大白菜，聪明的家庭主妇总是想方设法将这单调的菜变成多种菜式，于是，醋溜白菜被频繁的端上餐桌。",
+        pic: "http://api.jisuapi.com/recipe/upload/20160719/115138_46688.jpg"
+    },
+        {
+            id: 2,
+            name: "西红柿酸奶",
+            peoplenum: "1-2人",
+            cookingtime: "10-20分钟",
+            content: "新疆人爱吃西红柿那是有目共睹的，菜里面加西红柿的数不胜数，就连舌尖2在吐鲁番拍的葡萄干抓饭里面都加西红柿，更别说的新疆饭菜里面的西红柿了。拌面必须的加西红柿，各种新疆汤饭必须的加西红柿，平时的炒个青菜加西红柿都很正常。",
+            pic: "http://api.jisuapi.com/recipe/upload/20160719/115212_47636.jpg"
+        },
+        {
+            id: 3,
+            name: "冬瓜排骨汤",
+            peoplenum: "1-2人",
+            cookingtime: "30分钟-1小时",
+            content: "从今天起鱼鱼发的菜菜都是鱼鱼的减肥菜菜",
+            pic: "http://api.jisuapi.com/recipe/upload/20160719/115138_26193.jpg"
+        }
+    ];
+
+    var str = "";
+    str += "<table border='1' width='400px' rules='all'>";
+    str += "<tr>";
+    str += "<td>菜名</td>";
+    str += "<td>人数</td>";
+    str += "<td>用时</td>";
+    str += "<td>简介</td>";
+    str += "<td>图片</td>";
+    str += "</tr>";
+    for (var i = 0; i < arr.length; i++) {
+        str += "<tr>";
+        str += "<td>" + arr[i].name + "</td>";
+        str += "<td>" + arr[i].peoplenum + "</td>";
+        str += "<td>" + arr[i].cookingtime + "</td>";
+        str += "<td>" + arr[i].content + "</td>";
+        str += "<td><img src='" + arr[i].pic + "' width='100px' height='100px'></td>";
+        str += "</tr>";
+    }
+
+    str += "</table>";
+    document.write(str);
+
+</script>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        .main {
+            width: 100dvw;
+            height: 100dvh;
+            background-color: #ccc;
+        }
+
+        .box {
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            background-color: skyblue;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <div class="box"></div>
+    </div>
+</body>
+<script>
+    // 实现div点击长按后可以拖动,松手阻止事件
+    var main = document.querySelector('.main');
+    var windowsWidth = window.innerWidth;
+    var windowsHeight = window.innerHeight;
+    var div = document.querySelector('.box');
+    var flag = true;
+    div.onmousedown = function (e) {
+        flag = true;
+        if(flag){
+            var x = e.clientX;
+            var y = e.clientY;
+            if (e.target.nodeName == 'DIV') {
+                main.onmousemove = function (e) {
+                    var newX = e.clientX;
+                    var newY = e.clientY;
+
+                    // 当div移动到边界阻止事件
+                    if (newX > 50 && newX < windowsWidth - 50 && newY > 50 && newY < windowsHeight - 50) {
+                        div.style.left = newX + 'px';
+                        div.style.top = newY + 'px';
+                    }
+
+
+                }
+                div.style.transform = 'translate(-50%, -50%)';
+                
+            }
+        }
+        main.onmouseup = function () {
+            isDragging = false;
+            main.onmousemove = null; // 移除mousemove事件监听器
+            main.onmouseup = null; // 移除mouseup事件监听器
+        }
+
+        e.preventDefault(); // 阻止默认事件
+    }
+    div.onclick = function () {
+        flag = false;
+    }
+    
+</script>
+
+</html>

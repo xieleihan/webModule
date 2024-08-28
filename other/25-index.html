@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            font-family: "仿宋";
+        }
+    </style>
+</head>
+<body>
+<script>
+    // 第一题
+    var arr = new Array(
+        [0, 0, 0, 1, 0, 0, 0],
+        [0, 0, 1, 0, 1, 0, 0],
+        [0, 1, 0, 0, 0, 1, 0],
+        [1, 0, 0, 0, 0, 0, 1],
+        [0, 1, 0, 0, 0, 1, 0],
+        [0, 0, 1, 0, 1, 0, 0],
+        [0, 0, 0, 1, 0, 0, 0]
+    );
+    var str = "";
+    for (var i = 0; i < arr.length; i++) {
+        for (var j = 0; j < arr[i].length; j++) {
+            if (arr[i][j] == 1) {
+                str += "*";
+            } else {
+                str += "&nbsp;";
+            }
+            if (j == arr[i].length - 1) {
+                str += "<br/>";
+            }
+        }
+    }
+    document.write(str);
+
+    document.write("<br/>");
+    document.write("<br/>");
+    document.write("<br/>");
+
+
+    // 第二题
+    function exponentiation(m, n) {
+        if (n == 0) {
+            return 1;
+        }
+        if (n < 0) {
+            return 1 / exponentiation(m, -n);
+        }
+        if (n > 0) {
+            return m * exponentiation(m, n - 1);
+        }
+    }
+
+    var result = exponentiation(5, -2);
+    var result1 = exponentiation(5, 4);
+    var result2 = exponentiation(3, 0);
+    var result3 = exponentiation(1, 5);
+    document.write(result);
+    document.write("<br/>");
+    document.write(result1);
+    document.write("<br/>");
+    document.write(result2);
+    document.write("<br/>");
+    document.write(result3);
+
+    document.write("<br/>");
+    document.write("<br/>");
+    document.write("<br/>");
+
+    // 第三题
+    // 求质数
+    var arr = [];
+    x = prompt("input");
+    getPrimeNumber(x);
+    // var numcount = 0;
+
+    // n是范围
+    function getPrimeNumber(n) {
+
+        for (var i = 1; i <= n; i++) {
+            var count = 1;
+            for (var j = 1; j <= n; j++) {
+                for (var k = 1; k <= n; k++) {
+                    if (i == j * k && count == 1 && j != 1 && k != 1) {
+                        count++;
+                    }
+                }
+            }
+            if (count == 1 && i != 1) {
+                arr[arr.length] = i;
+                // numcount++;
+            }
+        }
+    }
+
+    console.log(arr);
+    document.write(arr);
+    // document.write("<br/>");
+    // document.write("个数有" + numcount);
+
+
+    // 第四题
+    var arr = new Array("a", "b", "c", "d", "e", "c");
+
+    function findElement(arr, element, startIndex) {
+        if (startIndex == undefined) {
+            startIndex = 0;
+        }
+        for (var i = startIndex; i <= arr.length; i++) {
+            if (arr[i] == element) {
+                return i;
+            }
+        }
+    }
+
+    var a = findElement(arr, "c");
+    console.log(a);
+    // console.log("\n");
+    var b = findElement(arr, "c", 3);
+    console.log(b);
+
+    // 课堂所学
+    var obj = {
+        name: "张三",
+        age: 18,
+        sex: "男",
+        say: function () {
+            console.log("我叫" + this.name + "今年" + this.age + "岁");
+        }
+    }
+    console.log(obj);
+    obj.say();
+    console.log(obj.name);
+    console.log(obj["name"]);
+    obj.name = "李四"
+    console.log(obj.name);
+</script>
+</body>
+</html>

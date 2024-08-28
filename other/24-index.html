@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // 闰年
+    // 计数器
+    var count = 0;
+    var str = "闰年有:";
+
+    function isLeapYear(year) {
+        if (year % 4 == 0 && year % 100 != 0 || year % 400 == 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    for (var i = 1900; i <= 2000; i++) {
+        if (isLeapYear(i)) {
+            count++;
+            str += "=>" + i + ",";
+        }
+    }
+    document.write(str);
+    document.write("<br/>共有" + count + "个闰年");
+</script>
+</body>
+</html>

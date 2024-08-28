@@ -1,0 +1,178 @@
+/* base公用样式 */
+/* 初始化样式，通用样式 */
+/* start */
+/* 去掉页面所有标签的内填充外边距 */
+* {
+    /* 定义元素边框与元素内容之间的空间，即上下左右的内边距 */
+    padding: 0;
+    margin: 0;
+    /* css3新增样式 */
+    box-sizing: border-box;
+}
+
+/* 去掉列表符号 */
+li {
+    list-style: none;
+}
+
+/* 去掉img底部的缝隙 */
+img {
+    vertical-align: bottom;
+}
+
+/* 类是可以被定义的，比如，我们可以定义一个浮动类，这样，我们就可以在任意位置使用这个类了。 */
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+
+/* ::after (:after) CSS伪元素 ::after 用来创建一个伪元素，作为已选中元素的最后一个子元素。 
+通常会配合 content 属性来为该元素添加装饰内容。 这个虚拟元素默认是行内元素 */
+.clear::after {
+    clear: both;
+    display: block;
+    content: "";
+}
+
+/* 设置整个页面整个字体相关样式 */
+body {
+    font-size: 14px;
+    font-family: "Microsoft YaHei", "Arial", "Helvetica", "sans-serif";
+    /* 设置行高为1.5倍 */
+    line-height: 1.5;
+    /* 设置页面最小宽度 */
+    min-width: 1280px;
+}
+
+/* 超链接的美化 */
+a {
+    /* 去掉超链接下划线 */
+    text-decoration: none;
+    /* 设置a标签的字体颜色继承父类元素 */
+    /* inherit就是继承父类 */
+    color: inherit;
+}
+
+html {
+    /* 平滑滚动 */
+    scroll-behavior: smooth;
+    
+}
+/* end */
+
+.main {
+    width: 100dvw;
+    height: 100dvh;
+    position: relative;
+}
+
+.main .box {
+    /* width: 100dvw; */
+    height: 580px;
+    /* background-color: skyblue; */
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    top: 0;
+    left:0;
+    transition: all 2s;
+}
+
+.main .box .boxbox{
+    width: calc((100vw - 1680px)/2);
+    height: 100%;
+    opacity: 0;
+}
+
+.main .mask {
+    width: 100%;
+    height: 50px;
+    background-color: rgba(255, 255, 255, .7);
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.main .title{
+    width: 350px;
+    height: 530px;
+    position: absolute;
+    top: 50px;
+    left: 60%;
+    background-color: rgba(0, 0, 0, .7);
+}
+
+.main .title .titleBox{
+    width: 90%;
+    height: 100%;
+    margin: 0 auto;
+}
+
+.main .title .titleBox .titleBoxTop{
+    width: 100%;
+    border-bottom: 1px solid #ccc;
+    display: flex;
+    flex-direction: row;
+    padding: 20px 20px 20px 5px;
+}
+
+.main .title .titleBox .titleBoxTop img{
+    width: 26px;
+    height: 26px;
+}
+
+.main .title .titleBox .titleBoxTop span{
+    color: #bacad5;
+    font-size: 20px;
+    margin-left: 10px;
+    line-height: 100%;
+}
+
+.main .title .titleBox .titleBoxBottom{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    padding: 20px 20px 20px 5px;
+}
+
+.main .title .titleBox .titleBoxBottom img{
+    width: 26px;
+    height: 26px;
+}
+
+.main .title .titleBox .titleBoxBottom span{
+    color: #bacad5;
+    font-size: 20px;
+    margin-left: 10px;
+    line-height: 100%;
+}
+
+.main .title .titleBox ul{
+    display: flex;
+    flex-direction: column;
+    font-size: 20px;
+    color: white;
+}
+
+.main .title .titleBox ul li{
+    padding: 5px 0 5px 5px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.main .title .titleBox ul li:hover{
+    color: #ff5c38;
+}
+
+.main .title .titleBox ul li .smallSpan{
+    font-size: 12px;
+    opacity: 0;
+}
+
+.main .title .titleBox ul li.highlight{
+    color: #ff5c38;
+}

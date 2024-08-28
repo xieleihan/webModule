@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 300px;
+            height: 300px;
+            background: green;
+            text-align: center;
+            line-height: 300px;
+        }
+
+        .box .num {
+            font-size: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <span class="num">0</span>
+    </div>
+</body>
+<script>
+    var count = 0;
+    var box = document.querySelector(".box");
+    var num = document.querySelector(".num");
+    // box.onmousemove = function(){
+    //     count++;
+    //     num.innerText = count;
+    // }
+
+    // 使用节流
+    function throttle(fn, delay){
+        var old = 0;
+        var thisObj = null;
+        var args = null;
+        return function(){
+            // 保存此时的this对象
+            thisObj = this;
+            // 保存此时的arguments对象
+            args = arguments;
+            // 获取现在的时间戳
+            var now = new Date().getTime();
+            // 判断now-old两个时间戳之差是否大于等于wait
+            if (now - old > delay) {
+                // 调用func()函数
+                fn.apply(thisObj, args);
+                // 更新时间戳
+                old = now;
+            }
+        }
+    }
+
+    box.onmousemove = throttle(
+        function () {
+            count++;
+            num.innerText = count;
+        }
+    ,1000)
+</script>
+
+</html>

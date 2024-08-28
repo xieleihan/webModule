@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .main {
+            width: 100dvw;
+            height: 100dvh;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+        }
+
+        .main .left {
+            width: 46%;
+            height: 100%;
+            background-color: #ccc;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .main .right {
+            width: 50%;
+            background-color: #ccc;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .main .left .title {
+            color: red;
+            font-size: 30px;
+            font-weight: bold;
+        }
+
+        .main .left .content {
+            width: 60%;
+        }
+
+        .main .left .content span {
+            font-size: 18px;
+        }
+
+        .main .left .content input {
+            border: 1px solid black;
+            padding: 10px;
+            width: 80%;
+        }
+
+        .main .left .content textarea {
+            border: 1px solid black;
+            padding: 10px;
+            width: 80%;
+        }
+
+        .main .left button {
+            background-color: red;
+            color: white;
+            padding: 10px;
+            width: 60%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <div class="left">
+            <div class="title">粤嵌贴吧</div>
+            <div class="content">
+                <span>标题</span>
+                <input class="biaoti" type="text" placeholder="请输入标题" />
+            </div>
+            <div class="content">
+                <span>作者</span>
+                <input class="zhuozhe" type="text" placeholder="请输入作者" />
+            </div>
+            <div class="content">
+                <span>内容</span>
+                <textarea class="neirong" name="" id="" cols="30" rows="10" placeholder="请输入内容"></textarea>
+            </div>
+            <button class="submit">发布</button>
+        </div>
+        <div class="right">
+            <button class="find" >获取变量</button>
+        </div>
+    </div>
+</body>
+<script>
+    var time = new Date();
+    var year = time.getFullYear();
+    var month = time.getMonth() + 1;
+    if (month < 10) {
+        month = '0' + month;
+    }
+    var day = time.getDate();
+    if (day < 10) {
+        day = '0' + day;
+    }
+    var hour = time.getHours();
+    if (hour < 10) {
+        hour = '0' + hour;
+    }
+    var minute = time.getMinutes();
+    if (minute < 10) {
+        minute = '0' + minute;
+    }
+    var second = time.getSeconds();
+    if (second < 10) {
+        second = '0' + second;
+    }
+    var timeStr = year + '-' + month + '-' + day + '-' + hour + ':' + minute + ':' + second
+    // console.log(timeStr);
+    var biaoti = document.querySelector('.biaoti');
+    var zhuozhe = document.querySelector('.zhuozhe');
+    var neirong = document.querySelector('.neirong');
+    var submit = document.querySelector('.submit');
+    var right = document.querySelector('.right');
+    var deleteBtn = document.querySelectorAll('.deleteBtn');
+    var context = document.querySelectorAll('#context');
+    submit.onclick = function () {
+        var deleteBtn = document.querySelectorAll('.deleteBtn');
+        var context = document.querySelectorAll('#context');
+        if (biaoti.value == '' || zhuozhe.value == '' || neirong.value == '') {
+            alert('请输入内容');
+        } else {
+            // alert('发布成功')
+            var rightDiv = document.createElement('div');
+
+            rightDiv.innerHTML = `
+                        <div class="context">
+                            <div class="title">标题:${biaoti.value}</div>
+                            <div class="zhuozhe">作者:${zhuozhe.value}</div>
+                            <div class="time">发布时间:${timeStr}</div>
+                            <div class="neirong">内容:${neirong.value}</div>
+                            <button class="deleteBtn" onclick="this.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.remove();this.previousElementSibling.previousElementSibling.previousElementSibling.remove();this.previousElementSibling.previousElementSibling.remove();this.previousElementSibling.remove();this.remove()">删除</button>
+                        </div>
+                    `;
+
+            right.appendChild(rightDiv);
+            
+        }
+        
+    }
+    
+    
+    var find = document.querySelector('.find');
+    find.onclick = function () {
+        console.log(deleteBtn)
+        console.log(context)
+    }
+</script>
+
+</html>

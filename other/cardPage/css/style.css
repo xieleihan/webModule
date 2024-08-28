@@ -1,0 +1,182 @@
+/* base公用样式 */
+/* 初始化样式，通用样式 */
+/* start */
+/* 去掉页面所有标签的内填充外边距 */
+* {
+    /* 定义元素边框与元素内容之间的空间，即上下左右的内边距 */
+    padding: 0;
+    margin: 0;
+    /* css3新增样式 */
+    box-sizing: border-box;
+}
+
+/* 去掉列表符号 */
+li {
+    list-style: none;
+}
+
+/* 去掉img底部的缝隙 */
+img {
+    vertical-align: bottom;
+}
+
+/* 类是可以被定义的，比如，我们可以定义一个浮动类，这样，我们就可以在任意位置使用这个类了。 */
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+
+/* ::after (:after) CSS伪元素 ::after 用来创建一个伪元素，作为已选中元素的最后一个子元素。 
+通常会配合 content 属性来为该元素添加装饰内容。 这个虚拟元素默认是行内元素 */
+.clear::after {
+    clear: both;
+    display: block;
+    content: "";
+}
+
+/* 设置整个页面整个字体相关样式 */
+body {
+    font-size: 14px;
+    font-family: "Microsoft YaHei", "Arial", "Helvetica", "sans-serif";
+    /* 设置行高为1.5倍 */
+    line-height: 1.5;
+    /* 设置页面最小宽度 */
+    min-width: 1280px;
+}
+
+/* 超链接的美化 */
+a {
+    /* 去掉超链接下划线 */
+    text-decoration: none;
+    /* 设置a标签的字体颜色继承父类元素 */
+    /* inherit就是继承父类 */
+    color: inherit;
+}
+
+html {
+    /* 平滑滚动 */
+    scroll-behavior: smooth;
+    font-size: 0.8vw;
+}
+
+/* end */
+
+.main {
+    width: 100dvw;
+    height: 100dvh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main .box {
+    width: 70%;
+    height: 70%;
+    background-color: #ccc;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.main .box .leftBox {
+    width: 80%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main .box .leftBox .content {
+    width: 95%;
+    height: 95%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    /* overflow: hidden; */
+    position: relative;
+}
+
+.main .box .leftBox .content .contentBox {
+    top: 0;
+    position: absolute;
+    transition: all .5s;
+}
+
+.main .box .leftBox .content img {
+    width: 1046.75px;
+    height: 717.54px;
+}
+
+.main .box .rightBox {
+    width: 20%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.main .box .rightBox ul {
+    width: 90%;
+    height: 95%;
+    position: relative;
+}
+
+.main .box .rightBox ul li {
+    width: 95%;
+    height: 18%;
+    margin-bottom: 18px;
+}
+
+.main .box .rightBox ul li:last-child {
+    margin-bottom: 0;
+}
+
+.main .box .rightBox ul li:hover {
+    border: 1px solid red;
+}
+
+.main .box .rightBox ul li img {
+    width: 100%;
+    height: 100%;
+    opacity: .5;
+    transition: all .5s;
+}
+
+.main .box .rightBox ul li img.active{
+    opacity: 1;
+}
+
+.main .box .rightBox .border {
+    position: absolute;
+    top:0;
+    /* 148px 为基准*/
+    width: 235.5px;
+    height: 18%;
+    border: 3px solid red;
+    background-color: transparent;
+    transform: translate(-3%,11%);
+    transition: all .5s;
+}
+
+.main .box .rightBox .border .shanjiao {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.main .box .rightBox .border .border-left {
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-right: 10px solid red;
+    position: absolute;
+    top: 50%;
+    left: -7px;
+    transform: translate(-50%, -50%);
+}

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        .main{
+            width: 100dvw;
+            height: 100dvh;
+            background-color: #ccc;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .box{
+            width: 50%;
+            height: 50%;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="box">
+            <span></span>
+        </div>
+    </div>
+</body>
+<script>
+    var box = document.querySelector(".box");
+    var span = document.querySelector('span');
+    // 获取box里鼠标的坐标
+    box.onmousemove = function(e){
+        // console.log(e.clientX,e.clientY);
+        var x = e.offsetX
+        var y = e.offsetY
+        span.innerText = `x坐标是:${x} y坐标是:${y}`;
+    }
+</script>
+</html>

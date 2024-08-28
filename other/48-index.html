@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <style>
+        input {
+            display: block;
+            width: 600px;
+            height: 50px;
+            padding: 0 20px;
+            font-size: 20px;
+            margin: 0 auto;
+            margin-top: 50px;
+            margin-bottom: 10px;
+        }
+
+        .message {
+            width: 600px;
+            margin: 0px auto;
+            font-size: 30px;
+            background-color: #ccc;
+            padding: 10px 20px;
+            color: red;
+            height: 30px;
+            margin-top: 5px;
+        }
+    </style>
+
+    <input type="text" placeholder="请输入.." class="input">
+    <!-- <div class="message">11111</div> -->
+</body>
+<script>
+    var input = document.querySelector('.input');
+    // input.oninput = function () {
+    //     var value = this.value;
+    //     var doc = document.createElement('div');
+    //     doc.className = 'message';
+    //     doc.innerHTML = value;
+    //     document.body.appendChild(doc);
+    // }
+
+    // 防抖
+    function debounce(fn, delay) {
+        var thisObj = this;
+        var arge = arguments;
+        var time = null;
+        return function () {
+            thisObj = this;
+            arge = arguments;
+            
+            clearTimeout(time);
+            time = setTimeout(function () {
+                fn.apply(thisObj, arge);
+            }, delay);
+        }
+    }
+
+    input.oninput = debounce(function () {
+        var value = this.value;
+        var doc = document.createElement('div');
+        doc.className = 'message';
+        doc.innerHTML = value;
+        if(value != ''){
+            document.body.appendChild(doc);
+        }
+    }, 300);
+</script>
+
+</html>

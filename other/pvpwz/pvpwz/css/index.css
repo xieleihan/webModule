@@ -1,0 +1,233 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+img {
+    vertical-align: bottom;
+}
+
+li {
+    list-style: none;
+}
+
+body {
+    height: 2000px;	
+    font-size: 12px;
+    background: #fafafa;
+}
+
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+
+.clearfix {
+    *zoom: 1;
+}
+
+.clearfix::after {
+    content: ".";
+    display: block;
+    clear: both;
+    visibility: hidden;
+    height: 0;
+}
+
+.container {
+    width: 800px;
+    margin: 0 auto;
+}
+
+/* 英雄关系样式 */
+.hero_relation{
+    margin-top: 20px;
+}
+
+.hero_relation .title {
+    width: 770px;
+    line-height: 32px;
+}
+
+.hero_relation .title ul {
+    display: flex;
+    background: #f1f1f1;
+}
+
+.hero_relation .title ul li {
+    flex: 1;
+    text-align: center;
+    height: 29px;
+    border-bottom: 3px solid transparent;
+    cursor: pointer;
+    position: relative;
+}
+
+.hero_relation .title ul li:not(:last-child)::after {
+    content: "";
+    background: #e1e1e1;
+    width: 1px;
+    height: 20px;
+    position: absolute;
+    right: 0;
+    top: 4px;
+}
+
+.hero_relation .title ul li.active {
+    border-bottom: 3px solid #f3c258;
+}
+
+.hero_relation .content {
+    height: 78px;
+    background: #ffffff;
+    width: 730px;
+    padding: 20px;
+}
+
+.hero_relation .content .item {
+    display: none;
+}
+
+.hero_relation .content .item .hero_text {
+    line-height: 78px;
+}
+
+.hero_relation .content .item .hero_imgs img {
+    width: 66px;
+    height: 66px;
+    border: 4px solid #7a7a7a;
+    border-radius: 0px 18px 0px 18px;
+    margin-left: 25px;
+    cursor: pointer;
+}
+
+.hero_relation .content .item .hero_imgs img.active {
+    border-color: #f3c258;
+}
+
+.hero_relation .content .item .hero_desc {
+    width: 420px;
+}
+
+.hero_relation .content .item .hero_desc p {
+    display: none;
+}
+
+/* 推荐装备相关样式 */
+.tuijianchuzhuang {
+    width: 408px;
+    margin-top: 20px;
+}
+.tuijianchuzhuang .title{
+    background: #f1f1f1;
+}
+.tuijianchuzhuang .title ul{
+    display: flex;
+}
+.tuijianchuzhuang .title ul li{
+    flex:1;
+    height: 29px;
+    border-bottom:3px solid transparent;
+    line-height: 29px;
+    text-align: center;
+    position: relative;
+    cursor: pointer;
+}
+.tuijianchuzhuang .title ul li.active{
+    border-bottom-color:#f3c258;
+}
+.tuijianchuzhuang .title ul li:not(:last-child)::after {
+    content: "";
+    background: #e1e1e1;
+    width: 1px;
+    height: 20px;
+    position: absolute;
+    right: 0;
+    top: 4px;
+}
+.tuijianchuzhuang .content{
+    height: 318px;
+    background: white;
+}
+.tuijianchuzhuang .content .item{
+    height: 294px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    padding-top: 14px;
+    display: none;
+}
+.tuijianchuzhuang .content .item .zhaungbei_box{
+    display: flex;
+    flex-wrap: wrap;
+}
+.tuijianchuzhuang .content .item .zhaungbei_box .zhaungbei{
+    width: 92px;
+    height: 88px;
+    text-align: center;
+    margin-top: 14px;
+    background:url(../images/icons02.png) 0 -70px;
+    margin-left: 18px;
+    margin-right: 18px;
+    cursor: pointer;
+    position: relative;
+}
+.tuijianchuzhuang .content .item .zhaungbei_box .zhaungbei img{
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    margin-top: 9px;
+}
+.tuijianchuzhuang .content .item .tips{
+    width: 385px;
+    background: #f5f5f5;
+    height: 80px;
+    box-sizing:border-box;
+    padding: 10px;
+    font-size:14px;
+}
+.tuijianchuzhuang .content .item .zhaungbei_box .zhaungbei .detail{
+    width: 208px;
+    position: absolute;
+    top: 50px;
+    right: 100px;
+    background: rgba(0,0,0,.9);
+    text-align: left;
+    padding-top: 32px;
+    padding-bottom: 32px;
+    padding-left: 33px;
+    padding-right: 20px;
+    display: none;
+    z-index:10;
+}
+.tuijianchuzhuang .content .item .zhaungbei_box .zhaungbei:hover .detail{
+    display: block;
+}
+.tuijianchuzhuang .content .item .zhaungbei_box .zhaungbei .detail p{
+    color:#4ba9fa;
+    font-size:14px;
+    line-height: 22px;
+}
+.tuijianchuzhuang .content .item .zhaungbei_box .zhaungbei .detail .price_box{
+    margin-left: 20px;
+    line-height: 26px;
+}
+.tuijianchuzhuang .content .item .zhaungbei_box .zhaungbei .detail img{
+    border-radius: 0;
+}
+.tuijianchuzhuang .content .item .zhaungbei_box .zhaungbei .detail .top_box{
+    margin-bottom: 10px;
+}
+.tuijianchuzhuang .content .item .zhaungbei_box .zhaungbei .detail .top_box .green{
+    color:#39fe3d;
+    font-weight: bold;
+}
+.tuijianchuzhuang .content .item .zhaungbei_box .zhaungbei .detail .top_box .yellow{
+    color:#bd8a31;
+}
+.tuijianchuzhuang .content .item .zhaungbei_box .zhaungbei .detail .attr{
+    margin-bottom: 10px;
+}

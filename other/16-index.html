@@ -1,0 +1,942 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 公用样式 */
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        .clearfix {
+            clear: both;
+            content: "";
+            display: block;
+        }
+
+        .fl {
+            float: left;
+        }
+
+        .fr {
+            float: right;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        img {
+            vertical-align: bottom;
+        }
+
+        /* 业务样式 */
+        .box{
+            width: 100vw;
+            max-width: 100vw;
+            min-width: 100vw;
+            height: 100vh;
+            max-height: 1200px;
+            min-height: 1200px;
+        }
+
+        .box .header{
+            width: 100vw;
+            height: 50px;
+            background-color: pink;
+            position: fixed;
+            top: 0;
+            left: 0;
+            text-align: center;
+        }
+        .box .header .title{
+            height: 50px;
+            line-height: 50px;
+        }
+
+        .box .footer{
+            width: 100vw;
+            height: 50px;
+            background-color: skyblue;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            text-align: center;
+        }
+        .box .footer .footer-title{
+            height: 50px;
+            line-height: 50px;
+        }
+        .box .main{
+            /* margin-top: 50px; */
+            position: fixed;
+            width: 100vw;
+            height: 1200px;
+            top: 50px;
+            left: 0;
+        }
+        .box .main .main-left{
+            width: 100px;
+            background-color: red;
+            height: calc(100% + 500px);
+            overflow: auto;
+            /* overflow: hidden; */
+        }
+        .box .main .main-right{
+            width: calc(100% - 100px);
+            background-color: green;
+            height: calc(100% + 500px);
+            overflow: auto;
+            /* overflow: hidden; */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="header">
+            <div class="title">header头部</div>
+        </div>
+        <div class="main clearfix">
+            <div class="main-left fl">
+                <ul>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li><li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li><li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                    <li>main左</li>
+                </ul>
+            </div>
+            <div class="main-right fl">
+                <ul>
+                    <li>main1右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main3右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main7右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main8右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main3右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main7右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main8右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main3右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main7右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main8右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main3右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main7右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main8右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main3右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main7右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main8右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main3右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main7右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main8右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main3右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main7右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main8右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main3右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main7右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main8右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main3右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main7右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main8右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main3右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main7右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main8右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main3右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main7右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main8右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main3右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main7右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main8右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main3右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main7右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main8右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main3右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main7右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main8右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main3右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main7右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main8右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main3右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main7右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main8右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                    <li>main右</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer">
+            <div class="footer-title">footer底部</div>
+        </div>
+    </div>
+    
+</body>
+
+<script>
+    /* 抗击疫情
+        为了抗击疫情，医护人员作战80小时 医护人员每作战8小时要休息3小时，计算医护人员包含休息时间在内一共工作了多少天零多少小时 ?
+
+            要求：
+        创建变量day存储医护人员总共工作了多少天
+        创建变量hours存储医护人员除去总共工作的天数剩余工作多少小时
+        将数据按以下格式输出到控制台“医护人员总共工作了n天m小时”
+
+        答案: 4天14小时 */
+
+    var workhours = 80;
+    var day = Math.floor(workhours / (8+3));
+    console.log(workhours)
+
+</script>
+
+</html>

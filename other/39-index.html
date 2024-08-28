@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        .main {
+            width: 100dvw;
+            height: 100dvh;
+            background-color: #ccc;
+            overflow: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+
+    </div>
+</body>
+<script>
+    var html = document.querySelector('html');
+    var viewportWidth = window.innerWidth;
+    var pixelValue = 16;
+    var vwValue = (pixelValue / viewportWidth) * 100;
+    html.style.fontSize = vwValue + "vw";
+    console.log(vwValue + "vw");
+    var main = document.querySelector('.main');
+    main.onclick = function (e) {
+        var x = e.clientX * 0.0625;
+        var y = e.clientY * 0.0625;
+        var randomColor = '#' + Math.random().toString(16).substring(2, 8).padEnd(6, '0');
+        // console.log(randomColor);
+        if (e.target.nodeName == 'DIV') {
+            var div = document.createElement('div');
+            div.style.width = '5rem';
+            div.style.height = '5rem';
+            div.style.backgroundColor = randomColor;
+            div.style.position = 'absolute';
+            div.style.left = x + 'rem';
+            div.style.top = y + 'rem';
+            div.style.transform = 'translate(-50%, -50%)';
+            div.onclick = function () {
+                this.remove();
+                event.stopPropagation();
+            }
+            main.appendChild(div);
+        }
+    }
+</script>
+
+</html>

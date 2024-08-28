@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul class="rating-list">
+        <li class="rating-item">
+            <h3 class="username">用户名</h3>
+            <p>用户评论内容</p>
+            <span class="score">2.8</span>
+        </li>
+        <li class="rating-item">
+            <h3 class="username">某团用户</h3>
+            <p>这家饭店很好吃，菜品价格亲民。喜欢吃辣的小伙伴值得一试。</p>
+            <span class="score">4.5</span>
+        </li>
+        <li class="rating-item">
+            <h3 class="username">某饿了用户</h3>
+            <p>可能我吃不了辣，对于我来说太辣了</p>
+            <span class="score">1.8</span>
+        </li>
+        <li class="rating-item">
+            <h3 class="username">某点评用户</h3>
+            <p>同事们对这家店一致好评！已经是部门聚餐指定地点了</p>
+            <span class="score">4.9</span>
+        </li>
+    </ul>
+
+</body>
+<script>
+    var score = document.querySelectorAll('.score');
+    var p = document.querySelectorAll('p');
+    for(var i = 0;i<score.length;i++){
+        var scoreNum = score[i].innerHTML;
+        var pText = p[i].innerHTML;
+        console.log(pText);
+        if(scoreNum >= 3){
+            score[i].style.color = '#fc0';
+            p[i].style.color = '#0af';
+            p[i].innerHTML = "好评: " + pText;
+        }else{
+            score[i].style.color = '#ccc';
+            p[i].style.color = '#ccc';
+            p[i].innerHTML = "差评: " + pText;
+        }
+    }
+</script>
+</html>

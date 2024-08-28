@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            width: 100dvw;
+            height: 100dvh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .content {
+            width: 50%;
+            height: 50%;
+            background-color: #ccc;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="content">
+
+    </div>
+</body>
+<script>
+    var count = 0;
+    var content = document.querySelector('.content');
+    // content.onmousemove = function(e){
+    //     count++;
+    //     // console.log(count);
+    //     // console.log(e.clientX,e.clientY);
+    //     content.innerText = '事件触发了'+count+'次,鼠标在盒子中的坐标是:'+e.clientX+','+e.clientY;
+    // }
+
+    // 防抖
+    function debounce(fn, delay) {
+        var id = null;
+        var thisObj = null;
+        var arge = null;
+        return function () {
+            thisObj = this;
+            arge = arguments;
+            clearTimeout(id);
+            id = setTimeout(() => {
+                fn.apply(thisObj, arge);
+            }, delay)
+        }
+    }
+    content.onmousemove = debounce(function (e) {
+        count++;
+        // console.log(count);
+        // console.log(e.clientX,e.clientY);
+        this.innerText = '事件触发了' + count + '次,鼠标在盒子中的坐标是:' + e.clientX + ',' + e.clientY;
+    }, 300);
+</script>
+
+</html>

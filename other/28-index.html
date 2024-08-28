@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<!-- <script>
+    var a = 17,b = 35;
+    a = a^b;
+    b = a^b;
+    a = a^b;
+    console.log(a,b);
+</script> -->
+<script>
+    // 遍历数组找出所提供数组中成绩最好的那一项并输出其所在数组的下标
+    //     var scores = [60, 50, 60, 58, 54, 54,
+    //         58, 50, 52, 54, 48, 69,
+    //         34, 55, 51, 52, 44, 51,
+    //         69, 64, 66, 55, 52, 61,
+    //         46, 31, 57, 52, 44, 18,
+    //         41, 53, 55, 61, 51, 44];
+
+    //     var highScore = scores[0];
+    //     var output = [];
+
+    //     for (var i = 0; i < scores.length; i++) {
+    //         if (scores[i] > highScore) {
+    //             highScore = scores[i];
+    //             output = [i]; // 重置数组，只保留当前的最高分索引
+    //         } else if (scores[i] === highScore) {
+    //             output.push(i); // 追加相同的最高分索引
+    //         }
+    //     }
+
+    // console.log("通过检测: " + output); // 通过检测:  第 n 项成绩最高
+    // console.log("最高成绩为？: " + highScore);
+
+    // var arr = [60, 50, 60, 58, 54, 54,
+    //     58, 50, 52, 54, 48, 69,
+    //     34, 55, 51, 52, 44, 51,
+    //     69, 64, 66, 55, 52, 61,
+    //     46, 31, 57, 52, 44, 18,
+    //     41, 53, 55, 61, 51, 44];
+
+    // 冒泡
+    // for(var i = 0; i < arr.length - 1; i++){
+    //     for(var j = 0 ; j < arr.length -1 -i; j++){
+    //         if(arr[j] > arr[j + 1]){
+    //             var temp = arr[j];
+    //             arr[j] = arr[j + 1];
+    //             arr[j + 1] = temp;
+    //         }
+    //     }
+    // }
+
+    // 选择(把最小的编入索引)
+    // var minNumIndex = 0;
+    // for(var i = 0; i < arr.length - 1; i++){
+    //     minNumIndex = i;
+    //     for(var j = i + 1; j < arr.length; j++){
+    //         if(arr[minNumIndex] > arr[j]){
+    //             minNumIndex = j;
+    //         }
+    //     }
+    //     var temp = arr[i];
+    //     arr[i] = arr[minNumIndex];
+    //     arr[minNumIndex] = temp;
+    // }
+
+    // 插入排序
+    // for(var i =0; i < arr.length; i++){
+    //     var j = i;
+    //     while (j > 0) {
+    //         if (arr[j] < arr[j - 1]) {
+    //             var temp = arr[j];
+    //             arr[j] = arr[j - 1];
+    //             arr[j - 1] = temp;
+    //             j--;
+    //         } else {
+    //             break;
+    //         }
+    //     }
+    // }
+
+    // 希尔排序
+    // var arrLen = arr.length;
+    // for (var gap = Math.floor(arrLen / 2); gap > 0; gap = Math.floor(gap / 2)) {
+    //     // 从gap开始，逐一对每个元素进行插入排序
+    //     for (var i = gap; i < arrLen; i++) {
+    //         var temp = arr[i];
+    //         var j;
+
+    //         // 使用插入排序法将 arr[i] 插入到已排序的子数组中
+    //         for (j = i; j >= gap && arr[j - gap] > temp; j -= gap) {
+    //             arr[j] = arr[j - gap];
+    //         }
+    //         arr[j] = temp;
+    //     }
+    // }
+    // console.log(arr);
+
+    // function pear(n){
+    //     if(n == 1){
+    //         return 1;
+    //     }else{
+    //         return 2*(1+pear(n-1));
+    //     }
+    // }
+    // console.log(pear(10));
+
+    // function fibonacci(n) {
+    //     if (n == 0) {
+    //         return 0;
+    //     }
+    //     if (n == 1) {
+    //         return 1;
+    //     } else {
+    //         return fibonacci(n - 1) + fibonacci(n - 2);
+    //     }
+    // }
+    // console.log(fibonacci(2));
+
+    // replaceString = ("World","Web","Test World Brave New World");
+
+    function replaceString(str, oldStr, newStr) {
+        var newStr = str.replace(oldStr, newStr);
+
+
+        return newStr;
+    }
+    console.log(replaceString("World", "Web", "Test World Brave New World"));
+</script>
+
+</html>

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        table {
+            width: 1200px;
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <table border="1" rules="all">
+        <th colspan="4"></th>
+        <tr>
+            <td>姓名:</td>
+            <td></td>
+            <td>性别:</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>年龄:</td>
+            <td></td>
+            <td>学历:</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>毕业时间:</td>
+            <td></td>
+            <td>毕业学校:</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>工作时间:</td>
+            <td></td>
+            <td>工作职责:</td>
+            <td></td>
+        </tr>
+    </table>
+
+    <br>
+    
+    <br>
+    <br>
+
+
+    <script>
+        /* 抗击疫情
+            为了抗击疫情，医护人员作战80小时 医护人员每作战8小时要休息3小时，计算医护人员包含休息时间在内一共工作了多少天零多少小时 ?
+    
+                要求：
+            创建变量day存储医护人员总共工作了多少天
+            创建变量hours存储医护人员除去总共工作的天数剩余工作多少小时
+            将数据按以下格式输出到控制台“医护人员总共工作了n天m小时”
+    
+            答案: 4天14小时 */
+
+        var truework = 80 / 8 * 3 + 80;
+        console.log(truework)
+        var day = Math.floor(truework / 24);
+        console.log(day);
+        var hours = truework % 24;
+        console.log(hours);
+        console.log("医生总共工作了" + day + "天" + hours + "小时");
+
+
+        // 需要内存
+        var a = 20;
+        var b = 10;
+        var c;
+        c = a;
+        a = b;
+        b = c;
+        console.log(a, b);
+
+        // 不需要内存
+        var c = 20;
+        var d = 10;
+        // 异或
+        c = c ^ d;
+        d = d ^ c;
+        c = c ^ d;
+        console.log(c, d);
+
+        
+
+
+
+        var userName = "慢羊羊";
+        var sex = "男";
+        var age = "54岁";
+        var education = "博士后";
+        var graduationDate = "1988年";
+        var graduateInstitutions = "清华大学";
+        var workingTime = "1988年7月30日";
+        var responsibilities = "哈哈哈哈,工作职责就是工作者具体工作的内容所负的责任及达到岗位要求的标准，完成上级交付的任务。";
+
+        //1
+        var td = document.querySelectorAll("td");
+        console.log(td);
+        td[1].textContent = userName;
+        td[3].textContent = sex;
+        td[5].textContent = age;
+        td[7].textContent = education;
+        td[9].textContent = graduationDate;
+        td[11].textContent = graduateInstitutions;
+        td[13].textContent = workingTime;
+        td[15].textContent = responsibilities;
+
+        var th = document.querySelectorAll("th");
+        th[0].textContent = userName + "-个人简历";
+
+        //2
+        // document.write("<table border='1' rules='all'><th colspan = '4' >"+userName+"个人简历</th><tr><td>姓名:</td><td>"+userName+"</td><td>性别:</td><td>"+ sex +"</td></tr><tr><td>年龄:</td><td>"+ age +"</td><td>学历:</td><td>"+ education +"</td></tr><tr><td>毕业时间:</td><td>"+ graduationDate +"</td><td>毕业学校:</td><td>"+ graduateInstitutions +"</td></tr><tr><td>工作时间:</td><td>"+ workingTime +"</td><td>工作职责:</td><td>"+ responsibilities +"</td></tr></table > ")
+
+        
+
+        var a =20;
+        var b =50;
+        var max;
+        max = a > b ? a : b;
+        console.log(max);
+
+
+        console.log("--------------------------")
+        for(var i = 1;i < 21;i++){
+            if(i % 7 == 0){
+                console.log(i);
+            }
+        }
+        console.log("--------------------------");
+        for(var i = 1;i < 21;i++){
+            if(i % 2 != 0){
+                console.log(i);
+            }
+        }
+        console.log("--------------------------");
+        var sum =0;
+        for(var i = 1;i < 21;i++){
+            if(i % 2 == 0){
+                sum += i;
+            }
+        }
+        console.log(sum);
+        console.log("--------------------------");
+        // 九九乘法表
+        // for(var i =1; i<=9;i++){
+        //     for(var j =1; j<=i;j++){
+        //         document.write(i+"*"+j+"="+i*j);
+                
+        //     }
+        // }
+    </script>
+</body>
+
+</html>

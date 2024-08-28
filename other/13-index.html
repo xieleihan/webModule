@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        .clean{
+            content: "";
+            clear: both;
+            /* 要块级元素 */
+            display: block;
+        }
+
+        .fl{
+            float: left;
+        }
+
+        .fr{
+            float: right;
+        }
+
+        .box{
+            width: 360px;
+            height: 204px;
+            background-color: #eeeeee;
+            margin: 0 auto;
+            margin-top: 40px;
+        }
+        .btn{
+            width: 80px;
+            height: 40px;
+            background-color: white;
+            font-weight: bold;
+            text-align: center;
+            line-height: 40px;
+            margin: 5px;
+            border-radius: 10px;
+        }
+
+        .back{
+            width: 80px;
+            height: 90px;
+            background-color: white;
+            margin: 5px;
+            border-radius: 10px;
+        }
+
+        .box .back img{
+            width: 45px;
+            height: 30px;
+            /* margin: 0 auto; */
+            display: inline-block;
+            margin: 15px;
+            margin-top: 22px;
+
+        }
+
+        .success{
+            width: 80px;
+            height: 90px;
+            background-color: #0099ff;
+            line-height: 85px;
+            text-align: center;
+            margin: 5px;
+            border-radius: 10px;
+            color: white;
+        }
+
+        .btn0{
+            width: 170px;
+            height: 40px;
+            background-color: white;
+            line-height: 40px;
+            text-align: center;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box clean">
+        <div class="clean">
+            <div class="btn fl">1</div>
+            <div class="btn fl">2</div>
+            <div class="btn fl">3</div>
+            <div class="back fr"><img src="/photo_20240123151324.png" alt=""></div>
+            <div class="btn fl">4</div>
+            <div class="btn fl">5</div>
+            <div class="btn fl">6</div>
+        </div>
+        <div class="clean">
+            <div class="btn fl">7</div>
+            <div class="btn fl">8</div>
+            <div class="btn fl">9</div>
+            <div class="success fr">完成</div>
+            <div class="btn btn0 fl">0</div>
+            <div class="btn fl">.</div>
+        </div>
+        
+        
+        
+    </div>
+</body>
+</html>

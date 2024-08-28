@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    .box {
+        width: 828px;
+        height: 570px;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+    }
+
+    .div0 {
+        background: url('/js-31-day.png') no-repeat -4px -5px;
+        width: 83px;
+        height: 80px;
+    }
+
+    .div1 {
+        background: url('/js-31-day.png') no-repeat -5px -186px;
+        width: 81px;
+        height: 78px;
+    }
+
+    .div2 {
+        background: url('/js-31-day.png') no-repeat -5px -96px;
+        width: 81px;
+        height: 78px;
+    }
+
+    .div4 {
+        width: 81px;
+        height: 78px;
+        background: white;
+    }
+</style>
+<body>
+
+</body>
+<script>
+    var arr = new Array(
+        [0, 0, 4, 4, 4, 4, 4, 4, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 1, 1],
+        [1, 1, 0, 0, 1, 1, 0, 0, 0, 0],
+        [0, 0, 2, 2, 0, 1, 1, 0, 0, 0],
+        [0, 0, 4, 4, 4, 4, 4, 4, 0, 0],
+        [0, 0, 4, 0, 0, 0, 0, 4, 0, 0],
+        [0, 0, 4, 0, 0, 0, 0, 4, 0, 0]
+    );
+    // console.log(arr);
+    var str = "";
+    str += "<div class='box'>"
+    for (var i = 0; i < 7; i++) {
+        for (var j = 0; j < 10; j++) {
+            if (arr[i][j] == 0) {
+                str += "<div class='div0'></div>";
+                // if (i == 9) {
+                //     str += "<br>";
+                // }
+            }
+            if (arr[i][j] == 1) {
+                str += "<div class='div1'></div>";
+                // if (i == 9) {
+                //     str += "<br>";
+                // }
+            }
+            if (arr[i][j] == 2) {
+                str += "<div class='div2'></div>";
+                // if (i == 9) {
+                //     str += "<br>";
+                // }
+            }
+            if (arr[i][j] == 4) {
+                str += "<div class='div4'></div>";
+                // if (i == 9) {
+                //     str += "<br>";
+                // }
+            }
+        }
+    }
+    str += "</div>"
+    document.write(str);
+</script>
+</html>

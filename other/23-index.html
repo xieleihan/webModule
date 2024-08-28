@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--<script>-->
+<!--    var count = 0;-->
+<!--    var sum = 0;-->
+
+<!--    function jiechen(x) {-->
+<!--        if (x == 1) {-->
+<!--            // console.log("1")-->
+<!--            console.log("1的阶乘是=>" + x + "=" + 1)-->
+<!--        } else {-->
+<!--            count++;-->
+<!--            sum = x * jiechen(x - 1);-->
+<!--        }-->
+<!--    }-->
+
+<!--    var str = "";-->
+<!--    for (var i = 1; i <= count; i++) {-->
+<!--        if (i == count - 1) {-->
+<!--            str += (i + "*");-->
+<!--        } else-->
+<!--            str += (i + "=" + sum);-->
+<!--    }-->
+<!--    console.log(str);-->
+<!--    x = window.prompt("请输入一个数字：");-->
+<!--    jiechen(x);-->
+
+<!--</script>-->
+<script>
+    var count = 0;
+    var sum = 1; // 将sum初始化为1
+    var truecount = 0;
+
+    function jiechen(x) {
+        if (x == 1) {
+            // console.log("1的阶乘是=>1=1");
+        } else {
+            count++;
+            sum *= x; // 修正乘法逻辑
+            jiechen(x - 1);
+        }
+    }
+
+    var x = window.prompt("请输入一个数字："); // 将用户输入移到函数调用之前
+    jiechen(x);
+    truecount = count + 1;
+
+    var str = "第" + truecount + "的阶乘是:";
+    for (var i = 1; i <= count + 1; i++) {
+        if (i == count + 1) {
+            str += i;
+        } else {
+            str += i + "*";
+        }
+    }
+
+    console.log(str + "=" + sum);
+</script>
+</body>
+</html>

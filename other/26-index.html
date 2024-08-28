@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script !src="">
+    var obj = {
+        name: "王可可",
+        age: "4",
+        maofa: "黑白相间",
+        pingzhong: "阿拉斯加",
+        fn: function () {
+            document.write("我是" + this.name + "今年" + this.age + "岁了");
+        }
+    };
+
+    console.log("基本信息");
+    console.log(obj);
+    console.log(obj.name);
+    console.log(obj.age);
+    console.log(obj.maofa);
+    console.log(obj.pingzhong);
+    obj.fn();
+    //
+    console.log("基本信息");
+    console.log(obj.name + "今年" + obj.age + "岁");
+    console.log(obj.maofa + "的" + obj.pingzhong + "的");
+
+    document.write("<br>")
+    // 第二段
+    var obj = new Object(
+        {
+            name: "iPhone",
+            price: "1000",
+            color: "lightBlack",
+            cpu: "A10",
+            fn: function () {
+                document.write("手机基本信息是:" + this.name + "价格是:" + this.price + "颜色是:" + this.color + "cpu是:" + this.cpu)
+            }
+        }
+    );
+    obj.fn();
+
+    // 第三段
+
+    var obj = new Object({
+        name: "张三",
+        age: "18",
+        fn: function () {
+            document.write(this.name + "今年" + this.age + "岁了")
+        }
+    })
+    for (var key in obj) {
+        console.log("key=>", key);
+        console.log("value=>", obj[key]);
+    }
+
+
+    // 第四段
+    var str = "马上就要回家了";
+    // 拼接字符串
+    console.log(str.concat("具体", "不具体"));
+    // substr(start,length),截取字符串中的某段
+    console.log(str.substr(0, 2));
+    // 如果第二个参数不写的时候,会从下标一直截取到后面
+    // 如果存在负数的时候,倒数去算他值在哪里
+
+    // 第五段
+    var newstr = "马上就回家";
+    console.log('newstr=>', newstr.substring(0, 2));
+
+    // 第六段
+    var str = "马上就回家了aSfFdsf";
+    console.log(str.indexOf("回家"))
+    // lastindexOf()方法,从后往前找
+
+    // 转换大小写
+    console.log(str.toUpperCase());
+    // 注意,转换只会影响到字母,不会影响到其他字符
+    console.log(str.toLowerCase());
+    // 小写也一样
+
+    // 第七段
+    var number = Math.PI;
+    console.log(number);
+
+    var number = 5.4;
+    // ceil是向上取整
+    console.log(Math.ceil(number));
+    // floor是向下取整
+    console.log(Math.floor(number));
+
+    // 四舍五入
+    console.log(Math.round(number));
+
+    // 绝对值
+    console.log(Math.abs(-5));
+
+    // 最大值
+    console.log(Math.max(1, 2, 3, 4, 5, 6, 7, 8, 9, 10));
+    // 最小值
+    console.log(Math.min(1, 2, 3, 4, 5, 6, 7, 8, 9, 10));
+
+
+    // 平方,第二个参数是次方
+    console.log(Math.pow(2, 3));
+    // 平方根
+    console.log(Math.sqrt(25));
+</script>
+</body>
+</html>

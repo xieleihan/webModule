@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        .main {
+            width: 100dvw;
+            height: 100dvh;
+            background-color: #ccc;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+
+    </div>
+</body>
+<script>
+    var html = document.querySelector('html');
+    var main = document.querySelector('.main');
+    var windowsWidth = window.innerWidth;
+    var windowsHeight = window.innerHeight;
+    console.log(windowsWidth, windowsHeight);
+    main.onclick = function (e) {
+        var x = e.clientX;
+        var y = e.clientY;
+        
+        var randomColor = '#' + Math.random().toString(16).substring(2, 8).padEnd(6, '0');
+        // console.log(randomColor);
+        if (e.target.nodeName == 'DIV') {
+            var div = document.createElement('div');
+            div.style.width = '100px';
+            div.style.height = '100px';
+            div.style.backgroundColor = randomColor;
+            div.style.position = 'absolute';
+            div.style.left = x + 'px';
+            div.style.top = y + 'px';
+            main.onmousemove = function (e) {
+                var newX = e.clientX;
+                var newY = e.clientY;
+                
+                // 当div移动到边界阻止事件
+                if (newX > 50 && newX < windowsWidth - 50 && newY > 50 && newY < windowsHeight - 50) {
+                    div.style.left = newX + 'px';
+                    div.style.top = newY + 'px';
+                }
+                
+                
+            }
+            div.style.transform = 'translate(-50%, -50%)';
+            div.onclick = function () {
+                this.remove();
+                event.stopPropagation();
+            }
+            main.appendChild(div);
+        }
+    }
+</script>
+
+</html>

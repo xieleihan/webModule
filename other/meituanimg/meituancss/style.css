@@ -1,0 +1,181 @@
+/* base */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.clearfix {
+    clear: both;
+    content: "";
+    display: block;
+}
+
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+
+a {
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
+}
+
+img {
+    vertical-align: bottom;
+}
+
+body{
+    background: #ccc;
+}
+
+/* 业务样式 */
+
+.box{
+    width: 100%;
+    min-width: 750px;
+    max-width: 1280px;
+    height: 5540px;
+    
+}
+
+.box .box-main{
+    width: 750px;
+    height: 5540px;
+    margin: 0 auto;
+    background-color: white;
+}
+
+.box .box-main .box-main-top{
+    width: 750px;
+    height: 225px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    padding-top: 80px;
+}
+
+.box .box-main .box-main-top .box-main-top-img{
+    width: 125px;
+    height: 125px;
+    border-radius: 50%;
+    border: 1px solid red;
+    margin-left: 40px;
+    margin-right: 10px;
+    background: url('../1.gif');
+    background-size: cover;
+}
+
+.box .box-main .box-main-top .top-center{
+    width: 217px;
+    height: 84px;
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
+.box .box-main .box-main-top .box-main-top-text{
+    width: 215px;
+    height: 39px;
+    font-weight: bold;
+    font-size: 28px;
+    margin-bottom: 5px;
+}
+
+.box .box-main .box-main-top .box-main-top-title{
+    width: 143px;
+    height: 29px;
+    font-size: 18px;
+    color: #ccc;
+}
+
+.box .box-main .box-main-top .box-main-top-data{
+    width: 120px;
+    height: 28px;
+    color: #ccc;
+    font-size: 18px;
+    margin-top: 20px;
+    margin-right: 40px;
+    padding-left: 30px;
+}
+
+.box .box-main .box-main-certen{
+    width: 750px;
+    height: 292px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.box .box-main .box-main-certen .box-main-certen-left{
+    width: 130px;
+    height: 292px;
+    background-color: white;
+}
+
+.box .box-main .box-main-certen .content-box{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-right: 40px;
+}
+
+.box .box-main .box-main-certen .content-box .box-main-certen-left{
+    height: 292px;
+    width: 130px;
+}
+
+.box .box-main .box-main-certen .content-box .box-main-certen-info{
+    height: 108px;
+    width: 542px;
+    line-height: 38px;
+    font-size: 28px;
+}
+
+.box .box-main .box-main-certen .content-box .box-main-certen-img .box-main-certen-img-box{
+    height: 160px;
+    width: 542px;
+}
+
+.box .box-main .box-main-certen .content-box .box-main-certen-img .box-main-certen-img-box img{
+    height: 151px;
+    width: 151px;
+    margin-right: 12px;
+}
+
+.box .box-main .box-main-bottom{
+    width: 750px;
+    height: 292px;
+    margin-top: 40px;
+}
+
+.box .box-main .box-main-bottom .box-main-bottom-left{
+    height: 292px;
+    width: 130px;
+}
+
+.box .box-main .box-main-bottom .box-main-bottom-text{
+    height: 292px;
+    width: 532px;
+    background: #f4f4f4;
+    display: block;
+    font-size: 28px;
+    line-height: 38px;
+    padding: 40px 45px 42px 33px;
+    margin-right: 40px;
+}
+
+.box .line{
+    width: 670px;
+    height: 1px;
+    background-color: #f0f0f0;
+    margin: 0 auto;
+    margin-top: 68px;
+}

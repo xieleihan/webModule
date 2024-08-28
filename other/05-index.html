@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style type="text/css">
+        /* 
+在不修改HTML结构代码的前提下，完成以下任务：
+1. 链接 登录 的颜色为红色,同时主导航栏里面的所有的链接改为橙色 (简单)
+2. 主导航栏和侧导航栏里面文字都是20像素并且是宋体。（中等)
+3. 主导航栏里面的一级菜单链接文字颜色为绿色。（难)
+*/
+        .nav ul a{
+            color: orange;
+        }
+        .nav >ul>li >a {
+            color: green;
+        }
+        .nav{
+            font-size: 20px;
+            font-family: "SimSun";
+        }
+        .sitenav .site-r{
+            color: red;
+            text-decoration: underline;
+
+        } 
+
+        .nav ul li{
+            text-decoration: underline;
+            /* list-style-position: outside; */
+        }
+
+        /* .nav ul li::marker{
+            color: black;
+        }  */
+        p{
+            background-color: #ccc;
+        }
+        p span:hover{
+            color: red;
+        }
+        a:hover{
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 主导航栏 -->
+    <div class="nav">
+        <ul>
+            <li><a href="">公司首页</a></li>
+            <li><a href="">公司简介</a></li>
+            <li><a href="">公司产品</a></li>
+            <li>
+                <a href="">联系我们</a>
+                <ul>
+                    <li><a href="">公司邮箱</a></li>
+                    <li><a href="">公司电话</a></li>
+                </ul>
+            </li>
+        </ul>
+        
+    </div>
+
+    <!-- 侧导航栏 -->
+    <div class="sitenav">
+        <div class="site-l">左侧侧导航栏</div>
+        <div class="site-r">登录</div>
+    </div>
+
+    <br>
+    <p>
+        <span>新款连衣裙</span>
+        
+        <span>四件套</span>
+        
+        <span>潮流T恤</span>
+        
+        <span>时尚女鞋</span>
+        
+        <span>时尚女鞋</span>
+        
+        <span>半身裙</span>
+        
+        <span>男士外套</span>
+        
+        <span>墙纸</span>
+        
+        <span>行车记录仪</span>
+        
+        <span>新款男鞋</span>
+        
+        <span>耳机</span>
+        
+        <span>时尚女包</span>
+        <span>沙发</span>
+    </p>
+    
+<br>
+    <a href="#">习近平时间|用体育拉近中国与世界的距离一带一路，</a>
+    <br>
+    合作共赢的可持续发展之路 积极进取，引领中国经济行稳致远
+    <br>
+    环球时报社评：唱衰中国的人和力量将是历史笑柄形成合力，
+    <br>
+    推动绿富同兴内蒙古库布其沙漠治理经验
+    <br>
+    风雨无阻创造美好生活
+    <br>
+    给孩子清朗的网络空间
+    <br>
+    保障未成年人健康上网
+</body>
+
+</html>

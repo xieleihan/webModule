@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .main {
+            width: 100dvw;
+            height: 100dvh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .main .box {
+            width: 20%;
+        }
+
+        .main .box button {
+            background-color: skyblue;
+            color: white;
+        }
+
+        li {
+            list-style: none;
+            border-bottom: 1px solid #ccc;
+        }
+
+        a {
+            text-decoration: none;
+            color: black;
+        }
+
+        a:link {
+            color: black;
+        }
+
+        a:hover {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <div class="box">
+            <button>获取微博热搜榜</button>
+            <ul></ul>
+        </div>
+    </div>
+</body>
+<script>
+    // api接口网址: https://www.alapi.cn/
+    //     请求地址: https://v2.alapi.cn/api/new/wbtop
+    //     请求参数:
+    //     num: 返回的数量
+    //     token:用户标识符  可以用我的 lJLxHK2NrnPVri457AaK
+    var btn = document.querySelector("button");
+    btn.onclick = function () {
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", "https://v2.alapi.cn/api/new/wbtop?num=10&token=KLLFgsLkzlHwdRlI");
+        xhr.send();
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                var res = JSON.parse(xhr.responseText);
+                console.log(res);
+                var ul = document.querySelector("ul");
+                for (var i = 0; i < res.data.length; i++) {
+                    var li = document.createElement("li");
+                    var hot_word_num = res.data[i].hot_word_num;
+                    if (hot_word_num > 10000) {
+                        hot_word_num = (hot_word_num / 10000).toFixed(2) + "万";
+                    }
+                    li.innerHTML = '<a href="' + res.data[i].url + '">' + (i + 1) + "." + res.data[i].hot_word + '<span style="float:right;color:black">' + hot_word_num + '</span></a>';
+                    ul.appendChild(li);
+                }
+            }
+        }
+    }
+</script>
+
+</html>

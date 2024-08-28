@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            height: 200px;
+        }
+        li{
+            width: 100px;
+            height: 100px;
+            background-color: skyblue;
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <Ul>
+            <li style="float: left;">1</li>
+            <li style="float: left;">2</li>
+            <li style="float: left;">3</li>
+            <li style="float: left;">4</li>
+        </Ul>
+    </div>
+    <br />
+    <button id="btn">复制一份数组</button>
+</body>
+
+<script>
+    var btn = document.querySelector("#btn");
+    var li = document.getElementsByTagName("li");
+    var ul = document.querySelector("ul");
+
+    btn.onclick = function(){
+        for(var i = 0;i < li.length; i++){
+            var newLi = li[i].cloneNode(true);
+            ul.appendChild(newLi);
+        }
+    }
+</script>
+</html>

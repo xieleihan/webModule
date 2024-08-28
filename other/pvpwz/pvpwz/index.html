@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="css/index.css" />
+</head>
+
+<body>
+    <!-- 英雄关系层 -->
+    <div class="hero_relation container">
+        <!-- 上部分标题 -->
+        <div class="title">
+            <ul>
+                <li class="titleLi active">最佳搭档</li>
+                <li class="titleLi">压制英雄</li>
+                <li class="titleLi">被压制英雄</li>
+            </ul>
+        </div>
+
+        <!-- 下部分内容 -->
+        <div class="content">
+            <!-- .item是每一项 -->
+            <div class="item clearfix" style="display: block">
+                <!-- 文本 -->
+                <div class="hero_text fl">最佳搭档</div>
+
+                <!-- 两个图片 -->
+                <div class="hero_imgs fl">
+                    <img src="images/huangzhong.jpg" class="heroImgsImg active" />
+                    <img src="images/gaojianli.jpg" class="heroImgsImg" />
+                </div>
+
+                <!-- 英雄描述 -->
+                <div class="hero_desc fr">
+                    <p class="heroDescInfo" style="display: block">
+                        黄忠：这两个英雄在一起玩的就是速推流。刘禅的被动和一二技能的干扰，加上大招对塔的高额伤害，配上黄忠的炮台，能够以极短的时间推掉一座防御塔。并且刘禅的一二技能控制时间较长，能够很好的保护好黄忠，敌人在黄忠的大招圈内越久受到的伤害越高。
+                    </p>
+
+                    <p class="heroDescInfo">高渐离：刘禅和高渐离可以产生很好的联动，刘禅的控制技能比较多，在用一技能配合二技能时不光可以开团，也可以干扰防御塔无法攻击，高渐离可以直接大招进场，释放出高额的爆发输出击杀对方英雄，是正面开团和越塔强杀的利器。
+                    </p>
+                </div>
+            </div>
+
+            <div class="item clearfix">
+                <div class="hero_text fl">压制英雄</div>
+
+                <div class="hero_imgs fl">
+                    <img src="images/ake.jpg" class="heroImgsImg" />
+                    <img src="images/luban.jpg" class="heroImgsImg" />
+                </div>
+
+                <div class="hero_desc fr">
+                    <p class="heroDescInfo" style="display: block">
+                        阿轲：当前版本的阿轲多是刺客玩法，出装偏向输出摆法型，攻击力高的同时身板也很脆，当阿轲隐身突进结束，将会面对刘禅2秒左右的控制，在这两秒的时间内刘禅可以配合队友对阿轲进行毁灭性打击。即使阿轲隐身寻找机会切入己方核心输出位，刘禅也可以站在己方输出位利用1技能和2技能的连控轻松保护己方输出。
+                    </p>
+
+                    <p class="heroDescInfo">鲁班：刘禅可以利用技能控制效果轻松打断鲁班扫射，鲁班的被动效果承担了鲁班大部分的输出，每次鲁班在扫射被动时，刘禅都可以用1技能配合2技能轮次打断，使鲁班输出最低化，而且鲁班的技能CD比刘禅长，鲁班在被刘禅这样的坦克贴脸时，很难打出有效伤害，合理的使用技能甚至可以轻松把鲁班击杀。
+                    </p>
+                </div>
+            </div>
+
+            <div class="item clearfix">
+                <div class="hero_text fl">被压制英雄</div>
+
+                <div class="hero_imgs fl">
+                    <img src="images/hanxin.jpg" class="heroImgsImg" />
+                    <img src="images/diaochan.jpg" class="heroImgsImg" />
+                </div>
+
+                <div class="hero_desc fr">
+                    <p class="heroDescInfo" style="display: block">刘禅很害怕孤军作战，所以单独遇到输出型刺客会被一顿暴打</p>
+
+                    <p class="heroDescInfo">由于灵活的貂蝉附带真实伤害，使得刘禅的控制技能不容易控制到貂蝉</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 推荐出装层 -->
+    <div class="container">
+        <div class="tuijianchuzhuang">
+            <!-- 标题部分 -->
+            <div class="title">
+                <ul>
+                    <li class="containerLi active">推荐出装一</li>
+                    <li class="containerLi">推荐出装二</li>
+                </ul>
+            </div>
+
+            <!-- 内容部分 -->
+            <div class="content">
+                <div class="item a" style="display: block">
+                    <div class="zhaungbei_box">
+                        <div class="zhaungbei">
+                            <img src="images/救赎之翼.jpg" />
+
+                            <!-- 鼠标移上装备以后的显示的内容 -->
+                            <!-- <div class="detail">
+                                <div class="top_box clearfix">
+                                    <img src="images/救赎之翼.jpg" class="fl" />
+
+                                    <div class="price_box fl">
+                                        <p class="green">救赎之翼</p>
+                                        <p class="yellow">售价：1080</p>
+                                        <p class="yellow">总价：1800</p>
+                                    </div>
+                                </div>
+
+                                <p class="attr">+10%移动速度<br />+1000最大生命</p>
+
+                                <p>唯一被动-解放：拔除其他装备中的奉献效果，周围小兵和野怪死亡后你可以与队友平分收益。<br />唯一被动-恩赐：如果自己的经验或经济是己方最低，每3秒会额外获得5点经验或金币<br />唯一主动-救援：立即为周围友方英雄（包括自己）提供一个吸收（
+                                    600+60*英雄等级）伤害的护盾，持续3秒，冷却时间：60秒。所有同CD辅助装备的主动技能均为全队共享冷却时间</p>
+                            </div> -->
+                        </div>
+
+                        <div class="zhaungbei">
+                            <img src="images/抵抗之靴.jpg" />
+                            <!-- <div class="detail">
+                                <div class="top_box clearfix">
+                                    <img src="images/救赎之翼.jpg" class="fl" />
+
+                                    <div class="price_box fl">
+                                        <p class="green">救赎之翼</p>
+                                        <p class="yellow">售价：1080</p>
+                                        <p class="yellow">总价：1800</p>
+                                    </div>
+                                </div>
+
+                                <p class="attr">+10%移动速度<br />+1000最大生命</p>
+
+                                <p>唯一被动-解放：拔除其他装备中的奉献效果，周围小兵和野怪死亡后你可以与队友平分收益。<br />唯一被动-恩赐：如果自己的经验或经济是己方最低，每3秒会额外获得5点经验或金币<br />唯一主动-救援：立即为周围友方英雄（包括自己）提供一个吸收（
+                                    600+60*英雄等级）伤害的护盾，持续3秒，冷却时间：60秒。所有同CD辅助装备的主动技能均为全队共享冷却时间</p>
+                            </div> -->
+                        </div>
+
+                        <div class="zhaungbei">
+                            <img src="images/极寒风暴.jpg" />
+                        </div>
+
+                        <div class="zhaungbei">
+                            <img src="images/魔女斗篷.jpg" />
+                        </div>
+
+                        <div class="zhaungbei">
+                            <img src="images/不祥征兆.jpg" />
+                        </div>
+
+                        <div class="zhaungbei">
+                            <img src="images/贤者的庇护.jpg" />
+                        </div>
+                    </div>
+
+                    <p class="tips">Tips：刘禅通常会与敌人贴身肉搏，极寒风暴能提供高额的冷却缩减并且让刘禅的生存得到提升，还能造成伤害制造威胁让对手进退两难</p>
+                </div>
+
+                <div class="item a">
+                    <div class="zhaungbei_box">
+                        <div class="zhaungbei">
+                            <img src="images/红莲斗篷.jpg" />
+                        </div>
+
+                        <div class="zhaungbei">
+                            <img src="images/抵抗之靴.jpg" />
+                        </div>
+
+                        <div class="zhaungbei">
+                            <img src="images/反伤刺甲.jpg" />
+                        </div>
+
+                        <div class="zhaungbei">
+                            <img src="images/魔女斗篷.jpg" />
+                        </div>
+
+                        <div class="zhaungbei">
+                            <img src="images/不祥征兆.jpg" />
+                        </div>
+
+                        <div class="zhaungbei">
+                            <img src="images/贤者的庇护.jpg" />
+                        </div>
+                    </div>
+
+                    <p class="tips">Tips：当对手射手比较强势时，选择反伤刺甲进行反制，由于控制技能冷却较短，贤者的庇护还能提供第二套控制的机会</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+<script>
+    // 渲染推荐出装一
+    var data1 = [
+        {
+            zb_name: "救赎之翼",
+            sj: "售价：1080",
+            zj: "总价：1800",
+            attr: "+10%移动速度<br/>+1000最大生命",
+            desc: "唯一被动-解放：拔除其他装备中的奉献效果，周围小兵和野怪死亡后你可以与队友平分收益。<br>唯一被动-恩赐：如果自己的经验或经济是己方最低，每3秒会额外获得5点经验或金币<br>唯一主动-救援：立即为周围友方英雄（包括自己）提供一个吸收（600+60*英雄等级）伤害的护盾，持续3秒，冷却时间：60秒。所有同CD辅助装备的主动技能均为全队共享冷却时间",
+        },
+        {
+            zb_name: "抵抗之靴",
+            sj: "售价：426",
+            zj: "总价：710",
+            attr: "+110法术防御",
+            desc: "唯一被动：+60移动速度（所有鞋类装备的移速加成效果不叠加）<br>唯一被动：+35%韧性",
+        },
+        {
+            zb_name: "极寒风暴",
+            sj: "售价：1260",
+            zj: "总价：2100",
+            attr: "+20%冷却缩减<br/>+500最大法力<br/>+360物理防御",
+            desc: "唯一被动-冰心：受到单次伤害超过当前生命值10%时触发寒冰冲击，对周围敌人造成（50+英雄等级*10）点法术伤害并降低其30%攻击和移动速度，持续2秒，这个效果有2秒内置CD",
+        },
+        {
+            zb_name: "魔女斗篷",
+            sj: "售价：1272",
+            zj: "总价：2120",
+            attr: "+360法术防御<br/>+1000最大生命",
+            desc: "唯一被动-迷雾：脱战3秒后获得一个吸收（200+英雄等级*120）点法术伤害的护盾",
+        },
+        {
+            zb_name: "不祥征兆",
+            sj: "售价：1308",
+            zj: "总价：2180",
+            attr: "+270物理防御<br/>+1200最大生命",
+            desc: "唯一被动-寒铁：受到攻击会减少攻击者30%攻击速度与15%移动速度，持续3秒",
+        },
+        {
+            zb_name: "贤者的庇护",
+            sj: "售价：1248",
+            zj: "总价：2080",
+            attr: "+140物理防御<br/>+140法术防御",
+            desc: "唯一被动-复生：死亡后2秒原地复活，并获得（2000+英雄等级*100）点生命值，冷却时间：150秒。这个效果每局游戏只能触发2次",
+        },
+    ];
+
+    // 推荐出装二
+    var data2 = [
+        {
+            zb_name: "红莲斗篷",
+            sj: "售价：1098",
+            zj: "总价：1830",
+            attr: "+240物理防御<br/>+1000最大生命",
+            desc: "唯一被动-献祭：每秒对身边300范围内的敌人造成使用者最大生命值2%的法术伤害",
+        },
+        {
+            zb_name: "抵抗之靴",
+            sj: "售价：426",
+            zj: "总价：710",
+            attr: "+110法术防御",
+            desc: "唯一被动：+60移动速度（所有鞋类装备的移速加成效果不叠加）<br>唯一被动：+35%韧性",
+        },
+        {
+            zb_name: "反伤刺甲",
+            sj: "售价：1104",
+            zj: "总价：1840",
+            attr: "+40物理攻击<br/>+420物理防御",
+            desc: "唯一被动-荆棘：受到物理伤害时，会将伤害量的20%以法术伤害的形式回敬给对方。自身每20点物理防御属性提升1%该伤害（最多+100%）。攻击者距离越远，这个伤害越低，最多在距离800时衰减至70%",
+        },
+        {
+            zb_name: "魔女斗篷",
+            sj: "售价：1272",
+            zj: "总价：2120",
+            attr: "+360法术防御<br/>+1000最大生命",
+            desc: "唯一被动-迷雾：脱战3秒后获得一个吸收（200+英雄等级*120）点法术伤害的护盾",
+        },
+        {
+            zb_name: "不祥征兆",
+            sj: "售价：1308",
+            zj: "总价：2180",
+            attr: "+270物理防御<br/>+1200最大生命",
+            desc: "唯一被动-寒铁：受到攻击会减少攻击者30%攻击速度与15%移动速度，持续3秒",
+        },
+        {
+            zb_name: "贤者的庇护",
+            sj: "售价：1248",
+            zj: "总价：2080",
+            attr: "+140物理防御<br/>+140法术防御",
+            desc: "唯一被动-复生：死亡后2秒原地复活，并获得（2000+英雄等级*100）点生命值，冷却时间：150秒。这个效果每局游戏只能触发2次",
+        },
+    ];
+</script>
+<script src="./js/main.js"></script>
+
+</html>
