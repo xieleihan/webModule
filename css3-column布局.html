@@ -1,78 +1,117 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <style>
-        *{
+    <!-- <style>
+        * {
             margin: 0;
             padding: 0;
         }
-        .main{
+
+        .main {
             width: 100dvw;
             height: 100dvh;
             display: flex;
             justify-content: center;
             align-items: center;
         }
-        .main .box{
+
+        .main .box {
             width: 500px;
             height: 500px;
         }
-        .main .box div{
+
+        .main .box div {
             columns: 2;
             border-bottom: 3px dashed red;
         }
-        .main .box div h4{
+
+        .main .box div h4 {
             font-size: 120px;
             display: flex;
             justify-content: center;
             align-items: center;
         }
-        .main .box div ul{
+
+        .main .box div ul {
             height: 100%;
             display: flex;
             flex-direction: column;
-            /* justify-content: center; */
             align-items: center;
+        }
+    </style> -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .example {
+            width: 500px;
+            margin: 50px auto;
+        }
+
+        h1,
+        ul {
+            width: calc(50% - 10px);
+            /* 设置宽度为 50%，并减去一点间隙 */
+            display: inline-block;
+            vertical-align: top;
+            /* 垂直对齐 */
+        }
+
+        h1 {
+            /* margin-right: 10px; */
+            /* 在 h1 和 ul 之间设置间隙 */
+        }
+
+        ul {
+            margin-left: 10px;
+            /* 在 ul 和 h1 之间设置间隙 */
+            /* list-style-type: none; */
+            /* 移除默认的列表样式 */
         }
     </style>
 </head>
+
+
 <body>
-    <div class="main">
-        <div class="box">
-            <div class="box1">
-                <h4>A</h4>
-                <ul>
-                    <li>abcdefgh</li>
-                    <li>abcdefgh</li>
-                    <li>abcdefgh</li>
-                    <li>abcdefgh</li>
-                    <li>abcdefgh</li>
-                </ul>
-            </div>
-            <div class="box2">
-                <h4>B</h4>
-                <ul>
-                    <li>abcdefgh</li>
-                    <li>abcdefgh</li>
-                    <li>abcdefgh</li>
-                    <li>abcdefgh</li>
-                    <li>abcdefgh</li>
-                </ul>
-            </div>
-            <div class="box3">
-                <h4>C</h4>
-                <ul>
-                    <li>abcdefgh</li>
-                    <li>abcdefgh</li>
-                    <li>abcdefgh</li>
-                    <li>abcdefgh</li>
-                    <li>abcdefgh</li>
-                </ul>
-            </div>
-        </div>
+    <div class="example">
+        <h1>A</h1>
+        <ul>
+            <li>aardvark</li>
+            <li>aardwolf</li>
+            <li>aasvogel</li>
+            <li>abacuses</li>
+            <li>abalones</li>
+        </ul>
+
+        <hr />
+
+        <h1>B</h1>
+        <ul>
+            <li>baalisms</li>
+            <li>baaskaap</li>
+            <li>baaskaps</li>
+            <li>baasskap</li>
+            <li>babassus</li>
+        </ul>
+
+
+        <hr />
+        <h1>C</h1>
+        <ul>
+            <li>cabalism</li>
+            <li>cabalist</li>
+            <li>caballed</li>
+            <li>cabarets</li>
+            <li>cabbaged</li>
+        </ul>
+
     </div>
 </body>
+
 </html>

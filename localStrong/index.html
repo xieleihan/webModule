@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .main {
+            width: 100dvw;
+            height: 100dvh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .main .clear{
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+        }
+
+        .main .box {
+            width: 300px;
+
+        }
+        .main .box p{
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 5px;
+            text-wrap: nowrap;
+        }
+        .main .box .pDiv{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+        .main .box .yesbtn{
+            background-color: red;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <div class="box"></div>
+        <button class="clear">清空localStrong</button>
+    </div>
+</body>
+<script>
+    var songs = [
+        { id: 1, name: "会不会（吉他版）" },
+        { id: 2, name: "是但求其爱" },
+        { id: 3, name: "我很好（吉他版）" },
+        { id: 4, name: "海底" },
+        { id: 5, name: "执迷不悟" },
+        { id: 6, name: "他只是经过" },
+        { id: 7, name: "经济舱 (Live)" },
+        { id: 8, name: "是想你的声音啊" },
+        { id: 9, name: "苦尽甘来" },
+        { id: 10, name: "天外来物" }
+    ];
+    var box = document.querySelector('.box');
+    var div = document.createElement('div');
+    songs.forEach(function(item) {
+        var pDiv = document.createElement('div');
+        pDiv.className = 'pDiv';
+        var p = document.createElement('p');
+        p.innerHTML = item.name;
+        var btn = document.createElement('button');
+        btn.innerHTML = '未收藏';
+        btn.className = 'nobtn';
+        btn.onclick = function() {
+            if (btn.innerHTML == '未收藏') {
+                this.previousElementSibling.setAttribute('date-flag', 'true');
+                this.setAttribute("date-index", item.id);
+                console.log(this)
+                window.localStorage.setItem(this.previousElementSibling.innerHTML, this.getAttribute('date-index')
+                );
+                btn.innerHTML = '取消收藏';
+                btn.className = 'yesbtn';
+            } else {
+                btn.innerHTML = '未收藏';
+                this.previousElementSibling.setAttribute('date-flag', 'false');
+                this.setAttribute("date-index", 0);
+                window.localStorage.removeItem(this.previousElementSibling.innerHTML);
+                console.log(this)
+                btn.className = 'nobtn';
+            }
+        }
+        pDiv.appendChild(p);
+        pDiv.appendChild(btn);
+        div.appendChild(pDiv);
+    })
+    box.appendChild(div);
+    var pDiv = document.querySelectorAll('.pDiv');
+    console.log(pDiv)
+    // window.localStorage.setItem('songs', JSON.stringify(songs));
+
+    window.onload = function() {
+        for (var i = 0; i < pDiv.length; i++) {
+            if (window.localStorage.getItem(pDiv[i].firstElementChild.innerHTML)) {
+                pDiv[i].lastElementChild.innerHTML = '取消收藏';
+                pDiv[i].lastElementChild.className = 'yesbtn';
+            }
+        }
+    }
+
+    var clear = document.querySelector('.clear');
+    clear.onclick = function(){
+        window.localStorage.clear();
+    }
+</script>
+
+</html>

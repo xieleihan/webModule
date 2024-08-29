@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input class="emailInput" type="text" placeholder="请输入邮箱" />
+    <br>
+    <input class="memory" type="checkbox"/>
+    <label for="">记住用户邮箱</label>
+    <br>
+    <button>提交</button>
+</body>
+<script>
+    var emailInput = document.querySelector('.emailInput');
+    var checkbox = document.querySelector('.memory');
+    var button = document.querySelector('button');
+    var date = new Date();
+    date.setDate(date.getDate() + 7);
+    date = date.toUTCString();
+    console.log(date);
+    button.onclick = function() {
+        if (checkbox.checked) {
+            document.cookie = 'email=' + emailInput.value + ';expires=' + date;
+        } else {
+            document.cookie = 'email=' + emailInput.value ;
+        }
+    }
+    window.onload = function() {
+        var cookie = document.cookie;
+        var cookieArr = cookie.split(';');
+        cookieArr.forEach(function(item) {
+            var arr = item.split('=');
+            if (arr[0] === 'email') {
+                emailInput.value = arr[1];
+            }
+        })
+    }
+</script>
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>视频播放</title>
+    <!--字体图标库-->
+    <link rel="stylesheet" href="css/font-awesome.css"/>
+    <link rel="stylesheet" href="css/player.css"/>
+</head>
+<body>
+    <div class="container">
+        <h2>视频播放器</h2>
+        <div class="player">
+            <video src="./video/fun.mp4"></video>
+            <div class="controls">
+                <!--播放/暂停-->
+                <a href="javascript:void(0);" class="switch fa fa-play"></a>
+                <!--播放进度-->
+                <div class="progress">
+                    <!-- 线 -->
+                    <div class="line"></div>
+                    <!-- 滑块 -->
+                    <div class="bar"></div>
+                </div>
+                <!--当前播放时间/播放总时长-->
+                <div class="timer">
+                    <span class="current">00:00:00</span> / <span class="total">00:00:00</span>
+                </div>
+                <!--全屏/取消全屏-->
+                <a href="javascript:void(0);" class="expand fa fa-arrows-alt"></a>
+            </div>
+        </div>
+    </div>
+
+    
+</body>
+<script src="./js/jquery.min.js"></script>
+<script>
+    $(function () {
+        var video = $('.player video')[0];
+
+        // 定义格式化时间的函数
+        function formatTime(time) {
+            var h = Math.floor(time / 3600);
+            var m = Math.floor(time % 3600 / 60);
+            var s = Math.floor(time % 60);
+            return (h < 10 ? '0' + h : h) + ':' + (m < 10 ? '0' + m : m) + ':' + (s < 10 ? '0' + s : s);
+        }
+
+        function pasrser(){
+            var video = $('.player video')[0];
+            var current = video.currentTime;
+            var total = video.duration;
+            var percent = current / total * 100;
+            $('.line').css('width', percent + '%');
+        }
+
+        // 检查是否可以立即获取视频时长
+        if (!Object.is(video.duration, NaN) && video.duration > 0) {
+            $(".total").text(formatTime(video.duration));
+        } else {
+            // 如果无法立即获取，监听 loadedmetadata 事件
+            video.addEventListener('loadedmetadata', function () {
+                $(".total").text(formatTime(video.duration));
+            });
+        }
+
+        // console.log(formatTime(Number(video.duration)));
+        var intervalID
+
+        $('video').on('click',function(){
+            $(".controls").css('display', 'block');
+        })
+        $('video').on('dblclick',function(){
+            var video = $('.player')[0];
+            $('video').css('display', 'block');
+            if (!flag) {
+                flag = true;
+                video.requestFullscreen();
+            } else {
+                document.exitFullscreen();
+                flag = false;
+            }
+        })
+
+        $('.switch').on('click', function () {
+            $('video').css('display', 'block');
+            var video = $(this).parent().siblings('video')[0];
+            if (video.paused) {
+                video.play();
+                $(".controls").css('display', 'none');
+                $('.current').text(formatTime(video.currentTime));
+                pasrser();
+                intervalID = setInterval(function () {
+                    $('.current').text(formatTime(video.currentTime));
+                    pasrser();
+                }, 1000)
+                $(this).removeClass('fa-play').addClass('fa-pause');
+            } else {
+                video.pause();
+                $(this).removeClass('fa-pause').addClass('fa-play');
+                clearInterval(intervalID);
+            }
+        });
+        var flag = false;
+        $('.expand').on('click', function () {
+
+            var video = $('.player')[0];
+            $('video').css('display', 'block');
+            if (!flag) {
+                flag = true;
+                video.requestFullscreen();
+            } else {
+                document.exitFullscreen();
+                flag = false;
+            }
+        });
+
+        $('.bar').on('click',function(){
+            var video = $('.player video')[0];
+            var e = event || window.event;
+            var x = e.offsetX;
+            var percent = x / $(this).width();
+            video.currentTime = video.duration * percent;
+            pasrser();
+        })
+        
+    });
+</script>
+</html>

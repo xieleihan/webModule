@@ -1,0 +1,92 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.main {
+  width: 100dvw;
+  height: 100dvh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  background: url('../images/page-bg.jpg') no-repeat;
+  background-size: cover;
+}
+.main .songInfo {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.main .songInfo .songName {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+.main .songInfo button {
+  padding: 5px;
+  background-color: skyblue;
+  color: white;
+  font-size: 16px;
+  outline: none;
+  border: 1px solid skyblue;
+  cursor: pointer;
+  border-radius: 20px;
+}
+.main .box {
+  background: url('../images/bg_circle.png') no-repeat;
+  background-size: cover;
+  width: 653px;
+  height: 653px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: move 10s linear infinite;
+  animation-play-state: paused;
+  animation-fill-mode: none;
+}
+.main .box .content {
+  background: url('../images/bg_center.png') no-repeat;
+  background-size: cover;
+  width: 399px;
+  height: 399px;
+  border-radius: 50%;
+}
+.main .center {
+  background: url('../images/btn-bg.png') no-repeat;
+  background-size: cover;
+  width: 95px;
+  height: 95px;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.main .center .btn {
+  background: url('../images/pause.png') no-repeat;
+  background-size: 100% 100%;
+  width: 29px;
+  height: 36px;
+}
+@keyframes move {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}

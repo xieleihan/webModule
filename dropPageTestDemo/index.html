@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .main{
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .box{
+            width: 200px;
+            height: 200px;
+            border: 2px solid black;
+            margin: 50px;
+            overflow: hidden;
+            transition: all 1s;
+        }
+        .box p{
+            width: 100%;
+            height: calc(100% / 4);
+            text-align: center;
+            line-height: 50px;
+            font-weight: bold;
+            text-wrap: nowrap;
+            font-size: 10px;
+            color: black;
+            mix-blend-mode: multiply;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="box box1">
+            <p draggable="true">你好,我是P元素的第一个子元素</p>
+            <p draggable="true">你好,我是P元素的第二个子元素</p>
+            <p draggable="true">你好,我是P元素的第三个子元素</p>
+            <p draggable="true">你好,我是P元素的第四个子元素</p>
+        </div>
+        <div class="box box2"></div>
+        <div class="box box3"></div>
+    </div>
+</body>
+<script>
+    function getRandomColor(){
+        return '#'+Math.random().toString(16).slice(2,8).padEnd(6,'0');
+    }
+    var p = document.querySelectorAll('.box p');
+    p.forEach(function(item){
+        item.style.backgroundColor = getRandomColor();
+    });
+
+    var dropObject = null;
+
+    var box = document.querySelectorAll('.box');
+    var thisIndex
+    var dropObject
+    box.forEach(function(item,index){
+        // console.log(item);
+        // console.log(index);
+        
+        item.onmouseover = function(){
+            // console.log(this)
+            // console.log(index)
+            thisIndex = index;
+            this.ondragstart = function(e){
+                dropObject = e.target;
+                // console.log(dropObject);
+                dropObject.style.backgroundColor = getRandomColor();
+            }
+            for (var i = 0; i < box.length; i++) {
+                if (i != thisIndex) {
+                    box[i].ondragstart = function (e) {
+                        dropObject = e.target;
+                        console.log(dropObject);
+                    }
+                    box[i].ondragover = function (e) {
+                        e.preventDefault();
+                    }
+                    box[i].ondrop = function (e) {
+                        this.append(dropObject);
+                        this.style.border = '2px solid black';
+                    }
+                    box[i].ondragenter = function(){
+                        this.style.border = '2px dashed red';
+                    }
+                    box[i].ondragleave = function(){
+                        this.style.border = '2px solid black';
+                    }
+                }else{
+                    box[i].ondragover = function (e) {
+                        e.preventDefault();
+                    }
+                    box[i].ondrop = function (e) {
+                        this.append(dropObject);
+                        this.style.border = '2px solid black';
+                    }
+                    box[i].ondragenter = function () {
+                        this.style.border = '2px dashed red';
+                    }
+                    box[i].ondragleave = function () {
+                        this.style.border = '2px solid black';
+                    }
+                }
+            }
+            
+        }
+        
+    })
+</script>
+</html>
