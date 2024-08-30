@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        canvas{
+            display: block;
+            margin: 100px auto;
+            outline: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <canvas width="800" height="600"></canvas>
+</body>
+<script>
+    var data = [
+        {x:100, y:120},
+        {x:200, y:160},
+        {x:300, y:240},
+        {x:400, y:320},
+        {x:500, y:80}
+    ]
+    var canvas = document.querySelector('canvas');
+    var ctx = canvas.getContext('2d');
+    // 绘制格子图
+    function gridChart(x,y,mx,my){
+        ctx.beginPath();
+        ctx.moveTo(mx,my);
+        ctx.lineTo(x,y);
+        ctx.strokeStyle = '#ccc';
+        ctx.stroke();
+    }
+    for(var x = 0; x < canvas.width; x += 10){
+        gridChart(x,0,x,canvas.height);
+    }
+    for(var y = 0; y < canvas.height; y += 10){
+        gridChart(0,y,canvas.width,y);
+    }
+
+    function drawData(mx,my,data){
+        data.forEach(function(item){
+            // console.log(item.x,item.y); // 取到每一个点的x和y
+            ctx.beginPath();
+            ctx.moveTo(mx,my);
+            item.x = 100 + item.x;
+            item.y = canvas.height - item.y - 100;
+            ctx.lineTo(item.x,item.y);
+            ctx.strokeStyle = 'black';
+            ctx.rect(item.x - 2, item.y - 2, 4, 4);
+            ctx.fillStyle = 'black';
+            ctx.fill();
+            ctx.stroke();
+            mx = item.x;
+            my = item.y;
+        });
+    }
+    // console.log(canvas.height-100);
+    drawData(100, canvas.height - 100,data);
+
+    // 定义一个生产三角形的函数
+    function drawTriangle(mx, my, direction) {
+            ctx.beginPath();
+
+            if (direction === 'x') {
+                // X轴方向的三角形，水平箭头
+                ctx.moveTo(mx - 5, my - 5);  // 左上顶点
+                ctx.lineTo(mx + 5, my);      // 右中顶点
+                ctx.lineTo(mx - 5, my + 5);  // 左下顶点
+            } else if (direction === 'y') {
+                // Y轴方向的三角形，垂直箭头
+                ctx.moveTo(mx - 5, my + 5);  // 左下顶点
+                ctx.lineTo(mx, my - 5);      // 中上顶点
+                ctx.lineTo(mx + 5, my + 5);  // 右下顶点
+            }
+
+            ctx.closePath();
+            ctx.fillStyle = 'black';
+            ctx.fill();
+            ctx.strokeStyle = 'black';
+            ctx.stroke();
+        }
+
+    // 定义一个X轴和Y轴的xy函数
+    function canvasXY(mx, my, lx, ly, direction) {
+            ctx.beginPath();
+            ctx.moveTo(mx, my);
+            ctx.lineTo(lx, ly);
+            ctx.strokeStyle = 'black';
+            ctx.stroke();
+            drawTriangle(lx, ly, direction);  // 根据方向绘制三角形
+        }
+    canvasXY(100,canvas.height-100,canvas.width-100,canvas.height-100,'x');
+    canvasXY(100,canvas.height-100,100,100,'y');
+</script>
+</html>

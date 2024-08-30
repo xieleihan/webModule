@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        canvas {
+            display: block;
+            margin: 100px auto;
+            outline: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="myCanvas" width="300" height="300"></canvas>
+</body>
+<script>
+    var data = [6, 30, 10, 8, 3];
+    var canvas = document.getElementById('myCanvas');
+    var ctx = canvas.getContext('2d');
+
+    function getRandomColor() {
+        return '#' + Math.random().toString(16).slice(2, 8).padEnd(6, '0');
+    }
+
+    // 计算得到画布的中心点
+    var x0 = myCanvas.width / 2;
+    var y0 = myCanvas.height / 2;
+
+    // 定义一个变量,保存圆的半径
+    var radius = 100;
+
+    // 1度 等于 π/180弧度
+    var radians = Math.PI / 180;
+
+
+    var start = 0;
+    var sum = 0;
+    for(var i = 0 ; i < data.length; i++){
+        sum += data[i];
+    }
+
+    for(var i = 0; i < data.length; i++){
+        ctx.beginPath();
+        ctx.moveTo(x0, y0);
+
+        // 计算当前扇形的结束角度
+        var end = start + (data[i] / sum) * 360 * radians;
+
+        // 绘制扇形
+        ctx.arc(x0, y0, radius, start, end, false);
+        ctx.closePath(); // 闭合路径以形成扇形
+
+        ctx.fillStyle = getRandomColor();
+        ctx.fill();
+
+        // 更新起始角度
+        start = end;
+    }
+</script>
+
+</html>

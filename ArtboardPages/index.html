@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>妙笔千山 -简易画板</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100dvh;
+            width: 100dvw;
+            flex-direction: column;
+            background: url('./images/page-bg.jpg') no-repeat;
+            background-size: cover;
+        }
+        .canvas{
+            background-color: white;
+            height: calc(100% - 100px);
+        }
+
+        canvas{
+            cursor: url('./images/pen.png') 0 28, auto;
+        }
+
+        .box{
+            width: 70dvw;
+            height: 70dvh;
+            outline: 1px solid black;
+            border-radius: 5px;
+        }
+        .box .controller{
+            width: 100%;
+            height: 100px;
+            background-color: #f1f1f1;
+            display: flex;
+            flex-direction: row;
+        }
+        .box .controller img{
+            height: 100%;
+            width: 100px;
+            display: block;
+        }
+        .box .controller .title{
+            font-size: 20px;
+            font-weight: bold;
+            color: black;
+            margin-left: 20px;
+            line-height: 100px;
+            display: inline-block;
+            cursor: pointer;
+        }
+
+        .box .controller .colorBox{
+            height: 100%;
+            width: 260px;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            margin-left: 20px;
+            align-items: center;
+            justify-content: flex-start;
+            border: 1px solid #ccc;
+            border-top: none;
+            border-bottom: none;
+        }
+
+        .box .controller .colorBox div{
+            width: 20px;
+            height: 20px;
+            margin: 10px;
+            cursor: pointer;
+            border: 1px solid black;
+            padding: 5px;
+        }
+
+        .box .controller .colorBox .redBox{
+            background-color: red;
+            cursor: url('./images/吸管-01.png'), auto;
+        }
+
+        .box .controller .colorBox .greenBox{
+            background-color: green;
+            cursor: url('./images/吸管-01.png'), auto;
+        }
+
+        .box .controller .colorBox .blueBox{
+            background-color: blue;
+            cursor: url('./images/吸管-01.png'), auto;
+        }
+
+        .box .controller .colorBox .yellowBox{
+            background-color: yellow;
+            cursor: url('./images/吸管-01.png'), auto;
+        }
+
+        .box .controller .colorBox .purpleBox{
+            background-color: purple;
+            cursor: url('./images/吸管-01.png'), auto;
+        }
+
+        .box .controller .colorBox .orangeBox{
+            background-color: orange;
+            cursor: url('./images/吸管-01.png'), auto;
+        }
+
+        .box .controller .colorBox .whiteBox{
+            background-color: white;
+            cursor: url('./images/吸管-01.png'), auto;
+        }
+
+        .box .controller .colorBox .blackBox{
+            background-color: black;
+            cursor: url('./images/吸管-01.png'), auto;
+        }
+
+        .box .controller .colorBox .colorInputBox{
+            width: 30px;
+            height: 30px;
+            border: none;
+            margin: 10px;
+            cursor: pointer;
+        }
+        .box .controller .colorBox .colorRandomBox{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: nowrap;
+            width: fit-content;
+            height: 40px;
+        }
+        .box .controller .colorBoxTilte{
+            font-size: 14px;
+            text-wrap: wrap;
+            margin-left: 30px;
+            display: block;
+            height: 70px;
+        }
+
+        .box .controller .boldBox{
+            display: flex;
+            align-items: center;
+        }
+
+        .box .controller .boldInput{
+            height: 30%;
+            
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="controller">
+            <img src="./images/peacock_flat.png" alt="">
+            <span class="title">简易画板- canvas绘图</span>
+            <span class="colorBoxTilte">颜色:</span>
+            <div class="colorBox">
+                
+                <div class="redBox"></div>
+                <div class="greenBox"></div>
+                <div class="blueBox"></div>
+                <div class="yellowBox"></div>
+                <div class="purpleBox"></div>
+                <div class="orangeBox"></div>
+                <div class="whiteBox"></div>
+                <div class="blackBox"></div>
+                <div class="colorRandomBox">
+                    <label for="">调色盘:</label>
+                    <input type="color" class="colorInputBox">
+                </div>
+            </div>
+            <span class="boldRandom">线条粗细:</span>
+            <div class="boldBox">
+                <input class="boldInput" type="range" min="1" max="10" step="1" value="1"><span class="indicator" style="margin-left: 5px;display: none;">1</span>
+            </div>
+        </div>
+        <div class="canvas">
+            <canvas id="myCanvas"></canvas>
+        </div>
+    </div>
+</body>
+<script>
+    window.onload = function(){
+        var boldBox = document.querySelector('.boldBox');
+        var boldInput = document.querySelector('.boldInput');
+        var indicator = document.querySelector('.indicator');
+        boldInput.oninput = function(){
+            indicator.style.display = 'inline-block';
+            indicator.innerHTML = boldInput.value;
+        }
+        boldBox.onmouseout = function(){
+            indicator.style.display = 'none';
+        }
+
+
+
+
+
+
+
+
+        var canvas = document.getElementById('myCanvas');
+        canvas.style.width = '100%';
+        canvas.style.height = '100%';
+
+        // 为了确保canvas内容渲染正确，最好设置canvas元素的宽度和高度
+        canvas.width = canvas.offsetWidth; // 设置 canvas 的宽度
+        canvas.height = canvas.offsetHeight; // 设置 canvas 的高度
+
+        // testAero
+        // var ctx = canvas.getContext('2d');
+        // ctx.beginPath();
+        // ctx.moveTo(100,50);
+        // ctx.lineTo(500,50);
+        // ctx.strokeStyle = 'black';
+        // ctx.stroke();
+    }
+</script>
+</html>

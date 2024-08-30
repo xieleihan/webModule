@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        canvas{
+            display: block;
+            margin: 100px auto;
+            outline: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="myCanvas" width="500" height="500"></canvas>
+</body>
+<script>
+    var canvas = document.getElementById('myCanvas');
+    var ctx = canvas.getContext('2d');
+    var count = 0;
+    setInterval(function(){
+        count++;
+        ctx.clearRect(0, 0, 500, 500);
+        ctx.beginPath();
+        ctx.moveTo(100, 100);
+        ctx.lineTo(400, 100);
+        ctx.lineTo(400, 400);
+        ctx.lineTo(100, 400);
+        ctx.closePath();
+        ctx.setLineDash([5, 5]);
+        ctx.lineDashOffset = count;
+        if(count > 10){
+            count = 0;
+        }
+        ctx.stroke();
+    },100)
+</script>
+</html>
