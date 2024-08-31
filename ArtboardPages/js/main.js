@@ -246,4 +246,55 @@ window.onload = function () {
             }
         }
     }
+
+    var setCircular = document.querySelector('.setCircular');
+
+    setCircular.onclick = function () {
+        // 隐藏其他元素并设置鼠标样式
+        mobileBox.style.display = 'none';
+        canvas.style.cursor = 'url(./images/24gl-move.png) 15 15, auto';
+
+        // 初始化
+        canvas.onmousedown = null;
+
+        canvas.onmousedown = function (e) {
+            var ctx = canvas.getContext('2d');
+            var startX = e.offsetX;
+            var startY = e.offsetY;
+
+            ctx.beginPath();
+
+            canvas.onmousemove = function (e) {
+                var endX = e.offsetX;
+                var endY = e.offsetY;
+
+                if (endX <= 0 || endX >= canvas.width || endY <= 0 || endY >= canvas.height) {
+                    canvas.onmousemove = null;
+                    return;
+                }
+
+                // 计算圆心（起始坐标与当前鼠标坐标的中点）
+                var centerX = (startX + endX) / 2;
+                var centerY = (startY + endY) / 2;
+
+                // 计算半径
+                var radius = Math.sqrt(Math.pow((endX - startX) / 2, 2) + Math.pow((endY - startY) / 2, 2));
+
+                // 清除画布并绘制新的圆形
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                ctx.beginPath();
+                ctx.arc(centerX, centerY, radius, 0, 2 * Math.PI);
+                ctx.lineCap = 'round';
+                ctx.strokeStyle = nowColor;
+                ctx.lineWidth = boldInput.value;
+                ctx.stroke();
+
+                // 停止绘制
+                canvas.onmouseup = function () {
+                    canvas.onmousemove = null;
+                }
+            }
+        }
+    }
+
 }
