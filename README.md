@@ -10,7 +10,7 @@
 >
 > 1. `未定事件簿官网(HTML+CSS+JavaScript)`-补充:*使用less快速开发的,(推荐在做这种项目的时候还是使用less预编译器,专心写css就行,剩下交给机器)*
 >
-> **目前有18个模块**:
+> **目前有n个模块**:
 >
 > 1. `HOK-Material`
 > 2. `HOK-Tab`
@@ -30,6 +30,7 @@
 > 16. `weatherBox(Ajax)请求数据渲染在DOM上,不带key`
 > 17. `EmoticonsBox(Ajax method:"post"),不带key`
 > 18. `bilibiliManga(Ajax jQuery)`
+> 已经不知道多少模块了
 
 # 持续更新喵~
 

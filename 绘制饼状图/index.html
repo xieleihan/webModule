@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        .main{
+            width: 100dvw;
+            height: 100dvh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .main .box{
+            width: 50%;
+            height: 70%;
+            /* background-color: skyblue; */
+        }
+        .main .box .top{
+            width: 100%;
+            height: 20%;
+            list-style: none;
+        }
+        .main .box .top li{
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .main .box .top li .color{
+            display: inline-block;
+            width: 50px;
+            height: 20px;
+            background-color: red;
+            margin-right: 20px;
+        }
+        .main .box .top li .name{
+            width: 80%;
+            height: 20px;
+            line-height: 20px;
+            display: inline-block;
+            /* text-align: center; */
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="box">
+            <ul class="top">
+                <!-- <li>
+                    <span class="color"></span>
+                    <span class="name">fanshu ---40%</span>
+                </li> -->
+            </ul>
+            <canvas width="300" height="300"></canvas>
+        </div>
+    </div>
+</body>
+<script>
+    // 需求:绘制饼状图
+    var data = [
+        {
+            name:"番薯",
+            persent:"0.2",
+            color:"darkred"
+        },
+        {
+            name: "白菜",
+            persent: "0.15",
+            color: "green"
+        },
+        {
+            name: "土豆",
+            persent: "0.3",
+            color: "orange"
+        },
+        {
+            name: "蒜",
+            persent: "0.1",
+            color: "pink"
+        },
+        {
+            name: "葱",
+            persent: "0.25",
+            color: "blue"
+        }
+    ]
+    data.forEach(function(item){
+        console.log(item)
+        var {name, persent, color} = item;
+        var li = document.createElement("li");
+        li.innerHTML = `
+            <span class="color" style="background-color:${color}"></span>
+            <span class="name" style="color:${color}">${name} ---${persent*100}%</span>
+        `
+        document.querySelector(".top").appendChild(li)
+    })
+
+    var canvas = document.querySelector("canvas");
+    var ctx = canvas.getContext("2d");
+    var x = canvas.width/2;
+    var y = canvas.height/2;
+    var r = 100;
+    var start = 0;
+    data.forEach(function(item){
+        var {name, persent, color} = item;
+        ctx.beginPath();
+        ctx.moveTo(x, y);
+        ctx.arc(x, y, r, start, start + persent * Math.PI * 2);
+        ctx.fillStyle = color;
+        ctx.fill();
+        start += persent * Math.PI * 2;
+    })
+</script>
+</html>
