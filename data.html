@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<!-- <script src="./data.json"></script> -->
+<script src="https://fastly.jsdelivr.net/gh/southaki/contentDeliveryNetwork@0.0.1/jQuery@3.7.1/jquery-3.7.1.js"></script>
+<script>
+    $.get('./data.json',function(item){
+        console.log(item)
+        let {result} = item;
+        console.log(result)
+        let {songs} = result;
+        console.log(songs) // songs 是一个数组
+        songs.forEach((item) => {
+            // console.log(item)
+            let {name, artists} = item;
+            let [artist] = artists;
+            // console.log(artist)
+            let { img1v1Url } = artist;
+            // console.log(img1v1Url)
+            console.log(name, img1v1Url)
+        })
+        // let [{name, artists }] = songs;
+        // console.log(name, artists)
+        // let [artist] = artists;
+        // console.log(artist)
+        // let { img1v1Url } = artist;
+        // console.log(img1v1Url)
+        // console.log(name, img1v1Url)
+        
+
+    })
+</script>
+</html>
