@@ -1,0 +1,9 @@
+!(()=>{
+    $(window).on('load',function(){
+        $.get('../templates/indexMain.html',function(date){
+            setTimeout(function(){
+                $('.main').html(date)
+            },1000)
+        })
+    })
+})()
