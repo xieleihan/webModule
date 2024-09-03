@@ -1,0 +1,192 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> <meta charset="UTF-8"> 
+<title>贪吃蛇</title>
+<style> 
+    * { 
+        margin: 0; 
+        padding: 0; 
+    }
+    td {
+         width: 48px;
+        height: 48px;
+         border: 1px solid black; 
+        }
+    #pic {
+         width: 750px;
+         height: 750px;
+          opacity: 0.6; 
+          position: absolute;
+           background-color: antiquewhite; 
+        } 
+    div { 
+        position: absolute;
+     width: 50px;
+      height: 50px; 
+      } 
+</style> 
+</head> 
+<body> 
+<h3 id="score">分数：0</h3>
+<div id="pic"></div> 
+<script>
+    document.write("<table cellspacing='0'>")
+        for (var i = 0; i < 15; i++) { 
+            document.write('</tr>') 
+            for (var j = 0; j < 15; j++) { 
+        document.write("<td></td>") 
+        } 
+    } 
+    document.write("</table>")
+    var pic = document.getElementById("pic") 
+    function createPic(type){ 
+    var Node = document.createElement("div")
+    Node.style.left = parseInt(Math.random() * 15) * 50 + "px" 
+    Node.style.top = parseInt(Math.random() * 15) * 50 + "px"
+    pic.appendChild(Node)
+    switch (type) { 
+        case "head": 
+            Node.style.backgroundColor = "red"
+            break
+        case "food":
+            Node.style.backgroundColor = "blue"
+            break 
+        case "body": 
+            Node.style.backgroundColor = "yellow" 
+            break 
+    }
+    return Node 
+}
+var Score = 0 
+var snakeHead = createPic("head") 
+snakeHead.value = "上"
+var snakeFood = createPic("food")
+var snakeArr = [] 
+var snakeAll = [] 
+var snakeScore = document.getElementById("score") 
+function move() { 
+    if (snakeArr.length > 0) { 
+        for (var i = snakeArr.length - 1; i >= 0; i--) { 
+            switch (snakeArr[i].value) { 
+                case "上": 
+                    snakeArr[i].style.top = parseInt(snakeArr[i].style.top) - 50 + "px" 
+                    break
+                case "下":
+                    snakeArr[i].style.top = parseInt(snakeArr[i].style.top) + 50 + "px" 
+                    break 
+                case "左": 
+                    snakeArr[i].style.left = parseInt(snakeArr[i].style.left) - 50 + "px" 
+                    break
+                case "右": 
+                    snakeArr[i].style.left = parseInt(snakeArr[i].style.left) + 50 + "px"
+                    break
+            } 
+            if (i == 0) { 
+                snakeArr[i].value = snakeHead.value 
+            } else { 
+            snakeArr[i].value = snakeArr[i - 1].value 
+            }
+        }
+    }
+    switch (snakeHead.value) { 
+            case "上":
+                snakeHead.style.top = parseInt(snakeHead.style.top) - 50 + "px" 
+                break
+            case "下":
+                snakeHead.style.top = parseInt(snakeHead.style.top) + 50 + "px" 
+                break
+            case "左": 
+                snakeHead.style.left = parseInt(snakeHead.style.left) - 50 + "px" 
+                break 
+            case "右":
+                snakeHead.style.left = parseInt(snakeHead.style.left) + 50 + "px" 
+                break
+        } 
+        if (parseInt(snakeHead.style.left) < 0 || parseInt(snakeHead.style.top) < 0 || parseInt(snakeHead.style.left) > 700 || parseInt(snakeHead.style.top) > 700) { 
+                clearInterval(time) 
+                alert("撞墙,游戏结束！！！") 
+            } 
+            if (snakeArr.length > 0) { 
+                for (var i = 0; i < snakeArr.length; i++) { 
+                    if (snakeHead.style.left == snakeArr[i].style.left && snakeHead.style.top == snakeArr[i].style.top) { 
+                        clearInterval(time) 
+                        alert("触碰到自己身体,游戏结束！！！") 
+                        } 
+                    }
+                } 
+                if (snakeHead.style.left == snakeFood.style.left && snakeHead.style.top == snakeFood.style.top) { 
+                    Score += 10 
+                    snakeScore.innerHTML = "<h3>分数:" + Score + "</h3>" 
+                    var bodyNode = createPic("body") 
+                    snakeAll.push(snakeHead) 
+                    var finallyNode 
+                    if (snakeArr.length > 0) { 
+                        finallyNode = snakeArr[snakeArr.length - 1] 
+                    } else { 
+                        finallyNode = snakeHead 
+                    } 
+                    switch (finallyNode.value) { 
+                        case "上": 
+                            bodyNode.style.top = parseInt(finallyNode.style.top) + 50 + "px" 
+                            bodyNode.style.left = finallyNode.style.left
+                            break
+                        case "右": 
+                            bodyNode.style.left = parseInt(finallyNode.style.left) - 50 + "px" 
+                            bodyNode.style.top = finallyNode.style.top 
+                            break 
+                        case "下": 
+                            bodyNode.style.top = parseInt(finallyNode.style.top) - 50 + "px" 
+                            bodyNode.style.left = finallyNode.style.left 
+                            break 
+                        case "左": 
+                            bodyNode.style.left = parseInt(finallyNode.style.left) + 50 + "px" 
+                            bodyNode.style.top = finallyNode.style.top 
+                            break
+                    } 
+                    bodyNode.value = finallyNode.value 
+                    snakeArr.push(bodyNode) 
+                    snakeAll.push(bodyNode) 
+                    var px = parseInt(Math.random() * 15) * 50 
+                    var py = parseInt(Math.random() * 15) * 50 
+                    for (var i = 0; i < snakeAll.length; i++) { 
+                        if ((parseInt(snakeAll[i].style.left) == px && parseInt(snakeAll[i].style.top) == py)) { 
+                            px = parseInt(Math.random() * 15) * 50 
+                            py = parseInt(Math.random() * 15) * 50 
+                        } 
+                    }
+                    snakeFood.style.left = px + "px" 
+                    snakeFood.style.top = py + "px" 
+                    if (Score > 2000) { 
+                        clearInterval(time) 
+                        window.location = "lastGame.html" 
+                    }
+                } 
+            } 
+            time = setInterval(move, 100) 
+            document.onkeydown = function (a) { 
+                switch (a.keyCode) { 
+                    case 37: 
+                        if (snakeHead.value = "右") { 
+                            snakeHead.value = "左" 
+                        } 
+                        break 
+                    case 38: 
+                        if (snakeHead.value = "下") { 
+                            snakeHead.value = "上" 
+                        } 
+                        break 
+                    case 39: 
+                        if (snakeHead.value = "左") { 
+                            snakeHead.value = "右" 
+                        } 
+                        break 
+                    case 40: 
+                        if (snakeHead.value = "上") { 
+                            snakeHead.value = "下" 
+                        } 
+                        break 
+            } 
+        } 
+</script>
+</body>
+</html>
