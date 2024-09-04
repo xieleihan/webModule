@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        input {
+            width: 300px;
+            height: 40px;
+            padding: 10px;
+        }
+
+        .box {
+            width: 300px;
+            height: 300px;
+            border: 1px solid #ccc;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="text">
+    <div class="box"></div>
+</body>
+<script>
+    const input = document.querySelector('input');
+    const box = document.querySelector('.box');
+
+    let data = { msg: "" };
+    let proxy = new Proxy(data, {
+        set(target, key, value) {
+            // 这个是赋值用
+            target[key] = value;
+            box.innerHTML = value;
+            box.style.backgroundColor = value;
+        }
+    })
+    input.oninput = function () {
+        proxy.msg = input.value;
+    }
+</script>
+
+</html>
