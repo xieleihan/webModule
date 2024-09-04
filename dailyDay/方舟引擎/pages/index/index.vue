@@ -9,6 +9,15 @@
 			</swiper-item>
 		</swiper>
 	</view>
+	<view>
+		<view class="title">
+			<view class="time">
+				{{nowTime}}
+			</view>
+			<view class="weather"></view>
+		</view>
+		<input type="text" placeholder="搜索看看吧" />
+	</view>
 </template>
 
 <script>
@@ -20,10 +29,13 @@
 				interval: 2000,
 				duration: 500,
 				images: [],
+				nowTime: "",
 			}
 		},
 		mounted() {
 			this.generateRandomImages();
+			this.getNowTime();
+			setInterval(this.getNowTime, 1000); // 每秒更新时间
 		},
 		methods: {
 			generateRandomImages() {
@@ -33,6 +45,15 @@
 					this.images.push(`${baseUrl}?${randomNum}`);
 				}
 			},
+			getNowTime() {
+				const now = new Date();
+				this.nowTime = now.toLocaleString(); // 格式化日期和时间
+			}
+		},
+		beforeDestroy() {
+			if (this.timer) {
+				clearInterval(this.timer);
+			}
 		}
 
 	}

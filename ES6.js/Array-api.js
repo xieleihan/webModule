@@ -1,7 +1,7 @@
 // 第一个,forEach()
 var arr = [1, 2, 3, 4, 5];
-arr.forEach((item,index) => {
-    console.log({item,index});
+arr.forEach((item, index) => {
+    console.log({ item, index });
 })
 
 // 第二个是映射map()
@@ -102,3 +102,10 @@ mapObj.set('age', 18);
 console.log(mapObj);
 console.log(mapObj.get('name'));
 console.log(mapObj.get('age'));
+
+// 扩展运算符 ...
+var arr1 = [1, 2, 3];
+var arr2 = [4, 5, 6];
+var arr3 = [...arr1, ...arr2];
+console.log(arr3);
+// 扩展运算符仅支持数组,对象不可以惹
