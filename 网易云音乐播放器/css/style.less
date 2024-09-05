@@ -1,0 +1,100 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    list-style: none;
+}
+
+.main {
+    width: 100dvw;
+    height: 100dvh;
+
+    .container {
+        width: 50%;
+        min-width: 400px;
+        height: 100%;
+        margin: 0 auto;
+        padding-top: 5px;
+
+        .topBox {
+            display: flex;
+            flex-direction: row;
+            box-sizing: content-box;
+            border: 1px solid #ccc;
+            height: 50px;
+            width: 100%;
+            margin-bottom: 10px;
+
+
+
+            input {
+                width: 80%;
+                height: 50px;
+                padding: 10px;
+                outline: none;
+                border: none;
+            }
+
+            button {
+                width: 20%;
+                height: 50px;
+                background-color: lightgreen;
+                color: black;
+                border: none;
+            }
+        }
+
+        .alact {
+            width: 90%;
+            height: 200px;
+            margin: 10px auto;
+            font-size: 20px;
+            line-height: 200px;
+            text-align: center;
+            color: #ccc;
+            display: block;
+        }
+
+        .lists {
+            width: 90%;
+            height: calc(100% - 100px);
+            margin: 10px auto;
+            overflow-y: auto;
+            display: none;
+
+            .info {
+                height: 100px;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+            }
+
+            li {
+                width: 100%;
+                height: 100px;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+
+                img {
+                    width: 100px;
+                    height: 100px;
+                    margin-right: 10px;
+                }
+
+                span {
+                    line-height: 100px;
+                    text-align: center;
+                }
+
+                button {
+                    width: 50px;
+                    height: 30px;
+                    background-color: skyblue;
+                    color: black;
+                }
+            }
+        }
+    }
+}

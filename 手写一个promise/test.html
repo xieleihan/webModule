@@ -106,39 +106,87 @@
     //     console.log(msg);
     // })
 
-    const getPromise = url => {
-        return new Promise((resolve, reject) => {
-            $.ajax({
-                url,
-                success(content) {
-                    resolve(content)
-                },
-                error(err) {
-                    reject(err)
-                }
-            })
-        })
-    }
-    getPromise("./res/test.json")
-        .then(content => {
-            console.log("1.0 请求成功", content)
-            if (content[0].code === 200) {
+    // const getPromise = url => {
+    //     return new Promise((resolve, reject) => {
+    //         $.ajax({
+    //             url,
+    //             success(content) {
+    //                 resolve(content)
+    //             },
+    //             error(err) {
+    //                 reject(err)
+    //             }
+    //         })
+    //     })
+    // }
+    // getPromise("./res/test.json")
+    //     .then(content => {
+    //         console.log("1.0 请求成功", content)
+    //         if (content[0].code === 200) {
 
-                return getPromise("./res/test.json")
-            }
+    //             return getPromise("./res/test.json")
+    //         }
+    //     })
+    //     .then(content => {
+    //         console.log("2.0 请求成功", content)
+    //         if (content[0].code === 200) {
+    //             return getPromise("./res/test.json")
+    //         }
+    //     })
+    //     .then(content => {
+    //         console.log("3.0 请求成功", content)
+    //     })
+
+    var flag = true;
+    // 演示其他的promise的方法
+    let p = new Promise((resolve, reject) => {
+        if (false) {
+            resolve("符合条件");
+        }
+        else {
+            reject("不符合条件");
+        }
+    })
+    p
+        .then(() => {
+            console.log("1.0 符合条件")
         })
-        .then(content => {
-            console.log("2.0 请求成功", content)
-            if (content[0].code === 200) {
-                return getPromise("./res/test.json")
-            }
+        .catch(() => {
+            console.log("2.0 不符合条件")
         })
-        .then(content => {
-            console.log("3.0 请求成功", content)
+        .finally(() => {
+            console.log("3.0 不管是否符合条件，最后都执行")
         })
 
+    const p1 = new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve("睡觉")
+        }, 100)
+    })
+    const p2 = new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve("吃饭")
+        }, 20)
+    })
+    const p3 = new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve("上学")
+        }, 500)
+    })
 
 
+    // 执行多个任务的前提下可以考虑使用Promise提供的静态方法
+    // 任务都要执行的代码
+    Promise.all([p1, p2, p3])
+        .then((content) => {
+            console.log(content)
+        })
+
+    // 执行里面最优先的任务,也就是效率最高的
+    Promise.race([p1, p2, p3])
+        .then((item) => {
+            console.log(item)
+        })
 </script>
 
 </html>
