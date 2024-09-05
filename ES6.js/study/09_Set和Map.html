@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>基本模板</title>
+    <style></style>
+</head>
+<body>
+
+
+    <script>
+        // Set和Map
+
+        // Set 
+        // 这个函数可以操作数组 
+        // 1. 可以把数组中重复的数据过滤掉（让数组中的数据不重复）
+        // 2. 提供对数组进行新增、删除等相关功能
+
+        // 定义数组
+        let arr = ['a','b','c','a','b','c','d','e'];
+
+        // 编程题：如何实现数组去重?
+        // let obj = {};
+        // let newArr = [];
+        // for(let i = 0 ; i < arr.length ; i ++){
+        //     // 这个key其实就是arr数组的每一项数据
+        //     let key = arr[i];
+        //     if(obj[key] === undefined) {
+        //         // 把首次出现的key添加到新数组中
+        //         newArr.push(key);
+        //         // 给obj对象的key赋值
+        //         obj[key] = 1;
+        //     }
+        // }
+        // // 循环结束，数组去重了
+        // console.log(newArr);// ['a', 'b', 'c', 'd', 'e']
+
+        // ES6
+        // 数组去重
+        let setObj = new Set(arr);
+        let newArr2 = [... setObj];
+        console.log(newArr2);// ['a', 'b', 'c', 'd', 'e']
+       
+        // 添加数据
+        setObj.add('f');
+        setObj.add('g');
+        // console.log(setObj);// Set(6) {'a', 'b', 'c', 'd', 'e','f','g'}
+        
+        // 删除数据
+        setObj.delete('a');
+        console.log(setObj);// Set(6) {'b', 'c', 'd', 'e','f','g'}
+
+        // 判断集合中是否存在这个数据
+        console.log(setObj.has('c'));// true
+        console.log(setObj.has('x'));// false
+
+        // Map
+        // 这个函数可以操作对象
+        // 主要是提供可操作对象的API
+        let mapObj =  new Map(); 
+
+        // 普通对象(键要么是数字，要么是字符串)
+        let obj = {
+            0: '100px',
+            'width':'100px'
+        }      
+
+        // 设置键值对 (键可以是任意类型数据)
+        mapObj.set("width","100px");
+        mapObj.set("height","100px");
+        mapObj.set("color","red");
+
+        mapObj.set(true,10010);
+        // 获取键对应的值
+        let w = mapObj.get("width");
+        let h = mapObj.get("height");
+        let c = mapObj.get("color");
+        console.log({w,h,c});
+        // 删除对象中指定的数据
+        mapObj.delete("color");
+
+        // 循环mapObj对象
+        mapObj.forEach((value,key)=>{
+            console.log(value,'---->',key);
+        })
+        console.log(mapObj);//Map(3) {'width' => '100px', 'height' => '100px', true => 10010}
+    </script>
+</body>
+</html>

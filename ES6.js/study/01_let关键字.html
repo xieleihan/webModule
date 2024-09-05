@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>基本模板</title>
+    <style></style>
+</head>
+<body>
+
+
+    <script>
+        // ES5 
+        // 变量声明可以提升（名称提升了，但是值没有提升）
+        // console.log(a);// undefined 
+        // var a = 100;
+        // console.log(a);// 100
+        // 1） Uncaught ReferenceError: aaa is not defined
+        // console.log(aaa);// 内存中没有aaa这个变量，所有浏览器不能识别aaa，所以报错
+
+        // ES6
+        // 1) let 声明的变量，没有提升这个说法（必须先声明后引用，否则报引用类型错误）
+        // console.log(b);
+        let b = 100;
+        // console.log(b);// 100
+
+        // 2) 不允许变量重复声明，否则报错
+        // Uncaught SyntaxError: Identifier  报语法类型错误
+        // let b = 'hello';
+
+        // 3) 块级作用域 可以直接使用 { } 块级作用域；也可以是if语句、for语句、函数的大括号{}
+      
+        // var index = 0;
+        // var index = 1;
+        // var index = 2;
+        // console.log(index);// 2
+        // for(var i = 0 ; i <= 10 ; i ++){
+        // }
+        // console.log(i);// 控制台输出的变量i是多少？11 ，因为var关键字声明的i是全局的，走出循环i++
+
+        // 有了块级作用域，甚至都不需要使用闭包了。
+        {
+            let index = 0;
+            console.log(index);// 0
+        }
+        {
+            let index = 1;
+            console.log(index);// 1
+        }
+        {
+            let index = 2;
+            console.log(index);// 2
+        }
+
+        // console.log(index);// 报错,因为全局环境下没有这个变量
+
+        for(let j = 0 ; j <= 10 ; j ++) {
+            // let 会产生块级作用域，只能在 {} 中使用
+            console.log(j);
+        }
+        // console.log(j);// 控制台输出的变量j是多少？ 报错
+    </script>
+</body>
+</html>

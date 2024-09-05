@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>基本模板</title>
+    <style></style>
+</head>
+
+<body>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+
+    <script>
+        // 字符串（带有引号的数据都叫字符串 'abc' "abc" `abc`）
+        // 面试题：请你列举5个字符串操作API?
+        // slice()
+        // indexOf()
+        // replace()
+        // toUpperCase()
+        // toLowerCase()
+        // split()
+        // .... 
+        let src = "https://www.xxxx.com/static/demo.jpg";
+        var v1 = src.startsWith('https');// 判断是否以 'https' 开头
+        var v2 = src.startsWith('file');
+        var v3 = src.includes('static'); // 判断是否包含 'static' 
+        var v4 = src.endsWith('.jpg');// 判断是否以 '.jpg' 结束
+        var v5 = src.endsWith('.txt');
+        console.log({v1,v2,v3,v4,v5});//{v1: true, v2: false, v3: true, v4: true, v5: false}
+
+
+        // 数组（特征：具有length属性以及通过索引去存值或取值的数据集合）
+        // 伪数组 (具有数组的特征,但是不能调用数组的方法)
+        // let divs = document.getElementsByTagName("div");
+        // console.log(divs);
+        // divs.push("aaa");// 报错
+
+        // 定义数组
+        let arr = ['aaa', 'bbb', 'ccc', 'ddd'];
+        // 1） 循环
+        arr.forEach((item, index) => {
+            // console.log(item);// 代表的是数组的每一项数组 （以后在框架开发中经常这个"item"）
+            // console.log(index);// 索引
+        })
+
+        // 2）映射（一一对应的意思）
+        // 可以映射出一个新数组
+        // let newArr = arr.map((item)=>{
+        //     return item.toUpperCase();
+        // })
+        // console.log(newArr)
+
+        // 定义数组
+        let students = [
+            { name: "小明", socre: 60, id: 1 },
+            { name: "小红", socre: 50, id: 2 },
+            { name: "小兰", socre: 80, id: 3 },
+            { name: "小清", socre: 30, id: 4 },
+            { name: "小黄", socre: 90, id: 5 }
+        ]
+
+        // 根据数据映射一个新数据，标注哪些同学是及格的（>=60），哪些同学是不及格的(< 60)
+        // 以后react中有着重要的作用（jsx 做列表渲染）
+        let newStudents = students.map((item) => {
+            // 根据分数做判断
+            if (item.socre >= 60) {
+                item.text = "及格的"
+            }
+            else {
+                item.text = "不及格的"
+            }
+            return item;
+        })
+        // console.log(newStudents);
+
+        // 3） 过滤
+        // 过滤掉分数低于60分的同学
+        let data = students.filter((item)=>{
+            // 判断分数是否大于等于60
+            if(item.socre>=60){
+                // 返回（保留）
+                return item;
+            }
+        })
+        // console.log(data);
+
+        // 4) reduce （累计计算）
+        let result = [1,2,3,4,5,6] // 全部加起来等于21
+        let total = result.reduce((prev,next)=>{
+            return prev + next;
+        })
+        console.log("累计计算的结果：",total);// 累计计算的结果： 21
+
+
+
+
+
+    </script>
+</body>
+
+</html>

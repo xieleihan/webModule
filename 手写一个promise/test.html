@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script
+    src="https://fastly.jsdelivr.net/gh/southaki/contentDeliveryNetwork@0.0.1/jQuery@3.7.1/jquery-3.7.1.js"></script>
+<script>
+    // 使用jQuery的Ajax请求 演示回调地狱
+    // $.ajax({
+    //     url: "./res/test.json",
+    //     type: "GET",
+    //     success: function () {
+    //         // console.log(message);
+    //         console.log('1.0=>jQuery的Ajax 请求成功啦');
+    //         $.ajax({
+    //             url: "./res/test.json",
+    //             type: "GET",
+    //             success: function () {
+    //                 console.log('2.0=>jQuery的Ajax 请求成功啦');
+    //                 $.ajax({
+    //                     url: "./res/test.json",
+    //                     type: "GET",
+    //                     success: function () {
+    //                         console.log('3.0=>jQuery的Ajax 请求成功啦');
+    //                     }
+    //                 })
+    //             }
+    //         })
+    //     }
+    // })
+
+
+</script>
+<script>
+    // 原生的Ajax的请求 可以看到回调地狱的产生
+    // var xhr = new XMLHttpRequest();
+    // xhr.open('GET', './res/test.json', true);
+    // xhr.send();
+    // xhr.onreadystatechange = function () {
+    //     if (xhr.readyState === 4 && xhr.status === 200) {
+    //         var data = JSON.parse(xhr.responseText);
+    //         // console.log(data); // [{"code": 200, "message": "success"}] 拿到数据了
+    //         var [{ code }] = data;
+    //         if (code === 200) {
+    //             console.log('1.0=>原生JavaScript的Ajax 请求成功啦');
+    //             var xhr2 = new XMLHttpRequest();
+    //             xhr2.open('GET', './res/test.json', true);
+    //             xhr2.send();
+    //             xhr2.onreadystatechange = function () {
+    //                 if (xhr2.readyState === 4 && xhr2.status === 200) {
+    //                     var data = JSON.parse(xhr2.responseText);
+    //                     // console.log(data); // [{"code": 200, "message": "success"}] 拿到数据了
+    //                     var [{ code }] = data;
+    //                     if (code === 200) {
+    //                         console.log('2.0=>原生JavaScript的Ajax 请求成功啦');
+    //                         var xhr3 = new XMLHttpRequest();
+    //                         xhr3.open('GET', './res/test.json', true);
+    //                         xhr3.send();
+    //                         xhr3.onreadystatechange = function () {
+    //                             if (xhr3.readyState === 4 && xhr3.status === 200) {
+    //                                 var data = JSON.parse(xhr3.responseText);
+    //                                 // console.log(data); // [{"code": 200, "message": "success"}] 拿到数据了
+    //                                 var [{ code }] = data;
+    //                                 if (code === 200) {
+    //                                     console.log('3.0=>原生JavaScript的Ajax 请求成功啦');
+    //                                 }
+    //                             }
+    //                         }
+    //                     }
+    //                 }
+    //             }
+    //         }
+    //     }
+    // }
+</script>
+<script>
+    // 使用ES6的Promise
+    // var flag = true;
+    // var myPromise = new Promise(function (resolve, reject) {
+    //     if (flag) {
+    //         resolve('成功啦');
+    //     } else {
+    //         reject('失败啦');
+    //     }
+    // });
+    // // console.log(myPromise); // Promise {<resolved>: "成功啦"}
+    // myPromise.then(function (msg) {
+    //     console.log(msg);
+    //     return new Promise(function (resolve, reject) {
+    //         resolve('2.0=>成功啦');
+    //     })
+    // }).then(function (msg) {
+    //     console.log(msg);
+    //     return new Promise(function (resolve, reject) {
+    //         resolve('3.0=>成功啦');
+    //     })
+    // }).then(function (msg) {
+    //     console.log(msg);
+    // })
+
+    const getPromise = url => {
+        return new Promise((resolve, reject) => {
+            $.ajax({
+                url,
+                success(content) {
+                    resolve(content)
+                },
+                error(err) {
+                    reject(err)
+                }
+            })
+        })
+    }
+    getPromise("./res/test.json")
+        .then(content => {
+            console.log("1.0 请求成功", content)
+            if (content[0].code === 200) {
+
+                return getPromise("./res/test.json")
+            }
+        })
+        .then(content => {
+            console.log("2.0 请求成功", content)
+            if (content[0].code === 200) {
+                return getPromise("./res/test.json")
+            }
+        })
+        .then(content => {
+            console.log("3.0 请求成功", content)
+        })
+
+
+
+</script>
+
+</html>

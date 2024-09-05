@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>基本模板</title>
+    <style>
+        .textarea {
+            width: 420px;
+            height: 80px;
+            resize: none;
+            padding: 10px;
+            font-size:18px;
+        }
+        [class^='btn'] {
+            padding: 10px 20px;
+            margin-top: 10px;
+        }
+        .message {
+            padding: 10px 15px;
+            border-bottom: 1px dashed #ccc;
+        }
+        .list {
+            width: 420px;
+        }
+    </style>
+</head>
+<body>
+    <div class="form">
+        <div>
+            <textarea class="textarea" placeholder="请输入你的心情~~"></textarea>
+        </div>
+        <div>
+            <button class="btn-send">发布</button>
+        </div>
+    </div>
+    <div class="list">
+         <ul>
+            <!-- 
+                <li>
+                    <p class="message">内容</p>
+                </li> 
+            -->
+         </ul>
+    </div>
+
+    <script>
+        // 需求：
+            // 点击“发布”按钮获取输入域的内容，把内容渲染在列表中
+
+
+        // 编码：
+        const textArea = document.querySelector(".textarea");
+        const btnSend = document.querySelector(".btn-send");
+        const listBox = document.querySelector(".list");
+
+
+        // 事件交互
+        btnSend.onclick = function(){
+            // 获取输入域的值
+            let text = textArea.value;
+            // 判断输入域是否为空
+            if(text.length == 0) {
+                alert("输入域不能为空。");
+                return false;//终止代码
+            }
+
+            // 创建ul标签
+            const ul = document.createElement("ul");
+            // 填充字符串(反单引号)
+            // ${变量} 把变量插入到模板中
+            ul.innerHTML = `
+                   <li>
+                        <p class="message">${text}</p>
+                    </li> 
+            `
+            // 渲染标签
+            listBox.appendChild(ul);
+
+            // 重置输入域
+            textArea.value = "";
+        }
+    </script>
+</body>
+</html>

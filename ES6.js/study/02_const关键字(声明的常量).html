@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>基本模板</title>
+    <style></style>
+</head>
+
+<body>
+
+
+
+    <script>
+        // 变量（值可以改变的）
+        let a = 100;
+        a = 99;
+        a = 98;
+
+        // 常量 （值是固定的，不能直接改变的）
+        const b = 100;
+        //  b = 99;
+        // 不能直接给常量赋值
+        // TypeError: Assignment to constant variable.
+        // 编写函数名称就可以使用常量
+        const login = function () { }
+
+        // 也有let关键字的特点1）不能声明提升 2）不能重复声明3）也有块级作用域
+        // 区别就是const声明的是常量，不允许重新赋值
+        const c = true;
+        //   c = false;//报错
+
+        // 面试题：
+        const arr = [100, 200, 300];
+        // 直接修改
+        // arr = ['red','green','blue'];// 报错
+
+        // 间接修改
+        arr[0] = 'red';
+        arr[1] = 'green';
+        arr[2] = 'blue';
+        console.log(arr);// 不报错，因为arr仍然是同一个引用地址，改变不过是引用地址里面的数据。
+        // 遇到数组、对象这些引用类型数据时，可以间接的通过索引值或者键值对修改引用地址里面的数据。
+
+
+
+
+
+    </script>
+</body>
+
+</html>

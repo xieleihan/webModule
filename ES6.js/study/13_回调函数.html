@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>基本模板</title>
+    <style></style>
+</head>
+<body>
+
+
+    <script>
+        // 回调函数
+        // 是指把一个函数(callback)作为实参，传递到另一个函数作用域中调用。这种代码块就是回调函数。
+        // 把函数作为实参传递到另一个函数作用域中，符合条件就调用的函数。
+
+        // 示例: 这个代码不做运行的
+        // const ajax = (url,cb)=>{
+        //     $.ajax({
+        //         url,
+        //         success: cb 
+        //     })
+        // }
+
+        // ajax('./data.json', function(){});// 这个 function(){} 我们就叫做回调函数，它的名字是自定义
+
+
+        // 示例: 这个代码可以运行
+        // 延迟一秒钟执行callback(回调函数)
+        const test = function(callback){
+            setTimeout(()=> {
+                callback && callback("hello world");
+            },1000)
+        }
+
+        test(function(message){
+            console.log(message)
+        })
+
+    </script>
+</body>
+</html>

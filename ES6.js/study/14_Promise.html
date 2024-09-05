@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>基本模板</title>
+    <style></style>
+</head>
+<body>
+
+
+    <script src="./jquery.js"></script>
+    <script>
+        // console.log(typeof Promise);// 'function'
+
+        // Promise 
+        // 是一种处理异步编程的解决方案。
+        // 可以处理“回调地狱”的问题。
+
+        // 业务逻辑流程
+        // 用户登录 ----> 加入购物车 ---->  支付
+
+        // 什么叫做“回调地狱”呀？
+        // 不断嵌套调用回调函数，代码如下：
+        // 过去的写法：“回调地狱”
+        // $.ajax({
+        //     url:'./data/login.json',
+        //     success(content1){
+        //         console.log(content1)
+        //         if(content1.msg == '登录成功'){
+        //             $.ajax({
+        //                 url: './data/cart.json',
+        //                 success(content2){
+        //                     console.log(content2);
+        //                     if(content2.msg == '加入购物车'){
+        //                         $.ajax({
+        //                             url: './data/pay.json',
+        //                             success(content3){
+        //                                 console.log(content3);
+        //                             }
+        //                         })
+        //                     }
+        //                 }
+        //             })
+        //         }
+        //     }
+        // })
+
+
+        // 现在的写法：
+        // Promise 是专门为异步编程量身定制的函数
+        // 调用 “getContent” 这个方法可以获取Promise实例
+        // 就可以不出现“回调地狱”这种代码
+        const getContent = (url)=>{
+            // 创建Promise实例
+            // resolve: 表示已接受（符合条件）
+            // reject: 表示已拒绝(不符合条件)
+            return new Promise((resolve,reject)=>{
+                // AJAX编程就是异步编程
+                $.ajax({
+                    url,
+                    success(content){
+                        // 请求成功
+                        resolve(content)
+                    },
+                    error(err){
+                        // 请求失败
+                        reject(err);
+                    }
+                })
+            })
+        }
+
+        // Promise实例提供了then方法，catch方法，finally方法
+        // 业务逻辑流程
+        // 用户登录 ----> 加入购物车 ---->  支付
+        getContent('./data/login.json')// 登录promise
+        .then(
+            // 符合条件执行的回调函数
+            (content)=>{
+                console.log("1.0 请求成功",content);
+                if(content.msg === '登录成功'){
+                    // 返回处理“加入购物车”的promise
+                    return getContent('./data/cart.json');// 加入购物车promise(逻辑)
+                }
+            },
+            // 不符合条件执行的回调函数
+            (err)=>{
+                console.log("1.0 请求失败",err);
+            }
+        )
+        .then(
+            // 符合条件
+            (content)=>{
+               
+                if(content.msg === '加入购物车'){
+                     console.log("2.0 请求成功",content);
+                     // 返回处理“支付”的promise
+                     return getContent('./data/pay.json');
+                }
+            },
+            // 不符合条件 (因为没有出现参数错误的情况啊，所以不输出err)
+            (err)=>{
+                console.log("2.0 请求失败",err);
+            }
+        )
+        .then(
+            (content)=> {
+                console.log("3.0 请求成功",content);
+            },
+            (err)=>{
+                console.log("3.0 请求失败",err);
+            }
+        )
+
+
+
+        // 实际开发中，有一个网络请求库 （axios）
+        // 这个库就是基于Promise实现的
+    </script>
+</body>
+</html>

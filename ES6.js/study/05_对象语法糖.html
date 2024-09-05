@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>基本模板</title>
+    <style></style>
+</head>
+<body>
+
+
+    <script>
+        // 对象：以键值对形式出现的数据集合。
+        // {key: value}
+        // {key}
+
+        // var obj = {
+        //     color: "red",
+        //     width: "100px",
+        //     height: "100px"
+        // }
+        // console.log(obj);
+
+
+        // 语法糖：某种语法的简写
+        let color = "red";
+        let width = "100px";
+        let height= "100px";
+
+        // 定义对象
+        let obj = {
+            color,
+            width,
+            height
+        }
+        console.log(obj);// {color: 'red', width: '100px', height: '100px'}
+        // 定义变量，这些变量可以作为对象的key
+        let x = 50;
+        let y = 100;
+        let w = 200;
+        let h = 300;
+        // 直接输出变量，检查变量是否有值
+        // console.log({x,y,w,h});
+        let point = {
+            x,y,w,h 
+        }
+        console.log(point);// {x: 50, y: 100, w: 200, h: 300}
+        // 可以把变量作为对象的key，写在大括号 {变量} 最终会形成 {变量: 值} 。
+    </script>
+</body>
+</html>

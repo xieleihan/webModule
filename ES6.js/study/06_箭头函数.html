@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>基本模板</title>
+    <style></style>
+</head>
+<body>
+
+    <button class="btn">点击一下</button>
+
+    <script>
+
+        // 示例1： 区别普通函数和箭头函数写法
+        // 普通函数
+        // var foo = function(){
+        //     console.log("我是普通函数")
+        // }
+        // foo();
+
+        // 箭头函数
+        // const boo = () => {
+        //     console.log("我是箭头函数")
+        // }
+        // boo();
+
+
+        // 示例2：返回值
+        // return 需要在函数作用域中才起作用
+        const getRadomNum = ()=> {
+            // 返回0~100之间的随机整数
+            return Math.floor(Math.random() * 100);
+        }
+        // let v1 = getRadomNum();
+        // console.log({v1});// {v1: 随机数}
+
+
+        // 示例3：传参
+        // 形参和实参
+        // 形参就是局部变量
+        // 实参就是数据
+        // 有参数并且是一个参数的情况下，可以省略小括号 （）
+        // const sayHello = (userName)=> {
+        //     console.log(`${userName},你好。`);
+        // }
+
+        // const sayHello = userName => {
+        //     console.log(`${userName},你好。`);
+        // }
+        // sayHello("小明");
+        // sayHello("小新");
+
+        // 两个参数以上
+        const speaking = (userName, message)=> {
+            console.log(`${userName},${message}`);
+        }
+        // speaking("小明", "你看看你，一天天的，就知道吃");
+        // speaking("xiaoming", "You see see you, one day day , just to eat");
+
+
+        // 参数默认值
+        // const add = (a,b) => {
+        //     return a + b;
+        // }
+        // const v2 = add();
+        // console.log({v2});// {v2:NaN}
+        // undefined  + undefined = NaN
+
+        // const add = (a=1,b=2) => {
+        //     return a + b;
+        // }
+        // const v2 = add();
+        // console.log({v2});// {v2:3}
+
+
+        // 示例4： this 指向
+        // 情况一：
+        // const foo = ()=> {
+        //     console.log(this);// 上一级作用域（就是全局作用 this | window）
+        // }
+        // foo();
+
+        // 情况二：
+        // document.querySelector(".btn").onclick = function(){
+        //     console.log(this);// 事件调用者 <button class="btn">点击一下</button>
+        // }
+        document.querySelector(".btn").onclick = () => {
+            console.log(this);// // 上一级作用域（就是全局作用 this | window）
+        }
+
+        // 情况三:
+        // let obj = {
+        //     foo: function(){
+        //         console.log(this);// this 指向 obj 对象
+        //     }
+        // }
+        // obj.foo();
+
+        // let obj = {
+        //     foo: ()=>{
+        //         console.log(this);// this 指向 window对象
+        //     }
+        // }
+        // obj.foo();
+
+
+        // 情况四：
+        function App(){// 构造函数作用域  this 指向App构造函数的实例
+            this.version = "V1.0.0";
+            // 单独定义变量记录实例对象 _this  that xxx
+            var xxx = this;
+            setTimeout(function(){// 延迟定时器函数作用域 this 指向window对象
+                console.log('1:',this.version);// 可不可以获取这个字符串 “"V1.0.0"” ? 不可以，是undefined
+                console.log('2:',xxx.version);// 可不可以获取这个字符串 “"V1.0.0"” ? 可以
+            },100)
+
+            setTimeout(()=>{
+                console.log('3:',this.version);// 可不可以获取这个字符串 “"V1.0.0"” ? 可以
+            },100)
+        }
+        // new App();
+
+
+        //示例5： 把以下代码改成使用箭头函数
+        var f1 = function(x){
+            return function(y){
+                return function(color){
+                    return {
+                        x,y,color
+                    }
+                }
+            }
+        } 
+        // 单一传递参数的函数（柯里化函数）
+        var v3 = f1(100)(200)('red');
+        console.log(v3);// {x: 100, y: 200, color: 'red'}
+
+        // 箭头函数 (特殊写法)
+        const f2 = x => y => color => {
+            return {x,y,color}
+        }
+        var v4 = f2(100)(200)('blue');
+        console.log(v4);// {x: 100, y: 200, color: 'red'}
+    </script>
+</body>
+</html>

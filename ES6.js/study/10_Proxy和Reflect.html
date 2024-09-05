@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue3做响应式是基于这个函数</title>
+   
+</head>
+
+<body>
+    <style>
+        input {
+            height: 40px;
+            padding-left: 10px;
+            font-size: 18px;
+            width: 200px;
+            box-sizing: border-box;
+        }
+        .box {
+            width: 200px;
+            height: 200px;
+            border: 1px solid #000; 
+            margin-top: 10px;
+            box-sizing: border-box;
+            padding: 10px;
+        }
+    </style>
+    <input type="text">
+    <div class="box"></div>
+
+    <script>
+        // Proxy和Reflect
+
+        // Reflect 
+        // 主要是针对对象进行操作
+        let data = {
+            message: "好消息"
+        }
+        // 观察Reflect对象
+        // console.log(typeof Reflect);// 'object'  对象
+        // 观察Reflect对象结构，看这个对象都有哪些方法?
+        console.dir(Reflect);
+
+        // 1) 获取指定对象的属性值
+        let v1 = Reflect.get(data, 'message');
+        console.log(v1);// '好消息'
+
+        // 2) 设置指定对象的键值对
+        Reflect.set(data, "name", "小明");
+        Reflect.set(data, "age", 20);
+
+        // 3) 删除指定对象的属性
+        Reflect.deleteProperty(data, 'age');
+
+        // 控制台输出：
+        console.log(data);//{message: '好消息', name: '小明'}
+
+        // 4) 判断指定对象是否存在message这个键
+        console.log(Reflect.has(data, 'message'));// true
+        console.log(Reflect.has(data, 'xxx'));// false
+
+        // ES5
+        // console.log(data.message);// '好消息'
+
+
+        // Proxy (Vue3做响应式是基于这个函数)
+        // 这是构造函数
+        // console.log(typeof Proxy);// 'function'
+        // 可以代理对象，在Vue@3.x内部封装就采用了这个函数对数据进行监听，从而实现数据响应式。
+
+        // 主要是可以做拦截、数据响应式
+        let obj = {}
+
+        let proxyObj = new Proxy(obj, {
+            // 监听对象的读写
+            // 监听对象是否取值了
+            // get:function(){},
+            get(target, key) {
+                // console.log("读取");
+                // 拦截 对“age”这个属性进行拦截了
+                if(key=="age") {
+                    return "不告诉你";
+                }
+                // 返回属性值
+                return target[key];
+            },
+
+            // 监听对象是否赋值了
+            set(target, key, value) {
+                // console.log("写入")
+                // 赋值
+                target[key] = value;
+            }
+        })
+
+        // 关于对象的取值和赋值
+        proxyObj.message = "hello world";// 赋值
+        proxyObj.age = 100;// 赋值
+        proxyObj.message;// 取值
+        console.log(proxyObj.age);// "不告诉你"
+        console.log(proxyObj.message);//  "hello world"
+
+
+        // 示例：感受一下什么叫做数据响应式
+        let inp = document.querySelector("input[type='text']");
+        let box = document.querySelector("div[class='box']");
+
+        let data2 = {
+            msg:""
+        };
+
+        // 数据修改了，可以改变页面（响应式）
+        let pObj =  new Proxy(data2,{
+            set(target,key,value){
+                // 赋值
+                target[key]=value;
+                // 修改box标签的文本
+                box.innerHTML = value;
+                box.style.backgroundColor = value;
+            }
+        })
+
+        // 给输入框添加事件
+        inp.addEventListener('input',function(){
+            // 获取输入的值
+            let v1 = inp.value;
+            // 给pObj.msg属性赋值（通过修改msg,改变box标签的文本）
+            pObj.msg = v1;
+        })
+    
+    
+    
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>基本模板</title>
+    <style></style>
+</head>
+<body>
+
+
+    <script>
+
+        // 示例1：
+        // 开关，布尔值为true, 
+        // 执行第一个then方法的第一个回调函数
+        // 否则false就执行第一个then方法的第二个回调函数
+        let isShow = true;
+
+        // 创建promise
+        let p1 = new Promise((resolve,reject)=>{
+            if(isShow){
+                resolve("符合条件");
+            }
+            else {
+                reject("不符合条件");
+            }
+        })
+
+        // console.log(p1);// Promise {} 这是promise实例, 可以实现链式操作
+        p1
+        .then(
+            (msg)=>{
+                console.log(msg);// '符合条件'
+                return 111
+            },
+            (err)=> {
+                console.log(err);// '不符合条件'
+            }
+        )
+        .then(
+            (msg)=>{
+                console.log(msg);// 111 上一个then方法的第一个回调函数没有返回值，此处就是undefined
+                return 222;
+            }
+        )
+        .then(
+            (msg)=>{
+                console.log(msg);// 222
+            }
+        )
+
+
+
+        // 示例2：
+        let p2 = new Promise((resolve,reject)=>{
+            if(false){
+                resolve();
+            }
+            else {
+                reject();
+            }
+        })
+
+        p2.
+        then(
+            ()=>{
+                console.log("1.0 符合条件")
+            }
+        )
+        .catch(
+            ()=>{
+                console.log("2.0 不符合条件")
+            }
+        )
+        .finally(
+            ()=>{
+                console.log("3.0 不管是否符合条件，最后都执行")
+            }
+        )
+
+
+        // 总结：
+            // Promise是一种解决异步编程的方案。
+            // 创建Promise实例，其实这个Promise实例就是一套处理业务的逻辑（例如：登录的逻辑，加入购物车的逻辑，支付的逻辑）
+            // 可以通过实例对象链式调用then方法，不断执行“下一个”逻辑，从而代替“回调地狱”。
+            // Promise实例可以调用then方法，catch方法，finally方法。
+
+            // 我们实际开发中，会定义函数，在函数中处理相关的功能，最后返回promise实例。（例如第14个案例）
+    </script>
+</body>
+</html>

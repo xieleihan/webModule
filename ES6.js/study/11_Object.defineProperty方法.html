@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue2的响应式原理</title>
+    <style></style>
+</head>
+
+<body>
+    <style>
+        input {
+            height: 40px;
+            padding-left: 10px;
+            font-size: 18px;
+            width: 200px;
+            box-sizing: border-box;
+            border: 1px solid #f00;
+            outline: none;
+        }
+
+        .box {
+            width: 200px;
+            height: 200px;
+            border: 1px solid #f00;
+            margin-top: 10px;
+            box-sizing: border-box;
+            padding: 10px;
+        }
+    </style>
+    <input type="text">
+    <div class="box"></div>
+
+    <script>
+        let inp = document.querySelector("input[type='text']");
+        let box = document.querySelector("div[class='box']");
+
+
+        // Vue2的响应式原理
+        // 定义对象
+        let data = {
+            message: ''
+        }
+
+        // 监听data属性的变化
+        Object.defineProperty(data, 'message', {
+            set(value) {
+                // console.log('test')
+                // 可以使用_message属性
+                // this.message = value (这样写会出现死循环，因为不断监听到属性被写入)
+                this._message = value;
+                // 修改文本
+                box.innerHTML = value;
+                // 修改背景色
+                box.style.backgroundColor = value;
+            }
+        })
+
+        // 给输入框添加事件
+        inp.addEventListener('input', function () {
+            // 获取输入的值
+            let v1 = inp.value;
+            // console.log(v1);
+            // 只要修改了data的message属性，就改变box标签的文本
+            data.message = v1;
+        })
+    </script>
+</body>
+
+</html>

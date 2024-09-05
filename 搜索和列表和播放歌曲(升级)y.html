@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>基本模板</title>
+    <link rel="stylesheet" href="./libs/bootstrap.css">
+    <style>
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .list p {
+            padding: 30px 0;
+            text-align: center;
+            color: #ccc;
+        }
+
+        .list .list-group-item {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .list ul {
+            border-bottom: 1px solid #ccc;
+        }
+
+        .loading {
+            text-align: center;
+            display: none;
+        }
+
+        .my_list {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- 多媒体元素（audio） -->
+    <!-- `https://music.163.com/song/media/outer/url?id=${id}.mp3` -->
+
+
+    <div id="app">
+        <div class="search container pt-2 pb-2 d-flex">
+            <input class="form-control my_input" type="text" placeholder="请输入歌曲名称">
+            <button class="btn btn-success my_search_btn" style="width: 100px;">搜索</button>
+        </div>
+        <div class="container">
+            <p class="loading">正在加载...</p>
+        </div>
+        <div class="list container">
+            <p class="my_message">暂无搜索列表~~</p>
+            <ul class="list-group list-group-flush my_list">
+                <!-- <li class="list-group-item">
+                    <div class="left">歌曲名称</div>
+                    <div class="right">
+                        <button class="btn btn-sm btn-primary">播放</button>
+                    </div>
+                </li> -->
+            </ul>
+        </div>
+        <div class="footer">
+            <audio src="" id="audio" controls style="width: 0px; height: 0px; opacity: 0;"></audio>
+        </div>
+    </div>
+
+    <script src="./libs/jq/jquery-3.7.1.js"></script>
+    <script src="./http.js"></script>
+    <script>
+        // 需求:
+        // 1.可以搜索歌曲
+        // 2.把搜索的列表渲染出来
+        // 3.点击播放音乐/暂停音乐
+
+        // 渲染歌曲列表
+        const template = arr => {
+
+            // 在渲染列表之前，可以先清空列表
+            $(".my_list").html("");
+
+            let str = '';
+            arr && arr.forEach(item => {
+                str += `
+                      <li class="list-group-item">
+                            <div class="left">${item.name}#${item.id}</div>
+                            <div class="right">
+                                <button data-id="${item.id}" class="btn btn-sm btn-primary my_btn">播放</button>
+                            </div>
+                        </li>
+                `
+            })
+            // 渲染列表
+            $(".my_list").show();
+            $(".my_list").html(str);
+        }
+
+        // 调用搜索接口
+        const searchFunc = value => {
+            // 调用搜索接口
+            search(value)
+                // 因为search方法返回的是promise实例，所以可以调用then方法
+                .then(
+                    content => {
+                        // console.log(content);
+                        // 解构赋值（获取歌曲列表）
+                        let { result: { songs } } = content;
+                        console.log(songs);
+                        if (songs.length != 0) {
+                            // 渲染列表
+                            template(songs);
+                            $(".my_message").hide();
+                            // 重置输入框
+                            $(".my_input").val("");
+                        }
+                        else {
+                            // 暂无搜索列表
+                            $(".my_message").show();
+                            $(".my_list").hide();
+                        }
+                    }
+                )
+        }
+
+        // 初始化
+        $(function () {
+            // 事件交互
+            $(".my_search_btn").on("click", () => {
+                // 获取输入框的值
+                let v1 = $(".my_input").val();
+                // 判断输入框是否为空
+                if (v1 == "") return;
+                // 调用搜索函数
+                searchFunc(v1);
+            })
+
+            // 键盘事件
+            $(".my_input").on("keydown", event => {
+                // 获取键值码
+                let { code } = event;
+                // console.log(code)
+                // 判断用户是否按下“回车”按键
+                if (code === 'Enter') {
+                    // 获取输入框的值
+                    let v1 = $(".my_input").val();
+                    // 判断输入框是否为空
+                    if (v1 == "") return;
+                    // 调用搜索函数
+                    searchFunc(v1);
+                }
+            })
+
+
+            // 点击“播放按钮”
+            $(".my_list").on("click", ".my_btn", (event) => {
+                // 获取事件源
+                let btn = event.target;
+
+
+                // console.log(btn);
+                // 获取自定义属性data-id的值
+                // let id = btn.dataset.id;
+                let id = btn.getAttribute('data-id');
+                // 判断id是否有值
+                if (id) {
+                    // console.log({id})
+                    // 拼接音频地址
+                    let src = `https://music.163.com/song/media/outer/url?id=${id}.mp3`;
+
+
+
+
+                    // 排他思想
+                    $(".my_btn").addClass("btn-primary").removeClass("btn-danger");
+                    $(".my_btn").html("播放");
+
+
+
+                    // 给这个标签设置布尔值（开关）
+                    if (btn.isPlay === undefined) {
+                        // 设置音频标签的src属性
+                        $("#audio").attr("src", src);
+                        // 播放
+                        $("#audio")
+                            .get(0)// 获取audio对象
+                            .play()
+
+                        // 给btn标签的isPlay属性赋值
+                        btn.isPlay = 1;
+                        // 设置按钮标签的类名
+                        $(btn).html("暂停")
+                        $(btn).addClass("btn-danger").removeClass("btn-primary");
+                    }
+                    else {
+
+                        // 给btn标签的isPlay属性去掉赋值
+                        btn.isPlay = undefined;
+                        // 播放
+                        $("#audio")
+                            .get(0)// 获取audio对象
+                            .pause()
+                        // 设置按钮标签的类名
+                        $(btn).addClass("btn-primary").removeClass("btn-danger");
+                        $(btn).html("播放")
+                    }
+
+
+                }
+            })
+
+        })
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>基本模板</title>
+    <style></style>
+</head>
+<body>
+
+
+    <script>
+        // 拓展运算符
+        // ...
+
+        // 作用：
+        // 1. 复制数据集合中的数据
+        // 2. 展开集合中的数据
+        // 3. 处理剩余参数
+
+        // 定义数组
+        let arr1 = [100,200,300];
+        let arr2 = [400,500,600];
+
+        // 回想之前的“浅拷贝”
+        let newArr = [... arr1, ... arr2];
+        // console.log(newArr);// [100,200,300,400,500,600]
+
+        // 展开集合中的数据
+        // console.log(... arr1);// 100 200 300
+
+        // let obj = {x:"100px",y:"200px"};
+        // console.log(... obj);// 报类型错误
+
+
+        // 处理剩余参数(实参比形参数量要多的情况下)
+        // 后续在vuex插件中可以使用
+        //ES6
+        const foo = (a,b,c, ... rest)=> {
+            console.log(a);
+            console.log(b);
+            console.log(c);
+            console.log(rest);// [4,5,6,7,8]
+            // console.log(arguments);// 在箭头函数作用域中 无法使用arguments对象
+            // 否则报错 Uncaught ReferenceError: arguments is not defined
+        }
+        foo(1,2,3,4,5,6,7,8);
+
+
+
+        // ES5
+        const boo = function(a,b,c){
+            console.log(a);
+            console.log(b);
+            console.log(c);
+            // ES5中用于记录实参信息的对象
+            // console.log(arguments);
+            let rest = [];
+            for(let i = 3; i < arguments.length ; i ++){
+                rest.push(arguments[i]);
+            }
+            console.log(rest)
+        }
+        // boo(1,2,3,4,5,6,7,8);
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>
