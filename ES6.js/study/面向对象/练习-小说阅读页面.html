@@ -13,6 +13,7 @@
             box-sizing: border-box;
             list-style: none;
         }
+
         #app {
             font-size: 20px;
             max-width: 600px;
@@ -23,14 +24,17 @@
             top: 0;
             z-index: 1000;
         }
+
         .layout {
             line-height: 1.75;
             padding: 20px 15px;
             text-align: justify;
         }
+
         .layout p {
             text-indent: 40px;
         }
+
         .control {
             position: fixed;
             z-index: 1000;
@@ -44,11 +48,13 @@
             /* 过渡属性 */
             transition: all .25s;
         }
+
         .control ul {
             width: 100%;
             display: flex;
             justify-content: center;
         }
+
         .control ul li {
             width: 40px;
             height: 40px;
@@ -56,20 +62,24 @@
             background-color: #ccc;
             margin: 0 5px;
         }
+
         .control ul li.active {
-            border: 2px solid #fff; 
+            border: 2px solid #fff;
             box-shadow: 2px 2px 2px #ccc;
         }
+
         .progress {
             padding: 25px 15px;
             width: 100%;
         }
+
         .progress .line {
             height: 4px;
             width: 100%;
             background-color: #ccc;
             position: relative;
         }
+
         .progress .line .bar {
             width: 16px;
             height: 40px;
@@ -79,6 +89,7 @@
             top: -18px;
             border-radius: 5px;
         }
+
         .mask {
             position: fixed;
             z-index: 999;
@@ -96,22 +107,24 @@
     <!-- 顶层 -->
     <div id="app">
         <div class="layout">
-           
+
         </div>
         <div class="control">
             <!-- 改变背景色 -->
-             <ul class="control-color">
+            <ul class="control-color">
                 <li data-color="#ffaec9" style="background-color: #ffaec9;"></li>
                 <li data-color="#7092be" style="background-color: #7092be;"></li>
                 <li data-color="#ffc90e" style="background-color: #ffc90e;"></li>
                 <li data-color="#b5e61d" style="background-color: #b5e61d;"></li>
                 <li data-color="#00a2e8" style="background-color: #00a2e8;"></li>
                 <li data-color="#ffffff" style="background-color: #ffffff;"></li>
-             </ul>
-             <!-- 改变亮度 -->
-             <div class="progress">
-                 <div class="line"><div class="bar"></div></div>
-             </div>
+            </ul>
+            <!-- 改变亮度 -->
+            <div class="progress">
+                <div class="line">
+                    <div class="bar"></div>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -120,24 +133,24 @@
 
     <script>
         // 需求：
-            // 1.0 可以渲染文本
-            // 2.0 移动端手指向上滑动，可以显示控件；向下滑动，可以隐藏控件
-            // 3.0 可以点击不同颜色按钮，设置文本背景颜色
-            // 4.0 可以改变页面的亮度
+        // 1.0 可以渲染文本
+        // 2.0 移动端手指向上滑动，可以显示控件；向下滑动，可以隐藏控件
+        // 3.0 可以点击不同颜色按钮，设置文本背景颜色
+        // 4.0 可以改变页面的亮度
 
         // 设计阅读页面对象 （Page）
-            // 属性：文本（text）  背景色(bgColor)    亮度(opacity)  标签等等
-            // 方法: 改变背景色的方法(changeBgColor)
-            //       改变亮度的方法(changeOpacity)
+        // 属性：文本（text）  背景色(bgColor)    亮度(opacity)  标签等等
+        // 方法: 改变背景色的方法(changeBgColor)
+        //       改变亮度的方法(changeOpacity)
 
-       
+
         // 编码：
-            // 声明类 (抽象)
-            class Page {
-                // 构造函数
-                constructor(){
-                    // 记录文本
-                    this.text = `
+        // 声明类 (抽象)
+        class Page {
+            // 构造函数
+            constructor() {
+                // 记录文本
+                this.text = `
                          <p>在古典名著《西游记》的演绎中，唐僧师徒历经九九八十一难，方从西天取得真经。八十一难故事的主角便有大大小小的妖邪精怪。</p>
                          <p> 本书从《西游记》中的这些妖怪入手，以别致视角解读了这部古代小说巨著，</p>
                          <p>
@@ -146,151 +159,151 @@
                             是一部阅读收藏两宜的中国古代妖怪图鉴。
                         </p>
                     `
-                    // 初始化颜色
-                    this.bgColor = "white";
-                    // 透明度
-                    this.opacity = 0;
-                    // 标签
-                    this.layout_element = document.querySelector(".layout");
-                    this.items = document.querySelectorAll(".control ul li");
-                    this.progress_element = document.querySelectorAll(".progress");
-                    this.line_element = document.querySelector(".line");
-                    this.bar_element = document.querySelector(".bar");
-                    this.control_element = document.querySelector(".control");
-                    this.mask_element = document.querySelector(".mask");
+                // 初始化颜色
+                this.bgColor = "white";
+                // 透明度
+                this.opacity = 0;
+                // 标签
+                this.layout_element = document.querySelector(".layout");
+                this.items = document.querySelectorAll(".control ul li");
+                this.progress_element = document.querySelectorAll(".progress");
+                this.line_element = document.querySelector(".line");
+                this.bar_element = document.querySelector(".bar");
+                this.control_element = document.querySelector(".control");
+                this.mask_element = document.querySelector(".mask");
 
-                    // 渲染文本
-                    this.layout_element.innerHTML = this.text;
-                    // 用户触摸事件
-                    let Y = 0;
-                    let startY = 0;
-                    document.addEventListener('touchstart', event => {
-                        // 记录手指按下页面时，手指在页面的Y坐标
-                        startY = event.touches[0].pageY;
-                    })
-                    document.addEventListener('touchmove', event => {
-                        // 计算用户手指滑动的距离
-                        Y = event.touches[0].pageY - startY;
-                    })
-                    document.addEventListener('touchend', event => {
-                        // 根据用户滑动的距离的正负数，判断用户手指滑动的方向
-                        // 负数：向上滑动
-                        // 正数：向下滑动
-                        // console.log(Y);
-                        // 通过绝对值获取滑动距离的正数
-                        let v1 = Math.abs(Y);
-                        // 滑动距离超过150才执行交互的逻辑
-                        if(v1 > 100) {
-                            if(Y > 0) {
-                                // 隐藏
-                                this.control_element.style['bottom'] = "-120px";
-                            }
-                            else {
-                                // 显示
-                                this.control_element.style['bottom'] = "0px";
-                            }
+                // 渲染文本
+                this.layout_element.innerHTML = this.text;
+                // 用户触摸事件
+                let Y = 0;
+                let startY = 0;
+                document.addEventListener('touchstart', event => {
+                    // 记录手指按下页面时，手指在页面的Y坐标
+                    startY = event.touches[0].pageY;
+                })
+                document.addEventListener('touchmove', event => {
+                    // 计算用户手指滑动的距离
+                    Y = event.touches[0].pageY - startY;
+                })
+                document.addEventListener('touchend', event => {
+                    // 根据用户滑动的距离的正负数，判断用户手指滑动的方向
+                    // 负数：向上滑动
+                    // 正数：向下滑动
+                    // console.log(Y);
+                    // 通过绝对值获取滑动距离的正数
+                    let v1 = Math.abs(Y);
+                    // 滑动距离超过150才执行交互的逻辑
+                    if (v1 > 100) {
+                        if (Y > 0) {
+                            // 隐藏
+                            this.control_element.style['bottom'] = "-120px";
                         }
-                    })
-               
-                    // 在构造函数作用域中调用方法
-                    this.changeBgColor();
-                    this.changeOpacity();
-                }
-
-                // 改变背景色的方法
-                changeBgColor(){
-                    // 给颜色的li标签绑定事件
-                    // this.items.forEach(dom=>{
-                    //     console.log(dom)
-                    // })
-
-                    // 万一遇到一些伪数组没有forEach这个方法，那可以把伪数组做成真数组
-                    [... this.items].forEach(dom=>{
-                        // console.log(dom);// 就是li标签
-                        dom.onclick = (event)=> {
-                            // 获取事件源
-                            let el = event.target;
-                            // console.log(el);
-                            // 获取自定义属性data-color的值
-                            let color = el.dataset.color;
-                            // 判断color是否有值
-                            if(color) {
-                                // 设置背景色
-                                document.body.style['backgroundColor'] = color;
-                                if(color ==="#ffffff") {
-                                    this.layout_element.style['color'] = "black";
-                                }
-                                else {
-                                    this.layout_element.style['color'] = "white";
-                                }
-                                // 排他处理
-                                this.items.forEach(dom=>{
-                                    dom.className="";
-                                })
-                                // 添加类名
-                                el.className="active";
-                            }
+                        else {
+                            // 显示
+                            this.control_element.style['bottom'] = "0px";
                         }
-                    })
-                }
+                    }
+                })
 
-                // 改变亮度的方法
-                changeOpacity(){
-                    console.log( this.line_element.offsetLeft)
-                    let X = 0;
-                    let startX = 0;
-                    let curX = 0;// 松开手指时记录bar标签所在的位置
-                    let isStart = false;
-                    this.bar_element.addEventListener("touchstart", event=>{
-                        // 手指按下bar标签时 在页面的x坐标位置
-                        startX = event.touches[0].pageX - this.line_element.offsetLeft;
-                        // 判断用户是否按下bar标签
-                        isStart = true;
-                    })
-                    document.addEventListener("touchmove",event=>{
-                        if(isStart) {
-                            // 滑动了多少
-                            X = event.touches[0].pageX - startX  + curX
-                            // 判断X的范围
-                            if(X < 0) X = 0;
-                            // bar标签可移动的最大值
-                            let moveMaxX = this.line_element.offsetWidth - this.bar_element.offsetWidth;
-                            if(X > moveMaxX) X = moveMaxX;
-                            // 设置bar标签的位置
-                            this.bar_element.style['left'] = X + "px";
-
-                            // 计算透明度
-                            let v2 = X / moveMaxX;
-                            console.log(v2);
-                            // 背景色
-                            let opa = `rgba(0,0,0,${v2})`;
-                            // 控制亮度
-                            if(X > 0) {
-                                this.mask_element.style['display']="block";
-                                this.mask_element.style['backgroundColor']= opa;
-                                if(v2 > .5) {
-                                    console.log("test")
-                                    this.layout_element.style['color'] = "#ffffff";
-                                }
-                                else {
-                                    this.layout_element.style['color'] = "#000000";
-                                }
-                            }
-                            else {
-                                this.mask_element.style['display']="none";
-                            }
-                        }
-                    })
-                    document.addEventListener("touchend",event=>{
-                        // 松开手指时记录bar标签所在的位置
-                        curX = X;
-                        isStart = false;
-                    })
-                }
+                // 在构造函数作用域中调用方法
+                this.changeBgColor();
+                this.changeOpacity();
             }
-            // 创建类的实例
-            let page =  new Page();
-            console.log(page)
+
+            // 改变背景色的方法
+            changeBgColor() {
+                // 给颜色的li标签绑定事件
+                // this.items.forEach(dom=>{
+                //     console.log(dom)
+                // })
+
+                // 万一遇到一些伪数组没有forEach这个方法，那可以把伪数组做成真数组
+                [... this.items].forEach(dom => {
+                    // console.log(dom);// 就是li标签
+                    dom.onclick = (event) => {
+                        // 获取事件源
+                        let el = event.target;
+                        // console.log(el);
+                        // 获取自定义属性data-color的值
+                        let color = el.dataset.color;
+                        // 判断color是否有值
+                        if (color) {
+                            // 设置背景色
+                            document.body.style['backgroundColor'] = color;
+                            if (color === "#ffffff") {
+                                this.layout_element.style['color'] = "black";
+                            }
+                            else {
+                                this.layout_element.style['color'] = "white";
+                            }
+                            // 排他处理
+                            this.items.forEach(dom => {
+                                dom.className = "";
+                            })
+                            // 添加类名
+                            el.className = "active";
+                        }
+                    }
+                })
+            }
+
+            // 改变亮度的方法
+            changeOpacity() {
+                console.log(this.line_element.offsetLeft)
+                let X = 0;
+                let startX = 0;
+                let curX = 0;// 松开手指时记录bar标签所在的位置
+                let isStart = false;
+                this.bar_element.addEventListener("touchstart", event => {
+                    // 手指按下bar标签时 在页面的x坐标位置
+                    startX = event.touches[0].pageX - this.line_element.offsetLeft;
+                    // 判断用户是否按下bar标签
+                    isStart = true;
+                })
+                document.addEventListener("touchmove", event => {
+                    if (isStart) {
+                        // 滑动了多少
+                        X = event.touches[0].pageX - startX + curX
+                        // 判断X的范围
+                        if (X < 0) X = 0;
+                        // bar标签可移动的最大值
+                        let moveMaxX = this.line_element.offsetWidth - this.bar_element.offsetWidth;
+                        if (X > moveMaxX) X = moveMaxX;
+                        // 设置bar标签的位置
+                        this.bar_element.style['left'] = X + "px";
+
+                        // 计算透明度
+                        let v2 = X / moveMaxX;
+                        console.log(v2);
+                        // 背景色
+                        let opa = `rgba(0,0,0,${v2})`;
+                        // 控制亮度
+                        if (X > 0) {
+                            this.mask_element.style['display'] = "block";
+                            this.mask_element.style['backgroundColor'] = opa;
+                            if (v2 > .5) {
+                                console.log("test")
+                                this.layout_element.style['color'] = "#ffffff";
+                            }
+                            else {
+                                this.layout_element.style['color'] = "#000000";
+                            }
+                        }
+                        else {
+                            this.mask_element.style['display'] = "none";
+                        }
+                    }
+                })
+                document.addEventListener("touchend", event => {
+                    // 松开手指时记录bar标签所在的位置
+                    curX = X;
+                    isStart = false;
+                })
+            }
+        }
+        // 创建类的实例
+        let page = new Page();
+        console.log(page)
     </script>
 </body>
 

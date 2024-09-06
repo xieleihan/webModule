@@ -10,7 +10,31 @@
 
 <body>
     <div class="main">
-        <div class="container"></div>
+        <div class="container">
+            <div class="box"></div>
+            <div class="ctrl">
+                <ul class="colorBox">
+                    <li data-color="#0d6efd" style="background-color: #0d6efd;"></li>
+                    <li data-color="#198754" style="background-color: #198754;"></li>
+                    <li data-color="#dc3545" style="background-color: #dc3545;"></li>
+                    <li data-color="#ffc107" style="background-color: #ffc107;"></li>
+                    <li data-color="#0dcaf0" style="background-color: #0dcaf0;"></li>
+                    <li data-color="#f8f9fa" style="background-color: #f8f9fa;"></li>
+                </ul>
+                <div class="divInput">
+                    <label for="">亮度:</label>
+                    <div class="line">
+                        <div class="bar"></div>
+                    </div>
+                </div>
+                <div class="input">
+                    <label for="">字号:</label>
+                    <input type="range" min="16" max="30" step="1" value="16" class="range">
+                </div>
+            </div>
+
+        </div>
+        <div class="mask"></div>
     </div>
 </body>
 <script src="./js/jquery.min.js"></script>
