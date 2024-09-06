@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>基本模板</title>
+    <style></style>
+</head>
+<body>
+    <h3>类 （class）</h3>
+
+
+    <script>
+        // 设计对象  汽车  Car
+            // 属性：  品牌(brand)  颜色(color) 价格(price)
+            // 方法：  展示信息的方法(showInfo)    
+
+
+        // 编码：
+        // 声明类 (抽象)
+        class Car {
+            // 这个词汇是固定的（构造函数）
+            constructor(brand , color , price){
+                // 添加属性
+                this.brand = brand;
+                this.color = color;
+                this.price = price;
+            }
+            // 方法直接在类内部编写即可 (实际上这个方法就是在原型上添加)
+            // 此处方法名称是自定义的
+            showInfo(){
+                console.log(`${this.price}价格的${this.color}的${this.brand}品牌汽车`)
+            }
+        }
+
+
+        // 创建类的实例（具体的）
+        const c1 = new Car("宝马","黑色","30万");
+        c1.showInfo();
+
+        // 类(对象)
+        // 声明子类
+        class DaZhong extends Car {
+            // 构造函数
+            constructor(brand , color , price){
+                // 通过父类函数接收参数
+                super(brand , color , price);
+            }
+        }
+
+        // 创建子类实例
+        const d1 = new DaZhong("辉腾","红色","20万");
+        d1.showInfo();
+
+
+    </script>
+</body>
+</html>

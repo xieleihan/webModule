@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>基本模板</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            width: 1000px;
+            margin: 50px auto;
+        }
+
+        #app>div {
+            height: 700px;
+            background-color: #f0f0f0;
+            display: flex;
+            align-items: flex-end;
+            padding: 50px 0;
+        }
+
+        #app>div .left {
+            width: 400px;
+            height: 600px;
+            background-color: skyblue;
+            margin-left: 50px;
+        }
+
+        #app>div .right {
+            width: 300px;
+            height: 200px;
+            background-color: skyblue;
+            margin-left: 50px;
+        }
+
+        .map ul {
+            width: 100%;
+            height: 100px;
+            display: flex;
+        }
+
+        .map ul li {
+            width: 100px;
+            height: 100px;
+            border: 1px solid #fff;
+        }
+
+        .map ul li i {
+            display: block;
+            width: 30px;
+            height: 30px;
+            border: 1px solid #000;
+            position: relative;
+            transform: translate(15px, 15px);
+            background-color: #fff;
+        }
+
+        .map ul li i::before,
+        .map ul li i::after {
+            content: "";
+            display: block;
+            position: absolute;
+            background-color: #000;
+        }
+
+        .map ul li i::before {
+            width: 100%;
+            height: 1px;
+            background-color: #000;
+            top: 50%;
+        }
+
+        .map ul li i::after {
+            height: 100%;
+            width: 1px;
+            background-color: #000;
+            left: 50%;
+        }
+
+        .form {
+            padding: 20px 15px;
+        }
+
+        .form>div {
+            margin-bottom: 10px;
+        }
+
+        .form>div input {
+            vertical-align: middle;
+            height: 36px;
+            padding-left: 15px;
+            font-size: 20px;
+            width: 150px;
+            border: 0;
+            outline-color: #ff5500;
+        }
+
+        .form>div span {
+            font-size: 20px;
+            vertical-align: middle;
+        }
+
+        .btn {
+            width: 50px;
+            height: 36px;
+            cursor: pointer;
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="app">
+        <div class="container">
+            <div class="left">
+                <!-- 楼层 -->
+                <div class="map">
+                    <!-- 
+                        <ul>
+                            <li><i></i></li>
+                        </ul>
+                     -->
+                </div>
+            </div>
+            <div class="right">
+                <!-- 表单 -->
+                <div class="form">
+                    <div>
+                        <span>行:</span>
+                        <input data-key="r" type="number" placeholder="请输入行">
+                    </div>
+                    <div>
+                        <span>列:</span>
+                        <input data-key="c" type="number" placeholder="请输入列">
+                    </div>
+                    <div>
+                        <span>房间号:</span>
+                        <span class="num" style="color: #fff;"></span>
+                    </div>
+                    <div>
+                        <button class="btn">开关</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 需求：
+        // 1、绘制矩阵图形代表楼层与房间 (6行4列)
+        // 2、在右侧表单区域输入行与列，左侧的“房间”背景变成黄色
+
+
+        // 设计一个对象（类） Build
+        // 属性: 多少行(row)   多少列(col)  所有房间(elements)等
+        // 方法： 
+        //         绘制图形(drawFloor)
+        //         采集表单信息(addEvent)
+        //         初始化方法 （init）
+
+
+        // 编码：
+        // 声明类
+        class Build {
+            // 构造函数
+            constructor() {
+                this.row = 6;
+                this.col = 4;
+                this.elements = [];
+                // 标签
+                this.btn_element = document.querySelector(".btn");
+                this.num_element = document.querySelector(".num");
+                this.map_element = document.querySelector(".map");
+                this.inputs = document.querySelectorAll(".form input");
+            }
+            // 初始化
+            init() {
+                // 统一调用原型上的方法
+                this.drawFloor();
+                this.addEvent();
+            }
+            // 绘制图形（楼层）
+            drawFloor() {
+                // 循环行
+                for (let r = 0; r < this.row; r++) {
+                    // 每循环一次 创建一个小数组
+                    let arr = [];
+                    // 创建ul标签
+                    const ul = document.createElement("ul");
+                    // 循环列
+                    for (let c = 0; c < this.col; c++) {
+                        // 创建li标签
+                        const li = document.createElement("li");
+                        // 设置li标签的文本
+                        li.innerHTML = `<i></i>`;
+                        // 把li标签存储在arr数组中
+                        arr.push(li);
+                        // arr.unshift(li);
+                        // 把li标签添加到ul标签里面
+                        ul.appendChild(li);
+                    }
+                    // 把每一层楼的“房间”添加到大数组中
+                    this.elements.push(arr);
+                    // this.elements.unshift(arr);
+                    // 把ul标签添加到.map标签里面   
+                    this.map_element.appendChild(ul);
+                }
+
+                // 观察是否获取所有的“房间”
+                console.log(this.elements);
+            }
+            //采集表单信息
+            addEvent() {
+                // 定义对象记录第几行、第几列
+                this.obj = {}
+                // 监听输入框的输入
+                for (let i = 0; i < this.inputs.length; i++) {
+                    this.inputs[i].oninput = (event) => {
+                        // 事件源
+                        let el = event.target;
+                        // 获取输入的值
+                        let v = el.value;
+                        // 获取对应的key
+                        // let key = el.dataset.key;
+                        let key = el.getAttribute('data-key');
+                        // 给对象设置键值对
+                        this.obj[key] = v;
+                        // 观察obj对象
+                        // console.log(obj);
+                        let { r, c } = this.obj;
+                        if (r !== undefined && c !== undefined) {
+                            // 符合条件
+                            if (this.elements[r] && this.elements[r][c]) {
+                                // 渲染房间号：
+                                this.num_element.innerText = `${r}楼${c}间`
+                            }
+                        }
+                    }
+                }
+
+                // 添加一个开关按钮
+                this.btn_element.onclick = () => {
+                    console.log("代码是否执行到此处。。。")
+                    // 判断对象的key是否为undefined
+                    if (this.obj == undefined) return;
+                    // 解构赋值
+                    let { r, c } = this.obj;
+                    if (r !== undefined && c !== undefined) {
+                        // 符合条件
+                        if (this.elements[r] && this.elements[r][c]) {
+                            // dom标签就是对象 {isOpen}
+                            if(this.elements[r][c].isOpen == undefined) {
+                                this.elements[r][c].style['backgroundColor'] = "#ffc90e";
+                                // 渲染房间号：
+                                this.num_element.innerText = `${r}楼${c}间`
+                                // 赋值
+                                this.elements[r][c].isOpen = 1;
+                            }
+                            else {
+                                this.elements[r][c].style['backgroundColor'] = "transparent";
+                                // 取消赋值
+                                this.elements[r][c].isOpen = undefined;                                
+                            }
+
+                           
+                        }
+                    }
+                }
+            }
+        }
+
+        // 创建实例
+        const b1 = new Build();
+
+        // 初始化程序
+        b1.init();
+
+    </script>
+</body>
+
+</html>

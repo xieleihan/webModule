@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>基本模板</title>
+    <style></style>
+</head>
+<body>
+    <h3>构造函数&原型</h3>
+
+    <script>
+        // 设计对象  汽车  Car
+            // 属性  品牌(brand)  颜色(color) 价格(price)
+            // 方法  展示信息的方法(showInfo)    
+
+        // 编码：
+        // 构造函数（抽象的）
+        function Car(brand,color,price){
+            // 添加属性
+            // this 是Car构造函数的实例
+            this.brand = brand;
+            this.color = color;
+            this.price = price;
+        }
+
+        // 添加方法
+        // 原型是每个构造函数都有的属性（原型上添加的方法就是给构造函数的实例去使用的）
+        Car.prototype.showInfo = function(){
+            console.log(`${this.price}价格的${this.color}的${this.brand}品牌汽车`)
+        }
+
+
+        // 创建实例（具体的）
+        var c1 = new Car("宝马","黑色","30万");
+        var c2 = new Car("大众","白色","16万");
+
+        // 通过实例对象调用原型上的方法
+        c1.showInfo();
+        c2.showInfo();
+
+
+        // apply bind call
+        // 定义子对象
+        // 大众对象
+        function DaZhong(brand,color,price){
+            // apply方法
+            Car.apply(this,[brand,color,price])
+        }
+        DaZhong.prototype.showInfo = Car.prototype.showInfo;
+        var d1 = new DaZhong("辉腾","红色","20万");
+        d1.showInfo();
+
+    </script>
+</body>
+</html>

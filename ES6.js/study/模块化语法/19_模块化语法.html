@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>基本模板</title>
+    <style></style>
+</head>
+<body>
+
+
+    <script>
+        // 模块化语法，通常是在web工程化项目中使用。(可以webpack构建web工程)
+        // 现在我们并没有构建web工程，怎么演示使用这个模块化?
+        // 可以给script标签 设置type属性等于module
+    </script>
+
+    <script type="module">
+        // 1） 按需导入
+        import { search , comp1 , comp2 } from './components/Search.js';
+        search();
+        // comp1();
+        // comp2();
+
+
+        // 2） 全部导入
+        import listObj from './components/List.js';
+        listObj.init();
+
+
+        // 3）导入 (可以修改模块名称)
+        import { audioPlayer } from  './components/Player.js';
+        audioPlayer.render();
+    </script>
+</body>
+</html>

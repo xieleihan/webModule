@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>基本模板</title>
+    <style></style>
+</head>
+
+<body>
+
+
+    <script>
+        // ES6 
+        // class 
+        // 提供静态成员（静态属性和静态方法），意思是由类对象直接使用的属性和方法
+        // 静态属性和静态方法不是给类的实例对象使用，而是给类直接使用
+
+        // 设计程序对象 App
+        // 属性：版本 version
+        // 方法：显示版本 showVersion ； 更新版本updateVersion
+
+        // 编码：
+        // 示例1： 声明类
+        class App {
+            // 构造函数
+            constructor() {
+                // 这样编写属性不叫静态属性
+                this.version = "v1.0.0";
+            }
+            showVersion() {
+                console.log(this.version);
+            }
+            updateVersion(version) {
+                this.version = version;
+            }
+        }
+        const app = new App()
+        // 这些由实例对象来使用的属性和方法 不叫静态成员
+        app.updateVersion('v3.0.0');
+        app.showVersion();
+
+
+        // 静态属性和静态方法
+        // 示例2：  声明类
+        class App2 {
+            // static 修饰符
+            // 静态属性
+            static version = "v1.0.0";
+            // 静态方法
+            static showVersion() {
+                // 是由类来引用属性，叫静态属性
+                console.log(App2.version);
+            }
+            static updateVersion(version) {
+                App2.version = version;
+            }
+        }
+
+        // 这是app2是实例对象，其他没有静态成员
+        // const app2 = new App2();
+        // console.log(app2);
+
+        // 观察类 App2
+        // console.dir(App2);
+
+        // 这些由类直接使用的方法叫静态方法
+        App2.updateVersion("版本v5.0.0")
+        App2.showVersion();
+
+    </script>
+</body>
+
+</html>

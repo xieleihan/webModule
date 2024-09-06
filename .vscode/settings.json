@@ -1,5 +1,5 @@
 {
-    "liveServer.settings.port": 6353,
+    "liveServer.settings.port": 6359,
     "editor.gotoLocation.alternativeDeclarationCommand": "editor.action.revealDefinition",
     "editor.gotoLocation.alternativeDefinitionCommand": "editor.action.revealDefinition",
     "editor.gotoLocation.alternativeTypeDefinitionCommand": "editor.action.revealDefinition",
