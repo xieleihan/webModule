@@ -6,9 +6,9 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 // 清除多余文件
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
-const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 // 分离css
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 // const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 // 配置选项
