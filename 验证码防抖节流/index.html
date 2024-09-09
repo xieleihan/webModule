@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        .main {
+            width: 100dvw;
+            height: 100dvh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .main .box {
+            width: 600px;
+            height: 200px;
+        }
+
+        .main .box .title {
+            width: 90%;
+            height: 30px;
+            margin: 0 auto;
+        }
+
+        .main .box .line {
+            width: 90%;
+            height: 1px;
+            background-color: #ccc;
+            margin: 0 auto;
+            margin-bottom: 20px;
+        }
+
+        .main .box .container {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+
+        .main .box .container .areo {
+            background-color: #337ab7;
+            color: white;
+            width: 100px;
+            height: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .main .box .container input {
+            width: 200px;
+            height: 30px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .main .box .container button {
+            background-color: #5cb85c;
+            color: white;
+            width: 100px;
+            height: 30px;
+            border: none;
+            border-radius: 5px;
+            text-align: center;
+            line-height: 30px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <div class="box">
+            <h3 class="title">验证手机号</h3>
+            <div class="line"></div>
+            <div class="container">
+                <span>手机号</span>
+                <div class="areo">中国+86</div>
+                <input type="text" placeholder="请输入手机号">
+                <button id="send">发送验证码</button>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    var btn = document.querySelector("#send");
+
+    btn.onclick = function () {
+        btn.setAttribute("disabled");
+
+    }
+</script>
+
+</html>
