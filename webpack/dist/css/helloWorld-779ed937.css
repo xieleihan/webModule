@@ -1,0 +1,23 @@
+/*!*************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/css/index.scss ***!
+  \*************************************************************************************************************/
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: orange;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100dvh;
+  width: 100dvw;
+}
+body h3 {
+  cursor: pointer;
+}
+body h3:hover {
+  color: red;
+}

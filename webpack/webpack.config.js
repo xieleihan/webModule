@@ -50,6 +50,20 @@ const option = {
                 ],
             },
             // 处理sass
+            {
+                test: /\.s[ac]ss$/i,
+                use: [
+                    // 把js样式对应的脚本写入bundle.js文件
+                    // "style-loader",
+                    {
+                        loader: MiniCssExtractPlugin.loader,
+                    },
+                    // 把css转换成js
+                    "css-loader",
+                    // 编译sass成css
+                    "sass-loader",
+                ],
+            },
 
             // 处理less
             {

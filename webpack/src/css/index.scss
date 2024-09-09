@@ -1,0 +1,25 @@
+// scss文档(sass) scss比sass更新版本
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+$bgColor: orange;
+// mixins混合语法
+// @mixin item(){}
+
+body{
+    background-color: $bgColor;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100dvh;
+    width: 100dvw;
+    h3{
+        cursor: pointer;
+        &:hover{
+            color: red;
+        }
+    }
+}
