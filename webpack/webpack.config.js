@@ -1,7 +1,6 @@
 // 配置路径
 const path = require('path')
 
-
 // 配置选项
 const option = {
     // 项目入口
