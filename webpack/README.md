@@ -105,4 +105,28 @@ npm install webpack webpack-cli --save-dev
 > module.exports = option
 > ```
 >
-> 
+
+## 安装插件
+
+```bash
+  # webpack 5 配置HTML模版插件
+  npm i --save-dev html-webpack-plugin
+  # 清除冗余文件
+  npm install --save-dev clean-webpack-plugin
+```
+
+## 处理非JavaScript的文件
+
+用到`loader`(放在JavaScript里面 安全)
+提取出来`MiniCssExtractPlugin`
+
+
+
+
+
+卸载的话就
+
+```bash
+npm uninstall xxx
+```
+

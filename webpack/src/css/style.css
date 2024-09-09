@@ -1,0 +1,14 @@
+body{
+    background-color: skyblue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100dvw;
+    height: 100dvh;
+}
+h3{
+    cursor: pointer;
+}
+h3:hover{
+    color: red;
+}
