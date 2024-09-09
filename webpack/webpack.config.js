@@ -77,6 +77,25 @@ const option = {
                 ],
             },
             // 处理图片
+            {
+                test: /\.(png|jpg|gif|jpeg)$/i,
+                use: [
+                    {
+                        loader: 'url-loader',
+                        options: {
+                            // 超出8kb,就不转换成base64格式
+                            // 限制  小于等于8kb的图片，做成base64格式
+                            // 8192/1024 = 8kb
+                            limit: 8192,
+                            // 禁用严格模式
+                            esModule: false,
+                            // 设置输出的文件路径
+                            // outputPath: 'images',
+                            name: './images/[name]_[hash].[ext]',
+                        },
+                    },
+                ],
+            },
         ]
     },
     // 插件
