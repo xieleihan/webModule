@@ -21,10 +21,12 @@ const option = {
     // __dirname 是当前文件所在的目录 绝对路径
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename:'js/bundle-[name]-[hash:8].js'
+        filename: 'js/bundle-[name]-[hash:8].js'
     },
     // 打包环境模式 (production(生产模式), development(开发模式))
-    mode: 'development',
+    // mode: 'development',
+    mode:'production',
+    watch: true, // 启用自动监听文件变动
     // 配置加载器(loader)
     module: {
         rules: [

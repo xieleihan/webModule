@@ -22,3 +22,9 @@ const createImg = (src) => {
 }
 createImg(s1);
 createImg(s2);
+
+const div = document.createElement('div');
+div.style.width = '100px'; // 设置宽度
+div.style.height = '100px'; // 设置高度
+div.style.backgroundColor = 'red'; // 设置背景颜色
+document.body.appendChild(div); // 将 div 添加到文档中
