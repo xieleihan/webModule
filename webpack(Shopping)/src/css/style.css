@@ -1,0 +1,83 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  list-style: none;
+}
+.clearfix:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+.floatLeft {
+  float: left;
+}
+.floatRight {
+  float: right;
+}
+.container {
+  width: 1000px;
+  margin: 0 auto;
+}
+header {
+  background-color: skyblue;
+}
+header .container .floatLeft span {
+  font-weight: bold;
+  font-size: 20px;
+}
+header .container .floatRight span {
+  font-weight: bold;
+  font-size: 20px;
+}
+nav {
+  margin-top: 15px;
+  padding: 10px 0;
+  background-color: #f0f0f0;
+}
+nav .container ul {
+  width: 100%;
+  display: flex;
+}
+nav .container ul li {
+  position: relative;
+  padding-left: 30px;
+  margin-right: 10px;
+}
+nav .container ul li i {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  left: 5px;
+  background-size: cover;
+}
+nav .container ul li .icon1 {
+  background-image: url('../images/icon/全部_all-application.svg');
+}
+nav .container ul li .icon2 {
+  background-image: url('../images/icon/更多1_more-one.svg');
+}
+nav .container ul li .icon3 {
+  background-image: url('../images/icon/相机_camera.svg');
+}
+nav .container ul li .icon4 {
+  background-image: url('../images/icon/配置_config.svg');
+}
+nav .container ul li span {
+  color: #000;
+}
+nav .container ul li:hover .icon1 {
+  background-image: url('../images/icon/全部_all-application\ \(2\).svg');
+}
+nav .container ul li:hover .icon2 {
+  background-image: url('../images/icon/更多1_more-one\ \(2\).svg');
+}
+nav .container ul li:hover .icon3 {
+  background-image: url('../images/icon/相机_camera\ \(2\).svg');
+}
+nav .container ul li:hover .icon4 {
+  background-image: url('../images/icon/配置_config\ \(2\).svg');
+}
+nav .container ul li:hover span {
+  color: #4a90e2;
+}
