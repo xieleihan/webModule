@@ -29,6 +29,7 @@ header {
     background-color: skyblue;
     height: 40px;
     line-height: 40px;
+
     .container:extend(.clearfix) {
 
         .floatLeft {
@@ -116,27 +117,74 @@ nav {
     }
 }
 
-.imgBox{
+.imgBox {
     width: 100%;
     margin-top: 20px;
-    .container{
+
+    .container {
         display: flex;
         justify-content: center;
         align-items: center;
-        .swiper-wrapper{
+
+        .swiper-wrapper {
             width: 900px;
             height: 600px;
             border-radius: 20px;
-            // overflow: hidden;
-            .swiper-items{
+            position: relative;
+
+            overflow: hidden;
+            .swiper-items {
                 display: flex;
                 flex-direction: row;
                 height: 600px;
-                img{
+
+                img {
                     width: 900px;
                     height: 600px;
                 }
             }
+
+            .swiper-button {
+                position: absolute;
+                top: 50%;
+                transform: translate(-50%, -50%);
+                width: 40px;
+                height: 120px;
+                background-color: #ccc;
+                line-height: 120px;
+                text-align: center;
+                user-select: none;
+
+                &.swiper-button-left {
+                    left: 15%;
+                }
+
+                &.swiper-button-right {
+                    right: 15%;
+                }
+            }
+
+            .swiper-nav {
+                position: absolute;
+                bottom: 20px;
+                left: 50%;
+                transform: translateX(-50%);
+                display: flex;
+                flex-direction: row;
+
+                li {
+                    width: 80px;
+                    height: 20px;
+                    background-color: #ccc;
+                    margin-right: 10px;
+                    cursor: pointer;
+
+                    &.active {
+                        background-color: #ff0000;
+                    }
+                }
+            }
         }
+
     }
 }

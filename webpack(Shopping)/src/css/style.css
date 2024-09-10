@@ -96,6 +96,8 @@ nav .container ul li:hover span {
   width: 900px;
   height: 600px;
   border-radius: 20px;
+  position: relative;
+  overflow: hidden;
 }
 .imgBox .container .swiper-wrapper .swiper-items {
   display: flex;
@@ -105,4 +107,39 @@ nav .container ul li:hover span {
 .imgBox .container .swiper-wrapper .swiper-items img {
   width: 900px;
   height: 600px;
+}
+.imgBox .container .swiper-wrapper .swiper-button {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 40px;
+  height: 120px;
+  background-color: #ccc;
+  line-height: 120px;
+  text-align: center;
+  user-select: none;
+}
+.imgBox .container .swiper-wrapper .swiper-button.swiper-button-left {
+  left: 15%;
+}
+.imgBox .container .swiper-wrapper .swiper-button.swiper-button-right {
+  right: 15%;
+}
+.imgBox .container .swiper-wrapper .swiper-nav {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: row;
+}
+.imgBox .container .swiper-wrapper .swiper-nav li {
+  width: 80px;
+  height: 20px;
+  background-color: #ccc;
+  margin-right: 10px;
+  cursor: pointer;
+}
+.imgBox .container .swiper-wrapper .swiper-nav li.active {
+  background-color: #ff0000;
 }
