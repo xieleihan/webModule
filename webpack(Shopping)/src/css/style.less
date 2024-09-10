@@ -27,8 +27,9 @@
 
 header {
     background-color: skyblue;
-
-    .container {
+    height: 40px;
+    line-height: 40px;
+    .container:extend(.clearfix) {
 
         .floatLeft {
             span {
@@ -109,6 +110,31 @@ nav {
                     span {
                         color: #4a90e2;
                     }
+                }
+            }
+        }
+    }
+}
+
+.imgBox{
+    width: 100%;
+    margin-top: 20px;
+    .container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .swiper-wrapper{
+            width: 900px;
+            height: 600px;
+            border-radius: 20px;
+            // overflow: hidden;
+            .swiper-items{
+                display: flex;
+                flex-direction: row;
+                height: 600px;
+                img{
+                    width: 900px;
+                    height: 600px;
                 }
             }
         }

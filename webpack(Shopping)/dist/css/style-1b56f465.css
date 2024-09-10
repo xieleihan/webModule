@@ -21,6 +21,8 @@
 }
 header {
   background-color: skyblue;
+  height: 40px;
+  line-height: 40px;
 }
 header .container .floatLeft span {
   font-weight: bold;
@@ -80,5 +82,28 @@ nav .container ul li:hover .icon4 {
 }
 nav .container ul li:hover span {
   color: #4a90e2;
+}
+.imgBox {
+  width: 100%;
+  margin-top: 20px;
+}
+.imgBox .container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.imgBox .container .swiper-wrapper {
+  width: 900px;
+  height: 600px;
+  border-radius: 20px;
+}
+.imgBox .container .swiper-wrapper .swiper-items {
+  display: flex;
+  flex-direction: row;
+  height: 600px;
+}
+.imgBox .container .swiper-wrapper .swiper-items img {
+  width: 900px;
+  height: 600px;
 }
 

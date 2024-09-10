@@ -27,7 +27,7 @@ const option = {
     // 打包环境模式 (production(生产模式), development(开发模式))
     // mode: 'development',
     mode: 'production',
-    watch: true, // 启用自动监听文件变动
+    watch: false, // 启用自动监听文件变动
     // 配置加载器(loader)
     module: {
         rules: [
