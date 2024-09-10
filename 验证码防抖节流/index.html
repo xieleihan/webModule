@@ -93,11 +93,45 @@
 </body>
 <script>
     var btn = document.querySelector("#send");
+    var time = 60;
+    var intervalId; // 定义变量存储 setInterval 的返回值
 
-    btn.onclick = function () {
-        btn.setAttribute("disabled");
+    function throttle(fn, wait) {
+        var thisObj = null;
+        var args = null;
+        var old = 0;
 
+        return function () {
+            thisObj = this;
+            args = arguments;
+            var now = new Date().getTime();
+            if (now - old > wait) {
+                fn.apply(thisObj, args);
+                old = now;
+            }
+        }
     }
+
+    btn.onclick = throttle(function () {
+        console.log("发送验证码");
+        intervalId = setInterval(function () {
+            time--;
+            btn.setAttribute("disabled", true);
+            btn.style.backgroundColor = "#ccc";
+            btn.style.cursor = "not-allowed";
+            btn.innerHTML = `${time}s后重新发送`; // 使用反引号作为模板字符串
+
+            if (time == 0) {
+                clearInterval(intervalId); // 使用 clearInterval 停止定时器
+                btn.removeAttribute("disabled");
+                btn.style.backgroundColor = "#5cb85c";
+                btn.style.cursor = "pointer";
+                btn.innerHTML = "重发验证码";
+                time = 60;
+            }
+        }, 1000); // 设为每秒倒计时
+    }, 60000);
 </script>
+
 
 </html>
