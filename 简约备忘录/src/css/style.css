@@ -1,0 +1,64 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  list-style: none;
+}
+.main {
+  width: 100dvw;
+  height: 100dvh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.main .box {
+  width: 400px;
+  height: 600px;
+  border: 1px solid #ccc;
+}
+.main .box .top {
+  width: 100%;
+  display: flex;
+  height: 100px;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.main .box .top .textInput {
+  width: 80%;
+  height: 50px;
+  border: 1px solid #ccc;
+  padding: 0 10px;
+}
+.main .box .top .add {
+  width: 15%;
+  height: 50px;
+  background-color: lightgreen;
+  color: black;
+  border-radius: 10px;
+}
+.main .box .container {
+  width: 100%;
+  padding: 0 10px;
+  height: 80px;
+  display: flex;
+  flex-direction: row;
+}
+.main .box .container .count {
+  font-size: 20px;
+  font-weight: bold;
+}
+.main .box .areo {
+  width: 100%;
+  padding: 0 10px;
+  overflow: auto;
+  height: calc(100% - 180px);
+}
+.main .box .areo li {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ccc;
+}
