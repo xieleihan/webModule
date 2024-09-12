@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <%= htmlWebpackPlugin.options.title %>
+    </title>
+    <script type="text/javascript" src="//api.map.baidu.com/api?type=webgl&v=1.0&ak="></script>
+</head>
+<body>
+    <div id="app">
+        <header>
+            <div class="search">
+                <div class="outset">
+                    <label for="">起点:</label>
+                    <input type="text" placeholder="请输入起点位置信息">
+                </div>
+                <div class="finish">
+                    <label for="">终点:</label>
+                    <input type="text" placeholder="请输入终点位置信息">
+                </div>
+            </div>
+        </header>
+        <section>
+            <div class="container" id="allmap"></div>
+        </section>
+        <footer></footer>
+    </div>
+</body>
+</html>

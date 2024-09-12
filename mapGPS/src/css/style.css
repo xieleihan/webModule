@@ -1,0 +1,110 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  list-style: none;
+}
+body,
+html {
+  width: 100dvw;
+  height: 100dvh;
+  font-size: 0.8dvw;
+  font-family: 'PingFang SC';
+}
+body #app,
+html #app {
+  width: 100%;
+  height: 100%;
+}
+body #app header,
+html #app header {
+  width: 20%;
+  height: 8rem;
+  border-radius: 10px;
+  position: fixed;
+  top: 2rem;
+  left: 2rem;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-evenly;
+  background-color: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  z-index: 999;
+}
+body #app header .search,
+html #app header .search {
+  width: 90%;
+  height: 90%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+body #app header .search .common-label-input label,
+html #app header .search .common-label-input label {
+  width: 15%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+body #app header .search .common-label-input input,
+html #app header .search .common-label-input input {
+  width: 69%;
+  height: 80%;
+  border: 0;
+  border-bottom: 1px solid #ccc;
+  background-color: transparent;
+  padding: 0 0.5rem;
+  outline: none;
+}
+body #app header .search .outset,
+html #app header .search .outset,
+body #app header .search .finish,
+html #app header .search .finish {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 3rem;
+  padding: 0 1rem;
+  justify-content: center;
+}
+body #app header .search .outset label,
+html #app header .search .outset label,
+body #app header .search .finish label,
+html #app header .search .finish label {
+  width: 15%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+body #app header .search .outset input,
+html #app header .search .outset input,
+body #app header .search .finish input,
+html #app header .search .finish input {
+  width: 69%;
+  height: 80%;
+  border: 0;
+  border-bottom: 1px solid #ccc;
+  background-color: transparent;
+  padding: 0 0.5rem;
+  outline: none;
+}
+body #app section,
+html #app section {
+  width: 100dvw;
+  height: 100dvh;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+body #app section .container,
+html #app section .container {
+  width: 100%;
+  height: 100%;
+}
