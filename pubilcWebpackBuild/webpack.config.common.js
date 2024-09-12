@@ -11,7 +11,7 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const option = {
     // 项目入口
     entry: {
-        main: "./src/main.js",//打包入口
+        main: "./src/js/main.js",//打包入口
     },
     // 项目出口
     // __dirname全局变量代表是当前绝对路径  E:\stu\GZH52429\webpack2024\code\project
@@ -19,7 +19,7 @@ const option = {
         path: path.resolve(__dirname, 'dist'),
         filename: 'js/[name]-bundle-[fullhash:8].js'
     },
-  
+
     // 插件
     plugins: [
         // 处理html模板的插件
