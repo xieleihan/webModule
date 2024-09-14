@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>基本模板</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+
+        nav {
+            width: 1000px;
+            margin: 0 auto;
+            background-color: #f0f0f0;
+        }
+
+        nav ul {
+            display: flex;
+            height: 100px;
+            align-items: center;
+        }
+
+        nav ul li {
+            padding: 10px 20px;
+            margin: 0 10px;
+            border: 1px solid #ccc;
+            cursor: pointer;
+        }
+
+        nav ul li.active {
+            background-color: yellowgreen;
+            color: white;
+            border: 1px solid white;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="app">
+        <nav>
+            <ul>
+
+                <!-- <li :class="JS表达式">基本信息</li> -->
+                <!-- <li @click="index=0" :class="index==0?`active`:''">基本信息</li>
+                <li @click="index=1" :class="index==1?`active`:''">工作经历</li>
+                <li @click="index=2" :class="index==2?`active`:''">项目描述</li>
+                <li @click="index=3" :class="index==3?`active`:''">职业技能</li>
+                <li @click="index=4" :class="index==4?`active`:''">自我评价</li> -->
+                <li v-for="(item, aindex) in word" @click="index = aindex" :class="{ active: index === aindex }">
+                    {{ item }}
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script>
+        // 原生Vue 
+        // 像这种写法叫做声明式编程 
+
+        new Vue({
+            el: "#app",
+            data: {
+                // 默认设置第一项背景高亮 
+                index: 0,
+                word: [
+                    '基本信息',
+                    '工作经历',
+                    '项目描述',
+                    '职业技能',
+                    '自我评价'
+                ]
+            }
+
+        }) 
+    </script>
+</body>
+
+</html>

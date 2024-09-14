@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        #app {
+            width: 100dvw;
+            height: 100dvh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        #app .box {
+            width: 100px;
+            height: 100px;
+            margin-bottom: 20px;
+        }
+
+        [v-cloak] {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app" v-cloak>
+        <div class="box" :style="`background-color:${color};`"></div>
+        <button @click="setRandomColor">改变颜色</button>
+        <span>{{newInfo}}</span>
+    </div>
+
+    <script src="./vue.js"></script>
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                color: 'skyblue',
+                newInfo: ''
+            },
+            methods: {
+                setRandomColor() {
+                    this.color = '#' + Math.random().toString(16).slice(2, 8).padEnd(6, '0');
+                }
+            },
+            watch: {
+                color(newVal, oldVal) {
+                    return this.newInfo = newVal;
+                }
+            }
+        })
+    </script>
+</body>
+<!-- <script src="https://fastly.jsdelivr.net/gh/southaki/contentDeliveryNetwork@0.0.8/Vue/Vue@2/vue2.js"></script> -->
+
+</html>
