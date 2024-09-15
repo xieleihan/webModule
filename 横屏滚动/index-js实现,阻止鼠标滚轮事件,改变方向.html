@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .main {
+            width: 100dvw;
+            height: 100dvh;
+            
+        }
+
+        .main .mainBox {
+            width: 100%;
+            height: 100%;
+        }
+
+        .main .mainBox .box {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            overflow-x: auto;
+            /* 启用横向滚动 */
+            overflow-y: hidden;
+            scroll-behavior: smooth;
+        }
+
+        .main .mainBox .box .container {
+
+            position: absolute;
+            display: flex;
+            flex-direction: row;
+            height: 100%;
+        }
+
+        .main .box .container img {
+            width: 100%;
+            height: 100%;
+        }
+
+        ::-webkit-scrollbar {
+            display: none;
+            /* Chrome Safari */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <div class="mainBox">
+            <div class="box">
+                <div class="container">
+                    <img src="./images/1057-1920x1080.jpg" alt="">
+                    <img src="./images/117-1920x1080.jpg" alt="">
+                    <img src="./images/244-1920x1080.jpg" alt="">
+                    <img src="./images/27-1920x1080.jpg" alt="">
+                    <img src="./images/320-1920x1080.jpg" alt="">
+                    <img src="./images/363-1920x1080.jpg" alt="">
+                    <img src="./images/605-1920x1080.jpg" alt="">
+                    <img src="./images/608-1920x1080.jpg" alt="">
+                    <img src="./images/663-1920x1080.jpg" alt="">
+                    <img src="./images/755-1920x1080.jpg" alt="">
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+<!-- <script src="https://fastly.jsdelivr.net/gh/southaki/contentDeliveryNetwork@0.0.1/jQuery@3.7.1/jquery-3.7.1.js"></script> -->
+<script>
+    // 鼠标横向滚动
+    var container = document.querySelector('.container');
+    var box = document.querySelector('.box');
+    box.addEventListener('wheel', (e) => {
+        e.preventDefault(); // 阻止默认的垂直滚动
+        box.scrollLeft += e.deltaY;
+    })
+
+
+</script>
+
+</html>
