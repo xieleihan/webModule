@@ -10,5 +10,6 @@
         "other": "on",
         "comments": "off",
         "strings": "on"
-    }
+    },
+    "git.ignoreLimitWarning": true
 }

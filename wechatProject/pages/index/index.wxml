@@ -1,0 +1,126 @@
+<view class="container">
+  <view class="banner">
+    <cover-image src="https://picsum.photos/1920/1080"></cover-image>
+  </view>
+  <view class="title">愉苑嘉宴(私厨)</view>
+  <view class="info">
+    <view>您专属的私人订制宴请接待管家</view>
+    <view>敬呈嘉宾尊享愉苑嘉宴</view>
+  </view>
+  <view class="form">
+    <view class="jb">
+      预定贵宾:<input type="text" placeholder="请输入贵宾" />
+    </view>
+    <view class="bj">
+      预定包间:<input type="text" placeholder="请输入包间" />
+    </view>
+    <view class="date">
+      预定日期:<input type="text" placeholder="请输入日期" />
+    </view>
+    <view class="time">
+      预订时间:<input type="text" placeholder="请输入时间" />
+    </view>
+    <view class="people">
+      预定人数:<input type="text" placeholder="请输入人数" />
+    </view>
+  </view>
+  <view class="map">
+    <view class="box">地址导航</view>
+  </view>
+  <view class="waring">
+    <view class="title">温馨提示</view>
+    <view class="info">
+      <view>避免导航误导进入旧城区小路</view>
+      <view>请先导航至广州医科大学番禺校区南门</view>
+    </view>
+  </view>
+  <view class="mapPath">
+    <cover-image src="./images/导航.png" style="width: 32px;height: 32px;"></cover-image>
+    <view class="mapPathInfo">
+      <view>广州医科大学(番禺校区)-南门</view>
+      <view>广东省广州市番禺区景秀路与296省道交叉口西北340米</view>
+    </view>
+  </view>
+  <view class="info daohan">再导航到强记鱼民邨新造粮仓店</view>
+  <view class="mapPath">
+    <cover-image src="./images/导航.png" style="width: 32px;height: 32px;"></cover-image>
+    <view class="mapPathInfo">
+      <view>强记鱼民邨(新造粮仓店)</view>
+      <view>一东省广州市番禺区新造和平路1号新造国家粮食储备库5仓101</view>
+    </view>
+  </view>
+  <view class="map car">
+    <view class="box">停车指引</view>
+  </view>
+  <view class="info">
+    <view>门前车位有限，请落客后，按指引前往东门</view>
+    <view>停车场的强记鱼民邨专用停车位停放</view>
+    <view>乘坐接送车往返</view>
+  </view>
+  <view class="map server">
+    <view class="box">服务信息</view>
+  </view>
+  <view class="form">
+    <view class="jb">
+      主理人 :<input type="text" placeholder="请输入主理人" />
+    </view>
+    <view class="bj">
+      联系方式:<input type="number" placeholder="请输入手机号码" />
+    </view>
+    <view class="date">
+      WiFi名称: 愉苑私厨
+    </view>
+    <view class="time">
+      WiFi密码: 12345678
+    </view>
+    <view class="people">
+      门店地址: 广东省广州市番禺区新造国
+家粮食储备库5号仓二层
+    </view>
+  </view>
+  <view class="map jd">
+    <view class="box">粮仓美食盛会旗下</view>
+  </view>
+  <view class="fk">
+    <view class="w-top">
+      <view class="left">
+        <cover-image src="./images/peacock_flat.png" style="height: 100px;width: 100px;"></cover-image>
+      </view>
+      <view class="right">
+        <view class="wtitle">愉苑嘉宴</view>
+        <view class="winfo">特色粤菜，包厢预定，婚礼宴会</view>
+      </view>
+    </view>
+    <view class="w-bottom">
+      <view class="left">
+        🔥订餐热线: 199xxxxxxxx
+      </view>
+      <view class="right">
+        <view>营业时间</view>
+        <view>早11:00</view>
+        <view>晚10:30</view>
+      </view>
+    </view>
+  </view>
+  <view class="fk">
+    <view class="w-top">
+      <view class="left">
+        <cover-image src="./images/peacock_flat.png" style="height: 100px;width: 100px;"></cover-image>
+      </view>
+      <view class="right">
+        <view class="wtitle">愉苑嘉宴</view>
+        <view class="winfo">特色粤菜，包厢预定，婚礼宴会</view>
+      </view>
+    </view>
+    <view class="w-bottom">
+      <view class="left">
+        🔥订餐热线: 199xxxxxxxx
+      </view>
+      <view class="right">
+        <view>营业时间</view>
+        <view>早11:00</view>
+        <view>晚10:30</view>
+      </view>
+    </view>
+  </view>
+</view>

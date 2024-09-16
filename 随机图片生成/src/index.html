@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar navbar-expand-lg bg-light text-black fixed-top">
+        <div class="container">
+            <img class="img-fluid" src="./images/peacock_flat.ico" alt="" style="max-width: 50px;max-height: 50px;">
+            <a href="#" class="ms-3 navbar-brand">随机图片生成</a>
+            <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navmenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navmenu">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item" id="join">
+                        <a href="#" class="nav-link">加入</a>
+                    </li>
+                    <li class="nav-item" id="aboutPage">
+                        <a href="#about" class="nav-link">关于</a>
+                    </li>
+                    <li class="nav-item" id="">
+                        <a href="https://github.com/SouthAki/contentDeliveryNetwork" target="_self" class="nav-link"><i
+                                class="bi bi-github"></i></a>
+                    </li>
+                    <li class="nav-item" id="source">
+                        <a href="#" target="_self" class="nav-link"><i class="bi bi-sourceforge"></i></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- 主体 -->
+    <section class="my-5">
+        <div class="container py-5">
+            <div class="row">
+                <div class="col-9">
+                    <img src="https://picsum.photos/1920/1080" alt="" class="img-fluid p-3" style="border: 1px dotted #ccc;border-radius: 1rem;">
+                </div>
+                <div class="col-3 d-flex align-items-center">
+                    <label for="">生成随机图片:</label>
+                    <input type="text" value="https://picsum.photos/1920/1080" class="form-control">
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
