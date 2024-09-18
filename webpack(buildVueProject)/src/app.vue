@@ -2,6 +2,8 @@
     <div>
         <h3>hello world!</h3>
         <p>{{ msg }}</p>
+        <input type="text" v-model="msg" />
+        <img src="./images/09@1x.png" alt="">
     </div>
 </template>
 
@@ -21,5 +23,9 @@
     }
     p {
         color: blue;
+    }
+    img{
+        width: 200px;
+        height: 100px;
     }
 </style>
