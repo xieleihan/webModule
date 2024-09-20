@@ -1,14 +1,16 @@
 <template>
-    <div class="home">
-        <div class="top">
-            <div class="left">
-                <img src="../assets/icon/gps.png" alt=""><span class="address">{{ address }}</span>
-            </div>
-            <div class="right">
-              <img src="../assets/icon/购物车.png" alt="">
-            </div>
+  <div class="home">
+    <div class="top">
+      <router-link to="/gps">
+        <div class="left" @click="hide">
+          <img src="../assets/icon/gps.png" alt=""><span class="address">{{ address }}</span>
         </div>
+      </router-link>
+      <div class="right">
+        <img src="../assets/icon/购物车.png" alt="">
+      </div>
     </div>
+  </div>
 </template>
 
 <script>
@@ -22,7 +24,10 @@ export default {
     }
   },
   methods: {
-
+    hide () {
+      console.log('hide')
+      this.$emit('hide-nav-bar')
+    }
   },
   created () {
     const vm = this
@@ -58,11 +63,14 @@ export default {
           justify-content: space-between;
           align-items: center;
           .left{
-            width: 60%;
+            width: 70%;
             height: 100%;
             display: flex;
             flex-direction: row;
             align-items: center;
+            color: black;
+            text-decoration: none;
+            text-wrap: nowrap;
             img{
               margin-right: 10px;
             }

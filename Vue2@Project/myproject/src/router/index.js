@@ -29,6 +29,11 @@ const routes = [
     path: '/user',
     name: 'user',
     component: () => import('../views/userView.vue')
+  },
+  {
+    path: '/gps',
+    name: 'gps',
+    component: () => import('../views/secondaryView/gpsView.vue')
   }
 ]
 

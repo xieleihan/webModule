@@ -62,7 +62,7 @@ export default {
     height: 60px;
     position: fixed;
     bottom: 0;
-    z-index: 999;
+    z-index: 999 !important;
     left: 0;
 
     ul {
@@ -76,6 +76,8 @@ export default {
         align-items: center;
         list-style: none;
         position: relative;
+        // 移除点击高亮
+        -webkit-tap-highlight-color: transparent;
 
         .left,
         .right {
