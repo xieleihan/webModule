@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            width: 100dvw;
+            height: 100dvh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        div {
+            margin: 10px;
+        }
+
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+
+        .jquery {
+            width: 100px;
+            height: 100px;
+            background-color: green;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box"></div>
+    <div class="jquery"></div>
+</body>
+<script>
+    function $(selector) {
+        return new $.prototype.init(selector);
+    }
+    function jQuery(selector) {
+        return new jQuery.prototype.init(selector);
+    }
+    $.prototype.init = function (selector) {
+        this.arr = document.querySelectorAll(selector);
+    }
+    $.prototype.init.prototype.css = function (prop, value) {
+        for (let i = 0; i < this.arr.length; i++) {
+            this.arr[i].style[prop] = value;
+        }
+        // 链式编程的核心代码
+        return this;
+    }
+    $.prototype.init.prototype.hide = function () {
+        for (let i = 0; i < this.arr.length; i++) {
+            this.arr[i].style.display = 'none';
+        }
+        return this;
+    }
+    $.prototype.init.prototype.show = function () {
+        for (let i = 0; i < this.arr.length; i++) {
+            this.arr[i].style.display = 'block';
+        }
+        return this;
+    }
+    $.prototype.init.prototype.toggle = function () {
+        for (let i = 0; i < this.arr.length; i++) {
+            if (this.arr[i].style.display === 'none') {
+                this.arr[i].style.display = 'block';
+            } else {
+                this.arr[i].style.display = 'none';
+            }
+        }
+        return this;
+    }
+    $(".box").css("backgroundColor", "skyblue")
+    jQuery.prototype.init = $.prototype.init;
+    jQuery.prototype.init.prototype.css = $.prototype.init.prototype.css;
+    jQuery(".jquery").css("backgroundColor", "skyblue")
+</script>
+
+</html>
