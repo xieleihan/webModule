@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <router-view @hide-nav-bar="isNavBarShow = false"></router-view>
+    <router-view @hide-nav-bar="isNavBarShow = false" @show-nav-bar="isNavBarShow = true"></router-view>
     <nav-bar v-if="isNavBarShow"></nav-bar>
   </div>
 </template>
@@ -31,11 +31,23 @@ export default {
 </script>
 
 <style lang="less">
+
+@themeColor: #1ebc5d;
+@radius: 20px;
+
+// 定义字体文件
+@font-face {
+  font-family: 'zk';
+  src: url('./assets/font-family/zk.ttf') format('truetype');
+}
+
 *{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   text-decoration: none;
+  font-family: 'zk';
+  list-style: none;
 }
 #app {
   width: 100dvw;

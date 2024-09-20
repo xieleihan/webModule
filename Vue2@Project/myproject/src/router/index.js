@@ -34,6 +34,11 @@ const routes = [
     path: '/gps',
     name: 'gps',
     component: () => import('../views/secondaryView/gpsView.vue')
+  },
+  {
+    path: '*',
+    name: 'notFound',
+    component: () => import('../views/error404View.vue')
   }
 ]
 

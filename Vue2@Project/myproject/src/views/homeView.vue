@@ -10,6 +10,18 @@
         <img src="../assets/icon/购物车.png" alt="">
       </div>
     </div>
+    <div class="container">
+      <div class="banner">
+        <div class="bannerLeft">
+          <p>The Fastest</p>
+          <p>Food Delivery</p>
+          <button>其他现在</button>
+        </div>
+        <div class="bannerRight">
+          <img src="../assets/images/外卖员.svg" alt="">
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -25,7 +37,7 @@ export default {
   },
   methods: {
     hide () {
-      console.log('hide')
+      // console.log('hide')
       this.$emit('hide-nav-bar')
     }
   },
@@ -51,6 +63,7 @@ export default {
 </script>
 
 <style lang="less" scoped>
+    @radius: 20px;
     .home{
         width: 100%;
         height: calc(100%  - 60px);
@@ -85,6 +98,47 @@ export default {
             width: 30px;
             display: flex;
             align-items: center;
+          }
+        }
+        .container{
+          width: 95%;
+          margin: 0 auto;
+          .banner{
+            width: 100%;
+            height: 150px;
+            background-color: #d2f2df;
+            display: flex;
+            border-radius: @radius;
+            font-size: 16px;
+            .bannerLeft{
+              height: 100%;
+              width: 50%;
+              display: flex;
+              padding-left: 25px;
+              flex-direction: column;
+              justify-content: center;
+              align-items: flex-start;
+              p{
+                font-size: 18px;
+                font-weight: 600;
+              }
+              button{
+                margin-top: 20px;
+                border: none;
+                outline: none;
+                background-color: #1ebc5d;
+                color: white;
+                padding: 10px;
+                border-radius: @radius;
+              }
+            }
+            .bannerRight{
+              height: 100%;
+              width: 50%;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+            }
           }
         }
     }
