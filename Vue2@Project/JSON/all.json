@@ -1,0 +1,151 @@
+{
+    "all":[
+        {
+            "type": "Burger",
+            "name": "Cheese Burger",
+            "price": 10.00,
+            "pic": "https://picsum.photos/300/300?1",
+            "star": 3
+        },
+        {
+            "type": "Burger",
+            "name": "Chicken Burger",
+            "price": 12.00,
+            "pic": "https://picsum.photos/300/300?2",
+            "star": 2
+        },
+        {
+            "type": "Burger",
+            "name": "Veggie Burger",
+            "price": 8.00,
+            "pic": "https://picsum.photos/300/300?3",
+            "star": 1
+        },
+        {
+            "type": "Burger",
+            "name": "Cheese Burger",
+            "price": 10.00,
+            "pic": "https://picsum.photos/300/300?13",
+            "star": 5
+        },
+        {
+            "type": "Burger",
+            "name": "Chicken Burger",
+            "price": 12.00,
+            "pic": "https://picsum.photos/300/300?14",
+            "star": 3
+        },
+        {
+            "type": "Burger",
+            "name": "Veggie Burger",
+            "price": 8.00,
+            "pic": "https://picsum.photos/300/300?15",
+            "star": 2
+        },
+        {
+            "type": "Pizza",
+            "name": "Cheese Pizza",
+            "price": 15.00,
+            "pic": "https://picsum.photos/300/300?4",
+            "star": 1
+        },
+        {
+            "type": "Pizza",
+            "name": "Pepperoni Pizza",
+            "price": 18.00,
+            "pic": "https://picsum.photos/300/300?5",
+            "star": 3
+        },
+        {
+            "type": "Pizza",
+            "name": "Veggie Pizza",
+            "price": 16.00,
+            "pic": "https://picsum.photos/300/300?6",
+            "star": 4
+        },
+        {
+            "type": "Cake",
+            "name": "Coke",
+            "price": 2.00,
+            "pic": "https://picsum.photos/300/300?7",
+            "star": 3
+        },
+        {
+            "type": "Cake",
+            "name": "Pepsi",
+            "price": 1.00,
+            "pic": "https://picsum.photos/300/300?8",
+            "star": 5
+        },
+        {
+            "type": "Cake",
+            "name": "Sprite",
+            "price": 2.00,
+            "pic": "https://picsum.photos/300/300?9",
+            "star": 3
+        },
+        {
+            "type": "Donut",
+            "name": "Fanta",
+            "price": 2.00,
+            "pic": "https://picsum.photos/300/300?10",
+            "star": 3
+        },
+        {
+            "type": "Donut",
+            "name": "7up",
+            "price": 4.00,
+            "pic": "https://picsum.photos/300/300?11",
+            "star": 2
+        },
+        {
+            "type": "Donut",
+            "name": "Mountain Dew",
+            "price": 2.00,
+            "pic": "https://picsum.photos/300/300?12",
+            "star": 1
+        },
+        {
+            "type": "Donut",
+            "name": "Fanta",
+            "price": 4.00,
+            "pic": "https://picsum.photos/300/300?16",
+            "star": 3
+        },
+        {
+            "type": "Donut",
+            "name": "7up",
+            "price": 8.00,
+            "pic": "https://picsum.photos/300/300?17",
+            "star": 3
+        },
+        {
+            "type": "Donut",
+            "name": "Mountain Dew",
+            "price": 2.00,
+            "pic": "https://picsum.photos/300/300?18",
+            "star": 4
+        },
+        {
+            "type": "Donut",
+            "name": "Fanta",
+            "price": 2.00,
+            "pic": "https://picsum.photos/300/300?19",
+            "star": 3
+        },
+        {
+            "type": "Donut",
+            "name": "7up",
+            "price": 20.00,
+            "pic": "https://picsum.photos/300/300?20",
+            "star": 3
+        },
+        {
+            "type": "Donut",
+            "name": "Mountain Dew",
+            "price": 22.00,
+            "pic": "https://picsum.photos/300/300?21",
+            "star": 4
+        }
+    ]
+}

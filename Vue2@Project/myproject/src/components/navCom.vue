@@ -64,6 +64,7 @@ export default {
     bottom: 0;
     z-index: 999 !important;
     left: 0;
+    background-color: white;
 
     ul {
         border-top: 1px solid #ccc;

@@ -21,6 +21,47 @@
           <img src="../assets/images/外卖员.svg" alt="">
         </div>
       </div>
+      <div class="category">
+        <ul>
+          <li v-for="(item, index) in categories" :key="index" :class="{ active: selectedCategory === item }"
+            @click="selectCategory(item)">
+            {{ item }}
+          </li>
+        </ul>
+      </div>
+      <div class="foodBox">
+        <div class="foodTop">
+          <span class="foodTopTitle">附近的热门美食</span>
+          <span class="foodTopViewAll">
+            <span>查看全部</span>
+            <img src="../assets/icon/向左箭头(1).png" alt="">
+          </span>
+        </div>
+        <div class="foodBottom">
+          <div class="bottomBox">
+            <img src="" alt="">
+            <p class="foodInfo"></p>
+            <p>☆<span></span></p>
+            <p class="piecs"></p>
+          </div>
+          <div class="bottomBox">
+            <img src="" alt="">
+            <p class="foodInfo"></p>
+            <p>☆<span></span></p>
+            <p class="piecs"></p>
+          </div>
+        </div>
+      </div>
+      <div class="nearby">
+        <div class="nearbyTop">
+          <span class="nearbyTopTitle">附近的餐厅</span>
+          <span class="nearbyTopViewAll">
+            <span>查看全部</span>
+            <img src="../assets/icon/向左箭头(1).png" alt="">
+          </span>
+        </div>
+        <div class="nearbyBottom"></div>
+      </div>
     </div>
   </div>
 </template>
@@ -32,13 +73,18 @@ export default {
       address: '',
       city: '',
       nation: '',
-      obj: {}
+      obj: {},
+      categories: ['All', 'Burger', 'Pizza', 'Cake', 'Donut'], // 分类列表
+      selectedCategory: 'All' // 默认选择的分类
     }
   },
   methods: {
     hide () {
       // console.log('hide')
       this.$emit('hide-nav-bar')
+    },
+    selectCategory (item) {
+      this.selectedCategory = item // 更新选择的分类
     }
   },
   created () {
@@ -58,6 +104,20 @@ export default {
       }
     }
     getCity()
+    const allJson = this
+    function getAllJson () {
+      const xhr = new XMLHttpRequest()
+      xhr.open('get', 'https://fastly.jsdelivr.net/gh/southaki/contentDeliveryNetwork@0.0.9/vueProjectPoint(test)/all.json', true)
+      xhr.send()
+      xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+          const res = JSON.parse(xhr.responseText)
+          allJson.allJson = res
+          console.log(allJson.allJson)
+        }
+      }
+    }
+    getAllJson()
   }
 }
 </script>
@@ -138,6 +198,111 @@ export default {
               display: flex;
               justify-content: center;
               align-items: center;
+            }
+          }
+          .category{
+            width: 100%;
+            height: 50px;
+            margin-top: 10px;
+            ul{
+              display: flex;
+              flex-direction: row;
+              font-size: 14px;
+              width: 100%;
+              overflow: auto;
+              scrollbar-width: none;
+              align-items: center;
+              li{
+                height: 60%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background-color: #fcfbff;
+                border-radius: @radius;
+                padding: 10px 25px;
+                margin-right: 10px;
+              }
+              .active{
+                background-color: #1ebc5d;
+                color: white;
+              }
+            }
+          }
+          .foodBox{
+            width: 95%;
+            margin: 0 auto;
+            font-size: 16px;
+            .foodTop{
+              width: 100%;
+              height: 40px;
+              display: flex;
+              flex-direction: row;
+              justify-content: space-between;
+              align-items: center;
+              .foodTopTitle{
+                font-weight: bold;
+              }
+              .foodTopViewAll{
+                float: right;
+                font-size: 14px;
+                color: #7f7f7f;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                img{
+                  margin-left: 5px;
+                  width: 10px;
+                  height: 10px;
+                  transform: rotate(-180deg);
+                }
+              }
+            }
+            .foodBottom{
+              width: 100%;
+              height: 130px;
+              display: flex;
+              flex-direction: row;
+              justify-content: space-evenly;
+              align-items: center;
+              .bottomBox{
+                width: 45%;
+                height: 90%;
+                border-radius: @radius;
+                border: 0.1px solid #ccc;
+              }
+            }
+          }
+          .nearby {
+            width: 95%;
+            margin: 0 auto;
+            font-size: 16px;
+
+            .nearbyTop {
+              width: 100%;
+              height: 40px;
+              display: flex;
+              flex-direction: row;
+              align-items: center;
+              justify-content: space-between;
+              .nearbyTopTitle {
+                font-weight: bold;
+              }
+
+              .nearbyTopViewAll {
+                float: right;
+                font-size: 14px;
+                color: #7f7f7f;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                img {
+                  margin-left: 5px;
+                  width: 10px;
+                  height: 10px;
+                  transform: rotate(-180deg);
+                }
+              }
             }
           }
         }
