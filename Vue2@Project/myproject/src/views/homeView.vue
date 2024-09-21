@@ -86,9 +86,6 @@ export default {
     }
   },
   created () {
-    this.$router.push({
-      path: '/home', query: { type: this.selectedCategory }
-    })
     const vm = this
     function getCity () {
       const xhr = new XMLHttpRequest()

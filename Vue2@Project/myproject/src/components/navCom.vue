@@ -51,7 +51,17 @@ export default {
   methods: {
     setActive (index) {
       this.activeIndex = index // 更新选中的li索引
+      sessionStorage.setItem('activeIndex', index) // 将选中的li索引存储到sessionStorage中
+      if (sessionStorage.getItem('activeIndex') === '4') {
+        this.$emit('hide-nav-bar')
+        // console.log('hide')
+      }
     }
+  },
+  created () {
+    // 从sessionStorage中获取选中的li索引
+    const storedIndex = sessionStorage.getItem('activeIndex')
+    this.activeIndex = storedIndex ? parseInt(storedIndex, 10) : 0
   }
 }
 </script>

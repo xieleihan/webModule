@@ -1,7 +1,9 @@
 <template>
   <div id="app">
-    <router-view @hide-nav-bar="isNavBarShow = false" @show-nav-bar="isNavBarShow = true"></router-view>
-    <nav-bar v-if="isNavBarShow"></nav-bar>
+    <keep-alive>
+      <router-view @hide-nav-bar="isNavBarShow = false" @show-nav-bar="isNavBarShow = true"></router-view>
+    </keep-alive>
+    <nav-bar v-if="isNavBarShow" @hide-nav-bar="hideNavBar"></nav-bar>
   </div>
 </template>
 
@@ -22,6 +24,9 @@ export default {
   methods: {
     setSessionStorage () {
       sessionStorage.setItem('isNavBarShow', this.isNavBarShow)
+    },
+    hideNavBar () {
+      this.isNavBarShow = false
     }
   },
   created () {

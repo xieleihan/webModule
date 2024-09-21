@@ -53,6 +53,7 @@ export default {
     returnHomeView () {
       this.$router.push('/')
       this.$emit('show-nav-bar')
+      sessionStorage.setItem('activeIndex', 0)
     }
   }
 }
