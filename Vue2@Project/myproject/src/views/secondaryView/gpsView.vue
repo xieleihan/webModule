@@ -27,7 +27,7 @@ export default {
   },
   methods: {
     returnHomeView () {
-      this.$router.push('/')
+      this.$router.push('/home')
       this.$emit('show-nav-bar')
     },
     openLoad () {

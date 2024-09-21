@@ -26,7 +26,7 @@ export default {
   },
   methods: {
     returnHomeView () {
-      this.$router.push('/')
+      this.$router.push('/home')
       this.$emit('show-nav-bar')
       sessionStorage.setItem('activeIndex', 0)
     }

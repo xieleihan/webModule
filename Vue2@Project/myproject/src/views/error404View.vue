@@ -1,7 +1,7 @@
 <template>
     <div class="error">
         <div class="titleBox">
-            <div class="left">
+            <div class="left" @click="returnTopView">
                 <img src="../assets/icon/向左箭头.png" alt="">
             </div>
             <p>Not Found</p>
@@ -21,7 +21,12 @@
 export default {
   methods: {
     returnHomeView () {
-      this.$router.push('/')
+      this.$router.push('/home')
+      this.$emit('show-nav-bar')
+      sessionStorage.setItem('activeIndex', 0)
+    },
+    returnTopView () {
+      this.$router.go(-1)
       this.$emit('show-nav-bar')
     }
   },

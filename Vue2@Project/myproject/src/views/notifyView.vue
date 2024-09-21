@@ -21,6 +21,7 @@
                 <p>Account</p>
             </div>
         </div>
+        <my-notification></my-notification>
     </div>
 </template>
 
@@ -38,13 +39,15 @@
         }
         .iconBox{
             width: 90%;
-            height: 60px;
+            height: 70px;
             margin: 0 auto;
             display: flex;
             margin-top: 25px;
             flex-direction: row;
             align-items: center;
             justify-content: space-evenly;
+            padding-bottom: 10px;
+            border-bottom: 0.01px solid #ccc;
             .iconItem{
                 width: 60px;
                 display: flex;

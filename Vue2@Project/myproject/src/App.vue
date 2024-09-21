@@ -53,6 +53,7 @@ export default {
   text-decoration: none;
   font-family: 'zk';
   list-style: none;
+  scrollbar-width: none;
 }
 #app {
   width: 100dvw;

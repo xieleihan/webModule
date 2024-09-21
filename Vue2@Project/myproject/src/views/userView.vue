@@ -18,7 +18,7 @@
             </li>
             <li class="item">
                 <span>通知</span>
-                <input type="checkbox" class="checkbox" @click="setCheck" :style="`backgroundColor:${themeColor}`">
+                <input type="checkbox" class="checkbox" @click="setCheck" :style="`backgroundColor:${themeColor}`" v-model="isOpenNotifily">
             </li>
             <li class="item">
                 <span>设置</span>
@@ -37,7 +37,8 @@ export default {
   data () {
     return {
       isCheckBox: false,
-      themeColor: '#ccc'
+      themeColor: '#ccc',
+      isOpenNotifily: false
     }
   },
   methods: {
@@ -45,15 +46,40 @@ export default {
       if (!this.isCheckBox) {
         this.isCheckBox = true
         this.themeColor = '#1ebc5d'
+        this.openNotification()
       } else {
         this.isCheckBox = false
         this.themeColor = '#ccc'
       }
     },
     returnHomeView () {
-      this.$router.push('/')
+      this.$router.push('/home')
       this.$emit('show-nav-bar')
       sessionStorage.setItem('activeIndex', 0)
+    },
+    openNotification () {
+      if (!('Notification' in window)) {
+        window.alert('很抱歉你的浏览器不支持通知功能')
+      } else if (Notification.permission === 'granted') {
+        this.showNotification()
+      } else if (Notification.permission !== 'denied') {
+        Notification.requestPermission().then(permission => {
+          if (permission === 'granted') {
+            this.showNotification()
+          }
+        })
+      }
+    },
+    showNotification () {
+      const notification = new Notification('通知', {
+        body: '这是一个通知,用于测试使用',
+        icon: '../favicon.ico'
+      })
+      notification.onclick = () => {
+        this.$router.push('/sms')
+        this.$emit('show-nav-bar')
+        sessionStorage.setItem('activeIndex', 3)
+      }
     }
   }
 }
@@ -107,9 +133,21 @@ export default {
         left: 50%;
         transform: translateX(-50%);
     }
+    @media screen and (min-width: 545px){
+        .avater{
+            width: 80px;
+            height: 80px;
+            top: 80px;
+            left: 100px;
+        }
+        .username{
+            top: 100px;
+            left: 60%;
+        }
+    }
     .settingBox{
         width: 90%;
-        min-height: 300px;
+        height: 300px;
         position: absolute;
         top: 62%;
         left: 50%;

@@ -129,6 +129,7 @@ export default {
         width: 100%;
         height: calc(100%  - 60px);
         padding: 0 30px;
+        scrollbar-width: none;
         .top{
           width: 100%;
           height: 70px;
@@ -179,6 +180,9 @@ export default {
           overflow-y: scroll;
           margin: 0 auto;
           scrollbar-width: none;
+          &::-webkit-scrollbar {
+            display: none;
+          }
           .banner{
             width: 100%;
             height: 150px;

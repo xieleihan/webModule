@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import home from '../views/homeView.vue'
+import start from '../views/startView.vue'
 // import type from 'postcss-pxtorem/lib/type'
 
 Vue.use(VueRouter)
@@ -8,7 +9,12 @@ Vue.use(VueRouter)
 const routes = [
   {
     path: '/',
-    redirect: '/home'
+    redirect: '/start'
+  },
+  {
+    path: '/start',
+    name: 'start',
+    component: start
   },
   {
     path: '/home',
