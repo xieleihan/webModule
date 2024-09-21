@@ -294,6 +294,7 @@ export default {
                 img{
                   width: 80px;
                   height: 80px;
+                  border-radius: 20px;
                 }
                 .foodInfo{
                   font-weight: bold;
