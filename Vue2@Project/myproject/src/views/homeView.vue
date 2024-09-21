@@ -38,17 +38,12 @@
           </span>
         </div>
         <div class="foodBottom">
+          <!-- 模版 -->
           <div class="bottomBox">
-            <img src="" alt="">
-            <p class="foodInfo"></p>
-            <p>☆<span></span></p>
-            <p class="piecs"></p>
-          </div>
-          <div class="bottomBox">
-            <img src="" alt="">
-            <p class="foodInfo"></p>
-            <p>☆<span></span></p>
-            <p class="piecs"></p>
+            <img src="https://picsum.photos/300/300?1" alt="">
+            <p class="foodInfo">信息</p>
+            <p class="star">☆<span>5</span></p>
+            <p class="piecs">$10</p>
           </div>
         </div>
       </div>
@@ -85,9 +80,15 @@ export default {
     },
     selectCategory (item) {
       this.selectedCategory = item // 更新选择的分类
+      this.$router.push({
+        path: '/home', query: { type: item }
+      })
     }
   },
   created () {
+    this.$router.push({
+      path: '/home', query: { type: this.selectedCategory }
+    })
     const vm = this
     function getCity () {
       const xhr = new XMLHttpRequest()
@@ -162,6 +163,8 @@ export default {
         }
         .container{
           width: 95%;
+          height: calc(100% - 70px);
+          overflow-y: scroll;
           margin: 0 auto;
           .banner{
             width: 100%;
@@ -259,16 +262,32 @@ export default {
             }
             .foodBottom{
               width: 100%;
-              height: 130px;
+              height: 170px;
               display: flex;
               flex-direction: row;
-              justify-content: space-evenly;
+              justify-content: space-between;
               align-items: center;
               .bottomBox{
-                width: 45%;
+                width: 48%;
                 height: 90%;
                 border-radius: @radius;
                 border: 0.1px solid #ccc;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: space-around;
+                box-shadow: 1px 1px 5px #ccc;
+                img{
+                  width: 80px;
+                  height: 80px;
+                }
+                .foodInfo{
+                  font-weight: bold;
+                }
+                .star{
+                  font-size: 12px;
+                  color: #1ebc5d;
+                }
               }
             }
           }

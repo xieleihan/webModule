@@ -1,14 +1,22 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import home from '../views/homeView.vue'
+// import type from 'postcss-pxtorem/lib/type'
 
 Vue.use(VueRouter)
 
 const routes = [
   {
     path: '/',
+    redirect: '/home'
+  },
+  {
+    path: '/home',
     name: 'home',
-    component: home
+    component: home,
+    meta: {
+      type: 'all'
+    }
   },
   {
     path: '/like',
