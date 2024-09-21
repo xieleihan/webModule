@@ -18,7 +18,7 @@
                 </div>
                 <li class="search" @click="setActive(2)">
                     <router-link to="/search">
-                        <img :src="activeIndex === 2 ? require('../assets/icon/search (1).png') : require('../assets/icon/search.png')"
+                        <img :src="activeIndex === 2 ? require('../assets/icon/search.png') : require('../assets/icon/search.png')"
                             alt="">
                     </router-link>
                 </li>
@@ -52,7 +52,7 @@ export default {
     setActive (index) {
       this.activeIndex = index // 更新选中的li索引
       sessionStorage.setItem('activeIndex', index) // 将选中的li索引存储到sessionStorage中
-      if (sessionStorage.getItem('activeIndex') === '4') {
+      if (sessionStorage.getItem('activeIndex') === '4' || sessionStorage.getItem('activeIndex') === '2') {
         this.$emit('hide-nav-bar')
         // console.log('hide')
       }

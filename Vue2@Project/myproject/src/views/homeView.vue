@@ -7,6 +7,7 @@
         </div>
       </router-link>
       <div class="right">
+        <div class="point"></div>
         <img src="../assets/icon/购物车.png" alt="">
       </div>
     </div>
@@ -55,7 +56,9 @@
             <img src="../assets/icon/向左箭头(1).png" alt="">
           </span>
         </div>
-        <div class="nearbyBottom"></div>
+        <div class="nearbyBottom">
+          <my-nearby></my-nearby>
+        </div>
       </div>
     </div>
   </div>
@@ -155,7 +158,19 @@ export default {
             height: 100%;
             width: 30px;
             display: flex;
+            position: relative;
             align-items: center;
+            .point{
+              position: absolute;
+              top: 30%;
+              border-radius: 50%;
+              right: 0;
+              content: '';
+              display: block;
+              width: 5px;
+              background-color: #1ebc5d;
+              height: 5px;
+            }
           }
         }
         .container{
@@ -163,9 +178,11 @@ export default {
           height: calc(100% - 70px);
           overflow-y: scroll;
           margin: 0 auto;
+          scrollbar-width: none;
           .banner{
             width: 100%;
             height: 150px;
+            margin-top: 10px;
             background-color: #d2f2df;
             display: flex;
             border-radius: @radius;
@@ -319,6 +336,12 @@ export default {
                   transform: rotate(-180deg);
                 }
               }
+            }
+            .nearbyBottom{
+              width: 100%;
+              overflow-x: scroll;
+              scrollbar-width: none;
+              margin-top: 10px;
             }
           }
         }
