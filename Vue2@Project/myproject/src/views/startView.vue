@@ -1,11 +1,12 @@
 <template>
     <div class="start">
-        <div class="startUpScreen">
+        <div class="startUpScreen" v-if="isStartOpen">
             <div class="bigQuack"></div>
             <div class="smallQuack topRight"></div>
             <div class="smallQuack bottomLeft"></div>
             <div class="title">FOODBD</div>
         </div>
+        <router-view></router-view>
     </div>
 </template>
 
@@ -17,9 +18,21 @@ export default {
     this.$emit('hide-nav-bar')
   },
   mounted () {
+    // eslint-disable-next-line no-unused-vars
     const timeoutId = setTimeout(() => {
-      console.log('start')
-    }, 4000)
+      if (this.$route.path !== '/start/startPage') {
+        console.log('startPage')
+        this.$router.push('/start/startPage')
+        this.isStartOpen = false
+      } else {
+        this.isStartOpen = false
+      }
+    }, 4400)
+  },
+  data () {
+    return {
+      isStartOpen: true
+    }
   }
 }
 </script>
@@ -34,6 +47,7 @@ export default {
             height: 100%;
             background-color: #1ebc5d;
             position: relative;
+            z-index: 992;
             .title{
                 font-size: 30px;
                 line-height: 30px;

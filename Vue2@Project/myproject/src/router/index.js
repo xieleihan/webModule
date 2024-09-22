@@ -14,7 +14,14 @@ const routes = [
   {
     path: '/start',
     name: 'start',
-    component: start
+    component: start,
+    children: [
+      {
+        path: 'startPage',
+        name: 'startPage',
+        component: () => import('../views/secondaryView/startPages.vue')
+      }
+    ]
   },
   {
     path: '/home',
