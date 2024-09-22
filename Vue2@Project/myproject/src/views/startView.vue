@@ -21,7 +21,6 @@ export default {
     // eslint-disable-next-line no-unused-vars
     const timeoutId = setTimeout(() => {
       if (this.$route.path !== '/start/startPage') {
-        console.log('startPage')
         this.$router.push('/start/startPage')
         this.isStartOpen = false
       } else {

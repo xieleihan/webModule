@@ -1,6 +1,8 @@
 <template>
     <div class="startPage">
-        <div class="title">Skip</div>
+        <div class="title">
+            <span @click="goToLogninView">Skip</span>
+        </div>
         <div class="container">
             <div class="swiper-wrapper" :style="`transform: translateX(-${index * 100}%);`">
                 <div class="imgBox"><img src="../../assets/images/startOne.svg" alt=""></div>
@@ -10,12 +12,12 @@
             <div class="titleInfo">{{ textTitle }}</div>
             <div class="info">{{ textInfo }}</div>
             <div class="swiper-butters">
-                <div :class="index === 0 ? 'active' : '' " class="swiper-butter"></div>
-                <div :class="index === 1 ? 'active' : '' " class="swiper-butter"></div>
-                <div :class="index === 2 ? 'active' : '' " class="swiper-butter"></div>
+                <div @click="indexplus(0)" :class="index === 0 ? 'active' : '' " class="swiper-butter"></div>
+                <div @click="indexplus(1)" :class="index === 1 ? 'active' : '' " class="swiper-butter"></div>
+                <div @click="indexplus(2)" :class="index === 2 ? 'active' : '' " class="swiper-butter"></div>
             </div>
         </div>
-        <button class="next" @click="next">Next</button>
+        <button class="next" @click="next">{{ textnext }}</button>
     </div>
 </template>
 
@@ -26,30 +28,46 @@ export default {
       textObj: {
         1: {
           title: 'Fastest Food Delivery',
-          info: 'Order food and get delivery within a few minutes to your door'
+          info: 'Order food and get delivery within a few minutes to your door',
+          next: 'Next'
         },
         2: {
           title: 'Deliver With Care',
-          info: 'Order food and get delivery within a few minutes to your door'
+          info: '订购食物并在几分钟内送货上门',
+          next: 'Next'
         },
         3: {
           title: 'Pick Up Delivery',
-          info: 'Order food and get delivery within a few minutes to your door'
+          info: 'Order food and get delivery within a few minutes to your door',
+          next: 'Get Started'
         }
       },
       textTitle: 'Fastest Food Delivery',
       textInfo: 'Order food and get delivery within a few minutes to your door',
+      textnext: 'Next',
       index: 0
     }
   },
   methods: {
     next () {
+      if (this.index === 2) {
+        console.log(this.index, '到这里了')
+        this.$router.push('/lognin')
+        this.index = 0
+      }
       this.index++
       this.textTitle = this.textObj[this.index + 1].title
       this.textInfo = this.textObj[this.index + 1].info
-      if (this.index === 3) {
-        this.$router.push('/home')
-      }
+      this.textnext = this.textObj[this.index + 1].next
+    },
+    indexplus (index) {
+      this.index = index
+      this.textTitle = this.textObj[this.index + 1].title
+      this.textInfo = this.textObj[this.index + 1].info
+      this.textnext = this.textObj[this.index + 1].next
+    },
+    goToLogninView () {
+      this.$router.push('/lognin')
     }
   }
 }

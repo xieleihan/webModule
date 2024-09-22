@@ -60,6 +60,23 @@ const routes = [
     path: '*',
     name: 'notFound',
     component: () => import('../views/error404View.vue')
+  },
+  {
+    path: '/lognin',
+    name: 'lognin',
+    component: () => import('../views/logninView.vue'),
+    children: [
+      {
+        path: 'loginpage',
+        name: 'login',
+        component: () => import('../views/secondaryView/loginView.vue')
+      },
+      {
+        path: 'signuppage',
+        name: 'signup',
+        component: () => import('../views/secondaryView/signupView.vue')
+      }
+    ]
   }
 ]
 
