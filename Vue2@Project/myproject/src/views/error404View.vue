@@ -98,6 +98,7 @@ export default {
         background-color: @themeColor;
         color: white;
         border-radius: @radius;
+        font-size: 20px;
     }
 }
 </style>

@@ -24,15 +24,15 @@
                     <span>Remember</span>
                 </div>
                 <div class="forgotBox">
-                    <span>Forgot Password?</span>
+                    <span @click="goToForgot">Forgot Password?</span>
                 </div>
             </div>
             <div class="protocol">
-                <input type="radio">
+                <input type="checkbox">
                 <span>请阅读<span class="linesce">《用户许可协议》</span>和我们的<span class="linesce">《隐私政策》</span></span>
             </div>
             <button class="btn">Log in</button>
-            <p class="message">Don't have an account?&nbsp;<span>Sign up</span></p>
+            <p class="message">Don't have an account?&nbsp;<span @click="goToSignUpView">Sign up</span></p>
             <p class="other">Or sign in with</p>
             <div class="socialBox">
                 <div class="google">
@@ -73,6 +73,16 @@ export default {
     goTopView () {
       this.$router.go(-1)
       this.$emit('look')
+    },
+    goToSignUpView () {
+      if (this.$route.path !== '/lognin/signuppage') {
+        this.$router.push('/lognin/signuppage')
+      }
+    },
+    goToForgot () {
+      if (this.$route.path !== '/lognin/forgot') {
+        this.$router.push('/lognin/forgot')
+      }
     }
   }
 }
@@ -171,8 +181,10 @@ export default {
                     flex-direction: row;
                 }
                 .forgotBox{
+                    color: #1ebc5d;
+                    text-decoration: underline;
                     &:hover{
-                        color: #1ebc5d;
+                        color: black;
                         text-decoration: underline;
                     }
                 }
@@ -186,10 +198,34 @@ export default {
                 margin-bottom: 5px;
                 input{
                     margin-right: 5px;
+                    appearance: none;
+                    position: relative;
+                    width: 15px;
+                    border: 1px solid #1ebc5d;
+                    border-radius: 50%;
+                    height: 15px;
+                    &::before{
+                        content: '';
+                        position: absolute;
+                        display: block;
+                        width: 10px;
+                        height: 10px;
+                        border-radius: 50%;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%,-50%);
+                    }
+                    &:checked::before{
+                        width: 10px;
+                        height: 10px;
+                        background-color: #1ebc5d;
+                    }
                 }
                 .linesce{
+                    color: #1ebc5d;
+                    text-decoration: underline;
                     &:hover{
-                        color: #1ebc5d;
+                        color: black;
                         text-decoration: underline;
                     }
                 }

@@ -51,11 +51,11 @@ export default {
   methods: {
     next () {
       if (this.index === 2) {
-        console.log(this.index, '到这里了')
-        this.$router.push('/lognin')
         this.index = 0
+        this.$router.push('/lognin')
+      } else {
+        this.index++
       }
-      this.index++
       this.textTitle = this.textObj[this.index + 1].title
       this.textInfo = this.textObj[this.index + 1].info
       this.textnext = this.textObj[this.index + 1].next

@@ -23,7 +23,7 @@
                 </div>
             </div>
             <button class="btn" @click="registerUser">Create Account</button>
-            <p class="desc">Already have an account? <span class="smalldesc">Sign in</span></p>
+            <p class="desc">Already have an account? <span @click="goToLoginView" class="smalldesc">Sign in</span></p>
             <p class="other">Or sign up with</p>
             <div class="socialBox">
                 <div class="google">
@@ -40,6 +40,7 @@
 </template>
 
 <script>
+import { Toast } from 'vant'
 import axios from 'axios'
 export default {
   data () {
@@ -67,12 +68,22 @@ export default {
         this.type = 'password'
       }
     },
+    goToLoginView () {
+      this.$router.push('/lognin/loginpage')
+    },
     goTopView () {
       this.$router.go(-1)
       this.$emit('look')
     },
     registerUser () {
-      console.log(this.user)
+    //   console.log(this.user)
+      if (this.user.username === '' || this.user.email === '' || this.user.password === '') {
+        Toast({
+          message: '请检查用户名、邮箱和密码是否为空',
+          icon: 'cross'
+        })
+        return false
+      }
       // 使用 Axios 进行 HTTP 请求
       axios.post('http://localhost:8081/register', this.user, {
         headers: {
@@ -80,22 +91,29 @@ export default {
         }
       })
         .then((res) => {
-          console.log('Response from server:', res.data)
           // 检查返回的状态码或者响应内容
           if (res.data === '注册成功') { // 假设 200 是成功的状态码
-            console.log('注册成功', { duration: 2000, type: 'success' })
+            Toast({
+              message: '注册成功,请登录',
+              icon: 'success'
+            })
             this.$router.push('/lognin/loginpage') // 跳转到登录页面
               .catch((routerError) => {
                 console.error('Router navigation error:', routerError) // 捕获路由跳转错误
               })
           } else {
-            console.log('注册失败，请重试', { duration: 2000, type: 'error' })
+            Toast({
+              message: '是我们的问题,我们正在解决,请稍后',
+              icon: 'cross'
+            })
           }
         })
+        // eslint-disable-next-line
         .catch((err) => {
-          console.error('Error during registration:', err)
-          // 处理注册失败的情况，比如显示错误消息等操作
-          console.log('注册失败，请重试', { duration: 2000, type: 'error' })
+          Toast({
+            message: '请检查你的网络',
+            icon: 'cross'
+          })
         })
     }
   }

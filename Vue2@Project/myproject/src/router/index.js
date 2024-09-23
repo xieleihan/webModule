@@ -75,6 +75,16 @@ const routes = [
         path: 'signuppage',
         name: 'signup',
         component: () => import('../views/secondaryView/signupView.vue')
+      },
+      {
+        path: 'forgot',
+        name: 'forgot',
+        component: () => import('../views/secondaryView/forgotPassword.vue')
+      },
+      {
+        path: 'veCode',
+        name: 'veCode',
+        component: () => import('../views/secondaryView/getVeCodeView.vue')
       }
     ]
   }
