@@ -8,21 +8,21 @@
             <div class="info">Create an account to continue</div>
             <div class="name">
                 <p class="nameTitle">Name</p>
-                <input type="text" placeholder="请输入你的名字">
+                <input type="text" placeholder="请输入你的名字" v-model="user.username">
             </div>
             <div class="email">
                 <p class="emailTitle">Email</p>
-                <input type="email" placeholder="请输入你的邮箱">
+                <input type="email" placeholder="请输入你的邮箱" v-model="user.email">
             </div>
             <div class="password">
                 <p class="passwordTitle">Password</p>
-                <input :type="type" placeholder="请输入你的密码">
+                <input :type="type" placeholder="请输入你的密码" v-model="user.password">
                 <div class="lookPassword" @click="settlement">
                     <img :src="isLook === false ? require('../../assets/icon/闭眼.png'): require('../../assets/icon/睁眼.png')"
                         alt="">
                 </div>
             </div>
-            <button class="btn">Create Account</button>
+            <button class="btn" @click="registerUser">Create Account</button>
             <p class="desc">Already have an account? <span class="smalldesc">Sign in</span></p>
             <p class="other">Or sign up with</p>
             <div class="socialBox">
@@ -40,11 +40,17 @@
 </template>
 
 <script>
+import axios from 'axios'
 export default {
   data () {
     return {
       isLook: false,
-      type: 'password'
+      type: 'password',
+      user: {
+        username: '',
+        email: '',
+        password: ''
+      }
     }
   },
   methods: {
@@ -64,6 +70,33 @@ export default {
     goTopView () {
       this.$router.go(-1)
       this.$emit('look')
+    },
+    registerUser () {
+      console.log(this.user)
+      // 使用 Axios 进行 HTTP 请求
+      axios.post('http://localhost:8081/register', this.user, {
+        headers: {
+          'Content-Type': 'application/json' // 根据后端要求设置合适的 Content-Type
+        }
+      })
+        .then((res) => {
+          console.log('Response from server:', res.data)
+          // 检查返回的状态码或者响应内容
+          if (res.data === '注册成功') { // 假设 200 是成功的状态码
+            console.log('注册成功', { duration: 2000, type: 'success' })
+            this.$router.push('/lognin/loginpage') // 跳转到登录页面
+              .catch((routerError) => {
+                console.error('Router navigation error:', routerError) // 捕获路由跳转错误
+              })
+          } else {
+            console.log('注册失败，请重试', { duration: 2000, type: 'error' })
+          }
+        })
+        .catch((err) => {
+          console.error('Error during registration:', err)
+          // 处理注册失败的情况，比如显示错误消息等操作
+          console.log('注册失败，请重试', { duration: 2000, type: 'error' })
+        })
     }
   }
 }
