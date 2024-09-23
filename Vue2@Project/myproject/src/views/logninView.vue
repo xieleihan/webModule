@@ -1,7 +1,7 @@
 <template>
     <div class="logninPage">
-        <div v-if="isRouterView" class="title">孔雀外卖</div>
-        <div v-if="isRouterView" class="imgBox">
+        <div @look="isRouterView = true" v-if="isRouterView" class="title">孔雀外卖</div>
+        <div @look="isRouterView = true" v-if="isRouterView" class="imgBox">
             <img src="../assets/images/lognin.svg" alt="" />
             <div class="download">
                 <span @click="openDownloadBox">下载App</span>
@@ -16,9 +16,9 @@
                 </div>
             </div>
         </div>
-        <button v-if="isRouterView" class="btn login" @click="goToLogin">Log In</button>
-        <button v-if="isRouterView" class="btn signup" @click="goToSignup">Sign Up</button>
-        <router-view v-if="!isRouterView"></router-view>
+        <button v-if="isRouterView" class="btn login" @click="goToLogin" @look="isRouterView = true">Log In</button>
+        <button v-if="isRouterView" class="btn signup" @click="goToSignup" @look="isRouterView = true">Sign Up</button>
+        <router-view v-if="!isRouterView" @look="isRouterView = true"></router-view>
     </div>
 </template>
 

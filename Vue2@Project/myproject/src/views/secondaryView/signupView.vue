@@ -1,6 +1,6 @@
 <template>
     <div class="signupPage">
-        <div class="goTop">
+        <div class="goTop" @click="goTopView">
             <img src="../../assets/icon/向左箭头.png" alt="">
         </div>
         <div class="container">
@@ -22,8 +22,19 @@
                         alt="">
                 </div>
             </div>
-            <button>Create Account</button>
-            <p class="desc">Already have an account? Sign in</p>
+            <button class="btn">Create Account</button>
+            <p class="desc">Already have an account? <span class="smalldesc">Sign in</span></p>
+            <p class="other">Or sign up with</p>
+            <div class="socialBox">
+                <div class="google">
+                    <img src="../../assets/icon/google.png" alt="">
+                    <span>Google</span>
+                </div>
+                <div class="facebook">
+                    <img src="../../assets/icon/icon_facebook.png" alt="">
+                    <span>Facebook</span>
+                </div>
+            </div>
         </div>
     </div>
 </template>
@@ -49,6 +60,10 @@ export default {
       } else {
         this.type = 'password'
       }
+    },
+    goTopView () {
+      this.$router.go(-1)
+      this.$emit('look')
     }
   }
 }
@@ -79,7 +94,7 @@ export default {
                 outline: none;
             }
             width: 90%;
-            top: 50%;
+            top: 55%;
             left: 50%;
             font-size: 20px;
             transform: translate(-50%,-50%);
@@ -102,7 +117,7 @@ export default {
                 }
                 input{
                     background-color: #fcfbff;
-                    width: 95%;
+                    width: 100%;
                     height: 50px;
                     border-radius: 20px;
                     padding-left: 10px;
@@ -116,7 +131,7 @@ export default {
                 }
                 input {
                     background-color: #fcfbff;
-                    width: 95%;
+                    width: 100%;
                     height: 50px;
                     border-radius: 20px;
                     padding-left: 10px;
@@ -131,7 +146,7 @@ export default {
                 }
                 input {
                     background-color: #fcfbff;
-                    width: 95%;
+                    width: 100%;
                     height: 50px;
                     border-radius: 20px;
                     padding-left: 10px;
@@ -143,6 +158,78 @@ export default {
                     top: 75%;
                     right: 20px;
                     transform: translate(-50%,-50%);
+                }
+            }
+            .btn{
+                outline: none;
+                border: none;
+                width: 100%;
+                height: 50px;
+                font-size: 20px;
+                background-color: #1ebc5d;
+                color: #ebf6f1;
+                border-radius: 20px;
+            }
+            .desc{
+                text-align: center;
+                font-size: 10px;
+                margin-top: 10px;
+                margin-bottom: 10px;
+                color: #757677;
+                letter-spacing: 3px;
+                .smalldesc{
+                    cursor: pointer;
+                    &:hover{
+                        text-decoration: underline;
+                        color: #1ebc5d;
+                    }
+                }
+            }
+            .other{
+                margin-top: 30px;
+                width: 100%;
+                text-align: center;
+                font-size: 12px;
+            }
+            .socialBox{
+                width: 100%;
+                height: 50px;
+                display: flex;
+                justify-content: space-evenly;
+                align-items: center;
+                .google{
+                    height: 70%;
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    padding: 2px 20px;
+                    background-color: #fcfbff;
+                    border-radius: 20px;
+                    img{
+                        height: 15px;
+                        width: 15px;
+                        margin-right: 5px;
+                    }
+                    span{
+                        font-size: 12px;
+                    }
+                }
+                .facebook{
+                    height: 70%;
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    padding: 2px 20px;
+                    background-color: #fcfbff;
+                    border-radius: 20px;
+                    img{
+                        height: 15px;
+                        width: 15px;
+                        margin-right: 5px;
+                    }
+                    span{
+                        font-size: 12px;
+                    }
                 }
             }
         }
