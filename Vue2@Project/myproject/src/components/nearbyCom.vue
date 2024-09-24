@@ -1,6 +1,7 @@
 <template>
     <div class="box">
-        <div class="item">
+        <!-- 模版（已经测试） -->
+        <!-- <div class="item">
             <div class="left">
                 <img src="https://picsum.photos/300/300?2" alt="">
             </div>
@@ -9,29 +10,56 @@
                 <p class="info">这是info信息</p>
                 <p class="star">☆<span>5</span></p>
             </div>
-        </div>
-        <div class="item">
+        </div> -->
+        <div class="item" v-for="(item,index) in listObj" :key="index">
             <div class="left">
-                <img src="https://picsum.photos/300/300?2" alt="">
+                <img :src="item.pic" alt="">
             </div>
             <div class="right">
-                <p class="title">这是标题</p>
-                <p class="info">这是info信息</p>
-                <p class="star">☆<span>5</span></p>
-            </div>
-        </div>
-        <div class="item">
-            <div class="left">
-                <img src="https://picsum.photos/300/300?2" alt="">
-            </div>
-            <div class="right">
-                <p class="title">这是标题</p>
-                <p class="info">这是info信息</p>
-                <p class="star">☆<span>5</span></p>
+                <p class="title">{{ item.country }}</p>
+                <p class="info">{{ item.info }}</p>
+                <p class="star">☆<span>{{ item.star }}</span></p>
             </div>
         </div>
     </div>
 </template>
+
+<script>
+export default {
+  data () {
+    return {
+      listObj: []
+    }
+  },
+  created () {
+    const vm = this
+    function getJson () {
+      const xhr = new XMLHttpRequest()
+      xhr.open('GET', 'https://fastly.jsdelivr.net/gh/southaki/contentDeliveryNetwork@0.0.11/vueProjectPoint(test)/restaurant.json', true)
+      xhr.send()
+      xhr.onreadystatechange = () => {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+          const res = JSON.parse(xhr.responseText)
+          const length = res.data.length
+          vm.listObj = []
+          const selectedIndices = new Set()
+          for (let i = 0; i < length; i++) {
+            const index = Math.floor(Math.random() * length)
+            if (!selectedIndices.has(index)) {
+              selectedIndices.add(index)
+              if (vm.listObj.length < 3) {
+                vm.listObj.push(res.data[index])
+              }
+            }
+          }
+          console.log(vm.listObj)
+        }
+      }
+    }
+    getJson()
+  }
+}
+</script>
 
 <style lang="less" scoped>
     .box{
@@ -58,6 +86,7 @@
                 height: 70px;
                 aspect-ratio: 1/1;
                 margin-right: 10px;
+                margin-left: 10px;
                 img{
                     width: 100%;
                     height: 100%;
@@ -83,6 +112,9 @@
                     color: #8f8f8f;
                     font-size: 10px;
                     letter-spacing: 2px;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
                 }
                 .star{
                     color: #1ebc5d;

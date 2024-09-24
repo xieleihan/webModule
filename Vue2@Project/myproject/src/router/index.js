@@ -27,6 +27,13 @@ const routes = [
     path: '/home',
     name: 'home',
     component: home,
+    children: [
+      {
+        path: 'homelist',
+        name: 'homelist',
+        component: () => import('../views/secondaryView/homeListView.vue')
+      }
+    ],
     meta: {
       type: 'all'
     }

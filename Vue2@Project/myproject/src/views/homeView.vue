@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <div class="top">
+    <div class="top" v-if="isListOpen">
       <router-link to="/gps">
         <div class="left" @click="hide">
           <img src="../assets/icon/gps.png" alt=""><span class="address">{{ address }}</span>
@@ -11,7 +11,7 @@
         <img src="../assets/icon/购物车.png" alt="">
       </div>
     </div>
-    <div class="container">
+    <div class="container" v-if="isListOpen">
       <div class="banner">
         <div class="bannerLeft">
           <p>The Fastest</p>
@@ -67,6 +67,7 @@
         </div>
       </div>
     </div>
+    <router-view v-if="!isListOpen" @open="isListOpen = true"></router-view>
   </div>
 </template>
 
@@ -80,7 +81,8 @@ export default {
       obj: {},
       categories: ['All', 'Burger', 'Pizza', 'Cake', 'Donut'], // 分类列表
       selectedCategory: 'All', // 默认选择的分类
-      twoCard: []
+      twoCard: [],
+      isListOpen: true
     }
   },
   methods: {
@@ -133,7 +135,12 @@ export default {
       }
     },
     goToLookFoodView (selectedCategory) {
-      console.log('去到查看食物页面', selectedCategory)
+      if (this.$router.path !== '/home/homelist') {
+        console.log('去到查看食物页面', selectedCategory)
+        this.$router.push({ path: '/home/homelist', query: { type: selectedCategory } })
+        this.isListOpen = false
+      }
+      // console.log('去到查看食物页面', selectedCategory)
     }
   },
   created () {

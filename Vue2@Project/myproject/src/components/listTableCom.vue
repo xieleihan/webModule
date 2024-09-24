@@ -14,8 +14,68 @@
                 </div>
             </div>
         </div> -->
+        <div class="item" v-for="(item,index) in listObj" :key="index">
+            <div class="left">
+                <img :src="item.pic" alt="">
+            </div>
+            <div class="right">
+                <p class="title">{{ item.name }}</p>
+                <p class="star">☆<span>{{item.star}}</span><span class="km">距离你的位置</span><span>280m</span></p>
+                <p class="pices">${{item.price}}</p>
+                <div class="plus">
+                    <img src="../assets/icon/plus.png" alt="">
+                </div>
+            </div>
+        </div>
     </div>
 </template>
+
+<script>
+export default {
+  props: {
+    type: { type: String }
+  },
+  created () {
+    // console.log(this.type, '这是从组件传值的')
+    const xhr = new XMLHttpRequest()
+    if (this.type === 'All') {
+      xhr.open('GET', 'https://fastly.jsdelivr.net/gh/southaki/contentDeliveryNetwork@0.0.10/vueProjectPoint(test)/all.json', true)
+      xhr.send()
+      xhr.onreadystatechange = () => {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+          const res = JSON.parse(xhr.responseText)
+          // this.listObj = res.all
+          const length = res.all.length
+          this.listObj = []
+          for (let i = 0; i < length; i++) {
+            this.listObj.push(res.all[i])
+          }
+        //   console.log(this.listObj)
+        }
+      }
+    } else {
+      xhr.open('GET', `https://fastly.jsdelivr.net/gh/southaki/contentDeliveryNetwork@0.0.10/vueProjectPoint(test)/${this.type}.json`, true)
+      xhr.send()
+      xhr.onreadystatechange = () => {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+          const res = JSON.parse(xhr.responseText)
+          console.log(res.data)
+          const length = res.data.length
+          this.listObj = []
+          for (let i = 0; i < length; i++) {
+            this.listObj.push(res.data[i])
+          }
+        }
+      }
+    }
+  },
+  data () {
+    return {
+      listObj: []
+    }
+  }
+}
+</script>
 
 <style lang="less" scoped>
     .listBox{
@@ -24,6 +84,7 @@
         margin-top: 10px;
         overflow-y: scroll;
         scrollbar-width: none;
+        // background-color: #1ebc5d;
         .item{
             position: relative;
             padding: 10px;
