@@ -15,7 +15,7 @@
                 </div>
             </div>
         </div>
-        <button class="btn" @click="goToVeCodeView(index)">Continue</button>
+        <button class="btn" @click="goToVeCodeView(indexOpenOutline)">Continue</button>
     </div>
 </template>
 
@@ -28,9 +28,9 @@ export default {
     }
   },
   methods: {
-    options (index) {
-      this.indexOpenOutline = index
-      if (index === 0) {
+    options (indexOpenOutline) {
+      this.indexOpenOutline = indexOpenOutline
+      if (indexOpenOutline === 0) {
         this.item = 'email'
       } else {
         this.item = 'phone'

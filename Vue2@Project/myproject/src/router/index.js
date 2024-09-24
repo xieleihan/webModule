@@ -85,6 +85,11 @@ const routes = [
         path: 'veCode',
         name: 'veCode',
         component: () => import('../views/secondaryView/getVeCodeView.vue')
+      },
+      {
+        path: 'reset',
+        name: 'reset',
+        component: () => import('../views/secondaryView/resetPasswordView.vue')
       }
     ]
   }
