@@ -28,7 +28,7 @@
                 </div>
             </div>
             <div class="protocol">
-                <input type="checkbox">
+                <input type="checkbox" v-model="allow">
                 <span>请阅读<span class="linesce">《用户许可协议》</span>和我们的<span class="linesce">《隐私政策》</span></span>
             </div>
             <button class="btn">Log in</button>
@@ -53,7 +53,8 @@ export default {
   data () {
     return {
       isLook: false,
-      type: 'password'
+      type: 'password',
+      allow: false
     }
   },
   methods: {

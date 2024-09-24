@@ -33,18 +33,24 @@
       <div class="foodBox">
         <div class="foodTop">
           <span class="foodTopTitle">附近的热门美食</span>
-          <span class="foodTopViewAll">
+          <span class="foodTopViewAll" @click="goToLookFoodView(`${selectedCategory}`)">
             <span>查看全部</span>
             <img src="../assets/icon/向左箭头(1).png" alt="">
           </span>
         </div>
         <div class="foodBottom">
           <!-- 模版 -->
-          <div class="bottomBox">
+          <!-- <div class="bottomBox">
             <img src="https://picsum.photos/300/300?1" alt="">
             <p class="foodInfo">信息</p>
             <p class="star">☆<span>5</span></p>
             <p class="piecs">$10</p>
+          </div> -->
+          <div class="bottomBox" v-for="(item, index) in twoCard" :key="index">
+            <img :src="item.pic" alt="">
+            <p class="foodInfo">{{ item.name }}</p>
+            <p class="star">☆<span>{{ item.star }}</span></p>
+            <p class="piecs">${{ item.price }}</p>
           </div>
         </div>
       </div>
@@ -73,7 +79,8 @@ export default {
       nation: '',
       obj: {},
       categories: ['All', 'Burger', 'Pizza', 'Cake', 'Donut'], // 分类列表
-      selectedCategory: 'All' // 默认选择的分类
+      selectedCategory: 'All', // 默认选择的分类
+      twoCard: []
     }
   },
   methods: {
@@ -83,9 +90,50 @@ export default {
     },
     selectCategory (item) {
       this.selectedCategory = item // 更新选择的分类
-      this.$router.push({
-        path: '/home', query: { type: item }
-      })
+
+      // 判断是否已经在目标路由上
+      const currentRoute = this.$route.fullPath
+      const targetRoute = `/home?type=${item}`
+
+      if (currentRoute !== targetRoute) {
+        this.$router.push({
+          path: '/home',
+          query: { type: item }
+        })
+      }
+
+      // 重置 twoCard 数组
+      this.twoCard = []
+
+      // 创建 XMLHttpRequest
+      const xhr = new XMLHttpRequest()
+      xhr.open('get', 'https://fastly.jsdelivr.net/gh/southaki/contentDeliveryNetwork@0.0.9/vueProjectPoint(test)/all.json', true)
+      xhr.send()
+
+      // 绑定回调函数
+      xhr.onreadystatechange = () => {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+          const res = JSON.parse(xhr.responseText)
+          const length = res.all.length
+          const selectedIndices = new Set() // 用来存储已经选择的随机数
+
+          while (this.twoCard.length < 2 && selectedIndices.size < length) {
+            const randomNum = Math.floor(Math.random() * length)
+
+            // 检查是否已经选择过该随机数
+            if (!selectedIndices.has(randomNum)) {
+              selectedIndices.add(randomNum) // 将选中的随机数存储到 Set 中
+
+              if (res.all[randomNum].type === item || item === 'All') {
+                this.twoCard.push(res.all[randomNum])
+              }
+            }
+          }
+        }
+      }
+    },
+    goToLookFoodView (selectedCategory) {
+      console.log('去到查看食物页面', selectedCategory)
     }
   },
   created () {
@@ -114,7 +162,18 @@ export default {
         if (xhr.readyState === 4 && xhr.status === 200) {
           const res = JSON.parse(xhr.responseText)
           allJson.allJson = res
-          console.log(allJson.allJson)
+          const length = allJson.allJson.all.length
+          const selectedIndices = new Set()
+          for (let i = 0; i < length; i++) {
+            const randomNum = Math.floor(Math.random() * length)
+            if (!selectedIndices.has(randomNum)) {
+              selectedIndices.add(randomNum)
+              if (vm.twoCard.length < 2) {
+                vm.twoCard.push(allJson.allJson.all[randomNum])
+              }
+            }
+          }
+          // console.log(vm.twoCard)
         }
       }
     }
@@ -280,7 +339,7 @@ export default {
             }
             .foodBottom{
               width: 100%;
-              height: 170px;
+              height: 200px;
               display: flex;
               flex-direction: row;
               justify-content: space-between;
@@ -293,7 +352,7 @@ export default {
                 display: flex;
                 flex-direction: column;
                 align-items: center;
-                justify-content: space-around;
+                justify-content: space-evenly;
                 box-shadow: 1px 1px 5px #ccc;
                 img{
                   width: 80px;

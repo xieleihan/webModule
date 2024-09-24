@@ -30,7 +30,7 @@ export default {
     }
   },
   created () {
-    sessionStorage.getItem('isNavBarShow') === 'false' ? this.isNavBarShow = false : this.isNavBarShow = true
+    sessionStorage.getItem('isNavBarShow') === 'false' ? this.isNavBarShow = true : this.isNavBarShow = true
   }
 }
 </script>

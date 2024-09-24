@@ -140,6 +140,7 @@ export default {
                     height: 40%;
                     text-align: center;
                     border-radius: 20px;
+                    font-size: 16px;
                 }
                 .open{
                     color: white;
