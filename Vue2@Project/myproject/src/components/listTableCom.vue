@@ -1,7 +1,7 @@
 <template>
-    <div class="listBox">
-        <!-- 模版（已经测试） -->
-        <!-- <div class="item">
+  <div class="listBox">
+    <!-- 模版（已经测试） -->
+    <!-- <div class="item">
             <div class="left">
                 <img src="https://picsum.photos/300/300?3" alt="">
             </div>
@@ -14,20 +14,21 @@
                 </div>
             </div>
         </div> -->
-        <div class="item" v-for="(item,index) in listObj" :key="index" @click="goToInfo(type, item.name, item.price)">
-            <div class="left">
-                <img :src="item.pic" alt="">
-            </div>
-            <div class="right">
-                <p class="title">{{ item.name }}</p>
-                <p class="star">☆<span>{{item.star}}</span><span class="km">距离你的位置</span><span>280m</span></p>
-                <p class="pices">${{item.price}}</p>
-                <div class="plus">
-                    <img src="../assets/icon/plus.png" alt="">
-                </div>
-            </div>
+    <div class="item" v-for="(item,index) in listObj" :key="index" @click="goToInfo(type, item.name, item.price)">
+      <div class="left">
+        <img :src="item.pic" alt="">
+      </div>
+      <div class="right">
+        <p class="title">{{ item.name }}</p>
+        <p class="star">☆<span>{{item.star}}</span><span class="km">距离你的位置</span><span>280m</span></p>
+        <p class="pices">${{item.price}}</p>
+        <div class="plus">
+          <img src="../assets/icon/plus.png" alt="">
         </div>
+      </div>
     </div>
+    <van-popup v-model="show" closeable round position="bottom" :style="{ height: '70%' }" />
+  </div>
 </template>
 
 <script>
@@ -35,11 +36,7 @@ export default {
   methods: {
     goToInfo (type, name, pices) {
       console.log(type, name, pices)
-      if (sessionStorage.getItem('pleaseOpen') === 'true') {
-        sessionStorage.setItem('pleaseOpen', false)
-      } else {
-        sessionStorage.setItem('pleaseOpen', true)
-      }
+      this.show = true
       // sessionStorage.setItem('pleaseOpen', true)
       // this.$router.push({ path: '/home/homelist/infomore', query: { type, name, pices } })
     }
@@ -83,7 +80,8 @@ export default {
   },
   data () {
     return {
-      listObj: []
+      listObj: [],
+      show: false
     }
   },
   watch: {
