@@ -46,7 +46,7 @@
             <p class="star">☆<span>5</span></p>
             <p class="piecs">$10</p>
           </div> -->
-          <div class="bottomBox" v-for="(item, index) in twoCard" :key="index">
+          <div class="bottomBox" v-for="(item, index) in twoCard" :key="index" @click="goToInfoMore(index)">
             <img :src="item.pic" alt="">
             <p class="foodInfo">{{ item.name }}</p>
             <p class="star">☆<span>{{ item.star }}</span></p>
@@ -67,7 +67,7 @@
         </div>
       </div>
     </div>
-    <router-view v-if="!isListOpen" @open="isListOpen = true"></router-view>
+    <router-view :bool="infomore" v-if="!isListOpen" @open="isListOpen = true"></router-view>
   </div>
 </template>
 
@@ -82,7 +82,8 @@ export default {
       categories: ['All', 'Burger', 'Pizza', 'Cake', 'Donut'], // 分类列表
       selectedCategory: 'All', // 默认选择的分类
       twoCard: [],
-      isListOpen: true
+      isListOpen: true,
+      infomore: true
     }
   },
   methods: {
@@ -135,12 +136,18 @@ export default {
       }
     },
     goToLookFoodView (selectedCategory) {
-      if (this.$router.path !== '/home/homelist') {
-        console.log('去到查看食物页面', selectedCategory)
-        this.$router.push({ path: '/home/homelist', query: { type: selectedCategory } })
-        this.isListOpen = false
-      }
+      this.isListOpen = false
+      this.infomore = true
       // console.log('去到查看食物页面', selectedCategory)
+      this.$router.push({ path: '/home/homelist', query: { type: selectedCategory } })
+      // console.log('去到查看食物页面', selectedCategory)
+    },
+    goToInfoMore (index) {
+      if (this.$router.path !== '/home/homelist/infomore?index=' + index) {
+        this.isListOpen = false
+        this.infomore = false
+        this.$router.push({ path: '/home/homelist/infomore', query: { index: index } })
+      }
     }
   },
   created () {

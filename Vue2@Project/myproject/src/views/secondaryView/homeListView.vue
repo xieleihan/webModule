@@ -1,30 +1,37 @@
 <template>
-    <div class="homeList">
-        <div class="returnBtn" @click="returnBtn">
-            <img src="../../assets/icon/向左箭头.png" alt="">
-        </div>
-        <div class="container">
-            <list-table :type="type"></list-table>
-        </div>
+  <div class="homeList">
+    <div class="returnBtn" @click="returnBtn">
+      <img src="../../assets/icon/向左箭头.png" alt="">
     </div>
+    <div class="container" v-if="infomore">
+      <list-table :type="type" ></list-table>
+    </div>
+    <router-view @infoOpen="infomore = false" v-if="!infomore"></router-view>
+  </div>
 </template>
 
 <script>
 export default {
   methods: {
     returnBtn () {
-      this.$router.push('/home')
       this.$emit('open')
+      this.$router.push('/home')
     }
   },
   created () {
+    // this.$emit('open')
     const { type } = this.$route.query
     this.type = type
+    this.infomore = this.bool
   },
   data () {
     return {
-      type: ''
+      type: '',
+      infomore: true
     }
+  },
+  props: {
+    bool: Boolean
   }
 }
 </script>
@@ -45,6 +52,7 @@ export default {
             justify-content: center;
             align-items: center;
             border-radius: 50%;
+            z-index: 999;
         }
         .container{
             width: 100%;
