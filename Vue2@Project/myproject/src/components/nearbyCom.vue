@@ -52,7 +52,7 @@ export default {
               }
             }
           }
-          console.log(vm.listObj)
+          // console.log(vm.listObj)
         }
       }
     }

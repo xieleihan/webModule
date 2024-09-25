@@ -46,7 +46,7 @@
             <p class="star">☆<span>5</span></p>
             <p class="piecs">$10</p>
           </div> -->
-          <div class="bottomBox" v-for="(item, index) in twoCard" :key="index" @click="goToInfoMore(index)">
+          <div class="bottomBox" v-for="(item, index) in twoCard" :key="index" @click="goToInfoMore(index, item.name, item.price)">
             <img :src="item.pic" alt="">
             <div class="myBottom">
               <p class="foodInfo">{{ item.name }}</p>
@@ -144,11 +144,11 @@ export default {
       this.$router.push({ path: '/home/homelist', query: { type: selectedCategory } })
       // console.log('去到查看食物页面', selectedCategory)
     },
-    goToInfoMore (index) {
+    goToInfoMore (index, name, number) {
       if (this.$router.path !== '/home/homelist/infomore?index=' + index) {
         this.isListOpen = false
         this.infomore = false
-        this.$router.push({ path: '/home/homelist/infomore', query: { index: index, type: this.selectedCategory } })
+        this.$router.push({ path: '/home/homelist/infomore', query: { index: index, type: this.selectedCategory, name: name, picel: number } })
       }
     }
   },

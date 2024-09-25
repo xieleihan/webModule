@@ -8,6 +8,7 @@ import notification from './components/notificationCom.vue'
 import likeTable from './components/likeTableCom.vue'
 import returnBtn from './components/returnBtnCom.vue'
 import share from './components/shareCom.vue'
+import reviews from './components/reviewsCom.vue'
 
 import 'amfe-flexible'
 import './assets/css/color.less'
@@ -24,6 +25,7 @@ Vue.component('my-notification', notification)
 Vue.component('like-table', likeTable)
 Vue.component('return-btn', returnBtn)
 Vue.component('my-share', share)
+Vue.component('my-reviews', reviews)
 
 Vue.use(Toast)
 Vue.use(Icon)
