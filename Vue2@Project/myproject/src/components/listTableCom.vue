@@ -115,7 +115,7 @@ export default {
 <style lang="less" scoped>
     .listBox{
         width: 100%;
-        height: calc(100% - 60px);
+        height: calc(100% - 30px);
         margin-top: 10px;
         overflow-y: scroll;
         scrollbar-width: none;

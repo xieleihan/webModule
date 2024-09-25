@@ -7,11 +7,12 @@ import listtable from './components/listTableCom.vue'
 import notification from './components/notificationCom.vue'
 import likeTable from './components/likeTableCom.vue'
 import returnBtn from './components/returnBtnCom.vue'
+import share from './components/shareCom.vue'
 
 import 'amfe-flexible'
 import './assets/css/color.less'
 
-import { Toast, Icon } from 'vant'
+import { Toast, Icon, Swipe, SwipeItem, Popup } from 'vant'
 import 'vant/lib/index.css'
 
 Vue.config.productionTip = false
@@ -22,9 +23,13 @@ Vue.component('list-table', listtable)
 Vue.component('my-notification', notification)
 Vue.component('like-table', likeTable)
 Vue.component('return-btn', returnBtn)
+Vue.component('my-share', share)
 
 Vue.use(Toast)
 Vue.use(Icon)
+Vue.use(Swipe)
+Vue.use(SwipeItem)
+Vue.use(Popup)
 
 new Vue({
   router,

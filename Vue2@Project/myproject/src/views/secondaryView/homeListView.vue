@@ -46,7 +46,7 @@ export default {
             height: 50px;
             position: absolute;
             top: 20px;
-            left: 0px;
+            left: 15px;
             background-color: #1ebc5d;
             display: flex;
             justify-content: center;
@@ -59,6 +59,7 @@ export default {
             height: calc(100% - 50px);
             position: absolute;
             top: 70px;
+            padding: 0 30px;
         }
     }
 </style>

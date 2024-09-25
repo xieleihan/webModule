@@ -48,9 +48,11 @@
           </div> -->
           <div class="bottomBox" v-for="(item, index) in twoCard" :key="index" @click="goToInfoMore(index)">
             <img :src="item.pic" alt="">
-            <p class="foodInfo">{{ item.name }}</p>
-            <p class="star">☆<span>{{ item.star }}</span></p>
-            <p class="piecs">${{ item.price }}</p>
+            <div class="myBottom">
+              <p class="foodInfo">{{ item.name }}</p>
+              <p class="star">☆<span>{{ item.star }}</span></p>
+              <p class="piecs">${{ item.price }}</p>
+            </div>
           </div>
         </div>
       </div>
@@ -67,7 +69,7 @@
         </div>
       </div>
     </div>
-    <router-view :bool="infomore" v-if="!isListOpen" @open="isListOpen = true"></router-view>
+    <router-view class="view" :bool="infomore" v-if="!isListOpen" @open="isListOpen = true"></router-view>
   </div>
 </template>
 
@@ -146,7 +148,7 @@ export default {
       if (this.$router.path !== '/home/homelist/infomore?index=' + index) {
         this.isListOpen = false
         this.infomore = false
-        this.$router.push({ path: '/home/homelist/infomore', query: { index: index } })
+        this.$router.push({ path: '/home/homelist/infomore', query: { index: index, type: this.selectedCategory } })
       }
     }
   },
@@ -202,12 +204,16 @@ export default {
     .home{
         width: 100%;
         height: calc(100%  - 60px);
-        padding: 0 30px;
+        // padding: 0 30px;
         scrollbar-width: none;
+        .view{
+          width: 100%;
+        }
         .top{
           width: 100%;
           height: 70px;
           display: flex;
+          padding: 0 30px;
           flex-direction: row;
           justify-content: space-between;
           align-items: center;
@@ -250,6 +256,7 @@ export default {
         }
         .container{
           width: 95%;
+          padding: 0 30px;
           height: calc(100% - 70px);
           overflow-y: scroll;
           margin: 0 auto;
@@ -354,7 +361,7 @@ export default {
             }
             .foodBottom{
               width: 100%;
-              height: 200px;
+              height: 180px;
               display: flex;
               flex-direction: row;
               justify-content: space-between;
@@ -367,19 +374,26 @@ export default {
                 display: flex;
                 flex-direction: column;
                 align-items: center;
-                justify-content: space-evenly;
+                justify-content: space-between;
                 box-shadow: 1px 1px 5px #ccc;
+                overflow: hidden;
+                .myBottom{
+                  display: flex;
+                  flex-direction: column;
+                  align-items: center;
+                  height: calc(100% - 80px);
+                  justify-content: space-evenly;
+                  .foodInfo{
+                    font-weight: bold;
+                  }
+                  .star{
+                    font-size: 12px;
+                    color: #1ebc5d;
+                  }
+                }
                 img{
-                  width: 80px;
+                  width: 100%;
                   height: 80px;
-                  border-radius: 20px;
-                }
-                .foodInfo{
-                  font-weight: bold;
-                }
-                .star{
-                  font-size: 12px;
-                  color: #1ebc5d;
                 }
               }
             }

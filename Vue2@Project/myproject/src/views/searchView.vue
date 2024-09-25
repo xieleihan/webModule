@@ -76,8 +76,9 @@ export default {
             transform: translateX(-50%);
         }
         .container{
+            position: relative;
             width: 90%;
-            height: 78%;
+            height: calc(100% - 140px);
             margin: 0 auto;
             // background-color: #1ebc5d;
             .input{
