@@ -7,6 +7,19 @@
     </div>
 </template>
 
+<script>
+export default {
+  beforeRouteEnter (to, from, next) {
+    next((vm) => {
+      if (sessionStorage.getItem('AUTO_TOKEN') !== 'pVZsemWZjpnh9EimXFmRHJoBdvd0qMO6wzjHG0DQixDm2WdNnKEPDvbwZUSOD97kUCb31w0dUv2O7NDY7RDh723blNRTF2etm12X') {
+        vm.$router.push('/lognin/loginpage')
+        vm.$emit('hide-nav-bar')
+      }
+    })
+  }
+}
+</script>
+
 <style lang="less" scoped>
     .like{
         width: 100dvw;

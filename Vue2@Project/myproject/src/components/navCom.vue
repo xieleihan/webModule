@@ -4,7 +4,7 @@
             <ul>
                 <div class="left">
                     <li @click="setActive(0)">
-                        <router-link to="/">
+                        <router-link to="/home">
                             <img :src="activeIndex === 0 ? require('../assets/icon/home (1).png') : require('../assets/icon/home.png')"
                                 alt="">
                         </router-link>

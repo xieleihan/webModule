@@ -4,9 +4,9 @@
             <img @click="returnHomeView" class="leftBtn" src="../assets/icon/向左箭头(1).png" alt="">
         </div>
         <div class="avater">
-            <img src="../assets/avater.png" alt="">
+            <img :src="avater" alt="">
         </div>
-        <p class="username">Hello World!</p>
+        <p class="username">{{ username }}</p>
         <ul class="settingBox">
             <li class="item">
                 <span>个人资料</span>
@@ -31,14 +31,28 @@
 
 <script>
 export default {
+  beforeRouteEnter (to, from, next) {
+    next((vm) => {
+      if (sessionStorage.getItem('AUTO_TOKEN') !== 'pVZsemWZjpnh9EimXFmRHJoBdvd0qMO6wzjHG0DQixDm2WdNnKEPDvbwZUSOD97kUCb31w0dUv2O7NDY7RDh723blNRTF2etm12X') {
+        vm.$router.push('/lognin/loginpage')
+        vm.$emit('hide-nav-bar')
+      }
+    })
+  },
   created () {
     this.$emit('hide-nav-bar')
+    sessionStorage.setItem('avaterImg', 'https://picsum.photos/300/300')
+    this.avater = sessionStorage.getItem('avaterImg')
+    this.username = this.randomname[Math.floor(Math.random() * this.randomname.length)]
   },
   data () {
     return {
       isCheckBox: false,
       themeColor: '#ccc',
-      isOpenNotifily: false
+      isOpenNotifily: false,
+      avater: '',
+      username: '',
+      randomname: ['Hello World!', '你好世界!', 'こんにちは世界!', '안녕하세요 세계!', 'Bonjour le monde!', 'Hallo Welt!', 'Ciao mondo!', 'Hola Mundo!']
     }
   },
   methods: {

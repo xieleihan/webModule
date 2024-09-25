@@ -59,7 +59,7 @@ export default {
       xhr.onreadystatechange = () => {
         if (xhr.readyState === 4 && xhr.status === 200) {
           const res = JSON.parse(xhr.responseText)
-          console.log(res.data)
+          //   console.log(res.data)
           const length = res.data.length
           this.listObj = []
           for (let i = 0; i < length; i++) {
@@ -72,6 +72,41 @@ export default {
   data () {
     return {
       listObj: []
+    }
+  },
+  watch: {
+    type (val) {
+      const xhr = new XMLHttpRequest()
+      if (val === 'All') {
+        xhr.open('GET', 'https://fastly.jsdelivr.net/gh/southaki/contentDeliveryNetwork@0.0.10/vueProjectPoint(test)/all.json', true)
+        xhr.send()
+        xhr.onreadystatechange = () => {
+          if (xhr.readyState === 4 && xhr.status === 200) {
+            const res = JSON.parse(xhr.responseText)
+            // this.listObj = res.all
+            const length = res.all.length
+            this.listObj = []
+            for (let i = 0; i < length; i++) {
+              this.listObj.push(res.all[i])
+            }
+          //   console.log(this.listObj)
+          }
+        }
+      } else {
+        xhr.open('GET', `https://fastly.jsdelivr.net/gh/southaki/contentDeliveryNetwork@0.0.10/vueProjectPoint(test)/${val}.json`, true)
+        xhr.send()
+        xhr.onreadystatechange = () => {
+          if (xhr.readyState === 4 && xhr.status === 200) {
+            const res = JSON.parse(xhr.responseText)
+            //   console.log(res.data)
+            const length = res.data.length
+            this.listObj = []
+            for (let i = 0; i < length; i++) {
+              this.listObj.push(res.data[i])
+            }
+          }
+        }
+      }
     }
   }
 }

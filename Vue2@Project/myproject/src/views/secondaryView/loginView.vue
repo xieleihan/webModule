@@ -8,11 +8,11 @@
             <div class="info">Sign in your account</div>
             <div class="email">
                 <div class="emailTitle">Email</div>
-                <input type="email" placeholder="请输入你的邮箱">
+                <input type="email" placeholder="请输入你的邮箱" v-model="email">
             </div>
             <div class="password">
                 <div class="passwordTitle">Password</div>
-                <input type="password" placeholder="请输入你的密码">
+                <input :type="type" placeholder="请输入你的密码" v-model="password">
                 <div class="lookPassword" @click="settlement">
                     <img :src="isLook === false ? require('../../assets/icon/闭眼.png') : require('../../assets/icon/睁眼.png')"
                         alt="">
@@ -31,7 +31,7 @@
                 <input type="checkbox" v-model="allow">
                 <span>请阅读<span class="linesce">《用户许可协议》</span>和我们的<span class="linesce">《隐私政策》</span></span>
             </div>
-            <button class="btn">Log in</button>
+            <button class="btn" @click="goToHomeView">Log in</button>
             <p class="message">Don't have an account?&nbsp;<span @click="goToSignUpView">Sign up</span></p>
             <p class="other">Or sign in with</p>
             <div class="socialBox">
@@ -49,12 +49,15 @@
 </template>
 
 <script>
+import { Toast } from 'vant'
 export default {
   data () {
     return {
       isLook: false,
       type: 'password',
-      allow: false
+      allow: false,
+      password: '',
+      email: ''
     }
   },
   methods: {
@@ -84,7 +87,31 @@ export default {
       if (this.$route.path !== '/lognin/forgot') {
         this.$router.push('/lognin/forgot')
       }
+    },
+    goToHomeView () {
+      if (this.allow && this.email !== '' && this.password !== '') {
+        if (this.email === sessionStorage.getItem('email') && this.password === sessionStorage.getItem('password')) {
+        // 传递Token: pVZsemWZjpnh9EimXFmRHJoBdvd0qMO6wzjHG0DQixDm2WdNnKEPDvbwZUSOD97kUCb31w0dUv2O7NDY7RDh723blNRTF2etm12X
+          sessionStorage.setItem('AUTO_TOKEN', 'pVZsemWZjpnh9EimXFmRHJoBdvd0qMO6wzjHG0DQixDm2WdNnKEPDvbwZUSOD97kUCb31w0dUv2O7NDY7RDh723blNRTF2etm12X')
+          this.$router.push('/home')
+          sessionStorage.setItem('isNavBarShow', 'false')
+        } else {
+          Toast({
+            message: '邮箱或者密码错误',
+            icon: 'cross'
+          })
+        }
+      } else {
+        Toast({
+          message: '请检查邮箱或者密码是否为空',
+          icon: 'cross'
+        })
+      }
     }
+  },
+  created () {
+    sessionStorage.setItem('email', 'xieleihan@gmail.com')
+    sessionStorage.setItem('password', '123456')
   }
 }
 </script>

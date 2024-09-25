@@ -144,6 +144,7 @@ export default {
     }
   },
   created () {
+    this.$emit('show-nav-bar')
     const vm = this
     function getCity () {
       const xhr = new XMLHttpRequest()

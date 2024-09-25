@@ -9,9 +9,9 @@
                 <div class="searchIcon">
                     <img src="../assets/icon/search (1).png" alt="">
                 </div>
-                <input type="text" placeholder="please your input like food">
+                <input v-model="inputVal" type="text" placeholder="please your input like food">
             </div>
-            <list-table></list-table>
+            <list-table :type="type"></list-table>
         </div>
     </div>
 </template>
@@ -21,7 +21,9 @@ export default {
   data () {
     return {
       isCheckBox: false,
-      themeColor: '#ccc'
+      themeColor: '#ccc',
+      inputVal: '',
+      type: 'All'
     }
   },
   methods: {
@@ -29,6 +31,15 @@ export default {
       this.$router.push('/home')
       this.$emit('show-nav-bar')
       sessionStorage.setItem('activeIndex', 0)
+    }
+  },
+  watch: {
+    inputVal (val) {
+      if (val === 'All' || val === 'Pizza' || val === 'Burger' || val === 'Cake' || val === 'Donut') {
+        this.type = val
+      } else {
+        this.type = 'All'
+      }
     }
   }
 }
