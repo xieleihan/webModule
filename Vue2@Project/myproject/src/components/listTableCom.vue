@@ -35,7 +35,13 @@ export default {
   methods: {
     goToInfo (type, name, pices) {
       console.log(type, name, pices)
-      this.$router.push({ path: '/home/homelist/infomore', query: { type, name, pices } })
+      if (sessionStorage.getItem('pleaseOpen') === 'true') {
+        sessionStorage.setItem('pleaseOpen', false)
+      } else {
+        sessionStorage.setItem('pleaseOpen', true)
+      }
+      // sessionStorage.setItem('pleaseOpen', true)
+      // this.$router.push({ path: '/home/homelist/infomore', query: { type, name, pices } })
     }
   },
   props: {

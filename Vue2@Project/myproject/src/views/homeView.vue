@@ -89,6 +89,18 @@ export default {
     }
   },
   methods: {
+    checkSessionStorage () {
+      const val = sessionStorage.getItem('pleaseOpen')
+      console.log(val, '触发了')
+      if (val !== 'false') {
+        console.log('触发进来了了')
+        this.isListOpen = false
+        this.infomore = false
+      } else {
+        this.isListOpen = true
+        this.infomore = true
+      }
+    },
     hide () {
       // console.log('hide')
       this.$emit('hide-nav-bar')
@@ -195,6 +207,13 @@ export default {
       }
     }
     getAllJson()
+  },
+  mounted () {
+    this.checkSessionStorage()
+    window.addEventListener('storage', this.checkSessionStorage)
+  },
+  beforeDestroy () {
+    window.removeEventListener('storage', this.checkSessionStorage)
   }
 }
 </script>
