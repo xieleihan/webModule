@@ -110,7 +110,7 @@ export default {
     }
   },
   created () {
-    sessionStorage.setItem('email', 'xieleihan@gmail.com')
+    sessionStorage.setItem('email', 'test@test.com')
     sessionStorage.setItem('password', '123456')
   }
 }
