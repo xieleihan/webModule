@@ -43,33 +43,33 @@
                     <ul class="liContainer">
                         <li>
                             <div class="left">
-                                <input type="radio" name="infoRadio">
+                                <input v-model="picel" type="radio" name="infoRadio" value="8">
                                 <span>8S</span>
                             </div>
                             <div class="right">
-                                <span>$10</span>
+                                <span>$8.00</span>
                             </div>
                         </li>
                         <li>
                             <div class="left">
-                                <input type="radio" name="infoRadio">
-                                <span>8S</span>
+                                <input v-model="picel" type="radio" name="infoRadio" value="23.69">
+                                <span>20S</span>
                             </div>
                             <div class="right">
-                                <span>$10</span>
+                                <span>$23.69</span>
                             </div>
                         </li>
                         <li>
                             <div class="left">
-                                <input type="radio" name="infoRadio">
-                                <span>8S</span>
+                                <input v-model="picel" type="radio" name="infoRadio" value="129.99">
+                                <span>30S</span>
                             </div>
                             <div class="right">
-                                <span>$10</span>
+                                <span>$129.99</span>
                             </div>
                         </li>
                     </ul>
-                    <button>Add To Cart</button>
+                    <button @click="addCard">Add To Cart</button>
                 </li>
                 <li>
                     <my-reviews></my-reviews>
@@ -89,6 +89,7 @@
 </template>
 
 <script>
+import { Toast } from 'vant'
 const axios = require('axios')
 export default {
   data () {
@@ -106,6 +107,9 @@ export default {
     },
     updata (index) {
       this.index = index
+    },
+    addCard () {
+      Toast('加入购物车成功啦~')
     }
   },
   created () {
@@ -247,13 +251,18 @@ export default {
                             flex-direction: row;
                             justify-content: space-between;
                             align-items: center;
+                            .left{
+                                display: flex;
+                                flex-direction: row;
+                                justify-content: center;
+                            }
                             input{
                                 appearance: none;
-                                width: 10px;
                                 padding: 2px;
                                 border-radius: 50%;
                                 margin-right: 10px;
-                                height: 10px;
+                                width: 15px;
+                                height: 15px;
                                 border: 1px solid #1ebc5d !important;
                                 background-color: white !important;
                                 position: relative;

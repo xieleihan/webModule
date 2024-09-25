@@ -14,7 +14,7 @@
                 </div>
             </div>
         </div> -->
-        <div class="item" v-for="(item,index) in listObj" :key="index">
+        <div class="item" v-for="(item,index) in listObj" :key="index" @click="goToInfo(type, item.name, item.price)">
             <div class="left">
                 <img :src="item.pic" alt="">
             </div>
@@ -32,6 +32,12 @@
 
 <script>
 export default {
+  methods: {
+    goToInfo (type, name, pices) {
+      console.log(type, name, pices)
+      this.$router.push({ path: '/home/homelist/infomore', query: { type, name, pices } })
+    }
+  },
   props: {
     type: { type: String }
   },
