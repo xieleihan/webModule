@@ -14,7 +14,7 @@
                 </div>
             </div>
         </div> -->
-    <div class="item" v-for="(item,index) in listObj" :key="index" @click="goToInfo(type, item.name, item.price)">
+    <div class="item" v-for="(item,index) in listObj" :key="index" @click="goToInfo(index,type, item.name, item.price)">
       <div class="left">
         <img :src="item.pic" alt="">
       </div>
@@ -27,18 +27,30 @@
         </div>
       </div>
     </div>
-    <van-popup v-model="show" closeable round position="bottom" :style="{ height: '70%' }" />
+    <van-popup class="pop" v-model="show" closeable round position="bottom" :style="{ height: '80%' }">
+      <div class="top">
+        <img :src="`https://picsum.photos/1920/1080?${this.card.index}`" alt="">
+      </div>
+      <div class="title">
+        <div class="name">{{ this.card.name }}</div>
+        <div class="pices">${{ this.card.pices }}</div>
+      </div>
+      <temporary-storage :picel="card.pices" @update="updatePices"></temporary-storage>
+    </van-popup>
   </div>
 </template>
 
 <script>
 export default {
   methods: {
-    goToInfo (type, name, pices) {
-      console.log(type, name, pices)
+    goToInfo (index, type, name, pices) {
+      this.card = { index, type, name, pices }
       this.show = true
       // sessionStorage.setItem('pleaseOpen', true)
       // this.$router.push({ path: '/home/homelist/infomore', query: { type, name, pices } })
+    },
+    updatePices (val) {
+      this.card.pices = val
     }
   },
   props: {
@@ -81,7 +93,8 @@ export default {
   data () {
     return {
       listObj: [],
-      show: false
+      show: false,
+      card: ''
     }
   },
   watch: {
@@ -194,6 +207,30 @@ export default {
                     }
                 }
             }
-        }
+          }
+          .pop{
+            width: 100%;
+            .top{
+              width: 100%;
+              height: 200px;
+              img{
+                width: 100%;
+                height: 100%;
+              }
+            }
+            .title{
+              margin-top: 10px;
+              width: 100%;
+              padding: 0 20px;
+              display: flex;
+              flex-direction: row;
+              align-items: center;
+              justify-content: space-between;
+              .pices{
+                color: #1ebc5d;
+                font-size: 10px;
+              }
+            }
+          }
     }
 </style>

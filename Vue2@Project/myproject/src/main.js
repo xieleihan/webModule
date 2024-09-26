@@ -9,6 +9,7 @@ import likeTable from './components/likeTableCom.vue'
 import returnBtn from './components/returnBtnCom.vue'
 import share from './components/shareCom.vue'
 import reviews from './components/reviewsCom.vue'
+import temporary from './components/temporaryStorageCom.vue'
 
 import 'amfe-flexible'
 import './assets/css/color.less'
@@ -26,6 +27,7 @@ Vue.component('like-table', likeTable)
 Vue.component('return-btn', returnBtn)
 Vue.component('my-share', share)
 Vue.component('my-reviews', reviews)
+Vue.component('temporary-storage', temporary)
 
 Vue.use(Toast)
 Vue.use(Icon)
