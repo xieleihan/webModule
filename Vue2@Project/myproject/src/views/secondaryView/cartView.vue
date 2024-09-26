@@ -95,8 +95,9 @@
                     </div>
                 </div>
             </div>
-            <van-button icon="../../assets/icon/apple.png">
-                提交订单
+            <van-button class="btn"
+                icon="https://github.com/xieleihan/webModule/blob/main/Vue2@Project/myproject/src/assets/icon/apple.png?raw=true">
+                Apple Pay
             </van-button>
         </van-popup>
     </div>
@@ -211,6 +212,16 @@ export default {
         position: relative;
         font-size: 16px;
         font-family: "PingFang SC";
+        .btn{
+            width: 90%;
+            margin: 0 auto;
+            margin-top: 20px;
+            display: block;
+            background-color: #4f4f4f;
+            color: white;
+            font-family: "PingFang SC";
+            font-weight: bold;
+        }
         .popup{
             width: 100%;
             height: 100%;
