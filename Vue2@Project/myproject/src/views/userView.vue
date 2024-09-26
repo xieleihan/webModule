@@ -1,32 +1,41 @@
 <template>
-    <div class="user">
-        <div class="topTitle">用户信息
-            <img @click="returnHomeView" class="leftBtn" src="../assets/icon/向左箭头(1).png" alt="">
-        </div>
-        <div class="avater">
-            <img :src="avater" alt="">
-        </div>
-        <p class="username">{{ username }}</p>
-        <ul class="settingBox">
-            <li class="item">
-                <span>个人资料</span>
-                <img src="../assets/icon/向左箭头(1).png" alt="">
-            </li>
-            <li class="item">
-                <span>订单</span>
-                <img src="../assets/icon/向左箭头(1).png" alt="">
-            </li>
-            <li class="item">
-                <span>通知</span>
-                <input type="checkbox" class="checkbox" @click="setCheck" :style="`backgroundColor:${themeColor}`" v-model="isOpenNotifily">
-            </li>
-            <li class="item">
-                <span>设置</span>
-                <img src="../assets/icon/向左箭头(1).png" alt="">
-            </li>
-        </ul>
-        <button class="logout">登出</button>
+  <div class="user">
+    <div class="topTitle">用户信息
+      <img @click="returnHomeView" class="leftBtn" src="../assets/icon/向左箭头(1).png" alt="">
     </div>
+    <div class="avater">
+      <img :src="avater" alt="">
+    </div>
+    <p class="username">{{ username }}</p>
+    <ul class="settingBox">
+      <li class="item">
+        <span>个人资料</span>
+        <img src="../assets/icon/向左箭头(1).png" alt="">
+      </li>
+      <li class="item" @click="showPopup">
+        <span>订单</span>
+        <img src="../assets/icon/向左箭头(1).png" alt="">
+      </li>
+      <li class="item">
+        <span>通知</span>
+        <input type="checkbox" class="checkbox" @click="setCheck" :style="`backgroundColor:${themeColor}`"
+          v-model="isOpenNotifily">
+      </li>
+      <li class="item">
+        <span>设置</span>
+        <img src="../assets/icon/向左箭头(1).png" alt="">
+      </li>
+    </ul>
+    <button class="logout">登出</button>
+    <van-popup v-model="show" closeable :style="{ height: '100%',width:'100%' }">
+      <van-steps :active="active" class="vantStep">
+        <van-step>买家下单</van-step>
+        <van-step>商家接单</van-step>
+        <van-step>买家提货</van-step>
+        <van-step>交易完成</van-step>
+      </van-steps>
+    </van-popup>
+  </div>
 </template>
 
 <script>
@@ -52,7 +61,9 @@ export default {
       isOpenNotifily: false,
       avater: '',
       username: '',
-      randomname: ['Hello World!', '你好世界!', 'こんにちは世界!', '안녕하세요 세계!', 'Bonjour le monde!', 'Hallo Welt!', 'Ciao mondo!', 'Hola Mundo!']
+      randomname: ['Hello World!', '你好世界!', 'こんにちは世界!', '안녕하세요 세계!', 'Bonjour le monde!', 'Hallo Welt!', 'Ciao mondo!', 'Hola Mundo!'],
+      show: false,
+      active: 1
     }
   },
   methods: {
@@ -94,6 +105,9 @@ export default {
         this.$emit('show-nav-bar')
         sessionStorage.setItem('activeIndex', 3)
       }
+    },
+    showPopup () {
+      this.show = true
     }
   }
 }
@@ -227,6 +241,11 @@ export default {
         color: white;
         text-align: center;
         border-radius: @radius;
+    }
+    .vantStep{
+      width: 90%;
+      margin: 0 auto;
+      margin-top: 50px;
     }
 }
 </style>

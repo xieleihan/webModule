@@ -225,6 +225,7 @@ export default {
               display: flex;
               flex-direction: row;
               align-items: center;
+              font-size: 30px;
               justify-content: space-between;
               .pices{
                 color: #1ebc5d;

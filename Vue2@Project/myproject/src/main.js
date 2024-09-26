@@ -14,7 +14,7 @@ import temporary from './components/temporaryStorageCom.vue'
 import 'amfe-flexible'
 import './assets/css/color.less'
 
-import { Toast, Icon, Swipe, SwipeItem, Popup, Dialog, NoticeBar, SwipeCell, Button, Cell, CellGroup, NumberKeyboard, Field, DatetimePicker, PasswordInput } from 'vant'
+import { Toast, Icon, Swipe, SwipeItem, Popup, Dialog, NoticeBar, SwipeCell, Button, Cell, CellGroup, NumberKeyboard, Field, DatetimePicker, PasswordInput, Step, Steps } from 'vant'
 import 'vant/lib/index.css'
 
 Vue.config.productionTip = false
@@ -44,6 +44,8 @@ Vue.use(NumberKeyboard)
 Vue.use(Field)
 Vue.use(DatetimePicker)
 Vue.use(PasswordInput)
+Vue.use(Step)
+Vue.use(Steps)
 
 new Vue({
   router,

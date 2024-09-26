@@ -98,7 +98,7 @@
                     </div>
                 </div>
             </div>
-            <van-button class="btn"
+            <van-button @click="pal" class="btn"
                 icon="https://github.com/xieleihan/webModule/blob/main/Vue2@Project/myproject/src/assets/images/whiteapple.png?raw=true">
                 Apple Pay
             </van-button>
@@ -213,6 +213,26 @@ export default {
         .catch(() => {
           // on cancel
         })
+    },
+    pal () {
+      Dialog.confirm({
+        title: '支付确认',
+        message: '你确定要支付吗?'
+      })
+        .then(() => {
+          // on confirm
+          Toast.success('支付成功')
+          sessionStorage.removeItem('card')
+          this.loadCard()
+          this.show = false
+        })
+        .catch(() => {
+          // on cancel
+          Toast({
+            message: '支付失败',
+            icon: 'cross'
+          })
+        })
     }
   },
   beforeRouteEnter (to, from, next) {
@@ -255,7 +275,7 @@ export default {
             margin: 0 auto;
             margin-top: 40px;
             display: block;
-            background-color: #4f4f4f;
+            background-color: black;
             color: white;
             font-family: "PingFang SC";
             font-weight: bold;

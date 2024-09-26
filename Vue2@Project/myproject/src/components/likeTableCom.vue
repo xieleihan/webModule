@@ -11,6 +11,16 @@
                 <div class="like" :style="{color: likeColor}" @click="toggleColor">♥</div>
             </div>
         </div> -->
+        <div class="item" v-for="(item,index) in like" :key="index">
+            <div class="left">
+                <img :src="`https://picsum.photos/300/300?${index}`" alt="">
+            </div>
+            <div class="right">
+                <p class="title">{{ item.title }}</p>
+                <p class="picel">${{ item.picel }}</p>
+                <div class="like" :style="{ color: likeColor }" @click="toggleColor">♥</div>
+            </div>
+        </div>
     </div>
 </template>
 
@@ -19,12 +29,32 @@ export default {
   methods: {
     toggleColor () {
       this.likeColor = this.likeColor === 'black' ? '#1ebc5d' : 'black'
+    },
+    onStorageChange (event) {
+      if (event.key === 'like') {
+        this.loadCard()
+      }
+    },
+    loadLike () {
+      const like = sessionStorage.getItem('like')
+      this.like = like ? JSON.parse(like) : []
+      this.like.forEach(item => {
+        item.quantity = item.quantity || 1 // 如果没有数量则设为 1
+      })
     }
   },
   data () {
     return {
-      likeColor: 'black'
+      likeColor: 'black',
+      like: ''
     }
+  },
+  created () {
+    this.loadLike()
+    window.addEventListener('storage', this.onStorageChange)
+  },
+  beforeDestroy () {
+    window.removeEventListener('storage', this.onStorageChange)
   }
 }
 </script>

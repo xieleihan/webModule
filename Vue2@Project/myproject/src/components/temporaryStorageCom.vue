@@ -30,6 +30,7 @@
             </li>
         </ul>
         <button @click="addCard">Add To Cart</button>
+        <button class="btn" @click="addLike">Add like List</button>
     </div>
 </template>
 
@@ -58,6 +59,13 @@ export default {
       const cardArray = card ? JSON.parse(card) : []
       cardArray.push({ title: this.localName, picel: this.localPicel })
       sessionStorage.setItem('card', JSON.stringify(cardArray))
+    },
+    addLike () {
+      Toast('加入收藏夹成功啦~')
+      const like = sessionStorage.getItem('like')
+      const likeArray = like ? JSON.parse(like) : []
+      likeArray.push({ title: this.localName, picel: this.localPicel })
+      sessionStorage.setItem('like', JSON.stringify(likeArray))
     }
   }
 }
@@ -126,5 +134,10 @@ export default {
         margin-top: 30px;
         border-radius: 20px;
         font-size: 16px;
+    }
+    .btn{
+        background-color: white;
+        color: #1ebc5d;
+        border: 1px solid #1ebc5d;
     }
 </style>
