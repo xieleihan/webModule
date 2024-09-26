@@ -5,6 +5,8 @@
         </div>
         <div class="cartTitle">购物车</div>
         <div class="container">
+            <van-notice-bar class="notice" left-icon="volume-o"
+                text="请注意,购买的时候注意支付安全,他人之招,谨防上当受骗.客服不会以订单被取消为由请求你任何信息,110是官方唯一客服电话." />
             <div class="item" v-for="(item, index) in card" :key="index">
                 <div class="left">
                     <img :src="`https://picsum.photos/300/300?${index}`" alt="">
@@ -21,26 +23,96 @@
             </div>
         </div>
         <div class="alipayBox">
-            <div class="clearBox">
+            <div class="clearBox" @click="clear">
                 <img src="../../assets/icon/删除.png" alt="">
                 <p>清空</p>
             </div>
             <div class="sumBox">
                 <div class="smallSum">
                     <p>件数:{{ card.reduce((sum,item) => sum + item.quantity,0) }}</p>
-                    <p>总计: ${{ card.reduce((sum, item) => sum + item.picel * item.quantity, 0) }}</p>
+                    <p>总计: ${{ card.reduce((sum, item) => sum + item.picel * item.quantity, 0).toFixed(2) }}</p>
                 </div>
-                <button>结算</button>
+                <button @click="showPopup">结算</button>
             </div>
         </div>
+        <van-popup class="popup" v-model="show" round closeable position="bottom" :style="{ height: '90%' }">
+            <div class="pay">
+                <img src="../../assets/icon/apple.png" alt="">
+                <span>Pay</span>
+            </div>
+            <div class="addressBox">
+                <div class="addressTitle">
+                    Shipping To
+                </div>
+                <ul class="addressContainer">
+                    <li class="addressItem">
+                        <div class="left">
+                            <input type="radio" name="address" value="home">
+                        </div>
+                        <div class="text">
+                            <div class="title">Home</div>
+                            <div class="number">+86-166-0768-0000</div>
+                            <div class="address">广东省广州市白云区</div>
+                        </div>
+                    </li>
+                    <li class="addressItem">
+                        <div class="left">
+                            <input type="radio" name="address" value="office">
+                        </div>
+                        <div class="text">
+                            <div class="title">Office</div>
+                            <div class="number">+852-9999-1100</div>
+                            <div class="address">北角区新都市大厦B座,香港</div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="paypalBox">
+                <div class="typeBox">
+                    <div class="left">
+                        <input v-model="payType" type="radio" name="paypal" value="credit"><label>信用卡或借记卡</label>
+                    </div>
+                    <div class="right">
+                        <input v-model="payType" type="radio" name="paypal" value="paypal"><label>PayPal</label>
+                    </div>
+                </div>
+                <div class="inputcreditBox" v-if="payType === 'credit'">
+                    <input class="cardNumber" type="text" maxlength="18" placeholder="请输入卡号" v-model="value" />
+                    <div class="dateAndPassword">
+                        <div class="dateBox">
+                            <input class="date" type="text" maxlength="2" placeholder="月">/
+                            <input class="date" type="text" maxlength="2" placeholder="年">
+                        </div>
+                        <div class="passwordBox">
+                            CVV:
+                            <div class="inputPassword">
+                                <van-password-input :value="passwordValue" :length="3" :focused="showKeyboard"
+                                    @focus="showKeyboard = true" />
+                                <van-number-keyboard v-model="passwordValue" :show="showKeyboard" random-key-order
+                                    @blur="showKeyboard = false" @input="onInput" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <van-button icon="../../assets/icon/apple.png">
+                提交订单
+            </van-button>
+        </van-popup>
     </div>
 </template>
 
 <script>
+import { Dialog, Toast } from 'vant'
 export default {
   data () {
     return {
-      card: ''
+      card: '',
+      show: false,
+      payType: 'credit',
+      value: '', // 卡号,
+      showKeyboard: false,
+      passwordValue: '' // 密码
     }
   },
   created () {
@@ -53,6 +125,12 @@ export default {
     window.removeEventListener('storage', this.onStorageChange)
   },
   methods: {
+    onInput (value) {
+      Toast(value)
+    },
+    showPopup () {
+      this.show = true
+    },
     goTopView () {
       this.$emit('show-nav-bar')
       this.loadCard()
@@ -86,6 +164,20 @@ export default {
     },
     updateCard () {
       sessionStorage.setItem('card', JSON.stringify(this.card))
+    },
+    clear () {
+      Dialog.confirm({
+        title: '清空购物车',
+        message: '你确定要清空购物车吗,清空后数据就无法恢复了'
+      })
+        .then(() => {
+          // on confirm
+          sessionStorage.removeItem('card')
+          this.loadCard()
+        })
+        .catch(() => {
+          // on cancel
+        })
     }
   },
   beforeRouteEnter (to, from, next) {
@@ -105,11 +197,171 @@ export default {
 </script>
 
 <style lang="less" scoped>
+    .custom-field {
+        background-color: #fcfbff;
+        text-align: center;
+    }
+
+    ::v-deep .custom-field .van-field__control {
+        text-align: center;
+    }
     .cartView{
         width: 100dvw;
         height: 100dvh;
         position: relative;
         font-size: 16px;
+        font-family: "PingFang SC";
+        .popup{
+            width: 100%;
+            height: 100%;
+            .pay{
+                position: absolute;
+                top: 10px;
+                left: 15px;
+                display: flex;
+                align-items: center;
+                img{
+                    width: 25px;
+                    height: 25px;
+                    margin-right: 5px;
+                }
+                span{
+                    font-family: "PingFang SC";
+                    font-weight: bold;
+                    font-size: 20px;
+                }
+            }
+            .addressBox{
+                width: 90%;
+                margin: 0 auto;
+                margin-top: 50px;
+                border-radius: 20px;
+                background-color: #fcfbff;
+                padding: 10px;
+                margin-bottom: 10px;
+                font-family: "PingFang SC";
+                .addressTitle{
+                    width: 100%;
+                    margin-bottom: 10px;
+                    font-size: 24px;
+                    font-weight: bold;
+                    font-family: "PingFang SC";
+                }
+                .addressContainer{
+                    width: 100%;
+                    li{
+                        width: 95%;
+                        height: 80px;
+                        margin: 0 auto;
+                        display: flex;
+                        flex-direction: row;
+                        &:nth-child(1){
+                            border-bottom: 1px solid #ccc;
+                        }
+                        input{
+                            margin-right: 10px;
+                            margin-top: 10px;
+                        }
+                        .text{
+                            height: 100%;
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: space-evenly;
+                            font-family: "PingFang SC";
+                            .title{
+                                font-size: 20px;
+                                font-family: "PingFang SC";
+                                font-weight: bold;
+                            }
+                            .number{
+                                font-family: "PingFang SC";
+                                font-weight: bold;
+                            }
+                            .address{
+                                font-family: "PingFang SC";
+                                font-weight: bold;
+                            }
+                        }
+                    }
+                }
+            }
+            .paypalBox{
+                width: 90%;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                margin: 0 auto;
+                margin-top: 10px;
+                border-radius: 20px;
+                background-color: #fcfbff;
+                .typeBox{
+                    width: 100%;
+                    display: flex;
+                    height: 35px;
+                    flex-direction: row;
+                    justify-content: space-evenly;
+                    align-items: center;
+                    padding: 10px 0;
+                    font-family: "PingFang SC";
+                    input{
+                        margin-right: 10px;
+                    }
+                    label{
+                        font-family: "PingFang SC";
+                        font-weight: bold;
+                    }
+                }
+                .inputcreditBox{
+                    width: 100%;
+                    .cardNumber{
+                        width: 100%;
+                        height: 50px;
+                        border: none;
+                        outline: none;
+                        text-align: center;
+                        border-bottom: 1px solid #ccc;
+                        background-color: #fcfbff;
+                    }
+                    .dateAndPassword{
+                        width: 100%;
+                        height: 50px;
+                        background-color: #fcfbff;
+                        display: flex;
+                        flex-direction: row;
+                        border-radius: 0 0 20px 20px;
+                        .dateBox,.passwordBox{
+                            width: 50%;
+                            height: 100%;
+                        }
+                        .dateBox{
+                            display: flex;
+                            flex-direction: row;
+                            align-items: center;
+                            border-right: 1px solid #ccc;
+                            .date{
+                                width: 45%;
+                                height: 50px;
+                                border: none;
+                                outline: none;
+                                text-align: center;
+                                background-color: #fcfbff;
+                            }
+                        }
+                        .passwordBox{
+                            display: flex;
+                            flex-direction: row;
+                            align-items: center;
+                            justify-content: space-evenly;
+                            .inputPassword{
+                                width: 70%;
+                                height: 100%;
+                            }
+                        }
+                    }
+                }
+            }
+        }
         .cartTitle{
             position: absolute;
             top: 25px;
@@ -130,6 +382,9 @@ export default {
             border-radius: 50%;
         }
         .container{
+            .notice{
+                margin-bottom: 10px;
+            }
             width: 90%;
             height: calc(100% - 170px);
             overflow-y: scroll;
