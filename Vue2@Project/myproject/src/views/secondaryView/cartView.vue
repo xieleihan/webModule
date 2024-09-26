@@ -77,7 +77,10 @@
                     </div>
                 </div>
                 <div class="inputcreditBox" v-if="payType === 'credit'">
-                    <input class="cardNumber" type="text" maxlength="18" placeholder="请输入卡号" v-model="value" />
+                    <div class="cardBox">
+                        <input class="cardNumber" type="text" maxlength="18" placeholder="请输入卡号" v-model="value" />
+                        <img :src="pic" alt="">
+                    </div>
                     <div class="dateAndPassword">
                         <div class="dateBox">
                             <input class="date" type="text" maxlength="2" placeholder="月">/
@@ -96,9 +99,13 @@
                 </div>
             </div>
             <van-button class="btn"
-                icon="https://github.com/xieleihan/webModule/blob/main/Vue2@Project/myproject/src/assets/icon/apple.png?raw=true">
+                icon="https://github.com/xieleihan/webModule/blob/main/Vue2@Project/myproject/src/assets/images/whiteapple.png?raw=true">
                 Apple Pay
             </van-button>
+            <div class="safeInfo">
+                <p>阁下的支付通过香港金融管理局监管</p>
+                <p>所有交易均受安全加密处理</p>
+            </div>
         </van-popup>
     </div>
 </template>
@@ -106,6 +113,32 @@
 <script>
 import { Dialog, Toast } from 'vant'
 export default {
+  watch: {
+    value (val) {
+      if (val.length > 2) {
+        const temp = val.substring(0, 2)
+        if (temp === '62') {
+          this.pic = require('@/assets/images/银联.png')
+        } else if (temp === '52') {
+          this.pic = require('@/assets/images/mastercard.png')
+        } else if (temp === '41') {
+          this.pic = require('@/assets/images/Visa.png')
+        } else if (temp === '31') {
+          this.pic = require('@/assets/images/jcb.png')
+        } else if (temp === '37') {
+          this.pic = require('@/assets/images/americanexpress.png')
+        } else if (temp === '35') {
+          this.pic = require('@/assets/images/diners-club.png')
+        } else {
+          this.pic = require('@/assets/images/Cross.png')
+          Toast('卡号不正确')
+        }
+      }
+    },
+    '$route' () {
+      this.loadCard()
+    }
+  },
   data () {
     return {
       card: '',
@@ -113,7 +146,8 @@ export default {
       payType: 'credit',
       value: '', // 卡号,
       showKeyboard: false,
-      passwordValue: '' // 密码
+      passwordValue: '', // 密码
+      pic: require('@/assets/images/Cross.png')
     }
   },
   created () {
@@ -188,11 +222,6 @@ export default {
         vm.$emit('hide-nav-bar')
       }
     })
-  },
-  watch: {
-    '$route' () {
-      this.loadCard()
-    }
   }
 }
 </script>
@@ -212,15 +241,25 @@ export default {
         position: relative;
         font-size: 16px;
         font-family: "PingFang SC";
+        .safeInfo{
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            width: 90%;
+            text-align: center;
+            transform: translateX(-50%);
+            color: #8c8c8c;
+        }
         .btn{
             width: 90%;
             margin: 0 auto;
-            margin-top: 20px;
+            margin-top: 40px;
             display: block;
             background-color: #4f4f4f;
             color: white;
             font-family: "PingFang SC";
             font-weight: bold;
+            border-radius: 20px;
         }
         .popup{
             width: 100%;
@@ -325,14 +364,27 @@ export default {
                 }
                 .inputcreditBox{
                     width: 100%;
-                    .cardNumber{
+                    .cardBox{
                         width: 100%;
                         height: 50px;
-                        border: none;
-                        outline: none;
-                        text-align: center;
-                        border-bottom: 1px solid #ccc;
-                        background-color: #fcfbff;
+                        position: relative;
+                        .cardNumber{
+                            width: 100%;
+                            height: 50px;
+                            border: none;
+                            outline: none;
+                            text-align: center;
+                            border-bottom: 1px solid #ccc;
+                            background-color: #fcfbff;
+                        }
+                        img{
+                            position: absolute;
+                            top: 50%;
+                            right: 10px;
+                            width: 20px;
+                            height: 20px;
+                            transform: translateY(-50%);
+                        }
                     }
                     .dateAndPassword{
                         width: 100%;
