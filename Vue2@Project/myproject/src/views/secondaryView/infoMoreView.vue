@@ -110,6 +110,10 @@ export default {
     },
     addCard () {
       Toast('加入购物车成功啦~')
+      const card = sessionStorage.getItem('card')
+      const cardArray = card ? JSON.parse(card) : []
+      cardArray.push({ title: this.title, picel: this.picel })
+      sessionStorage.setItem('card', JSON.stringify(cardArray))
     }
   },
   created () {

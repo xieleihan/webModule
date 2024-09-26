@@ -37,11 +37,13 @@
 import { Toast } from 'vant'
 export default {
   props: {
-    picel: Number
+    picel: [String, Number],
+    name: String
   },
   data () {
     return {
-      localPicel: this.picel
+      localPicel: this.picel,
+      localName: this.name
     }
   },
   watch: {
@@ -52,6 +54,10 @@ export default {
   methods: {
     addCard () {
       Toast('加入购物车成功啦~')
+      const card = sessionStorage.getItem('card')
+      const cardArray = card ? JSON.parse(card) : []
+      cardArray.push({ title: this.localName, picel: this.localPicel })
+      sessionStorage.setItem('card', JSON.stringify(cardArray))
     }
   }
 }

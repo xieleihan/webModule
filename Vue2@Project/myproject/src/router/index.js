@@ -71,6 +71,11 @@ const routes = [
     component: () => import('../views/secondaryView/gpsView.vue')
   },
   {
+    path: '/cart',
+    name: 'cart',
+    component: () => import('../views/secondaryView/cartView.vue')
+  },
+  {
     path: '*',
     name: 'notFound',
     component: () => import('../views/error404View.vue')

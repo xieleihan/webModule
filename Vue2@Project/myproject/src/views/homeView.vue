@@ -6,8 +6,8 @@
           <img src="../assets/icon/gps.png" alt=""><span class="address">{{ address }}</span>
         </div>
       </router-link>
-      <div class="right">
-        <div class="point"></div>
+      <div class="right" @click="goToCart">
+        <div class="point" v-if="many"></div>
         <img src="../assets/icon/购物车.png" alt="">
       </div>
     </div>
@@ -46,7 +46,8 @@
             <p class="star">☆<span>5</span></p>
             <p class="piecs">$10</p>
           </div> -->
-          <div class="bottomBox" v-for="(item, index) in twoCard" :key="index" @click="goToInfoMore(index, item.name, item.price)">
+          <div class="bottomBox" v-for="(item, index) in twoCard" :key="index"
+            @click="goToInfoMore(index, item.name, item.price)">
             <img :src="item.pic" alt="">
             <div class="myBottom">
               <p class="foodInfo">{{ item.name }}</p>
@@ -59,6 +60,18 @@
       <div class="nearby">
         <div class="nearbyTop">
           <span class="nearbyTopTitle">附近的餐厅</span>
+          <span class="nearbyTopViewAll">
+            <span>查看全部</span>
+            <img src="../assets/icon/向左箭头(1).png" alt="">
+          </span>
+        </div>
+        <div class="nearbyBottom">
+          <my-nearby></my-nearby>
+        </div>
+      </div>
+      <div class="nearby">
+        <div class="nearbyTop">
+          <span class="nearbyTopTitle">附近的地点</span>
           <span class="nearbyTopViewAll">
             <span>查看全部</span>
             <img src="../assets/icon/向左箭头(1).png" alt="">
@@ -85,10 +98,16 @@ export default {
       selectedCategory: 'All', // 默认选择的分类
       twoCard: [],
       isListOpen: true,
-      infomore: true
+      infomore: true,
+      many: true
     }
   },
   methods: {
+    goToCart () {
+      this.$emit('hide-nav-bar')
+      // this.$emit('load-card')
+      this.$router.push('/cart')
+    },
     hide () {
       // console.log('hide')
       this.$emit('hide-nav-bar')
@@ -153,6 +172,11 @@ export default {
     }
   },
   created () {
+    if (sessionStorage.getItem('card')) {
+      this.many = true
+    } else {
+      this.many = false
+    }
     this.$emit('show-nav-bar')
     const vm = this
     function getCity () {

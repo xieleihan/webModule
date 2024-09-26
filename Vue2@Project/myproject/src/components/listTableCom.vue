@@ -35,7 +35,7 @@
         <div class="name">{{ this.card.name }}</div>
         <div class="pices">${{ this.card.pices }}</div>
       </div>
-      <temporary-storage :picel="card.pices" @update="updatePices"></temporary-storage>
+      <temporary-storage :name="this.card.name" :picel="card.pices" @update="updatePices"></temporary-storage>
     </van-popup>
   </div>
 </template>
