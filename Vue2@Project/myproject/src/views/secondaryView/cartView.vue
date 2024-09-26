@@ -20,7 +20,19 @@
                 </div>
             </div>
         </div>
-        <div class="alipayBox"></div>
+        <div class="alipayBox">
+            <div class="clearBox">
+                <img src="../../assets/icon/删除.png" alt="">
+                <p>清空</p>
+            </div>
+            <div class="sumBox">
+                <div class="smallSum">
+                    <p>件数:{{ card.reduce((sum,item) => sum + item.quantity,0) }}</p>
+                    <p>总计: ${{ card.reduce((sum, item) => sum + item.picel * item.quantity, 0) }}</p>
+                </div>
+                <button>结算</button>
+            </div>
+        </div>
     </div>
 </template>
 
@@ -192,6 +204,32 @@ export default {
                         background-color: white;
                         color: #4f4f4f;
                     }
+                }
+            }
+        }
+        .alipayBox{
+            width: 100%;
+            height: 70px;
+            position: fixed;
+            bottom: 0;
+            background-color: #fcfbff;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-evenly;
+            .sumBox{
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                button{
+                    border: none;
+                    outline: none;
+                    background-color: #1ebc5d;
+                    color: white;
+                    width: 100px;
+                    height: 40px;
+                    border-radius: 20px;
+                    margin-left: 20px;
                 }
             }
         }
