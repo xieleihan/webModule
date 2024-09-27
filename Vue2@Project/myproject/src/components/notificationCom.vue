@@ -1,7 +1,7 @@
 <template>
     <div class="notificationCom">
         <!-- 模版（已经测试） -->
-        <!-- <p class="time">Today</p>
+        <p class="time">Today</p>
         <ul class="box">
             <li>
                 <div class="img">
@@ -13,7 +13,7 @@
                     <p class="info">这是一个信息这是一个信息,描述这是一个信息,描述这是一个信息,描述,描述</p>
                 </div>
             </li>
-        </ul> -->
+        </ul>
     </div>
 </template>
 

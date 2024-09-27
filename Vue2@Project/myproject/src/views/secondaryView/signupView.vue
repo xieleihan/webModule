@@ -85,7 +85,7 @@ export default {
         return false
       }
       // 使用 Axios 进行 HTTP 请求
-      axios.post('http://localhost:8081/register', this.user, {
+      axios.post('http://localhost:6666/register', this.user, {
         headers: {
           'Content-Type': 'application/json' // 根据后端要求设置合适的 Content-Type
         }

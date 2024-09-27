@@ -28,12 +28,31 @@
     </ul>
     <button class="logout">登出</button>
     <van-popup v-model="show" closeable :style="{ height: '100%',width:'100%' }">
+      <div class="popupTitle">订单详情</div>
       <van-steps :active="active" class="vantStep">
         <van-step>买家下单</van-step>
         <van-step>商家接单</van-step>
         <van-step>买家提货</van-step>
         <van-step>交易完成</van-step>
       </van-steps>
+      <div class="popupContainer">
+        <div class="item" v-for="(item, index) in successObj" :key="index">
+          <div class="popupNumber">
+            <span>订单编号:</span>
+            <span>{{ item.number }}</span>
+          </div>
+          <div class="popupInfo">
+            <div class="imgBox">
+              <!-- 动态图片根据 index 渲染不同的图片 -->
+              <img :src="`https://picsum.photos/300/300?${index}`" alt="商品图片">
+            </div>
+            <div class="popupSuccessTitle"><span>{{ item.card[0].title }}</span></div>
+            <div class="quantity">{{ item.quantity || '未知件数' }}</div>
+            <div class="picel">{{ item.total || '未知金额' }}</div>
+            <div class="time">{{ item.time || '未知时间' }}</div>
+          </div>
+        </div>
+      </div>
     </van-popup>
   </div>
 </template>
@@ -53,6 +72,8 @@ export default {
     sessionStorage.setItem('avaterImg', 'https://picsum.photos/300/300')
     this.avater = sessionStorage.getItem('avaterImg')
     this.username = this.randomname[Math.floor(Math.random() * this.randomname.length)]
+    this.successObj = JSON.parse(sessionStorage.getItem('orders'))
+    // console.log(this.successObj)
   },
   data () {
     return {
@@ -63,7 +84,8 @@ export default {
       username: '',
       randomname: ['Hello World!', '你好世界!', 'こんにちは世界!', '안녕하세요 세계!', 'Bonjour le monde!', 'Hallo Welt!', 'Ciao mondo!', 'Hola Mundo!'],
       show: false,
-      active: 1
+      active: 1,
+      successObj: ''
     }
   },
   methods: {
@@ -242,10 +264,95 @@ export default {
         text-align: center;
         border-radius: @radius;
     }
+    .popupTitle{
+      width: 100%;
+      text-align: center;
+      height: 50px;
+      line-height: 50px;
+      margin-top: 20px;
+    }
     .vantStep{
       width: 90%;
       margin: 0 auto;
-      margin-top: 50px;
+      margin-top: 30px;
+    }
+    .popupContainer{
+      width: 90%;
+      margin: 0 auto;
+      margin-top: 10px;
+      .item{
+        width: 100%;
+        height: 100px;
+        position: relative;
+        border-radius: 20px;
+        background-color: #fcfbff;
+        overflow: hidden;
+        margin-bottom: 10px;
+        .popupNumber{
+          width: 100%;
+          height: 20px;
+          font-size: 14px;
+          color: #ccc;
+          span{
+            margin-left: 10px;
+          }
+        }
+        .popupInfo{
+          width: 100%;
+          height: calc(100% - 20px);
+          padding: 10px;
+          position: relative;
+          .imgBox{
+            width: 60px;
+            overflow: hidden;
+            height: 30px;
+            vertical-align: middle;
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            img{
+              min-width: 28px;
+              min-height: 28px;
+              width: 28px;
+              height: 28px;
+            }
+          }
+          .popupSuccessTitle{
+            font-size: 16px;
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            width: 60%;
+            display: flex;
+          }
+          .quantity{
+            font-size: 14px;
+            color: #ccc;
+            position: absolute;
+            bottom: 40px;
+            right: 10px;
+          }
+          .picel{
+            font-size: 20px;
+            color: black;
+            font-family: "PingFang SC";
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            font-weight: bold;
+          }
+          .time{
+            position: absolute;
+            top: 0;
+            right: 5px;
+            font-size: 10px;
+            color: #ccc;
+          }
+        }
+      }
     }
 }
 </style>

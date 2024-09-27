@@ -222,6 +222,28 @@ export default {
         .then(() => {
           // on confirm
           Toast.success('支付成功')
+          // 从 sessionStorage 中获取现有的订单数组
+          const orders = JSON.parse(sessionStorage.getItem('orders')) || []
+
+          // 创建新的订单对象
+          const newOrder = {
+            success: true,
+            time: '2021-09-01',
+            card: this.card,
+            total: this.card.reduce((sum, item) => sum + item.picel * item.quantity, 0).toFixed(2),
+            address: '广东省广州市白云区',
+            phone: '+86-166-0768-0000',
+            name: 'Home',
+            payType: 'credit',
+            number: Math.floor(Math.random() * 10000000000000000) + 10000000000000000,
+            quantity: this.card.reduce((sum, item) => sum + item.quantity, 0)
+          }
+
+          // 将新订单添加到订单数组中
+          orders.push(newOrder)
+
+          // 将更新后的订单数组存储回 sessionStorage
+          sessionStorage.setItem('orders', JSON.stringify(orders))
           sessionStorage.removeItem('card')
           this.loadCard()
           this.show = false
