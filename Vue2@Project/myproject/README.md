@@ -1,24 +1,32 @@
-# myproject
+# 孔雀外卖
 
-## Project setup
-```
-npm install
-```
+> 一个基于`Vue2`+`Vue Router`+`Axios`+`Vant2`的前端项目
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+作者:@SouthAki
 
-### Compiles and minifies for production
-```
-npm run build
-```
+## 项目技术栈
 
-### Lints and fixes files
-```
-npm run lint
-```
+1. 前端
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+  <div align="left">
+      <img src="https://fastly.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg" height="45" alt="Vue logo"  />
+      <img width="6" />
+      <img src="https://fastly.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" height="45" alt="css3 logo"  />
+      <img width="6" />
+      <img src="https://fastly.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" height="45" alt="JavaScript logo"  />
+  </div>
+
+2. 后端
+  <div align="left">
+      <img src="https://fastly.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" height="45" alt="java logo"  />
+      <img width="6" />
+      <img src="https://fastly.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg" height="45" alt="springboot logo"  />
+  </div>
+
+3. 数据库
+  <div align="left">
+      <img src="https://fastly.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" height="45" alt="mysql logo"  />
+  </div>
+
+
+
