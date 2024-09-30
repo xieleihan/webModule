@@ -2,7 +2,7 @@
     <div class="textContainer">
         <div class="textContainerTitle">{{ textObj.story.title }}</div>
         <div class="textdesc">
-            <div class="textAthor">作者/坚果叔叔</div>
+            <div class="textAthor">作者/{{ author }}</div>
             <div class="linkToZhihu">进入「懂乎」查看原文</div>
         </div>
         <div class="html" v-html="body"></div>
@@ -19,7 +19,8 @@ export default {
     },
     data() {
         return {
-            body: ''
+            body: '',
+            author: ''
         };
     },
     created() {
@@ -33,8 +34,14 @@ export default {
             // 正则匹配获取 <div class="content"> 标签内的内容
             const regex = /<div class="content">([\s\S]*?)<\/div>/i;
             const match = this.textObj.story.body.match(regex);
-
+            const authorregex = /<span class="author">([^<]+)<\/span>/i;
+            const authormatch = this.textObj.story.body.match(authorregex);
             // 如果匹配到了内容，则将其赋值给 body
+            if (authormatch && authormatch[1]) {
+                const result = authormatch[1].replace(/，$/, '');
+                this.author = result;
+            }
+
             if (match && match[1]) {
                 this.body = match[1];
                 const body = this.body;
@@ -52,6 +59,14 @@ export default {
 </script>
 
 <style lang="less">
+.url{
+    display: block;
+    overflow: hidden;
+}
+p{
+    word-break: break-word;
+}
+
     .textContainer{
         width: 90%;
         margin: 0 auto;

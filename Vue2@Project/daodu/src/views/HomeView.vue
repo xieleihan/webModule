@@ -2,7 +2,7 @@
   <div class="main">
     <van-pull-refresh v-model="isLoading" @refresh="onRefresh" class="loading" success-text="刷新成功">
       <van-swipe class="my-swipe" :autoplay="4000" @change="onChange" ref="mySwipe">
-        <van-swipe-item v-for="(item, index) in lastest" :key="index">
+        <van-swipe-item v-for="(item, index) in lastest" :key="index" @click="getTextId(index)">
           <div class="texttitle">{{ item.title }}</div>
           <div class="author">作者/{{ item.hint }}</div>
           <img :src="`${item.images[0]}`" alt="">
@@ -24,7 +24,7 @@
 
 <script>
 import { Toast } from 'vant';
-import { latest } from '../api/index';
+import { latest, detail } from '../api/index';
 import listCom from '../components/listCom.vue';
 export default {
   components: {
@@ -35,6 +35,7 @@ export default {
       isLoading: false,
       lastest: '',
       current: 0,
+      textId: ''
     };
   },
   methods: {
@@ -59,10 +60,26 @@ export default {
     },
     getText(val) {
       this.$emit('getText', val)
+      // console.log(val)
       this.$router.push('/home/read')
     },
     changeView() {
       this.$emit('changeView')
+    },
+    async getTextId(index) {
+      // const vm = this
+      this.textId = this.lastest[index].id
+      // console.log(this.textId)
+
+      await detail(this.textId)
+        .then(content => {
+          // console.log(content)
+          this.$emit('getText', content)
+          this.$emit('changeView')
+          this.$router.push('/home/read')
+        }
+        )
+
     }
   },
   async created(){
@@ -71,7 +88,8 @@ export default {
       // console.log(content)
       this.lastest = content.stories
     })
-  }
+  },
+  
   }
 </script>
 

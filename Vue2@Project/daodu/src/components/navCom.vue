@@ -15,6 +15,7 @@
 </template>
 
 <script>
+import axios from "axios";
 export default {
     data() {
         return {
@@ -41,27 +42,52 @@ export default {
         if (this.hour >= 10 && this.hour < 14) {
             setTimeout(() => {
                 this.title = '中午好'
+                setTimeout(()=>{
+                    this.getOneWord()
+                },10000)
             }, deply)
         }
         if (this.hour >= 14 && this.hour < 18) {
             setTimeout(() => {
                 this.title = '下午好'
+                setTimeout(()=>{
+                    this.getOneWord()
+                },10000)
             }, deply)
         }
         if (this.hour >= 18 && this.hour < 24) {
             setTimeout(() => {
                 this.title = '晚上好'
+                setTimeout(()=>{
+                    this.getOneWord()
+                },10000)
             }, deply)
         }
-        if (this.hour >= 24 && this.hour < 6) {
+        if (this.hour >= 0 && this.hour < 6) {
             setTimeout(() => {
                 this.title = '早点休息'
+                setTimeout(()=>{
+                    this.getOneWord()
+                },10000)
             }, deply)
         }
         if(this.hour>=6&&this.hour<8){
             setTimeout(() => {
                 this.title = '一日之计在于晨'
+                setTimeout(()=>{
+                    this.getOneWord()
+                },10000)
             }, deply)
+        }
+        
+    },
+    methods: {
+        async getOneWord() {
+            await axios.get('https://v1.hitokoto.cn')
+                .then(res => {
+                    // console.log(res.data.hitokoto)
+                    this.title = res.data.hitokoto
+                })
         }
     }
 }
@@ -96,6 +122,7 @@ export default {
     .left {
         padding-left: 15px;
         font-family: 'PingFang SC';
+        width: 70%;
 
         .data {
             text-align: center;
@@ -109,6 +136,10 @@ export default {
         .title {
             font-size: 20px;
             font-weight: bold;
+            width: 80%;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
         }
     }
 

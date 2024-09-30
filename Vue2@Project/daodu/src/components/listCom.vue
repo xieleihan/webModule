@@ -5,7 +5,7 @@
             <van-cell v-for="(item,index) in list" :key="item.id" @click="getTextId(item.id)">
                 <div class="listcontainer">
                     <div class="left">
-                        <div class="title">{{ item.title }}</div>
+                        <div class="title van-multi-ellipsis--l2">{{ item.title }}</div>
                         <div class="author">{{ item.hint }}</div>
                     </div>
                     <div class="right">
@@ -44,6 +44,10 @@ export default {
         };
     },
     methods: {
+        // 获取某年某月的最大天数
+        getDaysInMonth(year, month) {
+            return new Date(year, month, 0).getDate();  // 使用0获取上个月的最后一天
+        },
         async onLoad() {
             const vm = this
             // 异步更新数据
@@ -62,18 +66,17 @@ export default {
                 }
             )
             // this.five = true
-            if (this.day >= 1) {
-                this.day--
-                
-                // console.log(this.mouth)
+            // 日期逻辑调整
+            if (this.day > 1) {
+                this.day--;
             } else {
-                this.day = 31
-                if (this.mouth >= 1) {
-                    this.mouth--
-                } else {
-                    this.mouth = 12
-                    this.year--
+                // 获取当前月份的最大天数
+                this.mouth--;
+                if (this.mouth < 1) {
+                    this.mouth = 12;
+                    this.year--;
                 }
+                this.day = this.getDaysInMonth(this.year, this.mouth); // 获取上个月的最大天数
             }
             this.loading = false;
             // 数据全部加载完成
@@ -119,6 +122,7 @@ export default {
                     font-size: 16px;
                     margin-bottom: 5px;
                     color: #191919;
+                    padding-right: 5px;
                 }
                 .author{
                     color: #a0a0a0;

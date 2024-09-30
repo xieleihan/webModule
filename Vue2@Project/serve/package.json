@@ -1,0 +1,10 @@
+{
+  "main": "app.js",
+  "description": "",
+  "devDependencies": {
+    "express": "^4.21.0"
+  },
+  "scripts": {
+    "start": "node app.js"
+  }
+}

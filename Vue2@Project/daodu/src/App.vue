@@ -20,7 +20,7 @@ export default {
     },
     getText(val) {
       this.html = val
-      console.log(this.html)
+      // console.log(this.html)
     }
   }
 }
