@@ -4,14 +4,24 @@ import Vuex from 'vuex'
 Vue.use(Vuex)
 
 export default new Vuex.Store({
-  state: {
-  },
-  getters: {
-  },
-  mutations: {
-  },
-  actions: {
-  },
   modules: {
+    nav: {
+      namespaced: true,
+      // 状态
+      state: {
+        isOpen: true,
+      },
+      // 只读不写的值
+      getters: {
+      },
+      // 行为
+      mutations: {
+        toggleIsOpen(state) {
+          state.isOpen = !state.isOpen
+        }
+      },
+      actions: {
+      },
+    }
   }
 })
