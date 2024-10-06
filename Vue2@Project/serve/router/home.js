@@ -38,6 +38,25 @@ router.get('/homeinfo', async (req, res) => {
     }
 });
 
+router.post('/add', async (req, res) => {
+    const { hometype, img, title, likenum, avater, avatertext, writedate, descinfo } = req.body;
+
+    // 检查是否所有必填字段都已提供
+    if (!hometype || !img || !title || !likenum || !avater || !avatertext || !writedate || !descinfo) {
+        return res.status(400).json({ message: '所有字段都是必填的' });
+    }
+
+    // 创建插入数据的 SQL 语句
+    const sql = `insert into homeinfo (hometype,img,title,likenum,avater,avatertext,writedate,descinfo) values ('${hometype}','${img}','${title}','${likenum}','${avater}','${avatertext}','${writedate}','${descinfo}')`;
+
+    // 执行 SQL 查询并插入数据
+    try {
+        const result = await db.query(sql, [hometype, img, title, likenum, avater, avatertext, writedate, descinfo]);
+        res.status(200).json({ message: '数据插入成功', data: result });
+    } catch (err) {
+        res.status(500).json({ message: '数据插入失败', error: err });
+    }
+});
 
 
 module.exports = router;

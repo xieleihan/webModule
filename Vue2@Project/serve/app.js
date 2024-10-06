@@ -62,6 +62,8 @@ app.get('/', (req, res) => {
 const userRouter = require('./router/user');
 app.use(express.json());
 app.use('/api', userRouter)
+const homeRouter = require('./router/home');
+app.use('/api', homeRouter)
 
 // 设置端口
 const port = 9008
