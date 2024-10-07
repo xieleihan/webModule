@@ -2,24 +2,6 @@
 
 ## 使用`Node.js`部署的后端服务
 
-## 使用前须知
-
-> 请在下面的测试中,提前查看下目录下的`db/database`文件下的这一部分
->
-> ```javascript
-> module.exports = {
->     mysql: {
->         host: '127.0.0.1',// 地址 默认是localhost或者127.0.0.1
->         user: 'root',// 用户名 默认是root
->         password: '123456',// 密码
->         database: 'vue2project',// 数据库名
->         port: '3306'// 端口 // 默认是3306
->     }
-> }
-> ```
->
-> 这上面的是我自己的MySQL设置,如果你本地的服务设置跟我的不一致,请修改这个部分
-
 ## 使用文档
 
 ### 登录与注册
@@ -80,7 +62,7 @@
 
 > - 接口地址:`http://localhost/api/add`
 >
-> - 传递参数:*仅供参考,必须参数为下面的键*
+> - 传递参数:*仅供参考,必须参数为下面的键*,***id可以忽略***
 >
 > 	```json
 > 	{
@@ -101,3 +83,52 @@
 > - 方法:**`POST`**
 >
 > - [ ] SQL 注入的风险
+
+### 消息区域
+
+> ### 接收信息
+>
+> > - 接口地址:`http://localhost:9008/api/query-sms`
+> >
+> > - 参数:
+> >
+> > 	```json
+> > 	{
+> > 	    "username": "szy",
+> > 	    "smsdate": "2024-10-05 00:00:00",// 这个地方可以设置成YYYY-MM-DD,也可以YYYY-MM-DD HH:MM:SS
+> > 	    "smstype": "收藏"
+> > 	}
+> > 	```
+> >
+> > 	`username`,`smsdate`,`smstype`是三个必须传递的参数
+> >
+> > - 方法:`POST`
+> >
+> > - [ ] 防止SQL注入攻击
+>
+> ### 发送信息
+>
+> > - 接口文档:`http://localhost:9008/api/add-sms`
+> >
+> > - 示例参数(全部为必须):
+> >
+> > 	```json
+> > 	{
+> > 	    "username": "szy2",
+> > 	    "smsdate": "2024-11-05 02:00:00",
+> > 	    "smstype": "私信",
+> > 	    "container": "这是一个测试写入的短信",
+> > 	    "avater": "base64",
+> > 	    "avatername": "扬梓"
+> > 	}
+> > 	```
+> >
+> > - 方法:`POST`
+
+## 购物车
+
+> 获取购物车信息或者搜索功能
+>
+> - 接口地址:`http://localhost:9008/api/get-cart`
+> - 参数:`shopame`,`producttype`**[两个均为可选参数]**
+> - 方法:`POST`

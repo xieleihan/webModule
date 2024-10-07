@@ -63,9 +63,30 @@ CREATE TABLE sms (
     container text not null,
     smstype varchar(20) not null,
     avater longblob not null,
-    avatername varchar(100) not null,
-    smstype varchar(20) not null
+    avatername varchar(100) not null
 );
+select * from sms;
+insert into `sms` values(1,'xieleihan','2024-10-05 09:11:00','这是测试短信','私信','base64数据','这是用户名');
+insert into `sms` values(2,'szy','2024-10-05 09:11:11','这是测试短111信','收藏','base64数据','这是234用户名');
+insert into `sms` values(3,'szy1','2024-10-06','这是测试短111信','私信','base64数据','这是234用户名');
 
+-- 购物车
+drop table if exists `cart`;
+CREATE TABLE cart (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    photo text not null,
+    picel float8 not null,
+    title text not null,
+    label varchar(100),
+    num int not null,
+    shopname varchar(50) not null,
+    address text not null,
+    producttype varchar(20) not null
+);
+select * from cart;
+insert into `cart` values(1,'https://picsum.photos/300/300?1',23.99,'这是商品名,测试1','假一赔十,退货包运费',299,'这是店铺名,测试1','香港岛北角新都城大厦','推荐');
+insert into `cart` values(2,'https://picsum.photos/300/300?2',223.99,'这是商品名,测试2','假一赔十',229,'这是店铺名,测试2','北京市西城区','图书');
+insert into `cart` values(3,'https://picsum.photos/300/300?3',33.99,'这是商品名,测试3','退货包运费',239,'这是店铺名,测试3','上海浦东新区','家具');
+insert into `cart` values(4,'https://picsum.photos/300/300?4',43.99,'这是商品名,测试4','',499,'这是店铺名,测试4','广东省广州市白云区','运动户外 ');
 
 -- ------------------------------------------ --

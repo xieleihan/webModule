@@ -29,6 +29,11 @@ const routes = [
     path: '/startPage',
     name: 'startPage',
     component: startPage
+  },
+  {
+    path: '/my',
+    name: 'my',
+    component: ()=>import('../views/myView.vue')
   }
 ]
 

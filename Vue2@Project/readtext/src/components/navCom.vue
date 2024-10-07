@@ -26,7 +26,7 @@
                         </router-link>
                     </li>
                     <li @click="setActive(4)">
-                        <router-link to="/user" :class="activeIndex === 4 ? 'active' : ''">
+                        <router-link to="/my" :class="activeIndex === 4 ? 'active' : ''">
                             我的
                         </router-link>
                     </li>
