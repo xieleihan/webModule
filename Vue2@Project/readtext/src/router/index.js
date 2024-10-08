@@ -34,6 +34,21 @@ const routes = [
     path: '/my',
     name: 'my',
     component: ()=>import('../views/myView.vue')
+  },
+  {
+    path: '/message',
+    name: 'message',
+    component: () => import('../views/MessageView.vue')
+  },
+  {
+    path: '/upload',
+    name: 'upload',
+    component: () => import('../views/uploadView.vue')
+  },
+  {
+    path: '/content',
+    name: 'content',
+    component: () => import('../views/secoundView/contentView.vue')
   }
 ]
 

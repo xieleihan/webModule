@@ -74,4 +74,71 @@ router.post('/login', async (req, res) => {
     });
 });
 
+router.post('/get-user-faceimg', async (req, res) => {
+    const { username } = req.body;  // 从请求体中获取用户名
+
+    // 构建 SQL 查询语句
+    const sql = `SELECT user.username, user.email, faceimg.faceImg FROM user LEFT JOIN faceimg ON user.username = faceimg.username WHERE user.username = '${username}'`;
+
+
+    try {
+        // 执行 SQL 查询
+        const result = await db.query(sql);
+
+        // 检查是否查询到结果
+        if (result.length > 0) {
+            res.status(200).json({
+                message: '查询成功',
+                code:200,
+                data: result[0]  // 返回查询结果的第一条数据
+            });
+        } else {
+            res.status(404).json({
+                message: '用户未找到',
+                code:404,
+                data: null
+            });
+        }
+    } catch (err) {
+        console.error("SQL Error:", err);
+        res.status(500).json({
+            message: '查询失败',
+            code:500,
+            error: err
+        });
+    }
+});
+
+router.post('/set-user-faceimg', async (req, res) => {
+    const { username, faceImg } = req.body;
+
+    // 检查是否提供了用户名和头像数据
+    if (!username || !faceImg) {
+        return res.status(400).send({
+            message: '用户名或头像数据不能为空',
+            code: 400
+        });
+    }
+
+    // 直接使用字符串拼接方式构建 SQL 语句（不推荐）
+    const sql = `INSERT INTO faceimg (username, faceImg) VALUES ('${username}', '${faceImg}') ON DUPLICATE KEY UPDATE faceImg = '${faceImg}';`;
+
+    // 执行 SQL 查询
+    db.query(sql)
+        .then(result => {
+            res.send({
+                message: '头像设置成功',
+                code: 200,
+                data: result
+            });
+        })
+        .catch(err => {
+            res.status(500).send({
+                message: '头像设置失败',
+                code: 500,
+                error: err
+            });
+        });
+});
+
 module.exports = router;

@@ -15,10 +15,12 @@
         <img src="../assets/icon/search.png" alt="">
       </div>
     </div>
+    <ContentList/>
   </div>
 </template>
 
 <script>
+import ContentList from './ContentList.vue';
   export default {
   data() {
       return {
@@ -66,6 +68,9 @@
         type: 'find'
       }
     })
+  },
+  components:{
+    ContentList
   }
   }
 </script>

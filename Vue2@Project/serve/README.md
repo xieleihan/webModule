@@ -2,6 +2,24 @@
 
 ## 使用`Node.js`部署的后端服务
 
+## 使用前须知
+
+> 请在部署后端项目的时候,检查目录下的`db/database.js`文件下的内容
+>
+> ```javascript
+> module.exports = {
+>     mysql: {
+>         host: '127.0.0.1', // 地址:默认为127.0.0.1或者localhost
+>         user: 'root',// 数据库用户名,默认是root
+>         password: '123456',// 数据库密码
+>         database: 'vue2project',// 数据库名
+>         port: '3306'// 端口 默认3306
+>     }
+> }
+> ```
+>
+> 
+
 ## 使用文档
 
 ### 登录与注册
@@ -29,6 +47,22 @@
 > - 传递参数:`email`,`password`(两个参数均为**必须**)
 >
 > - 方法:**`POST`**
+>
+> **头像查询**
+>
+> > 这个部分的实现是通过用户名比对后,将用户上传的头像展示出来
+>
+> - 接口地址:`http://localhost:9008/api/get-user-faceimg`
+> - 传递参数:`username`
+> - 方法:`POST`
+>
+> **头像修改**
+>
+> > 这个部分实现的是头像修改
+>
+> - 接口地址:`http://localhost:9008/api/set-user-faceimg`
+> - 传递参数:`username`,`faceImg`(注意大小写)
+> - 方法: `POST`
 
 ### 首页信息
 

@@ -22,6 +22,19 @@ export default new Vuex.Store({
       },
       actions: {
       },
+    },
+    content: {
+      namespaced: true,
+      state: {
+        id: '',
+        ele: {}
+      },
+      mutations: {
+        setContent(state, payload) {
+          state.id = payload.id
+          state.ele = payload.ele
+        }
+      }
     }
   }
 })

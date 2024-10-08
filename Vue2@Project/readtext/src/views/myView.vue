@@ -2,22 +2,68 @@
 import myNote from '@/components/myNote.vue';
 import myCollect from '@/components/myCollect.vue';
 import myLike from '@/components/myLike.vue';
+import axios from 'axios';
 
-
+import Vue from 'vue';
+import { Dialog } from 'vant';
+Vue.use(Dialog);
 export default {
     data() {
         return {
-            showDefault: 0
+            showDefault: false,//是否显示自己的头像 true为已上传图片
+            myEmail:'',
+            myUsername:'',
+            myFaceImg:''
         }
     },
     components: {
         myNote,
         myCollect,
-        myLike
+        myLike,
+        [Dialog.Component.name]: Dialog.Component
     },
     methods: {
         changeShowDefault(num) {
             this.showDefault = num;
+        },
+        quitWay(){
+            Dialog.confirm({
+                title: '温馨提示',
+                message: '你做好退出账号准备了吗',
+            })
+                .then(() => {
+                    this.$router.replace('/startPage')
+                })
+                .catch(() => {
+                    // on cancel
+                });
+        }
+    },
+    async created() {
+        try {
+            const strCookie = document.cookie;
+            
+            let thisname=strCookie.split('-')[1];
+            let thisemail = strCookie.split('-')[2];
+            // console.log(strCookie1);
+            this.myEmail=thisemail;
+            this.myUsername=thisname;
+
+            
+
+            //此处 username为写死的，到时候需要传登录界面传过来的参数
+            const response = await axios.post('http://localhost:9008/api/get-user-faceimg',{'username':`${this.myUsername}`});
+            let { data, status } = response; // 解构响应数据
+            if (status === 200) {
+                let { faceImg, username }=data.data;
+                this.myFaceImg=faceImg;
+                this.myUsername = username;
+                sessionStorage.setItem('username', this.myUsername);
+                sessionStorage.setItem('faceimg', this.myFaceImg);
+            }
+            
+        } catch (error) {
+            console.error('请求数据时出错:', error);
         }
     }
 }
@@ -27,7 +73,7 @@ export default {
         <div class="up">
             <div class="first">
                 <div class="left">
-                    <div class="one"><img src="../assets/icon/目录.png"></div>
+                    <div class="one" @click="quitWay"><img src="../assets/icon/目录.png"></div>
                 </div>
                 <div class="right">
                     <div class="two"><img src="../assets/icon/图片.png">设置背景</div>
@@ -38,15 +84,15 @@ export default {
             <div class="second">
                 <div class="left">
                     <div class="face">
-                        <img v-if="false" src="../assets/icon/xiongtwo.jpg" class="myface">
+                        <img v-if="showDefault" :src="myFaceImg" class="myface">
                         <img src="../assets/icon/1加号.png" class="changeFace">
                     </div>
                 </div>
                 <div class="right">
                     <!-- 昵称 不要超过18个中文 -->
-                    <div class="one">花田裏犯了錯 說好破曉前忘掉</div>
+                    <div class="one">{{myUsername}}</div>
                     <!-- 小红书号 不要超过18位 -->
-                    <div class="two">小知书号：<span>987654321012345678</span><img src="../assets/icon/二维码.png"></div>
+                    <div class="two">小知书号：<span>{{myEmail}}</span><img src="../assets/icon/二维码.png"></div>
                 </div>
             </div>
             <div class="third">

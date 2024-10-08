@@ -21,6 +21,7 @@
             returnHomeView() {
             this.$router.push('/home')
                 document.title = '小知书'
+                sessionStorage.setItem('activeIndex',0)
             }
         },
     

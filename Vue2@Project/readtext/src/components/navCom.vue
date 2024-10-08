@@ -15,13 +15,13 @@
                     </li>
                 </div>
                 <li class="search" @click="setActive(2)">
-                    <router-link to="/search" style="color: white;font-size: 35px">
+                    <router-link to="/upload" style="color: white;font-size: 35px">
                         +
                     </router-link>
                 </li>
                 <div class="right">
                     <li @click="setActive(3)">
-                        <router-link to="/sms" :class="activeIndex === 3 ? 'active' : ''">
+                        <router-link to="/message" :class="activeIndex === 3 ? 'active' : ''">
                             消息
                         </router-link>
                     </li>
