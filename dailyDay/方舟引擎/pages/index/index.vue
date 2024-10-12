@@ -40,6 +40,18 @@
 				</div>
 			</li>
 		</ul>
+		<section class="daily">
+			每日一读
+			<img src="../../static/icon/刷新.png" alt="" srcset="" />
+		</section>
+		<div class="readContainer">
+			<div class="readTitle">非常好</div>
+			<div class="textBook">
+				<span>假假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文假文文</span>
+			</div>
+			<div class="readMask"></div>
+			<button>阅读</button>
+		</div>
 	</view>
 </template>
 
@@ -151,7 +163,7 @@
 						let arr = [];
 						for (let i = 0; i < length; i++) {
 							arr.push(res.data.stories[i])
-							console.log(res.data.stories[i])
+							// console.log(res.data.stories[i])
 						}
 						this.cardList = arr;
 					}
@@ -259,11 +271,14 @@
 		margin: 0 auto;
 		font-size: 40rpx;
 		font-weight: bold;
-		margin-top: 10rpx;
+		margin-top: 35rpx;
+		display: flex;
+		justify-content: space-between;
 	}
 
 	.container {
 		border-top: 1px solid #ccc;
+		border-bottom: 1px solid #ccc;
 		padding: 0;
 		width: 90%;
 		margin: 0 auto;
@@ -323,6 +338,48 @@
 				margin-right: 10rpx;
 				margin-bottom: 10rpx;
 			}
+		}
+	}
+
+	.readContainer {
+		border-top: 1px solid #ccc;
+		border-bottom: 1px solid #ccc;
+		padding: 0;
+		width: 90%;
+		margin: 0 auto;
+		margin-top: 25rpx;
+		height: 700rpx;
+		scrollbar-width: none;
+		position: relative;
+		border: 1px solid #ccc;
+		border-radius: 20rpx;
+
+		.readTitle {
+			position: absolute;
+			right: 80rpx;
+			top: 50rpx;
+			width: 50rpx;
+			height: 200rpx;
+			font-size: 50rpx;
+			font-family: 'kaiti';
+			font-weight: bold;
+			writing-mode: horizontal-tb;
+		}
+
+		button {
+			width: 150rpx;
+			height: 60rpx;
+			border: none;
+			outline: none;
+			color: white;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			background-color: orange;
+			border-radius: 100rpx;
+			position: absolute;
+			bottom: 30rpx;
+			right: 30rpx;
 		}
 	}
 </style>

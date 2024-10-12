@@ -60,27 +60,66 @@
 // var str2: number = <number><any>str
 // console.log(str2)
 
-let sex: boolean = true || false;
-let arr: object[] = [{ x: 50, y: 50, color: 'red' }]
-const canvas = document.querySelector('canvas') as HTMLCanvasElement;
+// let sex: boolean = true || false;
+// let arr: object[] = [{ x: 50, y: 50, color: 'red' }]
+// const canvas = document.querySelector('canvas') as HTMLCanvasElement;
 
-abstract class Car {
-    public brand: string;
-    public price: number;
-    constructor(brand: string, price: number) {
-        this.brand = brand;
-        this.price = price;
+// abstract class Car {
+//     public brand: string;
+//     public price: number;
+//     constructor(brand: string, price: number) {
+//         this.brand = brand;
+//         this.price = price;
+//     }
+//     public show() {
+//         console.log(this.brand, this.price)
+//     }
+// }
+
+// class aodi extends Car {
+//     constructor(brand: string, price: number) {
+//         super(brand, price)
+//     }
+// }
+
+// let aodi1 = new aodi('奥迪', 1000000)
+// aodi1.show();
+
+// 使用 TypeScript 实现找到所有可能的跑步方案
+
+// 使用 TypeScript 实现找到所有可能的跑步方案
+
+// 目标圈数常量
+let count: number = 0;
+const sum: number = 20;
+
+/**
+ * 递归查找所有可能的跑步方案
+ * @param {number} countSum - 当前已跑的圈数总和
+ * @param {number} lastNum - 上一次跑的圈数
+ * @param {number[]} lastArray - 当前方案的跑步圈数组
+ */
+function findway(countSum: number, lastNum: number, lastArray: number[]): void {
+    // 如果当前总圈数等于目标圈数，打印方案并计数
+    if (countSum === sum && lastArray.length > 1) {
+        count++;
+        console.log(`${count}: ${lastArray.join('->')}`);
+        return;
     }
-    public show() {
-        console.log(this.brand, this.price)
+
+    // 从上一次跑的圈数加 1 开始，尝试所有可能的圈数，直到达到目标圈数
+    for (let i = lastNum + 1; i <= sum - countSum && i > 0; i++) {
+        findway(countSum + i, i, lastArray.concat(i));
     }
 }
 
-class aodi extends Car {
-    constructor(brand: string, price: number) {
-        super(brand, price)
-    }
+/**
+ * 主函数，启动递归查找方案
+ */
+function main(): void {
+    findway(0, 0, []);
+    console.log(`${count}种方法`);
 }
 
-let aodi1 = new aodi('奥迪', 1000000)
-aodi1.show();
+// 调用主函数
+main();

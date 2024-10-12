@@ -1,38 +1,18 @@
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = function (d, b) {
-        extendStatics = Object.setPrototypeOf ||
-            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
-        return extendStatics(d, b);
-    };
-    return function (d, b) {
-        if (typeof b !== "function" && b !== null)
-            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-var sex = true || false;
-var arr = [{ x: 50, y: 50, color: 'red' }];
-var canvas = document.querySelector('canvas');
-var Car = (function () {
-    function Car(brand, price) {
-        this.brand = brand;
-        this.price = price;
+var count = 0;
+var sum = 20;
+function findway(countSum, lastNum, lastArray) {
+    if (countSum === sum && lastArray.length > 1) {
+        count++;
+        console.log("".concat(count, ": ").concat(lastArray.join('->')));
+        return;
     }
-    Car.prototype.show = function () {
-        console.log(this.brand, this.price);
-    };
-    return Car;
-}());
-var aodi = (function (_super) {
-    __extends(aodi, _super);
-    function aodi(brand, price) {
-        return _super.call(this, brand, price) || this;
+    for (var i = lastNum + 1; i <= sum - countSum && i > 0; i++) {
+        findway(countSum + i, i, lastArray.concat(i));
     }
-    return aodi;
-}(Car));
-var aodi1 = new aodi('奥迪', 1000000);
-aodi1.show();
+}
+function main() {
+    findway(0, 0, []);
+    console.log("".concat(count, "\u79CD\u65B9\u6CD5"));
+}
+main();
 //# sourceMappingURL=main.js.map
