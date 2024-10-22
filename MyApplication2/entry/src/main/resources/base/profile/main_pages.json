@@ -1,0 +1,7 @@
+{
+  "src": [
+    "pages/Index",
+    "pages/StartpagesView",
+    "pages/LoginpagesView"
+  ]
+}
