@@ -1,3 +1,6 @@
+import router from '@ohos.router';
+
+
 @Entry
 @Component
 struct StartpagesView {
@@ -84,6 +87,9 @@ struct StartpagesView {
         })
         .onClick(()=>{
           console.log("登录")
+          router.pushUrl({
+            url: 'pages/LoginpagesView'
+          })
         })
 
         Button(){
@@ -118,6 +124,9 @@ struct StartpagesView {
       })
       .onClick(()=>{
         console.log("注册")
+        router.pushUrl({
+          url: 'pages/RegisterpagesView'
+        })
       })
     }
     .width("100%")
