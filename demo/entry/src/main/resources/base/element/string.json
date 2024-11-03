@@ -1,0 +1,48 @@
+{
+  "string": [
+    {
+      "name": "module_desc",
+      "value": "module description"
+    },
+    {
+      "name": "EntryAbility_desc",
+      "value": "description"
+    },
+    {
+      "name": "EntryAbility_label",
+      "value": "label"
+    },
+    {
+      "name": "read_media_reason",
+      "value": "To access media files for image selection"
+    },
+    {
+      "name": "internet_reason",
+      "value": "To upload images to the server"
+    },
+    {
+      "name": "select_image_button_text",
+      "value": "Select Image"
+    },
+    {
+      "name": "upload_image_button_text",
+      "value": "Upload Image"
+    },
+    {
+      "name": "no_image_selected_toast",
+      "value": "No image selected"
+    },
+    {
+      "name": "image_uploaded_toast",
+      "value": "Image uploaded successfully"
+    },
+    {
+      "name": "upload_failed_toast",
+      "value": "Failed to upload image"
+    },
+    {
+      "name": "reason",
+      "value": "Reason"
+    }
+  ]
+}
