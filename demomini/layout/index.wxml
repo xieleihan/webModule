@@ -1,0 +1,78 @@
+<view style="padding-top: 60px; height: 100vh;">
+	<scroll-view type="list" scroll-y style="height: 100%; width: 100%;">
+		<view class="section center">
+			<view class="section-title center">layout: stackLeft </view>
+			<swiper class="swiper-container" circular layout-type="stackLeft">
+				<swiper-item wx:for="{{food}}" wx:key="*this">
+					<image class="img" src="{{item}}" mode="aspectFill" />
+				</swiper-item>
+			</swiper>
+		</view>
+
+		<view class="section center">
+			<view class="section-title center">layout: stackRight </view>
+			<swiper class="swiper-container" circular layout-type="stackRight">
+				<swiper-item wx:for="{{food}}" wx:key="*this">
+					<image class="img" src="{{item}}" mode="aspectFill" />
+				</swiper-item>
+			</swiper>
+		</view>
+
+		<view class="section center">
+			<view class="section-title center">layout: stackLeft vertical </view>
+			<swiper
+			 class="swiper-container"
+			 vertical
+			 circular
+			 layout-type="stackLeft"
+			>
+				<swiper-item wx:for="{{food}}" wx:key="*this">
+					<image class="img" src="{{item}}" mode="aspectFill" />
+				</swiper-item>
+			</swiper>
+		</view>
+
+		<view class="section center">
+			<view class="section-title center">layout: tinder </view>
+			<swiper class="swiper-container" circular layout-type="tinder">
+				<swiper-item wx:for="{{fruit}}" wx:key="*this">
+					<image class="img" src="{{item}}" mode="aspectFill" />
+				</swiper-item>
+			</swiper>
+		</view>
+
+		<view class="section center">
+			<view class="section-title center">layout: transformer -- type: scaleAndFade</view>
+			<swiper
+			 circular
+			 class="swiper-container"
+			 layout-type="transformer"
+			 transformer-type="scaleAndFade"
+  			 previous-margin="30px"
+			 next-margin="30px"
+			>
+				<swiper-item wx:for="{{landscape}}" wx:key="*this">
+					<image class="img" src="{{item}}" mode="aspectFill" />
+				</swiper-item>
+			</swiper>
+		</view>
+
+		<block wx:for="{{transformers}}" wx:key="*this">
+			<view class="section center">
+				<view class="section-title center">layout: transformer -- type: {{item}}</view>
+				<swiper
+				 class="swiper-container"
+				 circular
+				 layout-type="transformer"
+         transformer-type="{{item}}"
+				>
+					<swiper-item wx:for="{{food}}" wx:key="*this">
+						<image class="img" src="{{item}}" mode="aspectFill" />
+					</swiper-item>
+				</swiper>
+			</view>
+		</block>
+
+	</scroll-view>
+</view>
+

@@ -1,0 +1,11 @@
+<view class="container">
+	<view class="page-body center">
+    <button type="primary" class="btn" bind:tap="jump" data-url="../base/index">测试基础功能</button>
+    <button type="primary" class="btn" bind:tap="jump" data-url="../indicator/index">测试指示器</button>
+    <button type="primary" class="btn" bind:tap="jump" data-url="../gesture/index">测试手势协商</button>
+    <button type="primary" class="btn" bind:tap="jump" data-url="../layout/index">测试布局类型</button>
+   <!-- <button type="primary" class="btn" bind:tap="jump" data-url="../case-1/index">案例一</button> -->
+   <!-- <button type="primary" class="btn" bind:tap="jump" data-url="../case-2/index">案例二</button> -->
+  </view>
+</view>
+

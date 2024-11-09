@@ -1,0 +1,26 @@
+{
+    "pages": [
+        "home/index",
+        "base/index",
+        "layout/index",
+        "indicator/index",
+        "case-1/index",
+        "case-2/index",
+        "gesture/index"
+    ],
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#fff",
+        "navigationBarTitleText": "swiper",
+        "navigationBarTextStyle": "black"
+    },
+    "lazyCodeLoading": "requiredComponents",
+    "componentFramework": "glass-easel",
+    "renderer": "skyline",
+    "rendererOptions": {
+        "skyline": {
+            "disableABTest": true,
+            "defaultDisplayBlock": true
+        }
+    }
+}

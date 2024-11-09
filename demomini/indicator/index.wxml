@@ -1,0 +1,160 @@
+<view style="padding-top: 60px; height: 100vh;">
+	<scroll-view type="list" scroll-y style="height: 100%; width: 100%;">
+    <view class="page-section page-section-spacing swiper">
+			<swiper
+			 indicator-dots="{{indicatorDots}}"
+			 autoplay="{{autoplay}}"
+			 circular="{{circular}}"
+			 vertical="{{vertical}}"
+			 interval="{{interval}}"
+       duration="{{duration}}"
+			 indicator-type="{{typeValue}}"
+       indicator-alignment="{{indicatorAlignments[alignmentValue]}}"
+       indicator-offset="{{offsets[offsetValue].value}}"
+			 indicator-color="{{dotColors[dotColorValue].dotColor}}"
+			 indicator-active-color="{{dotColors[dotColorValue].dotActiveColor}}"
+			 indicator-margin="{{margin}}"
+			 indicator-spacing="{{spacing}}"
+			 indicator-radius="{{radius}}"
+			 indicator-width="{{width}}"
+			 indicator-height="{{height}}"
+			 previous-margin="{{previousMargin}}px"
+			 next-margin="{{nextMargin}}px"
+			 display-multiple-items="{{multiItems}}"
+			 bind:change="onChange"
+			 bind:animationfinish="onAnimationfinish"
+			 worklet:onscrollstart="onscrollstart"
+			 worklet:onscrollend="onscrollend"
+			>
+				<block wx:for="{{background}}" wx:key="*this">
+					<swiper-item>
+						<view class="swiper-item {{item}}" />
+					</swiper-item>
+				</block>
+			</swiper>
+		</view>
+		<view class="page-section" style="margin-top: 40rpx;margin-bottom: 0;">
+			<view class="weui-cells weui-cells_after-title">
+				<view class="weui-cell weui-cell_switch">
+					<view class="weui-cell__bd">指示点</view>
+					<view class="weui-cell__ft">
+						<radio checked="{{indicatorDots}}" catchtap="changeIndicatorDots" data-property-name="indicatorDots" />
+					</view>
+				</view>
+				<view class="weui-cell weui-cell_switch">
+					<view class="weui-cell__bd">自动播放</view>
+					<view class="weui-cell__ft">
+						<radio checked="{{autoplay}}" catchtap="changeAutoplay" data-property-name="autoplay" />
+					</view>
+				</view>
+				<view class="weui-cell weui-cell_switch">
+					<view class="weui-cell__bd">衔接滑动</view>
+					<view class="weui-cell__ft">
+						<radio checked="{{circular}}" catchtap="changeCircular" data-property-name="circular" />
+					</view>
+				</view>
+				<view class="weui-cell weui-cell_switch">
+					<view class="weui-cell__bd">竖向</view>
+					<view class="weui-cell__ft">
+						<radio checked="{{vertical}}" catchtap="changeVertical" data-property-name="vertical" />
+					</view>
+				</view>
+
+			</view>
+			<view class="page-section" style="margin-top: 40rpx;margin-bottom: 0;">
+				<view class="weui-cells weui-cells_after-title">
+
+					<picker class="type-picker" range="{{types}}" bind:change="pickType">
+						<view class="weui-cell weui-cell_switch">
+							<view class="weui-cell__bd">type</view>
+							<view class="weui-cell__ft opt-area">
+								<view class="opt-type">{{typeValue}}</view>
+							</view>
+						</view>
+          </picker>
+          
+          <picker class="type-picker" range="{{alignments}}" bind:change="pickAlignment">
+						<view class="weui-cell weui-cell_switch">
+							<view class="weui-cell__bd">alignment</view>
+							<view class="weui-cell__ft opt-area">
+								<view class="opt-type">{{alignmentValue}}</view>
+							</view>
+						</view>
+					</picker>
+
+					<view class="weui-cell weui-cell_switch">
+						<view class="weui-cell__bd">margin</view>
+						<view class="weui-cell__ft opt-area">
+							<text class="opt-btn minus" bind:tap="minus" data-prop="margin">-</text>
+							<text class="content">{{margin}}</text>
+							<text class="opt-btn add" bind:tap="add" data-prop="margin">+</text>
+						</view>
+					</view>
+
+					<view class="weui-cell weui-cell_switch">
+						<view class="weui-cell__bd">spacing</view>
+						<view class="weui-cell__ft opt-area">
+							<text class="opt-btn minus" bind:tap="minus" data-prop="spacing">-</text>
+							<text class="content">{{spacing}}</text>
+							<text class="opt-btn add" bind:tap="add" data-prop="spacing">+</text>
+						</view>
+					</view>
+
+					<view class="weui-cell weui-cell_switch">
+						<view class="weui-cell__bd">radius</view>
+						<view class="weui-cell__ft opt-area">
+							<text class="opt-btn minus" bind:tap="minus" data-prop="radius">-</text>
+							<text class="content">{{radius}}</text>
+							<text class="opt-btn add" bind:tap="add" data-prop="radius">+</text>
+						</view>
+					</view>
+
+					<view class="weui-cell weui-cell_switch">
+						<view class="weui-cell__bd">width</view>
+						<view class="weui-cell__ft opt-area">
+							<text class="opt-btn minus" bind:tap="minus" data-prop="width">-</text>
+							<text class="content">{{width}}</text>
+							<text class="opt-btn add" bind:tap="add" data-prop="width">+</text>
+						</view>
+					</view>
+
+					<view class="weui-cell weui-cell_switch">
+						<view class="weui-cell__bd">height</view>
+						<view class="weui-cell__ft opt-area">
+							<text class="opt-btn minus" bind:tap="minus" data-prop="height">-</text>
+							<text class="content">{{height}}</text>
+							<text class="opt-btn add" bind:tap="add" data-prop="height">+</text>
+						</view>
+					</view>
+
+					<view class="weui-cell weui-cell_switch">
+						<view class="weui-cell__bd">dot-color</view>
+						<view class="weui-cell__ft opt-area">
+							<block wx:for="{{dotColors}}" wx:key="id">
+								<view class="opt-type {{index === dotColorValue ? 'active' : ''}}" data-idx="{{index}}" bind:tap="chooseDotColor"> {{dotColors[index].name}} </view>
+							</block>
+						</view>
+          </view>
+          
+          <view class="weui-cell weui-cell_switch">
+						<view class="weui-cell__bd">offset</view>
+						<view class="weui-cell__ft opt-area">
+							<block wx:for="{{offsets}}" wx:key="id">
+								<view class="opt-type {{index === offsetValue ? 'active' : ''}}" data-idx="{{index}}" bind:tap="chooseOffset"> {{offsets[index].name}} </view>
+							</block>
+						</view>
+					</view>
+
+				</view>
+			</view>
+		</view>
+  </scroll-view>
+</view>
+
+<view class="container">
+	<view class="page-body">
+		
+
+	</view>
+</view>
+

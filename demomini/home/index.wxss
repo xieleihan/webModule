@@ -1,0 +1,25 @@
+@import "../weui.wxss";
+
+page {
+  background-color: #F8F8F8;
+  height: 100%;
+  font-size: 32rpx;
+  line-height: 1.6;
+}
+.container {
+  margin-top: 60px;
+}
+.page-body{
+  padding-top: 60rpx;
+}
+
+.center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.btn {
+  margin: 20px;
+  width: 80% !important;
+}

@@ -1,0 +1,66 @@
+<view class="container">
+	<view class="page-body">
+		<vertical-drag-gesture-handler tag="tap_outer" worklet:ongesture="handleOuterDrag" simultaneousHandlers="{{['tap_inner']}}">
+			<view class="page-section page-section-spacing swiper">
+				<vertical-drag-gesture-handler
+				 tag="tap_inner"
+				 worklet:ongesture="handlerInnerDrag"
+				 worklet:should-response-on-move="shouldResponse"
+				 simultaneousHandlers="{{['tap_outer']}}"
+				 native-view="swiper"
+				>
+					<swiper
+					 current="{{current}}"
+					 indicator-dots="{{indicatorDots}}"
+					 circular
+					 layout-type="{{layoutType}}"
+					 transform-type="deepthPage"
+					 indicator-type="worm"
+					 scroll-with-animation="{{scrollWithAnimation}}"
+					 autoplay="{{autoplay}}"
+					 circular="{{circular}}"
+					 vertical="{{vertical}}"
+					 interval="{{interval}}"
+					 duration="{{duration}}"
+					 previous-margin="{{previousMargin}}px"
+					 next-margin="{{nextMargin}}px"
+					 display-multiple-items="{{multiItems}}"
+					 bind:change="onChange"
+					 bind:transition="onTransition"
+					 bind:animationfinish="onAnimationfinish"
+					 worklet:onscrollstart="onscrollstart"
+					 worklet:onscrollend="onscrollend"
+					>
+						<block wx:for="{{background}}" wx:key="*this">
+							<swiper-item>
+								<view class="swiper-item {{item}}" />
+							</swiper-item>
+						</block>
+					</swiper>
+				</vertical-drag-gesture-handler>
+			</view>
+		</vertical-drag-gesture-handler>
+		<view class="page-section" style="margin-top: 40rpx;margin-bottom: 0;">
+			<view class="weui-cells weui-cells_after-title">
+				<view class="weui-cell weui-cell_switch">
+					<view class="weui-cell__bd">enable swiper {{enabled}}</view>
+					<view class="weui-cell__ft">
+						<radio checked="{{enabled}}" catchtap="toggleSwiper" />
+					</view>
+				</view>
+				<view class="weui-cells weui-cells_after-title">
+					<view class="weui-cell weui-cell_switch">
+						<view class="weui-cell__bd">layoutType {{layoutType}}</view>
+						<view class="weui-cell__ft">
+							<radio checked="{{layoutType == 'transformer'}}" catchtap="toggleLayoutType" />
+						</view>
+					</view>
+				</view>
+			</view>
+		</view>
+	</view>
+</view>
+
+<view style="margin: 10px;">上下滑动时，小球跟着移动</view>
+<view class="box" />
+
