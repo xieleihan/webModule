@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/react.development.js"></script>
+    <script src="./js/react-dom.development.min.js"></script>
+    <script src="./js/babel.js"></script>
+
+    <style>
+        .main{
+            width: 300px;
+            margin: 0 auto;
+            margin-top: 100px;
+            border: 1px solid #ccc;
+            height: 400px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            box-sizing: border-box;
+            padding: 20px;
+        }
+        .main .function{
+            display: flex;
+            margin-top: 20px;
+            justify-content: space-between;
+        }
+        .main .container{
+            width: 100%;
+            margin-top: 20px;
+        }
+        .main .container .item{
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="app"></div>
+    
+    <!-- 编写react代码 -->
+    <script type="text/babel">
+        // class App extends React.Component {
+        //     render() {
+        //         return (
+        //             <div>
+        //                 <h1>Hello World</h1>
+        //                 <p>这是一个react组件</p>
+        //             </div>
+        //         )
+        //     }
+
+        //     // 构造函数
+        //     constructor(){
+        //         super()
+        //     }
+        // }
+
+        // 使用函数
+        function App() {
+            let [list, setList] = React.useState([])
+            let [text, setText] = React.useState('')
+            let [no,setNo] = React.useState(0)
+            let [yes,setYes] = React.useState(0)
+
+            return (
+                <div className="main">
+                    <div className="top">
+                        <input value={text} type="text" placeholder="请输入代办事项" onChange={(event)=>{
+                            console.log(event.target.value)
+                            setText(event.target.value)
+                        }}></input>
+                        <button onClick={
+                            () => {
+                                console.log("添加")
+                                if(text === ''){
+                                    return
+                                }else{
+                                    list.push(
+                                        text
+                                    )
+                                    setList([...list])
+                                    setNo(no+1)
+                                    setText('')
+                                }
+                            }
+                        }>添加</button>
+                    </div>
+                    <div className="function">
+                        <div>
+                            未完成[<span>{no}</span>]
+                        </div>
+                        <div>
+                            已完成[<span>{yes}</span>]
+                        </div>
+                    </div>
+                    <div className="container">
+                        {
+                            list.map((item,index)=>{
+                                return (
+                                    <div key={index} className="item">
+                                        <span>{item}</span>
+                                        <button onClick={
+                                            ()=>{
+                                                list.splice(index,1)
+                                                setList([...list])
+                                                setNo(no-1)
+                                                setYes(yes+1)
+                                            }
+                                        }>删除</button>
+                                    </div>
+                                )
+                            })
+                        }
+                    </div>
+                </div>
+            )
+        }
+
+        // 渲染组件
+        ReactDOM.render(<App />, document.getElementById('app'))
+    </script>
+</body>
+</html>

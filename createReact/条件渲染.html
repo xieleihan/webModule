@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/react.development.js"></script>
+    <script src="./js/react-dom.development.min.js"></script>
+    <script src="./js/babel.js"></script>
+    <style>
+        .red{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+        .blue{
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app"></div>
+
+    <!-- 编写react代码 -->
+    <script type="text/babel">
+        // function App(){
+        //     // 定义一个布尔值
+        //     let isShow = true // 无状态的
+
+        //     let [isOpen,setIsOpen] = React.useState(true) // 有状态的
+
+        //     return (
+        //         <div>
+        //             <h1>条件渲染</h1>
+        //             {
+        //                 isShow === true ? (<div className="red"></div>):(<div className="blue"></div>)
+        //             }
+        //             <button onClick={
+        //                 ()=>{
+        //                     isShow = !isShow
+        //                     console.log("更改了无状态的isShow",isShow)
+        //                 }
+        //             }>更改布尔值(无状态)</button>
+
+        //             {
+        //                 isOpen === true ? (<div className="red"></div>):(<div className="blue"></div>)
+        //             }
+        //             <button onClick={
+        //                 ()=>{
+        //                     setIsOpen(!isOpen)
+        //                     console.log("更改了有状态的isOpen",isOpen)
+        //                 }
+        //             }>更改布尔值(有状态)</button>
+        //         </div>
+        //     )
+        // }
+
+        class App extends React.Component {
+            constructor() {
+                super()
+                this.state = {
+                    isShow: true
+                }
+            }
+
+            render() {
+                return (
+                    <div>
+                        <h1>条件渲染</h1>
+                        {
+                            this.state.isShow === true ? (<div className="red"></div>) : (<div className="blue"></div>)
+                        }
+                        <button onClick={
+                            () => {
+                                this.setState({
+                                    isShow: !this.state.isShow
+                                })
+                                console.log("更改了有状态的isShow", this.state.isShow)
+                            }
+                        }>更改布尔值(有状态)</button>
+                    </div>
+                )
+            }
+        }
+
+        // 渲染组件
+        ReactDOM.render(<App />, document.getElementById('app'))
+    </script>
+</body>
+
+</html>
